@@ -1,0 +1,56 @@
+%!TEX root = ../Master.tex
+\newdate{project_start}{5}{2}{2014}
+\newdate{project_end}{1}{6}{2014}
+\author{Alexander Dalsgaard Krog \andnext\\
+    Frederik Højholt \andnext\\
+    Jonas Madsen \andnext\\
+    Kasper Kohsel Terndrup \andnext\\
+    Mikkel Lægteskov Sø Madsen \and\\
+    Simon Vandel Sillesen}
+
+\title{title}
+
+\begin{titlingpage}
+
+\vspace*{2cm}
+     \makebox[\linewidth]{
+         %\includegraphics[width=1.2\linewidth]{forside.pdf} include forside.pdf
+     }
+     \vfill
+     \centerline{Februar - Juni 2014}
+     \clearpage
+
+\adjustbox{valign=t}{\begin{minipage}{0.5\textwidth}
+\begin{flushleft}
+	\begin{description}
+		\item[Title] \hfill \\ \thetitle
+		\item[Theme] \hfill \\ \subject
+		\item[Project period] \hfill \\ \displaydate{project_start} to \\ \displaydate{project_end}
+		\item[Project group] \hfill \\ SW1B2-6
+		\item[Authors] \hfill \\ \theauthor
+		\item[Supervisor] \hfill \\ ??
+		\item[No. of Pages] \numberpages
+		\item[No. of Appendix Pages] \appendixpages
+		\item[Total no. of pages] \pageref{TotPages}
+		\item[Completed] \displaydate{project_end}
+	\end{description}
+\end{flushleft}
+\end{minipage}}
+\begin{minipage}[t]{0.5\textwidth}
+\begin{flushright}
+	\includegraphics[height=3cm]{aauLogoEn.jpg}\\
+		\small \textbf{First student year} \\
+		\small \textbf{Software}\\
+		\small Strandvejen 12-14 \\
+		\small 9000 Aalborg \\
+		\small \url{http://www.tnb.aau.dk}\\
+		\bigskip
+		\fbox{
+  		\parbox{\linewidth}{
+     		{\input{chapters/titlepage/synopsis.tex}
+     		}
+     	}}
+\end{flushright}
+\end{minipage}
+\vfill\footnotesize{\textit{The contents of this report is freely accessible, however publication (with source references) is only allowed upon agreement with the authors.}}
+\end{titlingpage}
