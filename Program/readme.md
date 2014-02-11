@@ -1,1 +1,1 @@
-kort vejledning til kompilering og kørsel af programmet
+Kort vejledning til kompilering og kørsel af programmet
