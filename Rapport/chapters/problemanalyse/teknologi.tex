@@ -1,7 +1,7 @@
 \section{Teknologi} % (fold)
 \label{sec:Teknologi}
 
-I dette afsnit bliver forskellige eksisterende teknologier bearbejdet med henblik på at give et overblik over disse forskellige teknologier. Hver teknologi vil blive introduceret kort, hvorefter styrker og svagheder vil blive præsenteret. Dette kan senere bruges når en løsning skal designes.
+I dette afsnit bliver forskellige eksisterende teknologier bearbejdet med henblik på at give et overblik. Hver teknologi vil blive introduceret kort, hvorefter styrker og svagheder vil blive præsenteret. Dette kan senere bruges når en løsning skal designes.
 
 
 \subsection{Navision} % (fold)
@@ -20,7 +20,7 @@ Programmet samler en virksomheds aktiver i en grafisk brugerflade, der gør det 
 
 
 \sinote{overvej flere problemer, eller omskriv til ental}
-Nogle af problemerne med Navision er ifølge Vestre Baadelaug, at man ikke kan lave en regning og sende denne via e-mail \cite{int_vb_sl}. Dette kan dog som tidligere nævnt udbredres ved betaling til Microsoft.
+Nogle af problemerne med Navision er ifølge Vestre Baadelaug, at man ikke kan lave en regning og sende denne via e-mail \cite{int_vb_sl}. Dette kan dog som tidligere nævnt udbredres ved betaling til supporterende leverandør af Navision.
 
 
 \subsection{Chip-system} % (fold)
@@ -40,25 +40,35 @@ chipsystem til faciliteter \& strøm samt `parkering'
 
 Formålet med MarinaBooking \cite{marinabooking} er at gøre vandpladsreservationer lettere for gæster til lystbådehavne i Danmark. Systemet fungerer ved at gæster indtaster ankomst- samt afgangsdato, hvilken havn de vil lægge til og deres båds dimensioner. MarinaBooking kan med disse informationer nu præsentere et oversigtskort over havnebroerne på den specificerede havn, hvor gæsten kan vælge den ønskede vandplads på kortet. Systemet opkræver betaling, og gæsten har nu reserveret denne vandplads.
 
+For at MarinaBooking kan fungere, skal lystbådehavne aktivt tilmelde sig. Dette kan ikke alle havne gøre, f.eks. fordi de ikke har en bro udelukkende til gæster  \sinote(link til hvor vi skriver om VB's layout angående gæster/medlemsbro) . 
+
 MarinaBooking gør det enkelt for gæster fra Danmark, såvel som fra udlandet, at bestille havepladser fra internettet. Dette er godt for for gæsterne, men også for administrationen i havnen, da tildeling af vandpladser herved ordner sig selv.
 
-Ulemperne ved MarinaBooking er, at havnen specifikt skal have en bro til gæster. \sinote(link til hvor vi skriver om VB's layout angående gæster/medlemsbro) Dette kan være en af grundene til at udvalget af lystbådehavne ikke er specielt stort.
+En af ulemperne ved MarinaBooking er det begrænsede udvalg af samarbejdshavne på hjemmesiden. Dette kan blandt andet skyldes ovenstående forklaring mht. gæstebroer.
 
 
 \subsection{E-conomic} % (fold)
-\label{sub:E-conomic}
+\label{sub:e-conomic}
 
-E-conomic er både navnet på en virksomhed og deres online regnskabsprogram. Formålet med programmet er at gøre økomnomi-håndtering let for selv ikke-regnskabsuddannede. E-conomic henvender sig primært til små- og mellemstore virksomheder \cite{economic}.
+E-conomic er både navnet på en virksomhed og deres online regnskabsprogram. Formålet med programmet er at gøre økomnomi-håndtering let for selv ikke-regnskabsuddannede. E-conomic henvender sig primært til små- og mellemstore virksomheder \cite{economic}. Prisen for benyttelsen af E-conomic er abonnomentsbaseret med forskellige muligheder for tilpasninger. Da E-conomic kører online i en webbrowser, er alt data gemt og sikkerhedskopieret af E-conomic. Kunden ejer alt data med mulighed for eksportering efter abonnomentsophør.
 
 Fordelene ved e-conomic er den intuitive brugergrænseflade som letter mange bogførings handlinger. Derudover er programmet skrevet som et web-program hvilket gør at det kan tilgås fra alle platforme samt fra mange lokationer.
 
-\sinote{Overvej om der er nogle ulemper ved systemt}
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{e-conomic.png}
+  \caption{Brugerinterface ved oprettelse af ny faktura - E-conomic}
+  \label{fig:e_conomic}
+\end{figure}
+
+
+Ulemperne ved e-conomic inkluderer afhængigheden af E-conomic med dertilhørende risiko for nedetid. 
 
 
 \subsection{ForeningLet} % (fold)
 \label{sub:ForeningLet}
 
-ForeningLet er et online medlemssystem udviklet af Enteleki. Programmet har, som navnet antyder, specialiseret sig i systemer til foreninger. Det kan blandt andet håndtere medlemmer, regnskab, kontingent opkrævninger og bookning af materialer. Den årlige pris for programmet er afhængigt af antallet af medlemmer i foreningen, og desuden koster tillægsmoduler og dertilhørende ydelser ekstra. F.eks. koster et opkrævningsmodul 600 kr./år. Dertil kommer et tillæg på 80 øre per dannet opkrævning \cite{foreninglet}.
+ForeningLet er et online medlemssystem udviklet af Enteleki. Programmet har, som navnet antyder, specialiseret sig i systemer til foreninger. Det kan blandt andet håndtere medlemmer, regnskab, kontingent opkrævninger og bookning af materialer. Den årlige pris for programmet er afhængigt af antallet af medlemmer i foreningen, og desuden koster tillægsmoduler og dertilhørende ydelser ekstra. F.eks. koster et opkrævningsmodul 600 kr./år. Dertil kommer et tillæg på 80 øre per dannet opkrævning. I denne årlige pris er hosting, opdatering og vedligeholdelse inkluderet. ForeningLet holder altså styr på alle medlemsdata og gemmer dette på deres servere \cite{foreninglet}.
 
 Navigationen i programmet foretages i en intuitiv brugerflade i en webbrowser. Man kan altså tilgå programmet på en hvilken som helst enhed med internetforbindelse. 
 
@@ -69,8 +79,7 @@ Navigationen i programmet foretages i en intuitiv brugerflade i en webbrowser. M
   \label{fig:foreninglet_program}
 \end{figure}
 
-
-Selvom ForeningLet systemet er meget nemt at bruge samt at sætte op, kan man forestille sig at systemet vil være for dyrt for foreninger med mange medlemmer. Dette skyldes førnævnte gebyrer på tillægsydelser som opkrævninger og rykkere.
+Selvom ForeningLet systemet er meget nemt at bruge samt at sætte op, kan man forestille sig at systemet vil være for dyrt for foreninger med mange medlemmer. Dette skyldes førnævnte gebyrer på tillægsydelser som opkrævninger og rykkere. Derudover er foreningen afgængig af ForeningLet på samme måde som beskrevet i \cref{sub:e-conomic}.
 
 % subsection ForeningLet (end)
 
