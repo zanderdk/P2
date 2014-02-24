@@ -4,9 +4,10 @@ Må vi optage?
 
 Kan du fortælle om dig selv?
   - navn, alder, tid som havnfoged (her og andre steder?).
-  - udannelse?
+  - uddannelse?
   - tidligere ansættelse?
   - har du interesse i både? (hobby/privat)
+  - Hvem er din arbejdsgiver?
 
 Kan du fortælle om din dagligdag her på havnen, i de forskellige perioder? (sæson-stress)
   - Hvad er dine opgaver?
@@ -14,6 +15,10 @@ Kan du fortælle om din dagligdag her på havnen, i de forskellige perioder? (s�
 Hvordan er dit forhold til havnens medlemmer, og klubberne?
 
 Hvordan varetager du gæstersejlere?
+ - Har du kigget på eksisterende systemer til håndtering af gæstesejlere?
+
+Kan du forestille dig et bedre system til håndtering af gæstesejlere?
+ - IT-system?
 
 Hvor lang tid ville havnen kunne klare sig uden dig i højsæsonen?
   - hvilken af dine funktioner tror du at de ville savne mest?
@@ -22,3 +27,8 @@ Hvilke informationer registrerer du?
   - (Hvilke informationer er til dig selv, og hvilke er til andre?)
   - Hvordan registerer du disse ting?
 
+Hvor mange gæster har I?
+ - Hvordan foregår kontakt med gæsterne?
+ - Hvornår kommer der flest gæste?
+
+Har I nogle problemer med gæster?
