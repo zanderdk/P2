@@ -1,19 +1,17 @@
 \input{chapters/preamble.tex}
-
 \begin{document}
 	% input chapters her
 	\listoffixmes
-	\input{chapters/titlepage.tex}
-	\input{chapters/forord.tex}
-	\cleardoublepage
+	\include{chapters/titlepage}
+	\include{chapters/forord}
 	\tableofcontents
-	\input{chapters/indledning.tex}
-	\input{chapters/problemanalyse.tex}
-	\input{chapters/problemformulering.tex}
-	\input{chapters/problemlosning.tex}
-	\input{chapters/konklusion.tex}
+	\include{chapters/indledning}
+	\include{chapters/problemanalyse}
+	\include{chapters/problemformulering}
+	\include{chapters/problemlosning}
+	\include{chapters/konklusion}
 	
 	\printbibliography
 	\appendix \label{appendix_start}
-	\input{chapters/appendix.tex}
+	\include{chapters/appendix}
 \end{document}
