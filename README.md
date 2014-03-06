@@ -1,5 +1,1 @@
-test
-
-Mere sjov
-
-HUEHUEHUEHUEHE
+Software P2 på Aalborg Universitet. Gruppe SW2A405a
