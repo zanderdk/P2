@@ -28,5 +28,33 @@ behovet for dette krav er dokumenteret.
   \item Systemet skal kunne interagere med bådklubbens nuværende betalingssystem.
 \end{itemize}
 
+\begin{description}
+  \item[Systemet skal have mulighed for at informere havnefogeden i tilfælde af fejl eller begivenheder.]
 
+  Som beskrevet i \cref{sub:havnefoged}, er en stor del af havnefogedens arbejde på havnen, at hjælpe medlemmer og gæstende sejlere. Det ville derfor være optimalt hvis systemet kunne informere havnefogeden hvis noget går galt med den automatiserede betjening. En sådan fejl kunne f.eks.\ være hvis brugeren af systemet har problemer med betaling ved billetmaskinen.
+
+  Man kan forestille sig flere måder hvorpå havnefogeden kan blive informeret, f.eks. SMS, email, en rød lampe i kontoret, eller en hel anden ting. For at gøre det lettere for havnefogeden at hjælpe, kan fejlmeddelelsen indeholde informationer som eksempelvis standerens lokation og hvilke trin brugeren har foretaget, for at udløse fejlen. Man kan føre ideen med fjernhjælp helt ud, ved at tilføje en højtaler ved hver billedautomat. På den måde kan havnefogeden guide brugeren igennem fejlen ved hjælp af en mikrofon.
+
+
+  \item[Systemet skal kunne fremvise information omkring pladser, medlemmer, samt gæster.]
+
+  I \cref{sub:gaster_havnefogeden} beskrives det hvordan havenfogeden administrerer hvilke gæster der har betalt for pladsleje. Derudover bruger han et andet system til at holde styr, på hvornår klubbens medlemmer vender tilbage til deres vandplads fra udflugter.
+
+  Derfor skal løsningssystemet kunne præsentere relevante informationer som medlemmer af klubben eller havnefogeden kan benytte sig af i arbejdet. En liste af relevante informationer følger nedenfor.
+
+
+  \begin{itemize}
+  \item Hvilke pladser er ledige? Hvilke er optagede?
+  \item Hvis pladsen er optaget, ligger der en gæst eller et medlem?
+  \item Hvis der ligger en gæst på en given plads.
+    \begin{itemize}
+      \item Hvem er gæsten?
+      \item Har gæsten betalt?
+      \item Hvornår forlader gæsten havnen?
+      \item Hvornår vender klubbens medlem tilbage, og vil have pladsen tilbage?
+    \end{itemize}
+  \item Hvem \enquote{ejer} en given plads?
+  \end{itemize}
+
+\end{description}
 % section Kravspecifikation (end)
