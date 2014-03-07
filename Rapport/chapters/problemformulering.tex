@@ -9,10 +9,10 @@ Det er på baggrund af disse tanker med rødder i analysen, lavet ud fra det ini
 
 
 \begin{displayquote}
-	\textbf{\textit{Hvordan kan man modellere en bådklubs ressourcer, og implementere et software program der automatiserer administrationen af bådpladser?}}
+\textbf{\textit{Hvordan kan man modellere en bådklubs ressourcer herunder både, bådpladser, medlemmer og gæster, samt implementere et software program der automatiserer administrationen af bådpladser?}}
 \end{displayquote}
 
-\section{Kravspecifikation} % (fold)
+\section{Kravspecifikation} % (fold) 
 \label{sec:Kravspecifikation}
 
 Ud fra problemformuleringen er der opstillet en kravspecifikation, som har til
@@ -24,21 +24,15 @@ behovet for dette krav er dokumenteret.
 
   \frnote{1 og 2 skal rettes meget igennem}
 \begin{description} 
-  \item[Systemet skal håndtere betaling af leje af vandlejepladser.]
-
-  Vi afgrænser os fra dette. Dette vil være en stander der tager i mod penge.. fortsæt. \sinote{fortsæt}
-
-  \item[Systemet skal have mulighed for forskellige brugertyper med forskellige adgangsniveauer.]
-
-    Admin og andre medlemmer..
   \item[Systemet skal registrere afrejse og ankomst af gæster såvel som medlemmer.] \hfill 
 
 
-  Havnefogeden bruger meget tid på at holde øje med nye gæster i havnen. Hvis systemet hele tiden var opdateret med besøgende gæster, kunne havnefogeden hurtig få et overblik over status i havnen. Systemet skal også holde styr på når et medlem tager afsted, på den måde ved det at der er en fri plads som en anden kan tage. Systemet skal kunne registrere når der komme nye gæster. Dette gør at systemet hele tiden ved hvilke pladser der er frie, hvornår medlemmer kommer tilbage og hvornår gæster sejler igen. Dette er med til at lette arbejdet for havnefogeden.
+  Havnefogeden bruger meget tid på at holde øje med nye både i havnen, hvis systemet hele tiden var updated kunne havnefogeden hurtig få et overblik over status i havnen. Systemet skal også holde styr på når et medlem tager afsted, på den måde ved det at der er en fri plads som en anden kan tage. Systemet skal kunne registrre når der komme nye gæster. Dette gør at systemet hele tiden ved hvad for nogle pladser der er frie og  hvornår medlemmer kommer tilbage og hvornår gæster sejler i gen. Dette er med til at tage arbejde fra havnefogeden.
+
 
   \item[Systemet skal gemme hvilke pladser der er ejet, hvilken båd på pladsen, og af hvem.]
 
-  Klubbens nuværende systems kan det. Medlemmerne vil have gavn af, let at kunne se, hvem der ejer en given plads. Dette vil også give kassereren et overblik over hvem der har både hvorhenne.
+  Klubbens nuværende systems kan det. Medlemmerne vil havde gavn af let at få information om hvem der ejer en plads. Dette vil også give kassereren et overblik over hvem der har både hvorhenne. Han kan også se ejeren.
 
 
   \item[Systemet skal have mulighed for at informere havnefogeden i tilfælde af fejl eller begivenheder.]
@@ -53,6 +47,11 @@ behovet for dette krav er dokumenteret.
   I \cref{sub:gaster_havnefogeden} beskrives det hvordan havenfogeden administrerer hvilke gæster der har betalt for pladsleje. Derudover bruger han et andet system til at holde styr, på hvornår klubbens medlemmer vender tilbage til deres vandplads fra udflugter.
 
   Derfor skal løsningssystemet kunne præsentere relevante informationer som medlemmer af klubben eller havnefogeden kan benytte sig af i arbejdet. En liste af relevante informationer følger nedenfor.
+
+  \item[Systemet skal kunne søge igennem den lagrede data efter en række søge kriterier.]
+
+Programmet skal være i stand til at søge i det lagrede data ud fra forskellige brugerdefinerede søgekriterier. Derudover skal det også være muligt for brugeren at hente, ændre eller slette i den lagrede data ud fra disse søgekriterierne. Eksempelvis kunne havnefogeden ønsker at vide hvem der ligger på en bestemt plads, derfor bør det være muligt at hente data om personen som ligger på pladsen, ud det pågældende pladsnummer.
+
 
 
   \begin{itemize}
