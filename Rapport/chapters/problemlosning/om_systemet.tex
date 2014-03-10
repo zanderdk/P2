@@ -3,12 +3,82 @@
 
 Systemet der omtales i \cref{cha:problemformulering} tænkes at være en konsolapplikation skrevet i C\#. Programmet interagerer med en database. Denne databse gemmer alle informationer der er tilgængelige gennem programmet.
 
-\subsection{Eksempler På Kommandoer}
+\subsection{Eksempler På Funktionalitet}
 \label{sub:eksempler_p_kommandoer}
 
-Da systemet giver mulighed for at håndtere gæster, skal det være muligt at tildele en gæst til en given vandlejeplads. Nedenstående \cref{lst:add_guest} tilføjer en gæst til databasen, fortæller at han holder ved vandlejeplads 42, hedder Jens Jensen og at han har betalt indtil 1. juni 2014.
+\subsubsection{Gæster}
+\label{ssub:Gaster}
 
-\begin{lstlisting}[language=bash, label=lst:add_guest] 
-  $ program add guest --boatarea=42 --name="Jens Jensen" --until="1/6/2014" 
+
+Da systemet giver mulighed for at håndtere gæster, skal det være muligt at tildele en gæst til en given vandlejeplads. Nedenstående kommando tilføjer en gæst til databasen, fortæller at han holder ved vandlejeplads 42, hedder Ib Ibsen og at han har betalt indtil 1. juni 2014.
+
+\begin{lstlisting}[language=bash, label={lst:add_guest}] 
+  $ program add guest --boatarea=42 --name="Ib Ibsen" --boatname="Igor" --paiduntil="1/6/2014" 
 \end{lstlisting}
 
+\subsubsection{Brugere}
+\label{ssub:brugere}
+
+Systemet skal også have mulighed for forskellige brugere med forskellige adgangsniveauer. Her tilføjes en ny bruger med bådplads 42, navn Jens Jensen, bådnavn Sally og brugeren har både skrive og læse-rettigheder.
+
+
+\begin{lstlisting}[language=bash, label={lst:add_user}] 
+  $ program add user --boatarea=42 --name="Jens Jensen" --boatname="Sally" --access="w,r"
+\end{lstlisting}
+
+
+\subsubsection{Afrejse og hjemkomst}
+\label{ssub:Afrejse_og_hjemkomst}
+
+Her opdateres brugeren med pladsnummer 42, sådan at hans hjemkomstdato svarer til estimeret hjemkomst dato.
+
+\begin{lstlisting}[language=bash, label={lst:update_travel}] 
+  $ program update user --boatarea=42 --awayuntil="2/6/2014" 
+\end{lstlisting}
+
+\subsubsection{Søgning}
+\label{ssub:Sogning}
+
+I systemet kan man søge på alle felter, hvorefter programmet returnerer fundne matches. Nedenunder søges der på bådplads 42. Der ses at Jens Jensen ejer pladsen, samt at en gæst ligger til på pladsen. Det ses at gæsten er væk rettidigt når Jens kommer hjem.
+
+\begin{lstlisting}[language=bash, label={lst:search}] 
+  $ program search --boatarea=42
+    Output:
+    User:
+      Name: Jens Jensen
+      Boat: Sally
+      Boatarea: 42
+      Away until: 2/6/2014 
+
+    Guest:
+      Name: Ib Ibsen
+      Boat: Igor
+      Boatarea: 42
+      Paid until: 1/6/2014
+\end{lstlisting}
+
+\subsubsection{Vis ubetalte pladser}
+\label{ssub:Vis_ubetalte_pladser}
+
+Når administrationen i havnen skal holde styr på hvilke både der har betalt deres leje af vandlejepladser, kan programmet detektere om der er en båd til stede på en given plads. Hvis der er en båd tilstede, ser programmet om et medlem af klubben har logget ind på pladsen, dvs. at tilkendegive at medlemmet er i havnen. Hvis medlemmet ikke har gjort dette, og der ikke er betalt på pladsen, må det være en gæst der ikke har betalt.
+
+\begin{lstlisting}[language=bash, label={lst:show_unpaid}] 
+  $ program unpaid
+    Output:
+    Boat area: 43:
+      Boat detected 2h1m ago, but has not been paid yet or member not signed in. 
+\end{lstlisting}
+
+\subsubsection{Overblik}
+\label{ssub:overblik}
+
+Da programmet kender status for alle bådpladser, medlemmer og gæster, kan det nemt fremvise overblik-givende informationer om havnens status.
+
+\begin{lstlisting}[language=bash, label={lst:overview}] 
+  $ program stats 
+    Output:
+    Boat areas occupied: 2
+    Boat areas free: 10
+    Users home: 1
+    Users away: 1
+\end{lstlisting}
