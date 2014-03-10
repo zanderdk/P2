@@ -24,13 +24,16 @@ behovet for dette krav er dokumenteret.
 
   \frnote{1 og 2 skal rettes meget igennem}
 \begin{description} 
-  \item[Systemet skal håndtere betaling af leje af vandlejepladser.]
-
-  Vi afgrænser os fra dette. Dette vil være en stander der tager i mod penge.. fortsæt. \sinote{fortsæt}
+  \item[Systemet skal håndtere betaling af leje af vandlejepladser.] \hfill
+  
+  Når gæster benytter havnens faciliteter skal der betales for dette. Som nævnt i \cref{sub:Chip}, bruger Vestre Baadelaug en betalingsautomat, som gæsterne skal benytte til at betale for leje af vandlejepladser. Det nye system skal bygge videre på dette system, og skal fungere som et komplet gæste-betalingssystem. Dette vil sige at gæsterne indberetter hvilken vandlejeplads de ligger på, samt hvor mange dage de vil betale for. Denne information skal gemmes i en database, så det let kan tilgås ved behov. Systemet kan bruge oplysningerne fra gæste-betalingssystemet til at se, om der vil opstå en vandlejeplads-konflikt, f.eks.\ hvis medlemmet der ejer pladsen kommer tidligere hjem end forventet.
 
   \item[Systemet skal have mulighed for forskellige brugertyper med forskellige adgangsniveauer.]
 
-    Admin og andre medlemmer..
+    Da systemet skal håndtere mange vigtige informationer omkring havnens ressourcer, er det vigtigt at begrænse alle og enhver til at overskrive f.eks.\ felter i en database omkring medlemmernes vandlejepladser.
+
+    Der skal derfor være mulighed for at definere forskellige brugertyper med forskellige rettigheder. Man kan forestille sig at administrator-brugeren har alle rettigheder, det vil sige at han kan læse, skrive og slette informationer. En anden brugergruppe kunne være medlemmer af klubben. De kan f.eks.\ defineres til kun at have læse rettigheder. Derudover kan de tildeles skrive-rettigheder på felter som eksempelvis afrejse- og hjemrejse tidspunkter.
+
   \item[Systemet skal registrere afrejse og ankomst af gæster såvel som medlemmer.] \hfill 
 
 
@@ -40,6 +43,15 @@ behovet for dette krav er dokumenteret.
 
   Klubbens nuværende systems kan det. Medlemmerne vil have gavn af, let at kunne se, hvem der ejer en given plads. Dette vil også give kassereren et overblik over hvem der har både hvorhenne.
 
+  \item[Systemet skal kunne integreres med bådklubbens nuværende betalingssystem.]
+  
+  
+ Bådklubben Vestrebaadelaug har fået levet et betalingssystem af firmaet x som specialisere sig i elektroniske systemer. Firmaet X har leveret Vestrebaadelaugs
+låse- samt betalingssytem og disse intigret i hinadens funktioner. På baggrund af dette ville et automatisk betjenings system der kan intigeres med det nuværende
+system, være en besparende og smart løsning. Dette indebærer f.eks. at medlemmerne ikke skal afskaffe sig deres "nøgle og betalings"- kort som de er i besiddelse af nu og
+vi er istand til at køre betaling igennem det nuværende systems betalingsservice. \minote {Mangler firma navn og ord erstatning}
+
+Kravet omkring integration vil sikre et funktionelt system med henblik på besparelse og "Brugervenlighed"(andet ord i samme stil)
 
   \item[Systemet skal have mulighed for at informere havnefogeden i tilfælde af fejl eller begivenheder.]
 
