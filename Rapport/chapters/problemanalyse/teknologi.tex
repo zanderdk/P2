@@ -1,43 +1,50 @@
 \section{Teknologi} % (fold)
 \label{sec:Teknologi}
 
-I dette afsnit bliver forskellige eksisterende teknologier bearbejdet med henblik på at give et overblik. Hver teknologi vil blive introduceret kort, hvorefter styrker og svagheder vil blive præsenteret. Dette kan senere bruges når en løsning skal designes.
+I dette afsnit bliver forskellige eksisterende teknologier bearbejdet med henblik på at give et overblik. Hver teknologi vil blive introduceret kort, hvorefter styrker og svagheder vil blive præsenteret. Dette kan senere bruges når en løsning skal designes. Der beskrives både teknologier som Vestre Baadelaug allerede benytter, samt andre systemer, andre sejlklubber benytter. 
 
-\subsection{Chip-system} % (fold)
-\label{sub:Chip}
+\subsection{Betalingssystem} % (fold)
+\label{sub:tek_betaling}
 
 I Vestre Baadelaug benyttes et chip-system til at håndtere betalinger fra gæster. Der findes en automat til betaling af pladsbilletter, samt et system til el, bad og toilet.
 
-Billetsystemet giver mulighed for at optanke et kort, eller bestille en dagsbillet. Ved bestilling af dagsbillet, skal systemet vide bådens længde og gæstens nationalitet. Efter endt betaling med kreditkort, udskrives en dagsbillet der skal ligge synligt på båden. Systemet er leveret af det danske firma BEAS. Den specifikke model Vestre Baadelaug benytter er \enquote{Billetautomat TMI}. Se \cref{fig:vb_betalingssystem}.
+Billetsystemet giver mulighed for at optanke et kort, eller bestille en dagsbillet. Ved bestilling af dagsbillet, skal systemet vide bådens længde og gæstens nationalitet. Efter endt betaling med kreditkort, udskrives en dagsbillet der skal ligge synligt på båden. Systemet er leveret af det danske firma BEAS. Den specifikke model Vestre Baadelaug benytter er \enquote{Billetautomat TMI}. Se \cref{fig:vb_systemer}.
 
-\begin{figure}
+\begin{figure}[h]
   \centering
   \begin{minipage}{0.45\textwidth}
     \includegraphics[angle=270,width=\textwidth]{vb_betalingssystem.jpg}
-    \caption{Betalingssystem fra BEAS set på Vestre Baadehavn}
-    \label{fig:vb_betalingssystem}
   \end{minipage}
-  \hfill
   \begin{minipage}{0.45\textwidth}
     \includegraphics[width=\textwidth]{vb_kortsystem.jpg}
-    \caption{Kortsystem fra BEAS set på Vestre Baadehavn}
-    \label{fig:vb_kortsystem}
-  \end{minipage}
-  \begin{minipage}{0.45\textwidth}
     \includegraphics[width=\textwidth]{vb_elsystem.jpg}
-    \caption{Elsystem fra BEAS set på Vestre Baadehavn}
-    \label{fig:vb_elsystem}
   \end{minipage}
+    \caption{Betalingssyste, kortsystem og elsystem set på Vestre Baadehavn}\label{fig:vb_systemer}
 \end{figure}
 
-Derudover benytter Vestre Baadelaug sig også af et chip-system til adgangskontrol til bad- og toiletfaciliteter, samt et system til el. Se \cref{fig:vb_kortsystem,fig:vb_elsystem}.
+Derudover benytter Vestre Baadelaug sig også af et chip-system til adgangskontrol til bad- og toiletfaciliteter, samt et system til el. Se \cref{fig:vb_systemer}.
 
 \subsection{Håndtering af gæster - havnefogeden} % (fold)
 \label{sub:gaster_havnefogeden}
 
 Når havnefogeden skal holde styr på hvilke gæster der har betalt, benytter han sig af et bånd-system \cite{int_hf}. En mandag kan båndene være f.eks.\ røde, hvorefter de den næste dag kan være blå. På den måde kan havnefogen, når betalende både har synliggjort båndet på deres båd, se om gæsterne har betalt for dagen.
 
-Et andet system havnefogeden bruger, er det der markererer hvorvidt gæster kan fortøje deres båd til en specifik plads. Det virker ved, at når et medlem sejler ud, bliver hans plads ledig, så derfor vender vedkommende et skilt foran pladsen. Dette skilt viser nu grønt, som tegn på at en gæst må holde på pladsen. Det er havnefogedens opgave at få flyttet en eventuel gæst til en anden plads, i tilfælde af at ejeren af pladsen har meddelt havnefogeden, at han kommer hjem tidligere end forventet. Havnefogeden vil så markere pladsen som optaget ved at vende skiltet, så andre gæster ikke tager pladsen.
+Et andet system havnefogeden bruger, er det der markererer hvorvidt gæster kan fortøje deres båd til en specifik plads. Det virker ved, at når et medlem sejler ud, bliver hans plads ledig, så derfor vender vedkommende et skilt foran pladsen. Dette skilt viser nu grønt, som tegn på at en gæst må holde på pladsen. Se \cref{fig:skilte}. Medlemmer kan meddele havnefogeden om hjemkomst, således at havnefogeden kan frigøre deres plads, inden de er i havnen. Dette sker via telefon eller forgående mundtlig aftale.
+
+\begin{figure}[h]
+  \centering
+  \begin{minipage}{0.30\textwidth}
+    \includegraphics[width=\textwidth]{skilt_gron.jpg}
+  \end{minipage}
+  \begin{minipage}{0.30\textwidth}
+    \includegraphics[width=\textwidth]{skilt_rod.jpg}
+  \end{minipage}
+  \begin{minipage}{0.30\textwidth}
+    \includegraphics[width=\textwidth]{skilt_rod2.jpg}
+  \end{minipage}
+  \label{fig:skilte}
+  \caption{Forskellige eksempler på skilte til markering af ledighed}
+\end{figure}
 
 \subsection{MarinaBooking.dk} % (fold)
 \label{sub:MarinaBooking.dk}
