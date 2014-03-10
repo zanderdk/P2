@@ -1,0 +1,14 @@
+\section{Om Systemet}
+\label{sec:om_systemet}
+
+Systemet der omtales i \cref{cha:problemformulering} tænkes at være en konsolapplikation skrevet i C\#. Programmet interagerer med en database. Denne databse gemmer alle informationer der er tilgængelige gennem programmet.
+
+\subsection{Eksempler På Kommandoer}
+\label{sub:eksempler_p_kommandoer}
+
+Da systemet giver mulighed for at håndtere gæster, skal det være muligt at tildele en gæst til en given vandlejeplads. Nedenstående \cref{lst:add_guest} tilføjer en gæst til databasen, fortæller at han holder ved vandlejeplads 42, hedder Jens Jensen og at han har betalt indtil 1. juni 2014.
+
+\begin{lstlisting}[language=bash, label=lst:add_guest] 
+  $ program add guest --boatarea=42 --name="Jens Jensen" --until="1/6/2014" 
+\end{lstlisting}
+
