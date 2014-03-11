@@ -1,7 +1,7 @@
 \section{Om Systemet}
 \label{sec:om_systemet}
 
-Systemet der omtales i \cref{cha:problemformulering} tænkes at være en konsolapplikation skrevet i C\#. Programmet interagerer med en database. Denne databse gemmer alle informationer der er tilgængelige gennem programmet.
+Systemet der omtales i \cref{cha:problemformulering} tænkes at være en konsolapplikation skrevet i C\#. Programmet interagerer med en database. Denne database gemmer alle informationer der er tilgængelige gennem programmet.
 
 \subsection{Eksempler På Funktionalitet}
 \label{sub:eksempler_p_kommandoer}
@@ -30,7 +30,7 @@ Systemet skal også have mulighed for forskellige brugere med forskellige adgang
 \subsubsection{Afrejse og hjemkomst}
 \label{ssub:Afrejse_og_hjemkomst}
 
-Her opdateres brugeren med pladsnummer 42, sådan at hans hjemkomstdato svarer til estimeret hjemkomst dato.
+Her opdateres brugeren med pladsnummer 42, sådan at hans dato for hjemkomst svarer til estimeret hjemkomst dato.
 
 \begin{lstlisting}[language=bash, label={lst:update_travel}] 
   $ program update user --boatarea=42 --awayuntil="2/6/2014" 
@@ -60,7 +60,7 @@ I systemet kan man søge på alle felter, hvorefter programmet returnerer fundne
 \subsubsection{Vis ubetalte pladser}
 \label{ssub:Vis_ubetalte_pladser}
 
-Når administrationen i havnen skal holde styr på hvilke både der har betalt deres leje af vandlejepladser, kan programmet detektere om der er en båd til stede på en given plads. Hvis der er en båd tilstede, ser programmet om et medlem af klubben har logget ind på pladsen, dvs. at tilkendegive at medlemmet er i havnen. Hvis medlemmet ikke har gjort dette, og der ikke er betalt på pladsen, må det være en gæst der ikke har betalt.
+Når administrationen i havnen skal holde styr på hvilke både der har betalt deres leje af vandlejepladser, kan programmet detektere om der er en båd til stede på en given plads. Hvis der er en båd til stede, ser programmet om et medlem af klubben har logget ind på pladsen, dvs. at tilkendegive at medlemmet er i havnen. Hvis medlemmet ikke har gjort dette, og der ikke er betalt på pladsen, må det være en gæst der ikke har betalt.
 
 \begin{lstlisting}[language=bash, label={lst:show_unpaid}] 
   $ program unpaid
