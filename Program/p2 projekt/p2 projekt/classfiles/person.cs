@@ -9,13 +9,15 @@ namespace p2_projekt.classfiles
 {
     abstract class Person
     {
-        public abstract int Id { get; }
+        public abstract int Id { get; set; }
                 
         public List<Boat> boats;
 
         public string Name { get; set; }
         public DateTime Birthday { get; set; }
         public CivicAddress Adress { get; set; }
+        public bool Disabled { get; set; }
+
 
         public Person(string name)
         {
