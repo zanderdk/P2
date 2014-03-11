@@ -6,15 +6,22 @@ using System.Threading.Tasks;
 
 namespace p2_projekt.classfiles
 {
-    abstract class boatspace
+    abstract class Boatspace
     {
+        int id;
+        double length;
+        double height;
+
+        public Boat Boat { get; set; } //TODO get bikonjuktiv shit working
+
     }
 
-    class waterspace : boatspace
+    class Waterspace : Boatspace
     {
+
     }
 
-    class landspace : boatspace
+    class Landspace : Boatspace
     {
     }
 }
