@@ -5,11 +5,11 @@ Vestre Baadelaug fremgår efter problemanalysen til at være en bådklub der im�
 
 Disse ændringer er ikke tænkt som en opgradering af et allerede eksisterende system, men et forsøg på at finde fordele i at se problemet fra en anden vinkel, end hvad det nuværende system gør.
 
-Det er på baggrund af disse tanker med rødder i analysen, lavet ud fra det initierende problem i \cref{initierende}, er problemet blevet fokuseret i form af en problemformulering. 
+Det er på baggrund af disse tanker med rødder i analysen, lavet ud fra det initierende problem i \cref{initierende}, at problemet blevet fokuseret i form af en problemformulering. 
 
 
 \begin{displayquote}
-\textbf{\textit{Hvordan kan man modellere en bådklubs ressourcer herunder både, bådpladser, medlemmer og gæster, samt implementere et software program der automatiserer administrationen af bådpladser?}}
+\textbf{\textit{Hvordan kan man modellere en bådklubs administrative ansvarsområder herunder både, bådpladser, medlemmer og gæster, samt implementere et software program der automatiserer denne administration}}
 \end{displayquote}
 
 \section{Kravspecifikation} % (fold) 
@@ -18,7 +18,7 @@ Det er på baggrund af disse tanker med rødder i analysen, lavet ud fra det ini
 Ud fra problemformuleringen er der opstillet en kravspecifikation, som har til formål at udspecificere de krav til løsningen, som er underbygget i problemanalysen. Kravspecifikationen er opstillet som små afsnit med en kort beskrivelse indeni. Beskrivelsen vil desuden indeholde en reference til problemanalysen, hvor behovet for dette krav er dokumenteret.
  
 
-  \subsubsection{Systemet skal kunne håndtere udlejning af vandlejepladser ved at integrere med Vestrebaadelaugs nuværende system.}
+  \subsubsection{Systemet skal kunne håndtere udlejning af vandlejepladser ved at integrere med Vestre Baadelaugs nuværende system.}
   Når gæster benytter havnens faciliteter skal der betales for dette. Som nævnt i \cref{sub:tek_betaling}, bruger Vestre Baadelaug en betalingsautomat, som gæsterne skal benytte til at betale for leje af vandlejepladser. Løsningen skal bygge videre på det nuværende system, og skal fungere som et komplet gæste-betalingssystem. Dette vil sige at gæsterne indberetter hvilken vandlejeplads de ligger på, samt hvor mange dage de vil betale for. Denne information skal gemmes i en database, så det let kan tilgås ved behov. Betalingen bliver klaret igennem det nuværende systems betalingsservice. Løsningen kan bruge oplysningerne til at se, om der vil opstå en vandlejeplads-konflikt, f.eks.\ hvis medlemmet der ejer pladsen kommer tidligere hjem end forventet.
 
   Ved at integrere sikres et funktionelt system med henblik på besparelse og tilvændingstiden for det nye system minimeres.
