@@ -12,5 +12,7 @@ namespace p2_projekt.classfiles
         public string Name { get; set; }
         public Boatspace Space { get; set; } //TODO get bikonjuktiv shit working
         
+
+
     }
 }
