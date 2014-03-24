@@ -9,8 +9,6 @@ Disse ændringer er ikke tænkt som en opgradering af et allerede eksisterende s
 
 Det er på baggrund af disse tanker med rødder i analysen, lavet ud fra det initierende problem i \cref{initierende}, at problemet blevet fokuseret i form af en problemformulering. 
 
-\sinote{Inddrag evt. Martin i den hvide trøje fra status, omkring en kilde}
-
 \begin{displayquote}
 \textbf{\textit{Hvordan kan man modellere en bådklubs administrative ansvarsområder indenfor både, bådpladser, medlemmer og gæster, samt implementere et software program der kan benytte modellerne til formidling af informationer mellem havnefogeden, medlemmer og gæster, med det formål at forbedre overblikket over havnen}}
 \end{displayquote}
@@ -20,7 +18,6 @@ Det er på baggrund af disse tanker med rødder i analysen, lavet ud fra det ini
 
 Ud fra problemformuleringen er der opstillet en kravspecifikation, som har til formål at udspecificere de krav til løsningen, som er underbygget i problemanalysen. Kravspecifikationen er opstillet som små afsnit med en kort beskrivelse indeni. Beskrivelsen vil desuden indeholde en reference til problemanalysen, hvor behovet for dette krav er dokumenteret.
  
-\sinote{Lav kravspecifikation som decimaltal, og mere punktform som beskrivelse}
 
 \sinote{Huske nice to have og need to have}
 
@@ -29,29 +26,31 @@ Ud fra problemformuleringen er der opstillet en kravspecifikation, som har til f
 \sinote{Eventkalender krav}
 
 \begin{enumerate}
-	\item \label{itm:udlejning} \textbf{ Systemet skal kunne håndtere udlejning af vandlejepladser ved at integrere med Vestre Baadelaugs nuværende system. }\\\\
-Når gæster benytter havnens faciliteter skal der betales for dette. Som nævnt i \cref{sub:tek_betaling}, bruger Vestre Baadelaug en betalingsautomat, som gæsterne skal benytte til at betale for leje af vandlejepladser. Løsningen skal bygge videre på det nuværende system, og skal fungere som et komplet gæste-betalingssystem. Dette vil sige at gæsterne indberetter hvilken vandlejeplads de ligger på, samt hvor mange dage de vil betale for. Denne information skal gemmes i en database, så det let kan tilgås ved behov. Betalingen bliver klaret igennem det nuværende systems betalingsservice. Løsningen kan bruge oplysningerne til at se, om der vil opstå en vandlejeplads-konflikt, f.eks.\ hvis medlemmet der ejer pladsen kommer tidligere hjem end forventet. Ved at integrere sikres et funktionelt system med henblik på besparelse og tilvændingstiden for det nye system minimeres.
-\end{enumerate}
+	\item \label{itm:udlejning} \textbf{ Systemet skal kunne håndtere udlejning af vandlejepladser ved at integrere med Vestre Baadelaugs nuværende system. }
 
-\begin{enumerate}
-	\item \label{itm:Brugergrupper} \textbf{ Systemet skal have mulighed for forskellige brugertyper med forskellige adgangsniveauer.} \\\\
+Når gæster benytter havnens faciliteter skal der betales for dette. Som nævnt i \cref{sub:tek_betaling}, bruger Vestre Baadelaug en betalingsautomat, som gæsterne skal benytte til at betale for leje af vandlejepladser. Løsningen skal bygge videre på det nuværende system, og skal fungere som et komplet gæste-betalingssystem. Dette vil sige at gæsterne indberetter hvilken vandlejeplads de ligger på, samt hvor mange dage de vil betale for. Denne information skal gemmes i en database, så det let kan tilgås ved behov. Betalingen bliver klaret igennem det nuværende systems betalingsservice. Løsningen kan bruge oplysningerne til at se, om der vil opstå en vandlejeplads-konflikt, f.eks.\ hvis medlemmet der ejer pladsen kommer tidligere hjem end forventet. Ved at integrere sikres et funktionelt system med henblik på besparelse og tilvændingstiden for det nye system minimeres.
+
+	\item \label{itm:brugergrupper} \textbf{ Systemet skal have mulighed for forskellige brugertyper med forskellige adgangsniveauer.} \\\\
   Da systemet skal håndtere mange vigtige informationer omkring havnens ressourcer, er det vigtigt at begrænse alle og enhver til at overskrive f.eks.\ felter i en database omkring medlemmernes vandlejepladser.
 
   Der skal derfor være mulighed for at definere forskellige brugertyper med forskellige rettigheder, som beskrevet i \cref{sec:refleksioner}. Man kan forestille sig at administrator-brugeren har alle rettigheder, det vil sige at han kan læse, skrive og slette informationer. En anden brugergruppe kunne være medlemmer af klubben. De kan f.eks.\ defineres til kun at have læse rettigheder. Derudover kan de tildeles skrive-rettigheder på felter som eksempelvis afrejse- og hjemrejse tidspunkter.
-\end{enumerate}
 
-  \subsubsection{Systemet skal registrere afrejse og ankomst af gæster såvel som medlemmer.}
+\item \label{itm:reg_an_afkomst} \textbf{Systemet skal registrere afrejse og ankomst af gæster såvel som medlemmer.} 
+
   Det blev erfaret i \cref{sub:havnefoged} at havnefogeden bruger meget tid på at holde øje med nye gæster i havnen. Hvis systemet hele tiden var opdateret med besøgende gæster, kunne havnefogeden hurtigt få et overblik over status i havnen. Systemet skal også holde styr på når et medlem tager afsted. På den måde vides der om der er en fri plads som en anden sejler kan tage. Systemet skal kunne registrere når der komme nye gæster. Dette gør at systemet hele tiden ved hvilke pladser der er frie, hvornår medlemmer kommer tilbage og hvornår gæster sejler igen. Dette er med til at lette arbejdet for havnefogeden.
 
-  \subsubsection{Systemet skal gemme hvilke pladser der er ejet, hvilken båd der er på pladsen, og af hvilken ejer.}
+\item \label{itm:gemme_pladser_baade} \textbf{Systemet skal gemme hvilke pladser der er ejet, hvilken båd der er på pladsen, og af hvilken ejer.}
+
   Klubbens nuværende systems kan det. Medlemmerne vil have gavn af, let at kunne se hvem der ejer en given plads. Dette vil også give kassereren et overblik over hvem der har både hvorhenne. Dette beskrives nærmere i \cref{sec:refleksioner}.
 
-  \subsubsection{Systemet skal have mulighed for at informere havnefogeden i tilfælde af fejl eller begivenheder.}
+\item \label{itm:fejl} \textbf{Systemet skal have mulighed for at informere havnefogeden i tilfælde af fejl eller begivenheder.}
+
   Som beskrevet i \cref{sub:havnefoged}, er en stor del af havnefogedens arbejde på havnen, at hjælpe medlemmer og gæstende sejlere. Det ville derfor være optimalt hvis løsningen kunne informere havnefogeden hvis noget går galt med den automatiserede betjening. En sådan fejl kunne f.eks.\ være hvis brugeren af systemet har problemer med betaling ved billetmaskinen.
 
   Man kan forestille sig flere måder hvorpå havnefogeden kan blive informeret, f.eks. SMS, email, en rød lampe i kontoret, eller en hel anden ting. For at gøre det lettere for havnefogeden at hjælpe, kan fejlmeddelelsen indeholde informationer som eksempelvis standerens lokation og hvilke trin brugeren har foretaget, for at udløse fejlen. Man kan føre ideen med fjernhjælp helt ud, ved at tilføje en højtaler ved hver billetautomat. På den måde kan havnefogeden assistere brugeren igennem fejlen ved hjælp af en mikrofon.
 
-  \subsubsection{Systemet skal kunne fremvise information omkring pladser, medlemmer, samt gæster.}
+\item \label{itm:vis_information} \textbf{Systemet skal kunne fremvise information omkring pladser, medlemmer, samt gæster.}
+
   I \cref{sub:gaster_havnefogeden} beskrives det hvordan havenfogeden administrerer hvilke gæster der har betalt for pladsleje. Derudover bruger han et andet system til at holde styr på, hvornår klubbens medlemmer vender tilbage til deres vandplads fra udflugter.
 
   Derfor skal løsningssystemet kunne præsentere relevante informationer som medlemmer af klubben eller havnefogeden kan benytte sig af i arbejdet. En liste af relevante informationer følger nedenfor.
@@ -69,7 +68,10 @@ Når gæster benytter havnens faciliteter skal der betales for dette. Som nævnt
   \item Hvem \enquote{ejer} en given plads?
   \end{itemize}
 
-  \subsubsection{Systemet skal kunne søge igennem den lagrede data efter en række søgekriterier.}
+\item \label{itm:soege} \textbf{Systemet skal kunne søge igennem den lagrede data efter en række søgekriterier.}
+
   Løsningen skal være i stand til at søge i det lagrede data ud fra forskellige brugerdefinerede søgekriterier. Derudover skal det også være muligt for brugeren at hente, ændre eller slette i den lagrede data ud fra disse søgekriterier. Eksempelvis kunne havnefogeden ønske at vide hvem der ligger på en bestemt plads, derfor bør det være muligt at hente data om personen som ligger på pladsen, ud det pågældende pladsnummer.
+
+\end{enumerate}
 
 % section Kravspecifikation (end)
