@@ -1,5 +1,7 @@
 %!TEX root = Master.tex
-\documentclass[a4paper,12pt,twoside,openright,danish]{memoir}
+\documentclass[a4paper,12pt,twoside]{report}
+
+\setlength{\headheight}{15pt}
 
 \newcommand{\subject}{Programmering og Problemløsning}
 
@@ -19,6 +21,7 @@
 \usepackage{amsthm}
 \newtheorem{mydef}{Definition}
 \usepackage{graphicx}
+\usepackage{wrapfig} % images
 \graphicspath{{images/}}
 \usepackage{tikz}
 \usetikzlibrary{shapes.geometric,arrows,shapes.misc}
@@ -26,19 +29,21 @@
 \usepackage{tikz}
 \usepackage{verbatim}
 \usepackage{listings}
-\lstdefinestyle{customc}{
-  belowcaptionskip=1\baselineskip,
-    breaklines=true,
-    frame=L,
-    xleftmargin=\parindent,
-    language=C,
-    showstringspaces=false,
-    basicstyle=\footnotesize\ttfamily,
-    keywordstyle=\bfseries\color{green!40!black},
-    numbers=left,
-    commentstyle=\itshape\color{purple!40!black},
-    identifierstyle=\color{blue},
-    stringstyle=\color{orange},
+\lstdefinestyle{csharp}{
+language=[Sharp]C,
+showspaces=false,
+showtabs=false,
+breaklines=true,
+showstringspaces=false,\usepackage{color}
+\definecolor{bluekeywords}{rgb}{0.13,0.13,1}
+\definecolor{greencomments}{rgb}{0,0.5,0}
+\definecolor{redstrings}{rgb}{0.9,0,0}
+breakatwhitespace=true,
+escapeinside={(*@}{@*)},
+commentstyle=\color{greencomments},
+keywordstyle=\color{bluekeywords}\bfseries,
+stringstyle=\color{redstrings},
+basicstyle=\ttfamily
 }
 
 \lstset{
@@ -120,7 +125,6 @@
 \usepackage{intcalc}
 \usepackage{refcount}
 
-
 % ¤¤ Referencer, bibtex og url'er ¤¤ %
 \usepackage[hyphens]{url}
 
@@ -162,19 +166,17 @@
 %%%% CUSTOM SETTINGS %%%%
 
 % ¤¤ Marginer ¤¤ %
-\setlrmarginsandblock{3.5cm}{2.5cm}{*}	% \setlrmarginsandblock{Indbinding}{Kant}{Ratio}
-\setulmarginsandblock{2.5cm}{3.0cm}{*}	% \setulmarginsandblock{Top}{Bund}{Ratio}
-\checkandfixthelayout 									% Laver forskellige beregninger og sætter de almindelige længder op til brug ikke memoir pakker
+%\setlrmarginsandblock{3.5cm}{2.5cm}{*}	% \setlrmarginsandblock{Indbinding}{Kant}{Ratio}
+%\setulmarginsandblock{2.5cm}{3.0cm}{*}	% \setulmarginsandblock{Top}{Bund}{Ratio}
+%\checkandfixthelayout 									% Laver forskellige beregninger og sætter de almindelige længder op til brug ikke memoir pakker
 
 %	¤¤ Afsnitsformatering ¤¤ %
-\setlength{\parindent}{0mm}           	% Størrelse af indryk
-\setlength{\parskip}{3mm}          			% Afstand mellem afsnit ved brug af double Enter
-\linespread{1,2}												% Linie afstand
+%\setlength{\parindent}{0mm}           	% Størrelse af indryk
+%\setlength{\parskip}{3mm}          			% Afstand mellem afsnit ved brug af double Enter
+%\linespread{1,2}												% Linie afstand
 % length of abstract indentations
-\setlength{\absleftindent}{0mm}
-\setlength{\absrightindent}{0mm} 
-
-
+%\setlength{\absleftindent}{0mm}
+%\setlength{\absrightindent}{0mm} 
 
 \usepackage[
 bibencoding=utf8,
@@ -185,15 +187,49 @@ bibencoding=utf8,
   \addbibresource{kilder.bib}
 
   % ¤¤ Indholdsfortegnelse ¤¤ %
-\setsecnumdepth{subsection}		 			% Dybden af nummerede overkrifter (part/chapter/section/subsection)
+%\setsecnumdepth{subsection}		 			% Dybden af nummerede overkrifter (part/chapter/section/subsection)
   %\maxsecnumdepth{subsubsection}					% Ændring af dokumentklassens grænse for nummereringsdybde
-  \settocdepth{subsection} 								% Dybden af indholdsfortegnelsen
-
-  \pagestyle{ruled}
+  %\settocdepth{subsection} 								% Dybden af indholdsfortegnelsen
 
   % ¤¤ Kapiteludssende ¤¤ %
+\usepackage{titlesec}
+\titleformat{\chapter}
+  {\normalfont\LARGE\bfseries}{\thechapter}{1em}{}
+\titlespacing*{\chapter}{0pt}{3.5ex plus 1ex minus .2ex}{2.3ex plus .2ex}
 
-  \chapterstyle{ger}
-  \setlength{\afterchapskip}{0pt}
-  \setlength{\beforechapskip}{0pt}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\fancypagestyle{plain}{} % no ordinary headers and footers in pages with chapters
+\fancyhead{} % clear default header
+\fancyfoot{} % clear default footer
+
+\renewcommand{\chaptermark}[1]{\markboth{\thechapter.\space#1}{}} % do not print "chapter"
+
+\fancypagestyle{plain}{}
+
+\fancypagestyle{BasicStyle}{
+	\fancyhead[OL, ER]{
+		{\Large Aalborg Universitet}\\
+		Gruppe SW2-A405a}
+	\fancyhead[OR]{\nouppercase{\rightmark} \includegraphics[scale=0.25]{images/aau_logo_cropped.png}}
+	\fancyhead[EL]{\includegraphics[scale=0.25]{images/aau_logo_cropped.png} \nouppercase{\leftmark}}
+
+	\fancyfoot[OL, ER]{21. maj 2014}
+	\fancyfoot[OR, EL]{Side \thepage \ af \pageref{LastPage}}
+}
+
+\fancypagestyle{RomanPreStyle}{
+	\fancyhead[OL, ER]{
+		{\Large Aalborg Universitet}\\
+		Gruppe SW2-A405a}
+	\fancyhead[OR]{\nouppercase{\rightmark} \includegraphics[scale=0.25]{images/aau_logo_cropped.png}}
+	\fancyhead[EL]{\includegraphics[scale=0.25]{images/aau_logo_cropped.png} \nouppercase{\leftmark}}
+
+	\fancyfoot[OL, ER]{21. maj 2014}
+	\fancyfoot[OR, EL]{Side \thepage}
+}
+\pagestyle{RomanPreStyle} % Use RomanPreStyle at first
+\setcounter{page}{-1}% Start page number with -1, so the titlepage is page 1
 

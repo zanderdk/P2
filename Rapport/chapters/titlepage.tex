@@ -1,39 +1,46 @@
-%!TEX root = ../Master.tex
-% -*- root: ../master.tex -*-
-\author{Alexander Dalsgaard Krog \andnext\\
-    Frederik Højholt Andersen \andnext\\
-    Kasper Kohsel Terndrup \andnext\\
-    Mikkel Lægteskov Sø Madsen \and\\
-    Simon Vandel Sillesen}
+\markboth{Titelblad}{Titelblad} % Add to header
 
-\title{title}
+\newlength{\realparindent}
+\newlength{\realparskip}
+\setlength{\realparindent}{\parindent}
+\setlength{\realparskip}{\parskip}
 
-\begin{titlingpage}
-
-\vspace*{2cm}
-     \makebox[\linewidth]{
-         %\includegraphics[width=1.2\linewidth]{forside.pdf} include forside.pdf
-     }
-     \vfill
-     \centerline{Februar - Juni 2014}
-     \clearpage
-
-\adjustbox{valign=t}{\begin{minipage}{0.5\textwidth}
-\begin{flushleft}
-	\begin{description}
-		\item[Titel] \hfill \\ \thetitle
-		\item[Tema] \hfill \\Programmering og Problemløsning 
-		\item[Projekt forløb] \hfill \\ 5. februar 2014 til \\ 1. juni 2014
-		\item[Projekt gruppe] \hfill \\ SW2-405a
-		\item[Forfattere] \hfill \\ \theauthor
-		\item[Vejleder] \hfill \\ Brian Nielsen
-		\item[Sideantal] \numberpages
-		\item[Bilag sideantal] \appendixpages
-		\item[Total sideantal] \pageref{TotPages}
-		\item[Færdig] 1. juni 2014
-	\end{description}
-\end{flushleft}
-\end{minipage}}
+\begin{nopagebreak}
+{\begin{center}
+    \begin{tabular*}{\textwidth}{@{}l@{\extracolsep{\fill}}r@{}}
+        \multicolumn{2}{@{}l@{}}{
+            \begin{minipage}[t]{1.0\textwidth}
+            \vspace{0.3cm}
+            \end{minipage}
+        }\\
+        \begin{minipage}[t]{0.49\textwidth}
+            \textbf{Titel:}\\
+            LOBOP\\
+            
+            \textbf{P2 projektperiode:}\\
+            4. februar 2014 - 21. maj 2014\\
+            
+            \textbf{Projektgruppe:}\\
+            SW2-A405a\\
+            
+            \textbf{Gruppemedlemmer:}\\
+			Alexander Dalsgaard Krog\\
+		    Frederik Højholt Andersen\\
+		    Kasper Kohsel Terndrup\\
+		    Mikkel Lægteskov Sø Madsen\\
+		    Simon Vandel Sillesen\\
+            
+            \textbf{Vejledere:}\\
+			Brian Nielsen\\
+            
+            \textbf{Antal kopier:}\\
+            3\\
+            
+            \textbf{Antal sider:}\\
+           	\numberpages\\ 
+            
+        \end{minipage}
+        &
 \begin{minipage}[t]{0.5\textwidth}
 \begin{flushright}
 	\includegraphics[height=3cm]{aauLogoEn.jpg}\\
@@ -44,10 +51,16 @@
 		\small \url{http://www.tnb.aau.dk}\\
 		\bigskip
 		\fbox{
-  		\parbox{\linewidth}{
+			\parbox{\linewidth}{
      		{\input{chapters/titlepage/synopsis.tex}
      		}
      	}}
 \end{flushright}
 \end{minipage}
-\end{titlingpage}
+        
+        \\
+    \end{tabular*}
+\end{center}
+}
+\end{nopagebreak}
+\newpage
