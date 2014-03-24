@@ -9,8 +9,10 @@ Disse ændringer er ikke tænkt som en opgradering af et allerede eksisterende s
 
 Det er på baggrund af disse tanker med rødder i analysen, lavet ud fra det initierende problem i \cref{initierende}, at problemet blevet fokuseret i form af en problemformulering. 
 
+\sinote{Inddrag evt. Martin i den hvide trøje fra status, omkring en kilde}
+
 \begin{displayquote}
-\textit{Hvordan kan man modellere en bådklubs administrative ansvarsområder indenfor både, bådpladser, medlemmer og gæster, samt implementere et software program der kan benytte modellerne til formidling af informationer mellem havnefogeden, medlemmer og gæster, med det formål at forbedre overblikket over havnen}
+\textbf{\textit{Hvordan kan man modellere en bådklubs administrative ansvarsområder indenfor både, bådpladser, medlemmer og gæster, samt implementere et software program der kan benytte modellerne til formidling af informationer mellem havnefogeden, medlemmer og gæster, med det formål at forbedre overblikket over havnen}}
 \end{displayquote}
 
 \section{Kravspecifikation} % (fold) 
@@ -26,15 +28,17 @@ Ud fra problemformuleringen er der opstillet en kravspecifikation, som har til f
 
 \sinote{Eventkalender krav}
 
-  \subsubsection{Systemet skal kunne håndtere udlejning af vandlejepladser ved at integrere med Vestre Baadelaugs nuværende system.}
-  Når gæster benytter havnens faciliteter skal der betales for dette. Som nævnt i \cref{sub:tek_betaling}, bruger Vestre Baadelaug en betalingsautomat, som gæsterne skal benytte til at betale for leje af vandlejepladser. Løsningen skal bygge videre på det nuværende system, og skal fungere som et komplet gæste-betalingssystem. Dette vil sige at gæsterne indberetter hvilken vandlejeplads de ligger på, samt hvor mange dage de vil betale for. Denne information skal gemmes i en database, så det let kan tilgås ved behov. Betalingen bliver klaret igennem det nuværende systems betalingsservice. Løsningen kan bruge oplysningerne til at se, om der vil opstå en vandlejeplads-konflikt, f.eks.\ hvis medlemmet der ejer pladsen kommer tidligere hjem end forventet.
+\begin{enumerate}
+	\item \label{itm:udlejning} \textbf{ Systemet skal kunne håndtere udlejning af vandlejepladser ved at integrere med Vestre Baadelaugs nuværende system. }\\\\
+Når gæster benytter havnens faciliteter skal der betales for dette. Som nævnt i \cref{sub:tek_betaling}, bruger Vestre Baadelaug en betalingsautomat, som gæsterne skal benytte til at betale for leje af vandlejepladser. Løsningen skal bygge videre på det nuværende system, og skal fungere som et komplet gæste-betalingssystem. Dette vil sige at gæsterne indberetter hvilken vandlejeplads de ligger på, samt hvor mange dage de vil betale for. Denne information skal gemmes i en database, så det let kan tilgås ved behov. Betalingen bliver klaret igennem det nuværende systems betalingsservice. Løsningen kan bruge oplysningerne til at se, om der vil opstå en vandlejeplads-konflikt, f.eks.\ hvis medlemmet der ejer pladsen kommer tidligere hjem end forventet. Ved at integrere sikres et funktionelt system med henblik på besparelse og tilvændingstiden for det nye system minimeres.
+\end{enumerate}
 
-  Ved at integrere sikres et funktionelt system med henblik på besparelse og tilvændingstiden for det nye system minimeres.
-
-  \subsubsection{Systemet skal have mulighed for forskellige brugertyper med forskellige adgangsniveauer.}
+\begin{enumerate}
+	\item \label{itm:Brugergrupper} \textbf{ Systemet skal have mulighed for forskellige brugertyper med forskellige adgangsniveauer.} \\\\
   Da systemet skal håndtere mange vigtige informationer omkring havnens ressourcer, er det vigtigt at begrænse alle og enhver til at overskrive f.eks.\ felter i en database omkring medlemmernes vandlejepladser.
 
   Der skal derfor være mulighed for at definere forskellige brugertyper med forskellige rettigheder, som beskrevet i \cref{sec:refleksioner}. Man kan forestille sig at administrator-brugeren har alle rettigheder, det vil sige at han kan læse, skrive og slette informationer. En anden brugergruppe kunne være medlemmer af klubben. De kan f.eks.\ defineres til kun at have læse rettigheder. Derudover kan de tildeles skrive-rettigheder på felter som eksempelvis afrejse- og hjemrejse tidspunkter.
+\end{enumerate}
 
   \subsubsection{Systemet skal registrere afrejse og ankomst af gæster såvel som medlemmer.}
   Det blev erfaret i \cref{sub:havnefoged} at havnefogeden bruger meget tid på at holde øje med nye gæster i havnen. Hvis systemet hele tiden var opdateret med besøgende gæster, kunne havnefogeden hurtigt få et overblik over status i havnen. Systemet skal også holde styr på når et medlem tager afsted. På den måde vides der om der er en fri plads som en anden sejler kan tage. Systemet skal kunne registrere når der komme nye gæster. Dette gør at systemet hele tiden ved hvilke pladser der er frie, hvornår medlemmer kommer tilbage og hvornår gæster sejler igen. Dette er med til at lette arbejdet for havnefogeden.
