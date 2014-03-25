@@ -3,24 +3,51 @@
 
 \subsection{Usecases:}
 
-Gæst finder plads på forhånd:
-1) Ny gæst melder til systemet, hvor lang tid han vil ligge til.
-2) Systemet returnerer en liste over pladser som vil passe hans behov.
-3) Gæsten vælger en plads som passer til hans båd.
-4) Systemet melder at pladsen er nu reserveret (rød lampe).
-5) Gæsten betaler for pladsen.
-6) Systemet melder til havnefogeden at der er nye ankomne.
+\begin{itemize}
+  \item Gæst vil finde en plads:
+  \begin{itemize}
+    \item 1) Ny gæst melder til systemet, hvor lang tid han vil ligge til.
+    \item 2) Systemet returnerer en liste over pladser som vil passe hans behov.
+    \item 3) Gæsten vælger en plads som passer til hans båd.
+    \item 4) Systemet melder at pladsen er nu reserveret (rød lampe).
+    \item 5) Gæsten betaler for pladsen.
+    \item 6) Systemet melder til havnefogeden at der er nye ankomne.
 
-Gæst finder en plads på egen hånd:
-1) Systemet melder at pladsen er nu reserveret (rød lampe).
-2) Gæsten betaler for pladsen.
-3) Systemet melder til havnefogeden at der er nye ankomne.
+    \item Alternativ: De tre første 2 skridt er ikke nødvendige.
+  \end{itemize}
 
-Medlem forlader sin plads:
-1) Medlemmer melder til systemet tidspunkt for afrejse og hjemkomst.
-2) Systemet venter til efter afrejse tidspunktet.
-3) Når pladsen tømmes, da melder systemet at pladsen er fri (grøn lampe).
+  \item Medlem forlader sin plads:
+  \begin{itemize}
+    \item 1) Medlemmer melder til systemet tidspunkt for afrejse og hjemkomst.
+    \item 2) Systemet venter til efter afrejse tidspunktet.
+    \item 3) Når pladsen tømmes, da melder systemet at pladsen er fri (grøn lampe).
+  \end{itemize}
 
-Medlem vender tilbage til sin plads:
-1) Systemet registrerer når medlemmet ligger til, og melder at plads er optaget (rød lampe).
+  \item Medlem vender tilbage til sin plads:
+  \begin{itemize}
+    \item 1) Systemet registrerer når medlemmet ligger til, og melder at plads er optaget (rød lampe).
+  \end{itemize}
+
+  \item Havnefogeden melder plads optaget:
+  \begin{itemize}
+    \item 1) Medlem ringer til havnefogeden og fortæller om tidlig hjemkomst.
+    \item 2) Havnefogeden indtaster (ny) dato i systemet.
+    \item 3) Systemet returnere enten a eller b
+    \item a) Dato er accepteret
+    \item 1b) En gæst har lejet pladsen for en længere periode.
+    \item 2b) Systemet foreslår en ny plads til gæsten.
+    \item 3b) Havnefogeden snakker med gæsten.
+  \end{itemize}
+
+  \item Automatisk arrangementsforslag:
+  \begin{itemize}
+    \item 1) Antallet af medlemmer i havnen overstiger et bestemt niveau.
+    \item 2) Systemet melder at det ville være en god dag for et arrangement.
+    \item 3) Et medlem af klubben ser denne melding, og foreslår et arrangement.
+  \end{itemize}
+
+  \item 
+
+
+\end{itemize}
 
