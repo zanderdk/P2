@@ -1,57 +1,115 @@
 %!TEX root = ../../Master.tex
 \section{Usecases}
 
-\subsection{Usecases:}
+\subsection{Medlemmer}
 
-\begin{itemize}
-  \item Gæst vil finde en plads:
-  \begin{itemize}
-    \item 1) Ny gæst melder til systemet, hvor lang tid han vil ligge til.
-    \item 2) Systemet returnerer en liste over pladser som vil passe hans behov.
-    \item 3) Gæsten vælger en plads som passer til hans båd.
-    \item 4) Systemet melder at pladsen er nu reserveret (rød lampe).
-    \item 5) Gæsten betaler for pladsen.
-    \item 6) Systemet melder til havnefogeden at der er nye ankomne.
+    \subsubsection{Medlem forlader sin plads}
 
-    \item Alternativ: De tre første 2 skridt er ikke nødvendige.
-  \end{itemize}
+    \begin{enumerate}
+      \item Medlemmer melder til systemet tidspunkt for afrejse og hjemkomst.
+      \item Systemet venter til efter afrejse tidspunktet.
+      \item Når pladsen tømmes, da melder systemet at pladsen er fri (grøn lampe).
+    \end{enumerate}
 
-  \item Medlem forlader sin plads:
-  \begin{itemize}
-    \item 1) Medlemmer melder til systemet tidspunkt for afrejse og hjemkomst.
-    \item 2) Systemet venter til efter afrejse tidspunktet.
-    \item 3) Når pladsen tømmes, da melder systemet at pladsen er fri (grøn lampe).
-  \end{itemize}
+        \subsubsection{Medlem vender tilbage til sin plads}
 
-  \item Medlem vender tilbage til sin plads:
-  \begin{itemize}
-    \item 1) Systemet registrerer når medlemmet ligger til, og melder at plads er optaget (rød lampe).
-  \end{itemize}
+    \begin{enumerate}
+      \item Systemet registrerer når medlemmet ligger til, og melder at plads er optaget (rød lampe).
+    \end{enumerate}
 
-  \item Havnefogeden melder plads optaget:
-  \begin{itemize}
-    \item 1) Medlem ringer til havnefogeden og fortæller om tidlig hjemkomst.
-    \item 2) Havnefogeden indtaster (ny) dato i systemet.
-    \item 3) Systemet returnere enten a eller b
-    \item a) Dato er accepteret
-    \item 1b) En gæst har lejet pladsen for en længere periode.
-    \item 2b) Systemet foreslår en ny plads til gæsten.
-    \item 3b) Havnefogeden snakker med gæsten.
-  \end{itemize}
+\subsection{Gæster}
 
-  \item Automatisk arrangementsforslag:
-  \begin{itemize}
-    \item 1) Antallet af medlemmer i havnen overstiger et bestemt niveau.
-    \item 2) Systemet melder at det ville være en god dag for et arrangement.
-    \item 3) Et medlem af klubben ser denne melding, og foreslår et arrangement.
-  \end{itemize}
 
-  \item Automatisk medlemstjek
-  \begin{itemize}
-    \item 1) Systemet registrerer uoverensstemmelse med angivet rejseplan.
-    \item 2) Systemet notificerer havnefogeden omkring overensstemmelsen.
-  \end{itemize}
-  
+\subsubsection{Gæst vil finde en plads}
 
-\end{itemize}
+    \begin{enumerate}
+      \item Ny gæst melder til systemet, hvor lang tid han vil ligge til.
+      \item Systemet returnerer en liste over pladser som vil passe hans behov.
+      \item Gæsten vælger en plads som passer til hans båd.
+      \item Systemet melder at pladsen er nu reserveret (rød lampe).
+      \item Gæsten betaler for pladsen.
+      \item Systemet melder til havnefogeden at der er nye ankomne.
+      \item Alternativ: De tre første 2 skridt er ikke nødvendige.
+    \end{enumerate}
 
+
+
+
+
+
+
+
+    
+
+\subsection{Havnefoged}
+
+    \subsubsection{Havnefogeden melder plads optaget}
+
+    \begin{enumerate}
+      \item Medlem ringer til havnefogeden og fortæller om tidlig hjemkomst.
+      \item Havnefogeden indtaster (ny) dato i systemet.
+      \item Systemet returnere enten a eller b
+      \begin{enumerate}
+        \item Dato er accepteret
+        \begin{enumerate}
+          \item En gæst har lejet pladsen for en længere periode.
+          \item Systemet foreslår en ny plads til gæsten.
+          \item Havnefogeden snakker med gæsten.
+        \end{enumerate}
+      \end{enumerate}  
+    \end{enumerate}
+
+
+\subsubsection{Havnefogeden vil gerne se hvilke pladser der er ledige}
+    \begin{enumerate}
+      \item Havnefogeden åbner overbliksfunktionen i programmet.
+      \item Havnefogeden kan nu se på et kort over havnen, hvilke pladser der er ledige.
+    \end{enumerate}
+
+    \subsubsection{Havnefogeden vil gerne se hvilke nye gæster der er ankommet indenfor et tidsrum}
+    \begin{enumerate}
+      \item Havnefogeden klikker på gæster funktionen i programmet.
+      \item En tekstboks med nye gæster kommer frem.
+      \item Havnefogeden vælger i en menu det ønskede tidsrum.
+      \item Havnefogeden trykker find.
+      \item Programmet viser nu en liste over nyankomne gæster fra det specificerede tidsrum.
+    \end{enumerate}
+
+    \subsubsection{Havnefogeden vil gerne se hvilke pladser der endnu ikke er betalt for}
+    \begin{enumerate}
+      \item Havnefogeden åbner gæster funktionen i programmet.
+      \item Havnefogeden åbner ubetalte pladser.
+      \item Programmet præsenterer listen af pladser, der endnu ikke er betalt for. Tiden for hvor lang tid pladsen har været ubetalt vises også.
+    \end{enumerate}
+
+    \subsubsection{Havnefogeden vil gerne se hvornår et medlem vender tilbage til medlemmets plads}
+    \begin{enumerate}
+      \item Havnefogeden åbner medlems funktionen i programmet.
+      \item Havnefogeden skriver i søgefeltet medlemmets navn eller medlemsnummer.
+      \item Programmet præsenterer en liste over funde mathches.
+      \item Havnefogeden vælger det søgte medlem.
+      \item Programmet viser alle kendte detaljer om medlemmet, herunder hvornår medlemmet forventes tilbage.
+    \end{enumerate}
+
+    \subsubsection{Havnefogeden bliver advaret af en fejl ved en stander}
+    \begin{enumerate}
+      \item Uventet fejl opstår ved en stander på havnen, eller personen ved standeren trykker på hjælp.
+      \item Havnefogeden får besked om dette.
+    \end{enumerate}
+
+\subsection{Andre}
+
+    \subsubsection{Automatisk arrangementsforslag}
+
+    \begin{enumerate}
+      \item Antallet af medlemmer i havnen overstiger et bestemt niveau.
+      \item Systemet melder at det ville være en god dag for et arrangement.
+      \item Et medlem af klubben ser denne melding, og foreslår et arrangement.
+    \end{enumerate}
+
+    \subsubsection{Automatisk medlemstjek}
+
+    \begin{enumerate}
+      \item Systemet registrerer uoverensstemmelse med angivet rejseplan.
+      \item Systemet notificerer havnefogeden omkring overensstemmelsen.
+    \end{enumerate}
