@@ -38,6 +38,7 @@
     <Compile Include="classfiles\boatspace.cs" />
     <Compile Include="classfiles\boat.cs" />
     <Compile Include="classfiles\person.cs" />
+    <Compile Include="classfiles\Travel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
