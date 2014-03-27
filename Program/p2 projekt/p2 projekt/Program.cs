@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using p2_projekt.WPF;
+using p2_projekt.models;
 
 namespace p2_projekt
 {
