@@ -1,0 +1,35 @@
+﻿<Window x:Class="p2_projekt.WPF.main"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="main" Height="600" Width="800">
+    <Grid>
+        <TabControl x:Name="tabControler" HorizontalAlignment="Left" Height="560" Margin="0,0,0,0" VerticalAlignment="Top" Width="782">
+            <TabItem Name="Search" Header="søg">
+                <Grid/>
+            </TabItem>
+            <TabItem Name="addMember" Header="Tilføj medlem">
+                <Grid>
+                    <Rectangle Fill="#FFF4F4F5" Stroke="Black" Margin="10,52,543,273"/>
+                    <Label Content="Person Oplysninger" HorizontalAlignment="Left" Margin="10,26,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.697,-0.615"/>
+                    <Label Content="Navn:" HorizontalAlignment="Left" Margin="20,70,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.075,0.346"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="116,70,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="99"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="116,100,0,0" TextWrapping="Wrap" Text="dd-mm-yyyy" VerticalAlignment="Top" Width="99"/>
+                    <Label Content="Fødselsdagstog:" HorizontalAlignment="Left" Margin="20,100,0,0" VerticalAlignment="Top"/>
+                    <Label Content="by:" HorizontalAlignment="Left" Margin="20,130,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.211,-0.038"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="116,130,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="99"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="116,160,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="99"/>
+                    <Label Content="post-nummer:" HorizontalAlignment="Left" Margin="20,160,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.211,-0.038"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="116,190,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="99"/>
+                    <Label Content="adresse:" HorizontalAlignment="Left" Margin="20,190,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.211,-0.038"/>
+                    <Label Content="Medlems-nr:" HorizontalAlignment="Left" Margin="20,220,0,0" VerticalAlignment="Top"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="116,220,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="99"/>
+                    <Rectangle Fill="#FFF4F4F5" Stroke="Black" Margin="336,52,10,0">
+   
+                    </Rectangle>
+                    <Label Content="Både" HorizontalAlignment="Left" Margin="336,26,0,0" VerticalAlignment="Top"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>
