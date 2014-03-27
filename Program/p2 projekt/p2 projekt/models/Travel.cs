@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace p2_projekt.classfiles
+namespace p2_projekt.models
 {
-    class Travel
+    public class Travel
     {
         public DateTime Start { get; set; } 
         public DateTime End { get; set; }

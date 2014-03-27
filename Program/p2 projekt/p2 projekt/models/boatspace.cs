@@ -6,22 +6,30 @@ using System.Threading.Tasks;
 
 namespace p2_projekt.models
 {
-    abstract class Boatspace
+    public abstract class BoatSpace
     {
-        int id;
-        double length;
-        double height;
+
+        public int Id { get; private set; }
+        public double Length { get; private set; }
+        public double Height { get; private set; }
 
         public Boat Boat { get; set; } //TODO get bikonjuktiv shit working
 
+        public BoatSpace(int id, double length, double height)
+        {
+            Id = id;
+            Length = length;
+            Height = height;
+        }
     }
 
-    class Waterspace : Boatspace
+    public class WaterSpace : BoatSpace
     {
-
+        public WaterSpace(int id, double length, double height) : base(id, length, height) {}
     }
 
-    class Landspace : Boatspace
+    public class LandSpace : BoatSpace
     {
+        public LandSpace() : base(0, 0, 0) { } //TODO
     }
 }

@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace p2_projekt.models
 {
-    class Boat
+    public class Boat
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public Boatspace Space { get; set; } //TODO get bikonjuktiv shit working
+        public BoatSpace Space { get; set; } //TODO get bikonjuktiv shit working
         
 
 
