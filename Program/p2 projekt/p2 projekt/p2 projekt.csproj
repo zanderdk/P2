@@ -35,10 +35,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="classfiles\boatspace.cs" />
-    <Compile Include="classfiles\boat.cs" />
-    <Compile Include="classfiles\person.cs" />
-    <Compile Include="classfiles\Travel.cs" />
+    <Compile Include="models\boatspace.cs" />
+    <Compile Include="models\boat.cs" />
+    <Compile Include="models\person.cs" />
+    <Compile Include="models\Travel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

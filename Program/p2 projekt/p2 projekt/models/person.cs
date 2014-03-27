@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Device.Location;
 
-namespace p2_projekt.classfiles
+namespace p2_projekt.models
 {
     class Permissions{
         bool canReadEvent = false;
@@ -41,6 +41,12 @@ namespace p2_projekt.classfiles
         public Member(string name, CivicAddress adress) : base(name)
         {
             // assign membership number
+        }
+
+        public void addNewTravel(DateTime start, DateTime end)
+        {
+            Travel travel = new Travel(start, end);
+            Travels.Add(travel);
         }
     }
     
