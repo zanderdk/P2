@@ -24,7 +24,7 @@ namespace ModelTests
         [TestMethod]
         public void ShouldThrowWhenNotFound()
         {
-            var space = new WaterSpace(404, 4.3, 5.4);
+            var space = new WaterSpace(404404, 4.3, 5.4);
             try
             {
                 var test = BoatDetector.BoatAt(space);
@@ -34,7 +34,6 @@ namespace ModelTests
                 return;
             }
             Assert.Fail("No exception was thrown.");
-
         }
 
 
