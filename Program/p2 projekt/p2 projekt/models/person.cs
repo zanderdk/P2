@@ -40,7 +40,9 @@ namespace p2_projekt.models
         public int MembershipNumber { get; private set; } // backwards compatible with existing numbers from Vestre Baadelaug database.
 
         public List<Travel> Travels { get; private set; } // All travels. Old and new.
-        
+
+        public Member() : base() { }
+
         public Member(string name, CivicAddress adress) : base(name)
         {
             Travels = new List<Travel>();

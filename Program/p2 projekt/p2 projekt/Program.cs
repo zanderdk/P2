@@ -24,16 +24,31 @@ namespace p2_projekt
             har.Permissions.canReadPersonalInfo = true;
             har.Permissions.canWritePersons = true;
 
-            app.Run(new main(har));
+            
 
             //TODO
-            //using (var db = new LobopContext())
-            //{
-            //    //Member alice = new Member("Alice", new System.Device.Location.CivicAddress());
-            //    //alice.Birthday = DateTime.Now;
-            //    //db.Members.Add(alice);
-            //    //db.SaveChanges();
-            //}
+            using (var db = new LobopContext())
+            {
+                Member alice = new Member("Alice", new System.Device.Location.CivicAddress());
+                alice.Birthday = new DateTime(1,1,1);
+                if (db.Members.Find(alice.PersonId) == null) { 
+                    db.Members.Add(alice);
+                }
+
+                var query = from b in db.Members
+                            select b;
+
+                foreach (var item in query)
+                {
+                    Console.WriteLine(item.Name);
+                }
+
+                
+
+                db.SaveChanges();
+            }
+
+            app.Run(new main(har));
         }
 
     }
