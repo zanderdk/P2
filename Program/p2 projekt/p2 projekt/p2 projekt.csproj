@@ -46,6 +46,9 @@
     <Compile Include="models\person.cs" />
     <Compile Include="models\Travel.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="WPF\main.xaml.cs">
+      <DependentUpon>main.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WPF\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
@@ -60,6 +63,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Page Include="WPF\main.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WPF\MainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

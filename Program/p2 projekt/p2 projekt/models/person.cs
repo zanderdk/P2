@@ -23,7 +23,7 @@ namespace p2_projekt.models
 
         public Person()
         {
-
+            
         }
 
         public Person(string name)

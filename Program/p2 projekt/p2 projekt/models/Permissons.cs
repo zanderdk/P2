@@ -8,7 +8,11 @@ namespace p2_projekt.models
 {
     public class Permissions
     {
-        bool canReadEvent = false;
+        public bool canReadPersons;
+        public bool canWritePersons;
+        public bool canWritePersonalInfo;
+        public bool canReadPersonalInfo;
+        public bool canSearchPersons;
         // add more...
     }
 }
