@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="23eb0e98-d564-4d81-a10d-3df293d8de1f"
+  name="System"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="f3b784cf-5272-45fe-ad6e-860618f7c422"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DSystem"
+      tag="ViewCode" />
+  </referencesInternal>
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="3ba25a47-e211-4eec-a26f-082422973ece">
+      <profileInstance
+        Id="36a21c1a-4178-4fb8-909b-5af43ffdbf66"
+        name="CSharpProfile" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="79d96222-b811-42ae-b7d3-9c1a7d22dfe2"
+        name="Double"
+        visibility="Private"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="c07586a7-ebc0-407b-9d91-7795c65ffcda"
+            handle="viewcode://./CodeSchema_Struct?Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DDouble"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="65acc66d-5117-42c5-9851-c34595c58e41"
+            name="struct"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="6ad5edf8-487a-4508-a944-3b797d2063b0">
+                <propertyInstance
+                  Id="e9e9b5f1-3728-4ee7-ada5-2fe5a673ea3c"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="8b63aef3-cd75-460b-b0b7-0846c938816c">
+                <propertyInstance
+                  Id="20fa2905-a200-479d-ac99-0226ba4e301a"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="0bca56a7-4910-4a82-8236-b2ea3ba4bc18">
+                <propertyInstance
+                  Id="d11b3c83-db17-436c-b178-695e48fe6d11"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="59d96626-4471-4301-9830-34cbc08110d9">
+                <propertyInstance
+                  Id="c88bece2-855b-4d9e-b284-bb627174a0df"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="3d7e5fac-7207-447f-b56f-33ca9537c408"
+        LastKnownName="Device"
+        LastKnownLocation="Package3_1450.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="7020a45c-c368-43b8-be6b-982e14693cb6"
+        name="DateTime"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="64738d4a-f850-4855-9945-b70069251372"
+            handle="viewcode://./CodeSchema_Struct?Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DDateTime"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="0ffdba96-ffc7-494d-85c2-00a6a5c0ee79"
+            name="struct"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="d64360da-c2a2-4e4c-a129-9e02fc3cf447">
+                <propertyInstance
+                  Id="295cef2d-4838-4949-ad77-fb6e7a711d8d"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="c76268f0-39be-42e7-a76c-b3bfeee91ca7">
+                <propertyInstance
+                  Id="001b3769-902d-4082-9b99-00dde204f52a"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="15256424-8339-449e-a14e-14a7f96d2119">
+                <propertyInstance
+                  Id="c5ed0699-9677-4b24-851c-ad788b44231d"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="0a2a8e29-c89f-4b50-9bba-1e3d1c91e50c">
+                <propertyInstance
+                  Id="9094475f-7889-4bbe-a4f9-c3ab3c2d25e0"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="f2bbbbcd-37c7-4deb-9ddd-92aff93a6b14"
+        LastKnownName="Collections"
+        LastKnownLocation="Package5_1450.uml" />
+    </packageHasNamedElement>
+  </packagedElements>
+</package>
