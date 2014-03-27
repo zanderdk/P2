@@ -25,6 +25,15 @@ namespace p2_projekt
             har.Permissions.canWritePersons = true;
 
             app.Run(new main(har));
+
+            //TODO
+            //using (var db = new LobopContext())
+            //{
+            //    //Member alice = new Member("Alice", new System.Device.Location.CivicAddress());
+            //    //alice.Birthday = DateTime.Now;
+            //    //db.Members.Add(alice);
+            //    //db.SaveChanges();
+            //}
         }
 
     }

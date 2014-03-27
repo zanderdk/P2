@@ -7,6 +7,7 @@ namespace p2_projekt.models
 {
     public class Travel : IEquatable<Travel>
     {
+        public int TravelId { get; set; }
         public DateTime Start { get; set; } 
         public DateTime End { get; set; }
 

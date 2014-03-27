@@ -4,13 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Device.Location;
+using System.ComponentModel.DataAnnotations;
 
 namespace p2_projekt.models
 {
     
     public abstract class Person
     {
-        private int Id { get; set; }// Unique. Only used internally
+        [Key]
+        public int PersonId { get; set; }// Unique. Only used internally
                 
         public List<Boat> boats; // boats owned
 
@@ -42,6 +44,7 @@ namespace p2_projekt.models
         public Member(string name, CivicAddress adress) : base(name)
         {
             Travels = new List<Travel>();
+            Adress = adress;
             // assign membership number
         }
 
@@ -51,6 +54,17 @@ namespace p2_projekt.models
         {
             Travel travel = new Travel(start, end);
             Travels.Add(travel);
+        }
+
+        public void RemoveTravel(int index)
+        {
+            Travels.RemoveAt(index);
+        }
+
+        public void EditTravel(int index, DateTime newStart, DateTime newEnd)
+        {
+            Travel travel = new Travel(newStart, newEnd);
+            Travels[index] = travel;
         }
     }
     
