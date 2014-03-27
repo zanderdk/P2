@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Device.Location;
+using p2_projekt.classfiles;
 
 namespace p2_projekt.models
 {
@@ -27,6 +28,11 @@ namespace p2_projekt.models
         public Person(string name)
         {
             Name = name;
+        }
+
+        public Person()
+        {
+
         }
 
     }
@@ -53,7 +59,7 @@ namespace p2_projekt.models
     // has no member ID
     class HarbourMaster : Person
     {
-
+        
     }
 
     class Guest : Person

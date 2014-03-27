@@ -10,6 +10,13 @@ namespace p2_projekt.classfiles
         public DateTime Start { get; set; } 
         public DateTime End { get; set; }
 
-        public bool isActive { get; }// must change based on today
+        public bool isActive { get { return true; } }// must change based on today
+
+        public Travel(DateTime start, DateTime end)
+        {
+            // TODO: Complete member initialization
+            this.Start = start;
+            this.End = end;
+        }
     }
 }
