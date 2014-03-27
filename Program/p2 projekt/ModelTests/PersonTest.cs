@@ -10,52 +10,62 @@ namespace ModelTests
     public class PersonTest
     {
 
-        
+        Member member;
+        DateTime startDate;
+        DateTime endDate;
 
-        [TestMethod]
-        public void AddNewTravel()
+        [TestInitialize]
+        public void Setup()
         {
-            Member member = new Member("Alice", new CivicAddress());
-            var start = DateTime.Now;
-            var end = new DateTime(2015, 1, 1);
-
-            member.AddNewTravel(start, end);
-
-            Assert.AreEqual(1, member.Travels.Count);
-
-            var ex = new Travel(start, end);
-            Assert.IsTrue( member.Travels[member.Travels.Count - 1].Equals(ex));
+            member = new Member("Alice", new CivicAddress());
+            startDate = new DateTime(2013, 1, 1);
+            endDate = new DateTime(2015, 1, 1);
         }
 
         [TestMethod]
-        public void RemoveTravel()
+        public void AddNewTravel_Travels_CountIncreasesBy1()
         {
-            Member member = new Member("Alice", new CivicAddress());
-            var start = DateTime.Now;
-            var end = new DateTime(2015, 1, 1);
+            member.AddNewTravel(startDate, endDate);
+            Assert.AreEqual(1, member.Travels.Count);
+        }
 
-            member.AddNewTravel(start, end);
+        [TestMethod]
+        public void AddNewTravel_Travels_CountDecreasesBy1()
+        {
+            member.AddNewTravel(startDate, endDate);
+
+            member.RemoveTravel(0);
+            Assert.AreEqual(0, member.Travels.Count);
+        }
+
+        [TestMethod]
+        public void AddNewTravel_Travels_TravelIsAdded()
+        {
+            member.AddNewTravel(startDate, endDate);
+
+            var expected = new Travel(startDate, endDate);
+            var actual = member.Travels[member.Travels.Count - 1];
+            Assert.IsTrue( actual.Equals(expected));
+        }
+
+        [TestMethod]
+        public void RemoveTravel_Travels_TravelIsRemoved()
+        {
+            member.AddNewTravel(startDate, endDate);
             member.AddNewTravel(new DateTime(2014,3, 27), new DateTime(2014, 3, 31));
 
+            var positionToRemove = 1;
 
-            member.RemoveTravel(1);
-
-            Assert.AreEqual(1, member.Travels.Count);
-            var ex = new Travel(start, end);
-            Assert.IsTrue(member.Travels[member.Travels.Count - 1].Equals(ex));
+            member.RemoveTravel(positionToRemove);
+            var expected = new Travel(startDate, endDate);
+            var actual = member.Travels[member.Travels.Count - 1];
+            Assert.IsTrue(actual.Equals(expected));
         }
 
-
-
         [TestMethod]
-        public void EditTravel()
+        public void EditTravel_Travels_OldTravelIsReplacedWithNew()
         {
-            Member member = new Member("Alice", new CivicAddress());
-
-            var start = DateTime.Now;
-            var end  = new DateTime(2015, 1, 1);
-
-            member.AddNewTravel(start, end);
+            member.AddNewTravel(startDate, endDate);
 
             var newStart = new DateTime(2014,7,7);
             var newEnd = new DateTime(2014, 7, 7);
@@ -64,9 +74,10 @@ namespace ModelTests
 
             member.EditTravel(positionToEdit, newStart, newEnd);
 
-            var newTravel = new Travel(newStart, newEnd);
+            var expected = new Travel(newStart, newEnd);
+            var actual = member.Travels[positionToEdit];
 
-            Assert.IsTrue(member.Travels[positionToEdit].Equals(newTravel));
+            Assert.IsTrue(actual.Equals(expected));
         }
     }
 }

@@ -10,15 +10,24 @@ namespace ModelTests
     public class BoatDetectorTest
     {
         [TestMethod]
-        public void HasBoat()
+        public void HasBoat_NoStateChanged_Empty()
         {
             var space = new WaterSpace(9001, 4.3, 5.4);
             Assert.AreEqual(BoatDetector.BoatStatus.Empty, BoatDetector.BoatAt(space));
-            space = new WaterSpace(9002, 8.7, 3.4);
-            Assert.AreEqual(BoatDetector.BoatStatus.Member, BoatDetector.BoatAt(space));
-            space = new WaterSpace(9003, 10, 5);
-            Assert.AreEqual(BoatDetector.BoatStatus.Guest, BoatDetector.BoatAt(space));
+        }
 
+        [TestMethod]
+        public void HasBoat_NoStateChanged_Member()
+        {
+            var space = new WaterSpace(9002, 8.7, 3.4);
+            Assert.AreEqual(BoatDetector.BoatStatus.Member, BoatDetector.BoatAt(space));
+        }
+
+        [TestMethod]
+        public void HasBoat_NoStateChanged_Guest()
+        {
+            var space = new WaterSpace(9003, 10, 5);
+            Assert.AreEqual(BoatDetector.BoatStatus.Guest, BoatDetector.BoatAt(space));
         }
 
         [TestMethod]
@@ -35,7 +44,5 @@ namespace ModelTests
             }
             Assert.Fail("No exception was thrown.");
         }
-
-
     }
 }
