@@ -54,6 +54,7 @@
     <Compile Include="PersonTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="BoatDetectorTest.cs" />
+    <Compile Include="TravelTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\p2 projekt\p2 projekt.csproj">
