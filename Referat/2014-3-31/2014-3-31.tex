@@ -1,0 +1,63 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\begin{document}
+\title{Referat af vejledermøde}
+\author{SW2-A405a}
+\date{31. marts 2014}
+\maketitle
+\section{Internet of things}
+
+IoT: 2 niveauer. Generelt og \enquote{vores tilfælde}.
+
+Brian: i har 2 paragraffer omkring teknologi i IoT. Det er lige kort nok. Der er meget andet teknologi end RFID.
+Hold anvendelsen lidt adspredt. forslag til titlen \enquote{IoT i bådhavn}.
+Lidt flere augmenter for brug af passive RFID-tags.
+Mulighed for brug af kamera med billedgenkendelses software.
+Stil flere muligheder op, uden nødvendigvis at direkte påpege en bestemt løsning. Hvis man SKAL simulerer en specifik ting, så kan man tage et valg, men det bør ikke være nødvendigt.
+
+Overvej at ende med en opsummering, der nævner hvad vi forventer at have tilgængeligt (chipkort, sensor etc.).
+
+
+\section{Usecases}
+
+Uddyb indledende afsnit om use cases overordnet. Skriv om hvad metoden går ud på. hvilke fordele får man ved at have use cases.
+
+Mangler: system boundary diagram: aktører for programmet.
+
+Brug øverste layout. Detalje-mængde som i øverste. Ændrer ikke på usecases. De virker som dokumentation for udviklingsfasen. Behold use cases i rapport i første omgang, og så kan de eventuelt senere flyttes til et appendix.
+
+Case 1; alternativ 1; omformulér. Alternativ 2; intet behov for inputvalidering, da det er implicit.
+Case 5 og alternativ 5.1: overvej at opdele i 2 funktioner.
+case 6; alternativ 1: chipkort ej tilgængelig -> chipkort bortkommet.
+case:(medlem ringer til havnefogeden): telefon er eksternt for systemet. Alternativ B er forkert formatteret.
+case: automatisk arrangementsforslag: gør triggeren mindre specifik.
+
+ny case: forespørgsel over statistik. (beggrund statisk med: gør beslutninger nemmere for bestyrelsen -> mindre frivilligt arbejde)
+
+
+
+
+\section{Testing}
+
+Fint brug af test. Brian: \enquote{Ser ud til at være lige efter bogen.}
+
+integration- /systemtest: til demonstration -> programmer test-senarier.
+
+
+\section{GUI}
+
+UI ser fint ud.
+
+\section{Database}
+
+Der findes noget database embedded i C#, LINQ. prøv at undersøg indlejring af SQL direkte i koden.
+
+\section{Andet}
+
+Klassediagrammer: brug som en integreret del af udviklingen.
+Søg for at alle forstår tingene, og ikke bare har hørt om det.
+
+
+\end{document}
