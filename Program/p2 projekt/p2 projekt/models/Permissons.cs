@@ -8,7 +8,7 @@ namespace p2_projekt.models
 {
     public class Permissions
     {
-        enum permission { no=0, read=1, write=2 };
-        // add more...
+        public enum permissionTo { nothing=0, read=1, write=2 };
+        public permissionTo member;
     }
 }

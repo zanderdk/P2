@@ -61,6 +61,12 @@
     <Compile Include="WPF\add.xaml.cs">
       <DependentUpon>add.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WPF\ChipRequester.xaml.cs">
+      <DependentUpon>ChipRequester.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WPF\loginscreen.xaml.cs">
+      <DependentUpon>loginscreen.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WPF\main.xaml.cs">
       <DependentUpon>main.xaml</DependentUpon>
     </Compile>
@@ -86,6 +92,14 @@
   <ItemGroup />
   <ItemGroup>
     <Page Include="WPF\add.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WPF\ChipRequester.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WPF\loginscreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -1,0 +1,12 @@
+﻿<Window x:Class="p2_projekt.WPF.ChipRequester"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ChipRequester" Height="300" Width="300">
+    <Grid>
+        <TextBlock HorizontalAlignment="Center" Margin="0,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center"><Run Language="da-dk" Text="Insæt Chipkort"/><Run Language="da-dk"/></TextBlock>
+        <Button Click="Button_Click" Content="Medlemslogin" HorizontalAlignment="Center" Margin="0,120,0,0" VerticalAlignment="Center" Width="auto"/>
+    
+
+
+    </Grid>
+</Window>

@@ -4,13 +4,8 @@
         xmlns:controls="clr-namespace:p2_projekt.WPF"
         Title="main" Height="600" Width="800">
     <Grid>
-            <TabControl x:Name="tabControler" HorizontalAlignment="Left" Height="560" VerticalAlignment="Top" Width="782">
-                <TabItem Name="Search" Header="søg" IsEnabled="False">
-                    <Grid/>
-                </TabItem>
-            <TabItem Name="adder" Header="Tilføj/ændre medlem" IsEnabled="True">
-                <controls:add></controls:add>
-            </TabItem>
+        <TabControl x:Name="tabControler" HorizontalAlignment="Left" Height="560" VerticalAlignment="Top" Width="782">
+
         </TabControl>
 
         </Grid>

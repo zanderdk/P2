@@ -22,8 +22,9 @@ namespace p2_projekt
 
 
             
-
+            /*
             //TODO
+           
             using (var db = new LobopContext())
             {
                 Member alice = new Member("Alice", new System.Device.Location.CivicAddress());
@@ -44,8 +45,8 @@ namespace p2_projekt
 
                 db.SaveChanges();
             }
-
-            app.Run(new main(har));
+            */
+            app.Run(new ChipRequester());
         }
 
     }

@@ -21,10 +21,18 @@ namespace p2_projekt.WPF
     /// </summary>
     public partial class main : Window
     {
-        public main(Person person)
+        public main(Person p)
         {
             InitializeComponent();
 
+        }
+
+        void init(Permissions p)
+        {
+            if(p.member == Permissions.permissionTo.read)
+            {
+
+            }
         }
 
     }
