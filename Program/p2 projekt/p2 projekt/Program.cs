@@ -42,8 +42,7 @@ namespace p2_projekt
                 {
                     Console.WriteLine(item.Name);
                 }
-
-                
+                             
 
                 
             }

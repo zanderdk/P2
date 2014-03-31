@@ -27,8 +27,10 @@ namespace p2_projekt.WPF
             InitializeComponent();
         }
 
-        public void open(Person p)
+        public void fillPerson(Person p)
         {
+            //TODO label hvorvidt person er medlem eller gæst.
+            //TODO tilføj/fjern båd skal ikke være mulig for alle.
             txtName.Content = p.Name;
             person = p;
 

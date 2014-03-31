@@ -10,6 +10,7 @@ namespace p2_projekt.models
     {
         public bool member;
         public bool readOnlyMember;
+        //TODO lav flere tilladelser
         
     }
 }
