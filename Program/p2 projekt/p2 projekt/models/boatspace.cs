@@ -10,6 +10,7 @@ namespace p2_projekt.models
     {
 
         public int Id { get; private set; }
+        public String info { get; set; }
         public double Length { get; private set; }
         public double Height { get; private set; }
 

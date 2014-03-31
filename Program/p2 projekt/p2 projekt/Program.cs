@@ -18,11 +18,8 @@ namespace p2_projekt
 
             HarbourMaster har = new HarbourMaster();
             har.Permissions = new Permissions();
-            har.Permissions.canReadPersonalInfo = true;
-            har.Permissions.canReadPersons = true;
-            har.Permissions.canSearchPersons = false;
-            har.Permissions.canReadPersonalInfo = true;
-            har.Permissions.canWritePersons = true;
+            
+
 
             app.Run(new main(har));
         }

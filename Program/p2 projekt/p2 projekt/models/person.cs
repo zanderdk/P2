@@ -38,6 +38,10 @@ namespace p2_projekt.models
         public int MembershipNumber { get; private set; } // backwards compatible with existing numbers from Vestre Baadelaug database.
 
         public List<Travel> Travels { get; private set; } // All travels. Old and new.
+
+        public Int64 Phone { get; set; }
+
+        public string Email { get; set; }
         
         public Member(string name, CivicAddress adress) : base(name)
         {

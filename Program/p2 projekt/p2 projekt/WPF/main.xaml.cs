@@ -24,17 +24,7 @@ namespace p2_projekt.WPF
         public main(Person person)
         {
             InitializeComponent();
-            if (!person.Permissions.canWritePersons)
-            {
-                TabItem tab = (TabItem)tabControler.Items[1];
-                tab.Visibility = System.Windows.Visibility.Hidden;
-            }
 
-            if (!person.Permissions.canSearchPersons)
-            {
-                TabItem tab = (TabItem)tabControler.Items[0];
-                tab.Visibility = System.Windows.Visibility.Hidden;
-            }
         }
 
     }

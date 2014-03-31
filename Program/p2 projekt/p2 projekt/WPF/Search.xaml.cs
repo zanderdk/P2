@@ -10,17 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Threading;
 
 namespace p2_projekt.WPF
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Search.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Search : UserControl
     {
-        public MainWindow()
+        public Search()
         {
             InitializeComponent();
         }

@@ -8,11 +8,7 @@ namespace p2_projekt.models
 {
     public class Permissions
     {
-        public bool canReadPersons;
-        public bool canWritePersons;
-        public bool canWritePersonalInfo;
-        public bool canReadPersonalInfo;
-        public bool canSearchPersons;
+        enum permission { no=0, read=1, write=2 };
         // add more...
     }
 }
