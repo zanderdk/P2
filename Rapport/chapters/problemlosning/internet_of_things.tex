@@ -1,4 +1,4 @@
-\section{Internet of Things} % (fold)
+\section{Internet of Things og Sensorer til Bådpladser} % (fold)
 \label{sec:internet_of_things}
 
 \enquote{Internet of Things} er en idé om, at alle fysiske genstande skal være unikt identificerbare, sådan at en computer nemt kan administrere disse genstande. \enquote{Tagging}, som identifikationen kaldes, kan udføres ved hjælp af teknologier som Near Field Communication (NFC), stregkoder, QR koder og RFID \cite{iot2013}.
@@ -10,5 +10,12 @@ Lad os antage at alle både er blevet tagget, sådan at de hver har en unik iden
 Sensoren der registrerer hvorvidt der ligger en båd ved en vandlejeplads, kunne være en ultrasonisk sensor. Denne kan ved hjælp af lydbølger detektere tilstedeværelse af et objekt. Den kan dog ikke med stor præcision identificere objektet. I stedet bruges en RFID læser, som kan læse bådens RFID-tag.
 
 En computer forbundet til disse to typer sensorer, kan nu effektivt administrere en kæmpe havn med mange vandlejepladser. Når en ny båd lægger til på en vandlejeplads, vil computeren med det samme vide dette. Computeren kan derudover også kategorisere båden som en medlemsbåd eller som en gæstebåd. Da computeren nu har registreret at vandlejepladsen er optaget, skal den vende et skilt eller tænde for en diode, eller på anden måde ændres pladsens status til optaget.
+
+
+\subsection{Simulering af Sensorer}
+
+I dette projekt arbejdes der udelukkende på software løsningen, og ikke på implementering af hardware. Derfor vil sensorerne som skal registrere bådene i havnen, blot blive simuleret, da deres tekniske opbygning ikke er direkte relevant for implementeringen af software løsningen. 
+De simulerede sensorer kan opfatte tre tilstande. Enten kan den registrere at der ligger en ukendt båd, en kendt båd, eller ingen båd. Den ukendte båd vil være en gæst, og den kendte båd et medlem. Når en sensor opfanger et skift fra én tilstand til en anden, vil den sende et signal til softwareløsningen med info om den nye tilstand.
+Det vurderes, på baggrund at den stigende interesse for \enquote{Internet of Things}, at denne slags sensorer er en del af en realistisk fremtidshorisont. 
 
 \sinote{Internet of things skal beskrives -> passer godt med vores digitalisering. I refleksion eller i perspektivering.}
