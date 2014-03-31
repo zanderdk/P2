@@ -60,11 +60,11 @@ Use cases skal laves så simpel så mulige. Mange andre (hvem?) præsentere use 
 \subsection{Gæster}
 
 
-    \item{\bf{Gæst vil booke en plads}}
+    \item{\bf{Gæst er ankommet til havnen, og vil leje en plads}}
       \begin{enumerate}
-        \item Gæsten vælger den plads han har fundet til sin båd.
+        \item Gæsten vælger i system brugergrænsefladen, den plads han har fundet til sin båd.
         \item Gæsten betaler for pladsen.
-        \item Systemet melder at pladsen er nu optaget.
+        \item Systemet melder at pladsen nu er optaget.
         \item Gæsten får udleveret et chipkort og en kvittering.
         \item Systemet melder til havnefogeden at der er nye ankomne.
       \end{enumerate}
@@ -72,7 +72,9 @@ Use cases skal laves så simpel så mulige. Mange andre (hvem?) præsentere use 
     \paragraph{Alternativ: Gæsten finder ikke selv en plads}
       \begin{enumerate}
         \item Ny gæst melder til systemet, hvor lang tid han vil ligge til.
-        \item Systemet returnerer en liste over pladser som vil passe hans behov. Og fortsætter som før. \frnote{sprog}
+        \item Systemet returnerer en liste over pladser som vil passe hans behov.
+        \item Systemet videresender gæsten til betaling.
+
       \end{enumerate}
 
     \item{\bf{Gæst vil se informationer om plads og betaling}}
@@ -115,10 +117,9 @@ Use cases skal laves så simpel så mulige. Mange andre (hvem?) præsentere use 
       \end{enumerate}
 
 \subsection{Havnefoged}
-    \item{\bf{Havnefogeden registrere medlems hjemkost}
-    \frnote{hvordan lyder det?}
+    \item{\bf{Havnefogeden registrerer et medlemmets hjemkost}}
       \begin{enumerate}
-        \item Medlem meddeler tidlig hjemkomst til havnefogeden. (via telefon, mail eller lignende...)
+        \item Medlem meddeler tidlig hjemkomst til havnefogeden, for eksempel via telefon, mail eller lignende.
         \item Havnefogeden indtaster (ny) dato i systemet.
         \item Systemet returnere at datoen er accepteret
       \end{enumerate}
@@ -129,30 +130,27 @@ Use cases skal laves så simpel så mulige. Mange andre (hvem?) præsentere use 
         \item Havnefogeden snakker med gæsten.
       \end{enumerate}
 
-    \item{\bf{Havnefogeden vil gerne se hvilke pladser der er ledige}
+    \item{\bf{Havnefogeden vil gerne se hvilke pladser der er ledige}}
       \begin{enumerate}
         \item Havnefogeden åbner overbliksfunktionen i programmet.
         \item Havnefogeden kan nu se på et kort over havnen, hvilke pladser der er ledige.
       \end{enumerate}
 
-    % item ud kommeret for at gøre det mindre detaljeret, efter Brians anvisning 
-    \item{\bf{Havnefogeden vil gerne se hvilke nye gæster der er ankommet indenfor et tidsrum}
+    \item{\bf{Havnefogeden vil gerne se hvilke nye gæster der er ankommet indenfor et tidsrum}}
       \begin{enumerate}
         \item Havnefogeden åbner gæster funktionen i programmet.
-        %\item En tekstboks med nye gæster kommer frem.
         \item Havnefogeden vælger det ønskede tidsrum.
-        %\item Havnefogeden trykker find.
         \item Programmet viser nye ankomne gæster fra det specificerede tidsrum.
       \end{enumerate}
 
-    \item{\bf{Havnefogeden vil gerne se hvilke pladser der endnu ikke er betalt for}
+    \item{\bf{Havnefogeden vil gerne se hvilke pladser der endnu ikke er betalt for}}
       \begin{enumerate}
         \item Havnefogeden åbner gæster funktionen i programmet.
         \item Havnefogeden åbner ubetalte pladser.
         \item Programmet præsenterer listen af pladser, der endnu ikke er betalt for. Tiden for hvor lang tid pladsen har været ubetalt vises også.
       \end{enumerate}
 
-    \item{\bf{Havnefogeden vil gerne se hvornår et medlem vender tilbage til medlemmets plads}
+    \item{\bf{Havnefogeden vil gerne se hvornår et medlem vender tilbage til medlemmets plads}}
       \begin{enumerate}
         \item Havnefogeden åbner medlems funktionen i programmet.
         \item Havnefogeden skriver i søgefeltet medlemmets navn eller medlemsnummer.
@@ -161,7 +159,7 @@ Use cases skal laves så simpel så mulige. Mange andre (hvem?) præsentere use 
         \item Programmet viser alle kendte detaljer om medlemmet, herunder hvornår medlemmet forventes tilbage.
       \end{enumerate}
 
-    \item{\bf{Havnefogeden bliver advaret af en fejl ved en stander}
+    \item{\bf{Havnefogeden bliver advaret af en fejl ved en stander}}
       \begin{enumerate}
         \item Uventet fejl opstår ved en stander på havnen, eller personen ved standeren trykker på hjælp.
         \item Havnefogeden får besked om dette.
@@ -169,24 +167,21 @@ Use cases skal laves så simpel så mulige. Mange andre (hvem?) præsentere use 
 
 \subsection{Andre}
 
-    \item{\bf{Automatisk arrangementsforslag}
-    \frnote{Skal for klares lidt bedre. Gør triggeren mindre specifik.}
+    \item{\bf{Automatisk arrangementsforslag}}
       \begin{enumerate}
-        \item Antallet af medlemmer i havnen overstiger et bestemt niveau.
-        \item Systemet melder at det ville være en god dag for et arrangement.
+        \item Systemet melder på baggrund af aktiviteten i havnen, at det ville være en god dag for et arrangement.
         \item Et medlem af klubben ser denne melding, og foreslår et arrangement.
       \end{enumerate}
 
-    \item{\bf{Automatisk medlemstjek}
+    \item{\bf{Automatisk medlemstjek}}
       \begin{enumerate}
         \item Systemet registrerer uoverensstemmelse med angivet rejseplan.
         \item Systemet notificerer havnefogeden omkring overensstemmelsen.
       \end{enumerate}
 
-    \frnote{hmm}
-    \item{\br{Bestyrelsen eller havnefogeden vil se statistik}}
+    \item{\bf{Bestyrelsen eller havnefogeden vil se statistik over aktivitet i havnen}}
       \begin{enumerate}
-        \item Statistik funktioner åbnes og viser de ønskede statistik
+        \item Statistik funktionen åbnes og viser de ønskede statistikker.
       \end{enumerate}
 
   \end{enumerate}
