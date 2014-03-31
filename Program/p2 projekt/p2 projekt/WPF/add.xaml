@@ -18,7 +18,7 @@
                     <StackPanel Orientation="Vertical" Margin="0,0,0,0">
                         <Grid>
                             <Label Name="txtName" Content="Navn:"></Label>
-                            <TextBox Text="" HorizontalAlignment="Right" Width="{StaticResource TextBoxWidht}"></TextBox>
+                            <TextBox IsReadOnly="{DynamicResource readOnly}" Text="" HorizontalAlignment="Right" Width="{StaticResource TextBoxWidht}"></TextBox>
                         </Grid>
                         <Grid>
                             <Label Name="txtBirth" Content="Fødselsdato:" HorizontalAlignment="Left" Width="100"></Label>

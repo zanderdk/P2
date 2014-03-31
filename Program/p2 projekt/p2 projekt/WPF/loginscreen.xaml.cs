@@ -30,8 +30,10 @@ namespace p2_projekt.WPF
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             HarbourMaster har = new HarbourMaster();
-            har.Permissions = new Permissions() { member = Permissions.permissionTo.write };
+            har.Permissions = new Permissions() { member = true, readOnlyMember = false };
             main main = new main(har);// fix shit
+            main.Show();
+            this.Close();
         }
     }
 }

@@ -24,14 +24,17 @@ namespace p2_projekt.WPF
         public main(Person p)
         {
             InitializeComponent();
-
+            init(p.Permissions);
         }
 
         void init(Permissions p)
         {
-            if(p.member == Permissions.permissionTo.read)
+            if(p.member)
             {
-
+                add testtab = new add();
+                testtab.Resources.Add("readOnly", p.readOnlyMember);
+                TabItem tab = new TabItem() { Header = "adder", Content = testtab };
+                this.tabControler.Items.Add(tab);
             }
         }
 
