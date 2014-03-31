@@ -4,9 +4,8 @@
 \subsection{Konceptet}
 \label{sub:iot_koncept}
 
-\sinote{indsæt den anden kilde fr brian}
 
-\enquote{Internet of Things} (IoT) er et paradigme der beskriver, at alle fysiske genstande skal være unikt identificerbare, sådan at en computer nemt kan administrere disse genstande. Derudover handler IoT om at forbinde disse genstande i et netværk. En mere beskrivende definition af IoT ville derfor være \enquote{a world-wide network of interconnected objects uniquely addressable, based on standard communication protocols} \cite{iot_survey_2010}. IoT er ofte beskrevet ud fra forskellige visioner for paradigmet. I \cite{iot_survey_2010}  beskrives tre visioner; \enquote{Things oriented}, \enquote{Internet oriented} og \enquote{Semantic oriented}. Disse visioner er opstået ud fra de forskellige interessenter i IoT. Se \cref{fig:iot_visions}.
+\enquote{Internet of Things} (IoT) er et paradigme der beskriver, at alle fysiske genstande skal være unikt identificerbare, sådan at en computer nemt kan administrere disse genstande. Derudover handler IoT om at forbinde disse genstande i et netværk \cite{kopetz2011real}. En mere beskrivende definition af IoT ville derfor være \enquote{a world-wide network of interconnected objects uniquely addressable, based on standard communication protocols} \cite{iot_survey_2010}. IoT er ofte beskrevet ud fra forskellige visioner for paradigmet. I \cite{iot_survey_2010}  beskrives tre visioner; \enquote{Things oriented}, \enquote{Internet oriented} og \enquote{Semantic oriented}. Disse visioner er opstået ud fra de forskellige interessenter i IoT. Se \cref{fig:iot_visions}.
 
 Den første definition af IoT, \enquote{Things oriented}, stammer fra Auto-ID labs, som er et verdensomspændende netværk af forskere indenfor Radio Frequency IDentification (RFID) og anden sensor teknologi. Målet med IoT er i denne definition at forbedre synligheden og muligheden for at spore genstande. For at opnå dette er Electronic Product Code (EPC) standarden blevet udviklet. Denne standard har til formål at sprede brugen af RFID samt andre teknologier \cite{iot_survey_2010}.
 
@@ -26,7 +25,7 @@ Den sidste vision der beskrives her, \enquote{Semantic oriented}, beskriver hvor
 \subsection{Anvendelse af Internet of Things på Vestre Baadehavn}
 \label{sub:iot_vestre_baadehavn}
 
-Som beskrevet i \cite{sub:iot_koncept}, er der mange muligheder for hvilke sensorer der kan benyttes til at identificere objekter. Dette afsnit vil se på RFID og ultralyds sensorer, samt kameraer med billedgenkendelses software, som er mulige sensorer der kan benyttes på en havn som Vestre Baadehavn.
+Som beskrevet i \cref{sub:iot_koncept}, er der mange muligheder for hvilke sensorer der kan benyttes til at identificere objekter. Dette afsnit vil se på RFID og ultralyds sensorer, samt kameraer med billedgenkendelses software, som er mulige sensorer der kan benyttes på en havn som Vestre Baadehavn.
 
 RFID står for Radio Frequency IDentification, og som navnet antyder kan teknologien identificere objekter ved hjælp af radio frekvenser. Et RFID-tag, er en lille chip der indeholder en antenne, og en lille mængde data. Et objekt med et RFID-tag er nu \enquote{tagget}, og data om objektet kan læses ved hjælp af en RFID læser. Man kategoriserer typisk RFID-tags i passive og aktive. Et aktivt RFID-tag kræver strøm for at blive læst, og er derfor ofte tilsluttet et batteri. Et passivt RFID-tag kræver ingen strøm fra et batteri, men får derimod strømmen fra RFID læseren \cite{want2006rfid}.
 
@@ -40,6 +39,8 @@ En computer forbundet til disse to typer sensorer, kan nu effektivt administrere
 \subsubsection{Opsummering}
 
 I dette projekt arbejdes der udelukkende på en software løsning, og ikke på implementering af hardware. Derfor vil sensorerne som skal registrere bådene i havnen, blot blive simuleret, da deres tekniske opbygning ikke er direkte relevant for implementeringen af software løsningen. 
+
 De simulerede sensorer kan opfatte tre tilstande. Enten kan den registrere at der ligger en ukendt båd, en kendt båd, eller ingen båd. Den ukendte båd vil være en gæst, og den kendte båd et medlem. Når en sensor opfanger et skift fra én tilstand til en anden, vil den sende et signal til softwareløsningen med info om den nye tilstand.
+
 Det vurderes, på baggrund at den stigende interesse for \enquote{Internet of Things}, at denne slags sensorer er en del af en realistisk fremtidshorisont. 
-\sinote{Mere.. }
+\sinote{Mere? }
