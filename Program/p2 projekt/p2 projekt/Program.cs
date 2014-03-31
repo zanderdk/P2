@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Threading;
 using p2_projekt.WPF;
 using p2_projekt.models;
+using System.IO;
 
 namespace p2_projekt
 {
@@ -18,8 +19,9 @@ namespace p2_projekt
 
             HarbourMaster har = new HarbourMaster();
             har.Permissions = new Permissions();
-            
+            string root_path = Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
 
+            AppDomain.CurrentDomain.SetData("DataDirectory", root_path);
 
             
             
@@ -29,10 +31,9 @@ namespace p2_projekt
             {
                 Member alice = new Member("Alice", new System.Device.Location.CivicAddress());
                 alice.Birthday = new DateTime(2013,1,1);
-                //if (db.Members.Find(alice.PersonId) == null) { 
-                //db.Members.Add(alice);
-                //}
-                //db.SaveChanges();
+                alice.PersonId = 4;
+                db.Members.Add(alice);
+                db.SaveChanges();
 
                 var query = from b in db.Members
                             select b;
@@ -47,7 +48,7 @@ namespace p2_projekt
                 
             }
             
-            //app.Run(new ChipRequester());
+            app.Run(new ChipRequester());
         }
 
     }

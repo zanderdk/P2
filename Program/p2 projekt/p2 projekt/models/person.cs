@@ -50,6 +50,7 @@ namespace p2_projekt.models
         public Member(string name, CivicAddress adress) : base(name)
         {
             Travels = new List<Travel>();
+            Name = name;
             Adress = adress;
             // assign membership number
         }
