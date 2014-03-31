@@ -10,6 +10,11 @@ namespace p2_projekt
 {
     class LobopContext : DbContext
     {
+        public LobopContext()
+        {
+            Console.WriteLine(Database.Connection.ConnectionString);
+        }
+
         public DbSet<Member> Members { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

@@ -22,16 +22,17 @@ namespace p2_projekt
 
 
             
-            /*
+            
             //TODO
            
             using (var db = new LobopContext())
             {
                 Member alice = new Member("Alice", new System.Device.Location.CivicAddress());
-                alice.Birthday = new DateTime(1,1,1);
-                if (db.Members.Find(alice.PersonId) == null) { 
+                alice.Birthday = new DateTime(2013,1,1);
+                //if (db.Members.Find(alice.PersonId) == null) { 
                     db.Members.Add(alice);
-                }
+                //}
+                    db.SaveChanges();
 
                 var query = from b in db.Members
                             select b;
@@ -43,10 +44,10 @@ namespace p2_projekt
 
                 
 
-                db.SaveChanges();
+                
             }
-            */
-            app.Run(new ChipRequester());
+            
+            //app.Run(new ChipRequester());
         }
 
     }
