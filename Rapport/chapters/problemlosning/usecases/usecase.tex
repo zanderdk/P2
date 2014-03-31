@@ -1,14 +1,19 @@
 %!TEX root = ../../Master.tex
 \section{Use Cases}
 
-Udviklingen af løsningen er sket på baggrund at de forudgående analyser, samt mange diskussioner og overvejelser omkring mulige vinkler hvorpå problemet kan gribes an. For at sikre en praktisk vinkel på løsningen, samt at udpensle sandsynlige arbejdsmønstre i den tiltænkte løsning, er der blevet lavet use cases. De efterfølgende use cases er lavet efter kapitel 17 i \enquote{Agile Principles, Patterns, and Practices in C\#} \cite{martin2006agile}. Bogen argumenterer for simplicitet i use cases, et princip som deles i dette projekt. Use cases i denne rapport, tager udgangspunkt i en problemfrit brug af en funktion. Dertil skrives der alternativer til sandsynlige afvigelser fra den problemfrie brug. Use cases er inddelt i fire kategorier, alt efter hvorvidt den pågældende use case tager udgangspunkt fra enten et medlem, en gæst, havnefogeden eller en fjerde. Når der skrives at \enquote{systemet melder}, i sammenhæng med en plads, hentydes der til den visuelle repræsentation af pladsens tilgængelighed, \cref{sub:gaster_havnefogeden}.
+Udviklingen af løsningen er sket på baggrund at de forudgående analyser, samt mange diskussioner og overvejelser omkring mulige vinkler hvorpå problemet kan gribes an. Som en del af prosessen lavede vi use cases. Det gøres for at udpensle sandsynlige arbejdsmønstre i den tiltænkte løsning og for at alle er enige.
+
+Der er mange forskellige tilgange til use cases, men de tager udgangspunkt i det samme princip \frnote{Citation needed}. I denne rapport er use cases lavet efter kapitel 17 i \enquote{Agile Principles, Patterns, and Practices in C\#} \cite{martin2006agile}. Her følger en beskrivelse af use cases som præsenteret i \cite{martin2006agile}.
+
+Use cases skal laves så simpel så mulige. Mange andre (hvem?) præsentere use cases som noget kompliceret med preconditions, actors og secondary actors. Men han mener at det gælder om at holde use cases simpel. Hovde kernen i use cases er at få dem skrevet, detaljerne er ikke vigtige. Ved at gøre det simpelt sikre man at man ikke bruger tid på at diskutere ting der ikke er vigtige. !!  Use cases i denne rapport, tager udgangspunkt i en problemfrit brug af en funktion. Dertil skrives der alternativer til sandsynlige afvigelser fra den problemfrie brug. Use cases er inddelt i fire kategorier, alt efter hvorvidt den pågældende use case tager udgangspunkt fra enten et medlem, en gæst, havnefogeden eller en fjerde. Når der skrives at \enquote{systemet melder}, i sammenhæng med en plads, hentydes der til den visuelle repræsentation af pladsens tilgængelighed, \cref{sub:gaster_havnefogeden}.
+\frnote{skal læses igennem, og der skal mere tekst}
 
 \subsection{Medlemmer}  
   \begin{enumerate}
 
     \item{\bf{Medlem forlader sin plads i mere end 24 timer}}
       \begin{enumerate}
-        \item Medlemmet melder til systemet tidspunkt for afrejse og hjemkomst.
+        \item Medlemmet melder til systemet et gyldigt tidspunkt for afrejse og hjemkomst.
         \item Systemet melder til medlemmet at rejsen er registreret.
         \item Systemet venter til efter tidspunktet for afrejse.
         \item Når pladsen tømmes, melder systemet at pladsen er fri.
@@ -16,14 +21,15 @@ Udviklingen af løsningen er sket på baggrund at de forudgående analyser, samt
 
     \paragraph{Alternativ: medlem melder ikke afrejse til systemet}
       \begin{enumerate}
-        \item Systemet underretter havnefogeden om manglende medlem i 24 timer.
+        \item Systemet underretter havnefogeden om at en medlemsbåd har været væk fra havnen i mere end 24 timer.
       \end{enumerate}
 
-    \paragraph{Alternativ: rejsens dato er ikke gyldig}
-      \begin{enumerate}
-        \item Systemet melder at indtastet dato ikke er gyldig.
-        \item Systemet anmoder om nyt tidspunkt.
-      \end{enumerate}
+    % Brian mener at vi skal Undgå simpel input validering i use case
+    %\paragraph{Alternativ: rejsens dato er ikke gyldig}
+    %  \begin{enumerate}
+    %    \item Systemet melder at indtastet dato ikke er gyldig.
+    %    \item Systemet anmoder om nyt tidspunkt.
+    %  \end{enumerate}
 
     \paragraph{Alternativ: medlem afrejser ikke på meldte tidspunkt}
       \begin{enumerate}
@@ -54,22 +60,20 @@ Udviklingen af løsningen er sket på baggrund at de forudgående analyser, samt
 \subsection{Gæster}
 
 
-    \item{\bf{Gæst vil finde en plads}}
+    \item{\bf{Gæst vil booke en plads}}
       \begin{enumerate}
-        \item Ny gæst melder til systemet, hvor lang tid han vil ligge til.
-        \item Systemet returnerer en liste over pladser som vil passe hans behov.
-        \item Gæsten vælger en plads som passer til hans båd.
+        \item Gæsten vælger den plads han har fundet til sin båd.
         \item Gæsten betaler for pladsen.
         \item Systemet melder at pladsen er nu optaget.
-        \item Gæsten for udleveret et chipkort og en kvittering.
+        \item Gæsten får udleveret et chipkort og en kvittering.
         \item Systemet melder til havnefogeden at der er nye ankomne.
       \end{enumerate}
 
-    \paragraph{Alternativ: Gæsten finder selv en plads}
+    \paragraph{Alternativ: Gæsten finder ikke selv en plads}
       \begin{enumerate}
-        \item Systemet springer de første to skridt over.
+        \item Ny gæst melder til systemet, hvor lang tid han vil ligge til.
+        \item Systemet returnerer en liste over pladser som vil passe hans behov. Og fortsætter som før. \frnote{sprog}
       \end{enumerate}
-
 
     \item{\bf{Gæst vil se informationer om plads og betaling}}
       \begin{enumerate}
@@ -77,9 +81,9 @@ Udviklingen af løsningen er sket på baggrund at de forudgående analyser, samt
         \item Systemet viser informationer vedrørende gæsten.
       \end{enumerate}
 
-    \paragraph{Alternativ: Chipkort er ikke tilgængeligt}
+    \paragraph{Alternativ: Chipkort er bortkommet}
       \begin{enumerate}
-        \item Gæster melder til systemet at chipkort ikke er tilgængeligt
+        \item Gæster melder til systemet at chipkort er bortkommet.
         \item Systemet henviser gæsten til havnefogeden.
       \end{enumerate}
 
@@ -90,7 +94,7 @@ Udviklingen af løsningen er sket på baggrund at de forudgående analyser, samt
         \item Gæst får returneret berettiget kapital.
       \end{enumerate}
 
-    \paragraph{Alternativ: Gæst forlader ikke havnen senest på anmeldte afrejse tidspunkt}
+    \paragraph{Alternativ: Gæst bliver liggende i havnen efter det anmeldte afrejse tidspunkt}
       \begin{enumerate}
         \item Systemet melder uoverensstemmelsen til havnefogeden.
         \item Chipkortet deaktiveres.
@@ -110,84 +114,79 @@ Udviklingen af løsningen er sket på baggrund at de forudgående analyser, samt
         \item Systemet melder at datoerne overlapper, og foreslår ny plads.
       \end{enumerate}
 
-  \end{enumerate}
-
-
-%GAMMELT FORMAT HERUNDER
-
 \subsection{Havnefoged}
-
-    \subsubsection{Havnefogeden melder medlems hjemkost}
-
-    \begin{enumerate}
-      \item Medlem ringer til havnefogeden og melder tidlig hjemkomst.
-      \item Havnefogeden indtaster (ny) dato i systemet.
-      \item Systemet returnere enten a eller b
+    \item{\bf{Havnefogeden registrere medlems hjemkost}
+    \frnote{hvordan lyder det?}
       \begin{enumerate}
-        \item Dato er accepteret
+        \item Medlem meddeler tidlig hjemkomst til havnefogeden. (via telefon, mail eller lignende...)
+        \item Havnefogeden indtaster (ny) dato i systemet.
+        \item Systemet returnere at datoen er accepteret
       \end{enumerate}
+  
+    \paragraph{Alternativ: En gæst har lejet pladsen for en længere periode.}
       \begin{enumerate}
-        \item En gæst har lejet pladsen for en længere periode.
         \item Systemet foreslår en ny plads til gæsten.
         \item Havnefogeden snakker med gæsten.
-        \end{enumerate}
       \end{enumerate}
-    
 
+    \item{\bf{Havnefogeden vil gerne se hvilke pladser der er ledige}
+      \begin{enumerate}
+        \item Havnefogeden åbner overbliksfunktionen i programmet.
+        \item Havnefogeden kan nu se på et kort over havnen, hvilke pladser der er ledige.
+      \end{enumerate}
 
-\subsubsection{Havnefogeden vil gerne se hvilke pladser der er ledige}
-    \begin{enumerate}
-      \item Havnefogeden åbner overbliksfunktionen i programmet.
-      \item Havnefogeden kan nu se på et kort over havnen, hvilke pladser der er ledige.
-    \end{enumerate}
+    % item ud kommeret for at gøre det mindre detaljeret, efter Brians anvisning 
+    \item{\bf{Havnefogeden vil gerne se hvilke nye gæster der er ankommet indenfor et tidsrum}
+      \begin{enumerate}
+        \item Havnefogeden åbner gæster funktionen i programmet.
+        %\item En tekstboks med nye gæster kommer frem.
+        \item Havnefogeden vælger det ønskede tidsrum.
+        %\item Havnefogeden trykker find.
+        \item Programmet viser nye ankomne gæster fra det specificerede tidsrum.
+      \end{enumerate}
 
-    \subsubsection{Havnefogeden vil gerne se hvilke nye gæster der er ankommet indenfor et tidsrum}
-    \begin{enumerate}
-      \item Havnefogeden klikker på gæster funktionen i programmet.
-      \item En tekstboks med nye gæster kommer frem.
-      \item Havnefogeden vælger i en menu det ønskede tidsrum.
-      \item Havnefogeden trykker find.
-      \item Programmet viser nu en liste over nye ankomne gæster fra det specificerede tidsrum.
-    \end{enumerate}
+    \item{\bf{Havnefogeden vil gerne se hvilke pladser der endnu ikke er betalt for}
+      \begin{enumerate}
+        \item Havnefogeden åbner gæster funktionen i programmet.
+        \item Havnefogeden åbner ubetalte pladser.
+        \item Programmet præsenterer listen af pladser, der endnu ikke er betalt for. Tiden for hvor lang tid pladsen har været ubetalt vises også.
+      \end{enumerate}
 
-    \subsubsection{Havnefogeden vil gerne se hvilke pladser der endnu ikke er betalt for}
-    \begin{enumerate}
-      \item Havnefogeden åbner gæster funktionen i programmet.
-      \item Havnefogeden åbner ubetalte pladser.
-      \item Programmet præsenterer listen af pladser, der endnu ikke er betalt for. Tiden for hvor lang tid pladsen har været ubetalt vises også.
-    \end{enumerate}
+    \item{\bf{Havnefogeden vil gerne se hvornår et medlem vender tilbage til medlemmets plads}
+      \begin{enumerate}
+        \item Havnefogeden åbner medlems funktionen i programmet.
+        \item Havnefogeden skriver i søgefeltet medlemmets navn eller medlemsnummer.
+        \item Programmet præsenterer en liste over matchende medlemmer.
+        \item Havnefogeden vælger det søgte medlem.
+        \item Programmet viser alle kendte detaljer om medlemmet, herunder hvornår medlemmet forventes tilbage.
+      \end{enumerate}
 
-    \subsubsection{Havnefogeden vil gerne se hvornår et medlem vender tilbage til medlemmets plads}
-    \begin{enumerate}
-      \item Havnefogeden åbner medlems funktionen i programmet.
-      \item Havnefogeden skriver i søgefeltet medlemmets navn eller medlemsnummer.
-      \item Programmet præsenterer en liste over matchende medlemmer.
-      \item Havnefogeden vælger det søgte medlem.
-      \item Programmet viser alle kendte detaljer om medlemmet, herunder hvornår medlemmet forventes tilbage.
-    \end{enumerate}
-
-    \subsubsection{Havnefogeden bliver advaret af en fejl ved en stander}
-    \begin{enumerate}
-      \item Uventet fejl opstår ved en stander på havnen, eller personen ved standeren trykker på hjælp.
-      \item Havnefogeden får besked om dette.
-    \end{enumerate}
+    \item{\bf{Havnefogeden bliver advaret af en fejl ved en stander}
+      \begin{enumerate}
+        \item Uventet fejl opstår ved en stander på havnen, eller personen ved standeren trykker på hjælp.
+        \item Havnefogeden får besked om dette.
+      \end{enumerate}
 
 \subsection{Andre}
 
-    \subsubsection{Automatisk arrangementsforslag}
+    \item{\bf{Automatisk arrangementsforslag}
+    \frnote{Skal for klares lidt bedre. Gør triggeren mindre specifik.}
+      \begin{enumerate}
+        \item Antallet af medlemmer i havnen overstiger et bestemt niveau.
+        \item Systemet melder at det ville være en god dag for et arrangement.
+        \item Et medlem af klubben ser denne melding, og foreslår et arrangement.
+      \end{enumerate}
 
-    \begin{enumerate}
-      \item Antallet af medlemmer i havnen overstiger et bestemt niveau.
-      \item Systemet melder at det ville være en god dag for et arrangement.
-      \item Et medlem af klubben ser denne melding, og foreslår et arrangement.
-    \end{enumerate}
+    \item{\bf{Automatisk medlemstjek}
+      \begin{enumerate}
+        \item Systemet registrerer uoverensstemmelse med angivet rejseplan.
+        \item Systemet notificerer havnefogeden omkring overensstemmelsen.
+      \end{enumerate}
 
-    \subsubsection{Automatisk medlemstjek}
+    \frnote{hmm}
+    \item{\br{Bestyrelsen eller havnefogeden vil se statistik}}
+      \begin{enumerate}
+        \item Statistik funktioner åbnes og viser de ønskede statistik
+      \end{enumerate}
 
-    \begin{enumerate}
-      \item Systemet registrerer uoverensstemmelse med angivet rejseplan.
-      \item Systemet notificerer havnefogeden omkring overensstemmelsen.
-    \end{enumerate}
-
-
-\kanote{mangler rettelser på baggrund af kommende kritik fra Brian}
+  \end{enumerate}
