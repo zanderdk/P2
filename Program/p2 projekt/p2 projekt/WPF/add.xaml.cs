@@ -49,7 +49,7 @@ namespace p2_projekt.WPF
             txtBoatName.Text = b.Name;
             txtBoatOwner.Text = b.Owner.Name;
             txtBoatLenght.Text = b.Lenght.ToString();
-            txtBoatWidht.Text = b.Width.ToString();
+            txtBoatWidth.Text = b.Width.ToString();
             if(b.Space != null)
             {   txtBoatSpaceId.Text = b.Space.Id.ToString();
                 txtBoatSpaceString.Text = b.Space.info; 

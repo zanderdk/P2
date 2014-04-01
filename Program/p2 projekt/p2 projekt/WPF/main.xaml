@@ -4,9 +4,7 @@
         xmlns:controls="clr-namespace:p2_projekt.WPF"
         Title="main" Height="600" Width="800">
     <Grid>
-        <TabControl x:Name="tabControler" HorizontalAlignment="Left" Height="560" VerticalAlignment="Top" Width="782">
+        <TabControl x:Name="tabControler" Margin="0,0,0,0"/>
 
-        </TabControl>
-
-        </Grid>
+    </Grid>
 </Window>
