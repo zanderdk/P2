@@ -45,6 +45,5 @@
                 </StackPanel>
             </Border>
         </DockPanel>
-
     </Grid>
 </Window>

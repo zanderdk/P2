@@ -2,9 +2,16 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:controls="clr-namespace:p2_projekt.WPF"
+
         Title="main" Height="600" Width="800">
     <Grid>
-        <TabControl x:Name="tabControler" Margin="0,0,0,0"/>
-
+        <TabControl x:Name="tabControler" Margin="0,0,0,0">
+            <TabItem Header="dgfdfg">
+                <controls:Settings>
+                    <controls:InfolineController Title="text" Text="some text"></controls:InfolineController>
+                    <controls:InfolineController Title="text" Text="some text"></controls:InfolineController>
+                </controls:Settings>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>
