@@ -33,10 +33,10 @@ namespace p2_projekt.WPF
         {
             if(p.member)
             {
-                add testtab = new add(per);
-                testtab.Resources.Add("readOnly", p.readOnlyMember);
-                TabItem tab = new TabItem() { Header = "adder", Content = testtab };
-                this.tabControler.Items.Add(tab);
+                //add testtab = new add(per);
+                //testtab.Resources.Add("readOnly", p.readOnlyMember);
+                //TabItem tab = new TabItem() { Header = "adder", Content = testtab };
+                //this.tabControler.Items.Add(tab);
             }
         }
 

@@ -73,11 +73,14 @@
     <Compile Include="models\person.cs" />
     <Compile Include="models\Travel.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="WPF\add.xaml.cs">
-      <DependentUpon>add.xaml</DependentUpon>
-    </Compile>
     <Compile Include="WPF\ChipRequester.xaml.cs">
       <DependentUpon>ChipRequester.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WPF\EventCalendar.xaml.cs">
+      <DependentUpon>EventCalendar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WPF\InfolineController.xaml.cs">
+      <DependentUpon>InfolineController.xaml</DependentUpon>
     </Compile>
     <Compile Include="WPF\loginscreen.xaml.cs">
       <DependentUpon>loginscreen.xaml</DependentUpon>
@@ -85,8 +88,14 @@
     <Compile Include="WPF\main.xaml.cs">
       <DependentUpon>main.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WPF\MemberInfo.xaml.cs">
+      <DependentUpon>MemberInfo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WPF\Search.xaml.cs">
       <DependentUpon>Search.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WPF\Travels.xaml.cs">
+      <DependentUpon>Travels.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -107,11 +116,15 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="WPF\add.xaml">
+    <Page Include="WPF\ChipRequester.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="WPF\ChipRequester.xaml">
+    <Page Include="WPF\EventCalendar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WPF\InfolineController.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -123,7 +136,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="WPF\MemberInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WPF\Search.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WPF\Travels.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -2,10 +2,10 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:System="clr-namespace:System;assembly=mscorlib"
-        xmlns:test="clr-namespace:p2_projekt.WPF"
+        xmlns:controllers="clr-namespace:p2_projekt.WPF"
         Title="loginscreen" Height="150" Width="350">
     <Window.Resources>
-        <GridLength x:Key="labelWidth">75</GridLength>
+        <GridLength x:Key="labelWidth">110</GridLength>
         <GridLength x:Key="textboxWidth">*</GridLength>
         <GridLength x:Key="outerStaticMargin">10</GridLength>
     </Window.Resources>
@@ -24,7 +24,7 @@
                             <ColumnDefinition Width="{StaticResource labelWidth}"/>
                             <ColumnDefinition Width="{StaticResource textboxWidth}"/>
                         </Grid.ColumnDefinitions>
-                        <Label Content="Medlemsnr:" Grid.Column="0"></Label>
+                        <Label Content="Medlemsnummer:" Grid.Column="0"></Label>
                         <TextBox Name="membernr" Grid.Column="1"></TextBox>
                     </Grid>
                     <Grid>
@@ -33,7 +33,7 @@
                             <ColumnDefinition Width="{StaticResource textboxWidth}"/>
                         </Grid.ColumnDefinitions>
                         <Label Content="Password:" Grid.Column="0"></Label>
-                        <TextBox Name="password" Grid.Column="1"></TextBox>
+                        <PasswordBox Name="password" Grid.Column="1"></PasswordBox>
                     </Grid>
                     <Grid>
                         <Grid.ColumnDefinitions>
