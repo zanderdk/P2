@@ -20,6 +20,11 @@ namespace p2_projekt.models
             this.End = end;
         }
 
+        public override int GetHashCode()
+        {
+            return TravelId.GetHashCode() ^ Start.GetHashCode() ^ End.GetHashCode();
+        }
+        
         public bool Equals(Travel other)
         {
             if (this.Start.CompareTo(other.Start) == 0 && this.End.CompareTo(other.End) == 0) return true;

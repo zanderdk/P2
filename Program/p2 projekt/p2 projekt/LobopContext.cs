@@ -16,6 +16,7 @@ namespace p2_projekt
         }
 
         public DbSet<Member> Members { get; set; }
+        public DbSet<Guest> Guests { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -23,6 +24,12 @@ namespace p2_projekt
             {
                 m.MapInheritedProperties();
                 m.ToTable("Members");
+            });
+
+            modelBuilder.Entity<Guest>().Map(g =>
+            {
+                g.MapInheritedProperties();
+                g.ToTable("Guests");
             });
         }
     }

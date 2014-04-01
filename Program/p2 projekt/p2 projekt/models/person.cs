@@ -13,13 +13,9 @@ namespace p2_projekt.models
     {
         [Key]
         public int PersonId { get; set; }// Unique. Only used internally
-                
+        public Int64 Phone { get; set; }
         public List<Boat> boats; // boats owned
-
         public string Name { get; set; }
-        public DateTime Birthday { get; set; }
-        public CivicAddress Adress { get; set; }
-        public bool IsActive { get; set; } // Still active in club
 
         public Permissions Permissions; // must be initialized with no access at all. E.g = new Permissions().LowestAccess;
 
@@ -38,12 +34,11 @@ namespace p2_projekt.models
     public class Member : Person
     {
         public int MembershipNumber { get; private set; } // backwards compatible with existing numbers from Vestre Baadelaug database.
-
         public List<Travel> Travels { get; private set; } // All travels. Old and new.
-
-        public Int64 Phone { get; set; }
-
+        public bool IsActive { get; set; } // Still active in club
         public string Email { get; set; }
+        public CivicAddress Adress { get; set; }
+        public DateTime Birthday { get; set; }
         
         public Member() : base() { }
 
@@ -83,6 +78,8 @@ namespace p2_projekt.models
 
     public class Guest : Person
     {
-
+        public string Country { get; set; }
+        public bool hasPaid { get; set; }
+        public int MyProperty { get; set; }
     }
 }
