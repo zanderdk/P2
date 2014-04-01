@@ -29,11 +29,18 @@ namespace p2_projekt.WPF
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            HarbourMaster har = new HarbourMaster();
-            har.Permissions = new Permissions() { member = true, readOnlyMember = true };
+            HarbourMaster har = new HarbourMaster() { Name="per" };
+            har.Birthday = new DateTime(1967, 12, 24, 10, 0, 1, 12);
+            har.Adress = new System.Device.Location.CivicAddress() { AddressLine1 = "nørebro 3", City = "Aalborg", PostalCode = "9700" };
+            har.Permissions = new Permissions() { member = true, readOnlyMember = false };
+            WaterSpace space = new WaterSpace(0, 10, 10);
+            har.boats.Add(new Boat() { Name="test", Id=0, Owner=har, Lenght=10, registrationNumber="fdgdsfg", Width=10, Space=space });
+            
+
             main main = new main(har);// fix shit
             main.Show();
             this.Close();
         }
     }
+
 }

@@ -21,8 +21,10 @@ namespace p2_projekt.WPF
     /// </summary>
     public partial class main : Window
     {
+        Person per;
         public main(Person p)
         {
+            per = p;
             InitializeComponent();
             init(p.Permissions);
         }
@@ -31,7 +33,7 @@ namespace p2_projekt.WPF
         {
             if(p.member)
             {
-                add testtab = new add();
+                add testtab = new add(per);
                 testtab.Resources.Add("readOnly", p.readOnlyMember);
                 TabItem tab = new TabItem() { Header = "adder", Content = testtab };
                 this.tabControler.Items.Add(tab);

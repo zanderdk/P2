@@ -17,78 +17,78 @@
                 <Border CornerRadius="1" BorderBrush="Gray" Background="LightGray" BorderThickness="2" DockPanel.Dock="Top">
                     <StackPanel Orientation="Vertical" Margin="0,0,0,0">
                         <Grid>
-                            <Label Name="txtName" Content="Navn:"></Label>
-                            <TextBox IsReadOnly="{DynamicResource readOnly}" Text="" HorizontalAlignment="Right" Width="{StaticResource TextBoxWidht}"></TextBox>
+                            <Label Content="Navn:"></Label>
+                            <TextBox Name="txtName" IsReadOnly="{DynamicResource readOnly}" Text="" HorizontalAlignment="Right" Width="{StaticResource TextBoxWidht}"></TextBox>
                         </Grid>
                         <Grid>
-                            <Label Name="txtBirth" Content="Fødselsdato:" HorizontalAlignment="Left" Width="100"></Label>
-                            <TextBox IsReadOnly="{DynamicResource readOnly}" Text="" HorizontalAlignment="Right" Width="{StaticResource TextBoxWidht}"></TextBox>
+                            <Label Content="Fødselsdato:" HorizontalAlignment="Left" Width="100"></Label>
+                            <TextBox Name="txtBirth" IsReadOnly="{DynamicResource readOnly}" Text="" HorizontalAlignment="Right" Width="{StaticResource TextBoxWidht}"></TextBox>
                         </Grid>
                         <Grid>
-                            <Label Name="txtCity" Content="By:"></Label>
-                            <TextBox IsReadOnly="{DynamicResource readOnly}" Text="" HorizontalAlignment="Right" Width="{StaticResource TextBoxWidht}"></TextBox>
+                            <Label Content="By:"></Label>
+                            <TextBox Name="txtCity" IsReadOnly="{DynamicResource readOnly}" Text="" HorizontalAlignment="Right" Width="{StaticResource TextBoxWidht}"></TextBox>
                         </Grid>
                         <Grid>
-                            <Label Name="txtPostalCode" Content="Post nummer:"></Label>
-                            <TextBox IsReadOnly="{DynamicResource readOnly}" Text="" HorizontalAlignment="Right" Width="{StaticResource TextBoxWidht}"></TextBox>
+                            <Label Content="Post nummer:"></Label>
+                            <TextBox Name="txtPostalCode" IsReadOnly="{DynamicResource readOnly}" Text="" HorizontalAlignment="Right" Width="{StaticResource TextBoxWidht}"></TextBox>
                         </Grid>
                         <Grid>
-                            <Label Name="txtAddress" Content="Adresse"></Label>
-                            <TextBox IsReadOnly="{DynamicResource readOnly}" Text="" HorizontalAlignment="Right" Width="{StaticResource TextBoxWidht}"></TextBox>
+                            <Label Content="Adresse"></Label>
+                            <TextBox Name="txtAddress" IsReadOnly="{DynamicResource readOnly}" Text="" HorizontalAlignment="Right" Width="{StaticResource TextBoxWidht}"></TextBox>
                         </Grid>
                         <Grid>
-                            <Label Name="txtPhone" Content="Telefon Nummer"></Label>
-                            <TextBox IsReadOnly="{DynamicResource readOnly}" Text="" HorizontalAlignment="Right" Width="{StaticResource TextBoxWidht}"></TextBox>
+                            <Label Content="Telefon Nummer"></Label>
+                            <TextBox Name="txtPhone" IsReadOnly="{DynamicResource readOnly}" Text="" HorizontalAlignment="Right" Width="{StaticResource TextBoxWidht}"></TextBox>
                         </Grid>
                         <Grid>
-                            <Label Name="txtEmail" Content="Email"></Label>
-                            <TextBox IsReadOnly="{DynamicResource readOnly}" Text="" HorizontalAlignment="Right" Width="{StaticResource TextBoxWidht}"></TextBox>
+                            <Label Content="Email"></Label>
+                            <TextBox Name="txtEmail" IsReadOnly="{DynamicResource readOnly}" Text="" HorizontalAlignment="Right" Width="{StaticResource TextBoxWidht}"></TextBox>
                         </Grid>
                         <Grid>
-                            <Label Name="txtMemberNr" Content="Medlems Nummer"></Label>
-                            <TextBox IsReadOnly="{DynamicResource readOnly}" Text="" HorizontalAlignment="Right" Width="{StaticResource TextBoxWidht}"></TextBox>
+                            <Label Content="Medlems Nummer"></Label>
+                            <TextBox Name="txtMemberNr" IsReadOnly="{DynamicResource readOnly}" Text="" HorizontalAlignment="Right" Width="{StaticResource TextBoxWidht}"></TextBox>
                         </Grid>
                     </StackPanel>
                 </Border>
                 <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" Height="25" />
             </DockPanel>
-            <Button Content="Gem person" Margin="10,487,634,10"/>
+        <Button Content="Gem person" IsEnabled="{DynamicResource readOnly}" Margin="10,487,634,10" Click="Button_Click"/>
             <DockPanel HorizontalAlignment="Left" Height="462" Margin="400,56,0,0" VerticalAlignment="Top" Width="361" Grid.ColumnSpan="2">
                 <Border CornerRadius="1" BorderBrush="Gray" Background="#FFF4F4F5" BorderThickness="2" DockPanel.Dock="Top">
                     <Grid>
-                        <ListBox Name="listBoats" Margin="10,10,10,300"></ListBox>
+                        <ListBox Name="listBoats" SelectionMode="Single" Margin="10,10,10,300" SelectionChanged="listBoats_SelectionChanged" AlternationCount="-9"></ListBox>
                         <Button Content="Fjern båd" HorizontalAlignment="Left" Margin="10,163,0,0" VerticalAlignment="Top" Width="75"/>
                         <Button Content="Tilføj båd" HorizontalAlignment="Left" Margin="90,163,0,0" VerticalAlignment="Top" Width="75"/>
                         <DockPanel Margin="0,192,0,0" VerticalAlignment="Top" >
                             <Border CornerRadius="1" BorderBrush="Gray" Background="LightGray" BorderThickness="2" DockPanel.Dock="Top">
                                 <StackPanel Orientation="Vertical" Margin="0,0,0,0">
                                     <Grid>
-                                        <Label Name="txtBoatName" Content="BådNavn:"></Label>
-                                        <TextBox IsReadOnly="{DynamicResource readOnly}" Text="" HorizontalAlignment="Right" Width="{StaticResource TextBoxWidht}"></TextBox>
+                                        <Label Content="BådNavn:"></Label>
+                                        <TextBox Name="txtBoatName" IsReadOnly="{DynamicResource readOnly}" Text="" HorizontalAlignment="Right" Width="{StaticResource TextBoxWidht}"></TextBox>
                                     </Grid>
                                     <Grid>
                                         <Label Content="Ejer:"></Label>
                                         <TextBox IsReadOnly="{DynamicResource readOnly}" Name="txtBoatOwner" Text="" HorizontalAlignment="Right" Width="{StaticResource TextBoxWidht}"></TextBox>
                                     </Grid>
                                     <Grid>
-                                        <Label Name="txtBoatReg" Content="Registrerings nummer:"></Label>
-                                        <TextBox IsReadOnly="{DynamicResource readOnly}" Text="" HorizontalAlignment="Right" Width="{StaticResource TextBoxWidht}"></TextBox>
+                                        <Label Content="Registrerings nummer:"></Label>
+                                        <TextBox Name="txtBoatReg" IsReadOnly="{DynamicResource readOnly}" Text="" HorizontalAlignment="Right" Width="{StaticResource TextBoxWidht}"></TextBox>
                                     </Grid>
                                     <Grid>
-                                        <Label Name="txtBoatSpaceId" Content="Plads Id:"></Label>
-                                        <TextBox IsReadOnly="{DynamicResource readOnly}" Text="" HorizontalAlignment="Right" Width="{StaticResource TextBoxWidht}"></TextBox>
+                                        <Label Content="Plads Id:"></Label>
+                                        <TextBox Name="txtBoatSpaceId" IsReadOnly="{DynamicResource readOnly}" Text="" HorizontalAlignment="Right" Width="{StaticResource TextBoxWidht}"></TextBox>
                                     </Grid>
                                     <Grid>
-                                        <Label Name="txtBoatSpaceString" Content="Plads:"></Label>
-                                        <TextBox IsReadOnly="{DynamicResource readOnly}" Text="" HorizontalAlignment="Right" Width="{StaticResource TextBoxWidht}"></TextBox>
+                                        <Label Content="Plads:"></Label>
+                                        <TextBox Name="txtBoatSpaceString" IsReadOnly="{DynamicResource readOnly}" Text="" HorizontalAlignment="Right" Width="{StaticResource TextBoxWidht}"></TextBox>
                                     </Grid>
                                     <Grid>
-                                        <Label Name="txtBoatLenght" Content="Længde:"></Label>
-                                        <TextBox IsReadOnly="{DynamicResource readOnly}" Text="" HorizontalAlignment="Right" Width="{StaticResource TextBoxWidht}"></TextBox>
+                                        <Label Content="Længde:"></Label>
+                                        <TextBox Name="txtBoatLenght" IsReadOnly="{DynamicResource readOnly}" Text="" HorizontalAlignment="Right" Width="{StaticResource TextBoxWidht}"></TextBox>
                                     </Grid>
                                     <Grid>
-                                        <Label Name="txtBoatWidht" Content="Bredde:"></Label>
-                                        <TextBox IsReadOnly="{DynamicResource readOnly}" Text="" HorizontalAlignment="Right" Width="{StaticResource TextBoxWidht}"></TextBox>
+                                        <Label Content="Bredde:"></Label>
+                                    <TextBox Name="txtBoatWidht" IsReadOnly="{DynamicResource readOnly}" Text="" HorizontalAlignment="Right" Width="{StaticResource TextBoxWidht}"></TextBox>
                                     </Grid>
                                 </StackPanel>
                             </Border>

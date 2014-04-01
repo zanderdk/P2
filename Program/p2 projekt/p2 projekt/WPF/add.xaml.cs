@@ -27,31 +27,71 @@ namespace p2_projekt.WPF
             InitializeComponent();
         }
 
+        public add(Person p) : this()
+        {
+            initPerson(p);
+        }
+
+        void initPerson(Person p)
+        {
+            fillPerson(p);
+            if(p.boats != null)
+            {
+                foreach(Boat b in p.boats)
+                {
+                    listBoats.Items.Add(b);
+                }
+            }
+        }
+
+        public void fillBoat(Boat b)
+        {
+            txtBoatName.Text = b.Name;
+            txtBoatOwner.Text = b.Owner.Name;
+            txtBoatLenght.Text = b.Lenght.ToString();
+            txtBoatWidht.Text = b.Width.ToString();
+            if(b.Space != null)
+            {   txtBoatSpaceId.Text = b.Space.Id.ToString();
+                txtBoatSpaceString.Text = b.Space.info; 
+            }
+            txtBoatReg.Text = b.registrationNumber;
+        }
+
         public void fillPerson(Person p)
         {
             //TODO label hvorvidt person er medlem eller gæst.
             //TODO tilføj/fjern båd skal ikke være mulig for alle.
-            txtName.Content = p.Name;
             person = p;
+            this.txtName.Text = p.Name;
 
             if (p.Birthday != null)
             {
-                txtBirth.Content = p.Birthday;
+                txtBirth.Text = p.Birthday.ToString();
             }
             
             if(p.Adress != null)
             {
-                txtCity.Content = p.Adress.City;
-                txtPostalCode.Content = p.Adress.PostalCode;
-                txtAddress.Content = p.Adress.AddressLine1;
+                txtCity.Text = p.Adress.City;
+                txtPostalCode.Text = p.Adress.PostalCode;
+                txtAddress.Text = p.Adress.AddressLine1;
             }
 
             if(p is Member)
             {
-                txtPhone.Content = ((Member)p).Phone;
-                txtEmail.Content = ((Member)p).Email;
-                txtMemberNr.Content = ((Member)p).MembershipNumber;
+                txtPhone.Text = ((Member)p).Phone.ToString();
+                txtEmail.Text = ((Member)p).Email;
+                txtMemberNr.Text = ((Member)p).MembershipNumber.ToString();
             }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void listBoats_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            fillBoat(e.AddedItems[0] as Boat);
         }
     }
 }

@@ -14,6 +14,6 @@ namespace p2_projekt.models
         public BoatSpace Space { get; set; } //TODO get bikonjuktiv shit working
         public double Lenght { get; set; }
         public double Width { get; set; }
-
+        public string registrationNumber { get; set; }
     }
 }

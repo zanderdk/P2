@@ -25,10 +25,10 @@ namespace p2_projekt.models
 
         public Person()
         {
-            
+            boats = new List<Boat>();
         }
 
-        public Person(string name)
+        public Person(string name) : this()
         {
             Name = name;
         }
