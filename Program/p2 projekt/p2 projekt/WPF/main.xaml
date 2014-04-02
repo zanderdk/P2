@@ -7,7 +7,7 @@
     <Grid>
         <TabControl x:Name="tabControler" Margin="0,0,0,0">
             <TabItem Header="dgfdfg">
-                <controls:Settings>
+                <controls:Settings ReadOnly="True">
                     <controls:InfolineController Title="text" Text="some text"></controls:InfolineController>
                     <controls:InfolineController Title="text" Text="some text"></controls:InfolineController>
                 </controls:Settings>
