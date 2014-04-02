@@ -37,6 +37,7 @@ namespace p2_projekt.WPF
                 //testtab.Resources.Add("readOnly", p.readOnlyMember);
                 //TabItem tab = new TabItem() { Header = "adder", Content = testtab };
                 //this.tabControler.Items.Add(tab);
+                
             }
         }
 
