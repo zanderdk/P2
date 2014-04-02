@@ -1,0 +1,10 @@
+\section{Håndtering af Brugertilladelser} % (fold)
+\label{tilladelser}
+
+De forskellige aktører for systemet, har forskellige niveauer af tilladelser i havnen. Eksempelvis har havnefogeden adgang til at se alle medlemmernes rejser, i modsætning til et menigt medlem, der kun har adgang til at se sine egne rejser. For at kunne korrekt modellere de administrative ansvarsområder, er det nødvendigt at kunne skelne i mellem brugere, og deres tilladelser.
+
+Der findes tre grader af brugertilladelse, ingen, læse eller skrive. Graden \enquote{ingen}, er den laveste grad, og betyder at den respektive bruger ikke har nogen som helst form for adgang til de pågældende datafelt. Graden \enquote{læse} gør datafeltet synligt for brugeren. Graden \enquote{skrive} giver brugeren mulighed for at redigere datafeltet. brugertilladelser er akkumulerende, således at skrivetilladelsen implicit også er en læsetilladelse. 
+
+Alle brugere har for ethvert datafelt én af de tre grader af brugertilladelser. Dette giver mulighed for at differentierer imellem forskellige instanser af brugermodellen, således at det ikke er nødvendigt at oprette en ny brugermodel, for enhver kombination af brugertilladelser.
+
+\kanote{ikke færdigt}
