@@ -14,7 +14,34 @@ namespace p2_projekt.models
         public double Length { get; private set; }
         public double Height { get; private set; }
 
-        public Boat Boat { get; set; } //TODO get bikonjuktiv shit working
+        private bool _boatChange;
+        private Boat _boat;
+        public Boat Boat 
+        { 
+            get
+            {
+                return _boat;
+            }
+            set
+            {
+                if(value == null) //hey
+                {
+                    _boat = null;
+
+                }
+                if(value.IsReplacingABoat != true)
+                {
+                    throw new Exception("This spot already has a boat on it");
+                }
+                else if (!_boatChange)
+                    {
+                        _boatChange = true;
+                        _boat = value;
+                        _boat.Space = this;
+                        _boatChange = false;
+                    }
+            }
+        } //TODO get bikonjuktiv shit working
 
         public BoatSpace(int id, double length, double height)
         {
