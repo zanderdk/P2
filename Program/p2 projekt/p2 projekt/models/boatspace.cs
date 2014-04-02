@@ -24,24 +24,32 @@ namespace p2_projekt.models
             }
             set
             {
-                if(value == null) //hey
-                {
-                    _boat = null;
+                if (_boatChange) return;
 
-                }
-                if(value.IsReplacingABoat != true)
+                if (_boat == null)
                 {
-                    throw new Exception("This spot already has a boat on it");
+                    _boatChange = true;
+                    _boat = value;
+                    _boat.Space = this;
+                    _boatChange = false;
                 }
-                else if (!_boatChange)
+                else
+                {
+                    if (value == null)
                     {
                         _boatChange = true;
-                        _boat = value;
-                        _boat.Space = this;
+                        _boat.Space = null;
+                        _boat = null;
                         _boatChange = false;
                     }
+                    else
+                    {
+                        throw new Exception("This spot already has a boat on it");
+                    }
+                }
+
             }
-        } //TODO get bikonjuktiv shit working
+        }
 
         public BoatSpace(int id, double length, double height)
         {

@@ -10,10 +10,10 @@ namespace p2_projekt.models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public User Owner { get; set; }
+        public Person Owner { get; set; }
 
-        private bool _SpaceChange;
-        private BoatSpace _Space;
+        private bool _spaceChange;
+        private BoatSpace _space;
 
         public bool IsReplacingABoat;
 
@@ -21,19 +21,31 @@ namespace p2_projekt.models
         {
             get
             {
-                return _Space;
+                return _space;
             }
 
             set
             {
-                BoatSpace oldspace = _Space;
-                _Space = value;
+                if (_spaceChange) return;
+
+                BoatSpace oldspace = _space;
+                _space = value;
+
+                // Opdater gammel
                 if (oldspace != null)
                 {
                     IsReplacingABoat = true;
-                    _SpaceChange = true;
-                    _Space.Boat = null;                    
-                    _SpaceChange = false;
+                    _spaceChange = true;
+                    _space.Boat = null;                    
+                    _spaceChange = false;
+                }
+
+                //opdater nu
+                if (_space != null)
+                {
+                    _spaceChange = true;
+                    _space.Boat = this;
+                    _spaceChange = false;
                 }
             }
         }
