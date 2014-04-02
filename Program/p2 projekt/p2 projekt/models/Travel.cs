@@ -22,13 +22,31 @@ namespace p2_projekt.models
 
         public override int GetHashCode()
         {
-            return TravelId.GetHashCode() ^ Start.GetHashCode() ^ End.GetHashCode();
+            int first = (Start == null ? 0 : Start.GetHashCode());
+            int second = (End == null ? 0 : End.GetHashCode());
+            int third = TravelId.GetHashCode();
+            return first ^ second ^ third;
         }
         
-        public bool Equals(Travel other)
+       public bool Equals(Travel other)
         {
-            if (this.Start.CompareTo(other.Start) == 0 && this.End.CompareTo(other.End) == 0) return true;
-            else return false;
+           if (other == null)
+           {
+                return false;
+           }
+
+           if (Travel.ReferenceEquals(this, other))
+           {
+               return true;
+           }
+
+           if(GetHashCode() != other.GetHashCode())
+           {
+               return false;
+           }
+                     
+           return this.Start.Equals(other.Start) && this.End.Equals(other.End);
         }
+
     }
 }
