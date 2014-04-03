@@ -11,7 +11,40 @@ namespace p2_projekt.models
         public int Id { get; set; }
         public string Name { get; set; }
         public Person Owner { get; set; }
-        public BoatSpace Space { get; set; } //TODO get bikonjuktiv shit working
+
+        private bool _spaceChange;
+        private BoatSpace _space;
+        public BoatSpace Space
+        {
+            get
+            {
+                return _space;
+            }
+
+            set
+            {
+                if (_spaceChange) return;
+
+                BoatSpace oldspace = _space;
+                _space = value;
+
+                // Opdater gammel
+                if (oldspace != null)
+                {
+                    _spaceChange = true;
+                    oldspace.Boat = null;
+                    _spaceChange = false;
+                }
+
+                //opdater ny
+                if (_space != null)
+                {
+                    _spaceChange = true;
+                    _space.Boat = this;
+                    _spaceChange = false;
+                }
+            }
+        }
         public double Lenght { get; set; }
         public double Width { get; set; }
         public string registrationNumber { get; set; }
