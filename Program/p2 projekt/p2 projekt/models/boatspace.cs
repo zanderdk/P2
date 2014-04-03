@@ -30,7 +30,6 @@ namespace p2_projekt.models
                 {
                     _boatChange = true;
                     _boat = value;
-                    _boat.Space = this;
                     _boatChange = false;
                 }
                 else

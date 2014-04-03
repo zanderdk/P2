@@ -14,9 +14,6 @@ namespace p2_projekt.models
 
         private bool _spaceChange;
         private BoatSpace _space;
-
-        public bool IsReplacingABoat;
-
         public BoatSpace Space
         {
             get
@@ -34,13 +31,12 @@ namespace p2_projekt.models
                 // Opdater gammel
                 if (oldspace != null)
                 {
-                    IsReplacingABoat = true;
                     _spaceChange = true;
-                    _space.Boat = null;                    
+                    oldspace.Boat = null;
                     _spaceChange = false;
                 }
 
-                //opdater nu
+                //opdater ny
                 if (_space != null)
                 {
                     _spaceChange = true;
