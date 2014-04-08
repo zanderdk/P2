@@ -33,8 +33,8 @@ namespace p2_projekt.WPF
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            GuestCreator newGuest = new GuestCreator();
-            newGuest.Show();
+            GuestCreator newGuestCreator = new GuestCreator();
+            newGuestCreator.Show();
             this.Close();
         }
     }

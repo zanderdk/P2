@@ -35,9 +35,26 @@ namespace p2_projekt.WPF
                 Adress = new CivicAddress() { AddressLine1 = streetName.Text, PostalCode = postalCode.Text, CountryRegion = country.Text }
             };
             
-            
+            try
+            {
+                UserController userController = new UserController(new Utilities.Database());
+
+                userController.Add(newGuest);
+
+                ChipRequester ChipLogin = new ChipRequester(); //TODO overvej om den kan logge ind med det samme?
+                ChipLogin.Show();
+                this.Close();
+            }
+
+            catch (Exception) //TODO User add exception
+            {
+                System.Windows.MessageBox.Show("ERROR");
+                this.Close();
+            }
+
 
             //TODO boat og travel skal også tilføjes
+
 
         }
 
