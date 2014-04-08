@@ -82,6 +82,9 @@
     <Compile Include="WPF\EventCalendar.xaml.cs">
       <DependentUpon>EventCalendar.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WPF\GuestCreator.xaml.cs">
+      <DependentUpon>GuestCreator.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WPF\InfolineController.xaml.cs">
       <DependentUpon>InfolineController.xaml</DependentUpon>
     </Compile>
@@ -129,6 +132,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WPF\EventCalendar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WPF\GuestCreator.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

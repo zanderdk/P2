@@ -30,5 +30,12 @@ namespace p2_projekt.WPF
             login.Show();
             this.Close();
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            GuestCreator newGuest = new GuestCreator();
+            newGuest.Show();
+            this.Close();
+        }
     }
 }

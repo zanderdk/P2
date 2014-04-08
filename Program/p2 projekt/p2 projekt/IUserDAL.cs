@@ -10,7 +10,7 @@ namespace p2_projekt
     public interface IUserDAL
     {
         void Create(User user);
-        bool Delete(User user);
+        void Delete(User user);
         bool Update(User user);
         bool Read(User user);
     }

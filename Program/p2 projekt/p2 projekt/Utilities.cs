@@ -59,9 +59,10 @@ namespace p2_projekt
                 _context.SaveChanges();
             }
 
-            public bool Delete(User user)
+            public void Delete(User user)
             {
-                throw new NotImplementedException();
+                _context.Users.Remove(user);
+                _context.SaveChanges();
             }
 
             public bool Update(User user)

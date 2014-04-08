@@ -18,22 +18,33 @@ namespace p2_projekt
 
         public bool Add(User user){
             bool successful = false;
-            //try
-            //{
+            try
+            {
                 _iUserDal.Create(user);
                 successful = true;
-            //}
-            //catch (InvalidOperationException)
-            //{
-            //    Console.WriteLine("could not add user");
-            //}
+            }
+            catch (InvalidOperationException)
+            {
+                Console.WriteLine("could not add user");
+            }
 
             return successful; 
         }
 
-        public void Remove(Member alice)
+        public bool Remove(Member user)
         {
-            throw new NotImplementedException();
+            bool sucessful = false;
+
+            try
+            {
+                _iUserDal.Delete(user);
+                sucessful = true;
+            }
+            catch (InvalidOperationException)
+            {
+                Console.WriteLine("Could not remove user.");
+            }
+            return sucessful;
         }
     }
 }
