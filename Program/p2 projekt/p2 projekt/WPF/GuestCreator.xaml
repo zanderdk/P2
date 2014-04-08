@@ -6,10 +6,15 @@
         xmlns:controllers="clr-namespace:p2_projekt.WPF"
         Height="350" Width="350">
     <Grid>
-        <DockPanel Grid.Column="0" LastChildFill="False" Margin="10" Grid.ColumnSpan="1" Grid.Row="1" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <DockPanel LastChildFill="False" Margin="10" Grid.RowSpan="3">
             <Border CornerRadius="1" BorderBrush="Gray" Background="LightGray" BorderThickness="2" DockPanel.Dock="Top">
                 <Grid>
-                    <StackPanel Grid.Column="2" Grid.ColumnSpan="2">
+                    <StackPanel Grid.RowSpan="1">
                         <controllers:InfolineController x:Name="name" Title="Name" readOnly="False"/>
                         <controllers:InfolineController x:Name="phone" Title="Phone" readOnly="False"/>
                         <controllers:InfolineController x:Name="streetName" Title="Adresse" readOnly="False"/>
@@ -21,14 +26,16 @@
                     </StackPanel>
                 </Grid>
             </Border>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="130"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Label Grid.Column="0" Height="auto">Leaving the Harbor on:</Label>
-                <DatePicker HorizontalAlignment="Right" Grid.Column="1"/>
-            </Grid>
         </DockPanel>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+            <Label Margin="5" VerticalAlignment="Top" Content="Leaving the Harbor on:"/>
+            <DatePicker Margin="5" Name="LeavingDate"/>
+        </StackPanel>
+        <Button Command="Save" Content="Opret Gæst" HorizontalAlignment="Stretch" Margin="10" Grid.Row="2">
+            <Button.CommandBindings>
+                <CommandBinding Command="Save" 
+                    Executed="Save_Executed" CanExecute="Save_CanExecute"/>
+            </Button.CommandBindings>
+        </Button>
     </Grid>
 </Window>
