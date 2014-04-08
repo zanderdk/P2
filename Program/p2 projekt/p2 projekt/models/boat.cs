@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,10 +11,11 @@ namespace p2_projekt.models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public Person Owner { get; set; }
+        public User Owner { get; set; }
 
         private bool _spaceChange;
         private BoatSpace _space;
+        
         public BoatSpace Space
         {
             get

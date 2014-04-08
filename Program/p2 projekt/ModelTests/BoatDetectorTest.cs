@@ -10,35 +10,35 @@ namespace ModelTests
     public class BoatDetectorTest
     {
         [TestMethod]
-        public void HasBoat_NoStateChanged_Empty()
+        public void BoatAt_LookupSpace_ReturnEmptyBoat()
         {
             var space = new WaterSpace(9001, 4.3, 5.4);
             Assert.AreEqual(BoatDetector.BoatStatus.Empty, BoatDetector.BoatAt(space));
         }
 
         [TestMethod]
-        public void HasBoat_NoStateChanged_Member()
+        public void BoatAt_LookupSpace_ReturnsMemberBoat()
         {
             var space = new WaterSpace(9002, 8.7, 3.4);
             Assert.AreEqual(BoatDetector.BoatStatus.Member, BoatDetector.BoatAt(space));
         }
 
         [TestMethod]
-        public void HasBoat_NoStateChanged_Guest()
+        public void BoatAt_LookupSpace_ReturnsGuest()
         {
             var space = new WaterSpace(9003, 10, 5);
             Assert.AreEqual(BoatDetector.BoatStatus.Guest, BoatDetector.BoatAt(space));
         }
 
         [TestMethod]
-        public void ShouldThrowWhenNotFound()
+        public void BoatAt_LookupSpaceNotExists_ThrowKeyNotFoundException()
         {
             var space = new WaterSpace(404404, 4.3, 5.4);
             try
             {
                 var test = BoatDetector.BoatAt(space);
             }
-            catch (KeyNotFoundException _)
+            catch (KeyNotFoundException)
             {
                 return;
             }

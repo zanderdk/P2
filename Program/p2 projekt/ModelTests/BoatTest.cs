@@ -53,7 +53,7 @@ namespace ModelTests
             {
                 return;
             }
-            Assert.Fail("Did not throw an exception");            
+            Assert.Fail("Did not throw an exception");
         }
         [TestMethod]
         public void OccupiedSpaceToSameBoat_IsSet()

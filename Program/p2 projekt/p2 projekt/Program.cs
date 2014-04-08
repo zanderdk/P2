@@ -7,6 +7,7 @@ using System.Threading;
 using p2_projekt.WPF;
 using p2_projekt.models;
 using System.IO;
+using System.Data.Entity;
 
 namespace p2_projekt
 {
@@ -23,33 +24,27 @@ namespace p2_projekt
 
             AppDomain.CurrentDomain.SetData("DataDirectory", root_path);
 
-            
+            Member alice = new Member("Alice", new System.Device.Location.CivicAddress());
+            alice.UserId = 257;
+            alice.Birthday = new DateTime(2013, 1, 1);
+
+            UserController userController = new UserController(new Utilities.Database());
+
+            userController.Add(alice);
             
             //TODO
-           
-            //using (var db = new LobopContext())
-            //{
-            //    Member alice = new Member("test", new System.Device.Location.CivicAddress());
-            //    alice.Birthday = new DateTime(2013,1,1);
-            //    alice.PersonId = 1;
-            //    if (db.Members.Find(alice.PersonId) == null)
-            //    {
+            //Member alice = new Member("alice",new System.Device.Location.CivicAddress());
+            //alice.UserId = 1;
+            //alice.Birthday = new DateTime(2013, 1, 1);
+            //Utilities.Database.Action( (LobopContext db) => {
+            //    if(db.Members.Find(alice.UserId) == null) 
             //        db.Members.Add(alice);
-            //    }
                 
             //    db.SaveChanges();
 
-            //    var query = from b in db.Members
-            //                select b;
+            //    foreach (var item in db.Members) Console.WriteLine(item.UserId);
+            //});
 
-            //    foreach (var item in query)
-            //    {
-            //        Console.WriteLine(item.Name);
-            //    }
-                             
-
-                
-            //}
             
             app.Run(new ChipRequester());
         }

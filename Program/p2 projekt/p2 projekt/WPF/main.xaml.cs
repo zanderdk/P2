@@ -21,8 +21,8 @@ namespace p2_projekt.WPF
     /// </summary>
     public partial class main : Window
     {
-        Person per;
-        public main(Person p)
+        User per;
+        public main(User p)
         {
             per = p;
             InitializeComponent();

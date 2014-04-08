@@ -65,7 +65,17 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>HarborStatus.settings</DependentUpon>
     </Compile>
+    <Compile Include="IUserDAL.cs" />
     <Compile Include="LobopContext.cs" />
+    <Compile Include="Migrations\201404021600375_InitialCreate.cs" />
+    <Compile Include="Migrations\201404021600375_InitialCreate.Designer.cs">
+      <DependentUpon>201404021600375_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201404021748257_virtualMemberSet.cs" />
+    <Compile Include="Migrations\201404021748257_virtualMemberSet.Designer.cs">
+      <DependentUpon>201404021748257_virtualMemberSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="models\BoatDetector.cs" />
     <Compile Include="models\boatspace.cs" />
     <Compile Include="models\boat.cs" />
@@ -73,6 +83,8 @@
     <Compile Include="models\person.cs" />
     <Compile Include="models\Travel.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="UserDALController.cs" />
+    <Compile Include="Utilities.cs" />
     <Compile Include="WPF\ChipRequester.xaml.cs">
       <DependentUpon>ChipRequester.xaml</DependentUpon>
     </Compile>
@@ -176,13 +188,12 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="lobopDB.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="lobopDB_log.ldf">
-      <DependentUpon>lobopDB.mdf</DependentUpon>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <EmbeddedResource Include="Migrations\201404021600375_InitialCreate.resx">
+      <DependentUpon>201404021600375_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201404021748257_virtualMemberSet.resx">
+      <DependentUpon>201404021748257_virtualMemberSet.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
