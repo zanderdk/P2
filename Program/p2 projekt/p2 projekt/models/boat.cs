@@ -9,7 +9,7 @@ namespace p2_projekt.models
 {
     public class Boat
     {
-        public int Id { get; set; }
+        public int BoatId { get; set; }
         public string Name { get; set; }
         public User Owner { get; set; }
 

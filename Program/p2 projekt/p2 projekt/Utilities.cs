@@ -33,7 +33,7 @@ namespace p2_projekt
             public static void AddUser(User user)
             {
                 LobopContext context = new LobopContext();
-
+                
                 AddUser(user, context);
             }
 
