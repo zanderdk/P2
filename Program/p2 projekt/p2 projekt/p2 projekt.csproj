@@ -67,15 +67,6 @@
     </Compile>
     <Compile Include="IUserDAL.cs" />
     <Compile Include="LobopContext.cs" />
-    <Compile Include="Migrations\201404021600375_InitialCreate.cs" />
-    <Compile Include="Migrations\201404021600375_InitialCreate.Designer.cs">
-      <DependentUpon>201404021600375_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201404021748257_virtualMemberSet.cs" />
-    <Compile Include="Migrations\201404021748257_virtualMemberSet.Designer.cs">
-      <DependentUpon>201404021748257_virtualMemberSet.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="models\BoatDetector.cs" />
     <Compile Include="models\boatspace.cs" />
     <Compile Include="models\boat.cs" />
@@ -186,14 +177,6 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201404021600375_InitialCreate.resx">
-      <DependentUpon>201404021600375_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201404021748257_virtualMemberSet.resx">
-      <DependentUpon>201404021748257_virtualMemberSet.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

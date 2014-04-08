@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,8 +10,9 @@ namespace p2_projekt.models
 {
     public abstract class BoatSpace
     {
-
-        public int Id { get; private set; }
+        [Key, ForeignKey("Boat")]
+        //public int BoatId { get; set; }
+        public int BoatSpaceId { get; private set; }
         public String info { get; set; }
         public double Length { get; private set; }
         public double Height { get; private set; }
@@ -52,7 +55,7 @@ namespace p2_projekt.models
 
         public BoatSpace(int id, double length, double height)
         {
-            Id = id;
+            BoatSpaceId = id;
             Length = length;
             Height = height;
         }
