@@ -1,11 +1,14 @@
 \section{Internet of Things} % (fold)
 \label{sec:internet_of_things}
+\frnote{mangler intro, hvorfor skriver vi om iot?}
 
 \subsection{Konceptet}
 \label{sub:iot_koncept}
 
 
-\enquote{Internet of Things} (IoT) er et paradigme der beskriver, at alle fysiske genstande skal være unikt identificerbare, sådan at en computer nemt kan administrere disse genstande. Derudover handler IoT om at forbinde disse genstande i et netværk \cite{kopetz2011real}. En mere beskrivende definition af IoT ville derfor være \enquote{a world-wide network of interconnected objects uniquely addressable, based on standard communication protocols} \cite{iot_survey_2010}. IoT er ofte beskrevet ud fra forskellige visioner for paradigmet. I \cite{iot_survey_2010}  beskrives tre visioner; \enquote{Things oriented}, \enquote{Internet oriented} og \enquote{Semantic oriented}. Disse visioner er opstået ud fra de forskellige interessenter i IoT. Se \cref{fig:iot_visions}.
+\enquote{Internet of Things} (IoT) er et paradigme der beskriver, at alle fysiske genstande skal være unikt identificerbare, sådan at en computer nemt kan administrere disse genstande. Derudover handler IoT om at forbinde disse genstande i et netværk \cite{kopetz2011real}. En mere beskrivende definition af IoT ville derfor være \enquote{a world-wide network of interconnected objects uniquely addressable, based on standard communication protocols} \cite{iot_survey_2010}. IoT er ofte beskrevet ud fra forskellige visioner for paradigmet. I \cite{iot_survey_2010}  beskrives tre visioner; \enquote{Things oriented}, \enquote{Internet oriented} og \enquote{Semantic oriented}. Disse visioner er opstået ud fra de forskellige interessenter i IoT. Disse interessanter tilgriber IoT fra forkellige vinkler og er derfor kommet fra til forskellige definitionen af IoT. Se \cref{fig:iot_visions}.
+
+\frnote{skal vi bruge så mange engelse udtryk?}
 
 Den første definition af IoT, \enquote{Things oriented}, stammer fra Auto-ID labs, som er et verdensomspændende netværk af forskere indenfor Radio Frequency IDentification (RFID) og anden sensor teknologi. Målet med IoT er i denne definition at forbedre synligheden og muligheden for at spore genstande. For at opnå dette er Electronic Product Code (EPC) standarden blevet udviklet. Denne standard har til formål at sprede brugen af RFID samt andre teknologier \cite{iot_survey_2010}.
 
@@ -17,7 +20,7 @@ Den sidste vision der beskrives her, \enquote{Semantic oriented}, beskriver hvor
 
 \begin{figure}
   \centering
-  \includegraphics[width=\textwidth]{iot_visions.jpg}
+  \includegraphics[width=\textwidth]{iot_visions}
   \caption{Internet of Things paradigmet ud fra tre visioner. Fra \cite{iot_survey_2010}.}
   \label{fig:iot_visions}
 \end{figure}
@@ -32,6 +35,8 @@ RFID står for Radio Frequency IDentification, og som navnet antyder kan teknolo
 Lad os antage at alle både er blevet tagget, sådan at de hver har en unik identifikation. Dette kunne gøres ved hjælp af passive RFID-tags, da disse er billige og kan sidde på både uden nogen direkte afhængighed af elektricitet. Derudover kan hver vandlejeplads registrere, ved hjælp af en sensor, hvorvidt vandlejepladsen er optaget. Hvis der ligger en båd, kan en anden sensor også se hvem der ejer båden.
 
 Sensoren der registrerer hvorvidt der ligger en båd ved en vandlejeplads, kunne være en ultrasonisk sensor. Denne kan ved hjælp af lydbølger detektere tilstedeværelse af et objekt. Den kan dog ikke med stor præcision identificere objektet. En anden løsning er et kamera der ved hjælp af billed genkendelse kan identificere båden.
+
+\frnote{der skal måske være en kilde til ultrasonisk}
 
 En computer forbundet til disse to typer sensorer, kan nu effektivt administrere en kæmpe havn med mange vandlejepladser. Når en ny båd lægger til på en vandlejeplads, vil computeren med det samme vide dette. Computeren kan derudover også kategorisere båden som en medlemsbåd eller som en gæstebåd. Da computeren nu har registreret at vandlejepladsen er optaget, skal den vende et skilt eller tænde for en diode, eller på anden måde ændres pladsens status til optaget.
 
