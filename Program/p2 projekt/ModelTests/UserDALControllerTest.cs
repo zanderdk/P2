@@ -47,34 +47,41 @@ namespace ModelTests
             Assert.AreEqual(expected, actual);
         }
 
-
         [TestMethod]
-        public void Remove_UserExists_Void()
+        public void Remove_UserExists_True()
         {
+            userDAL.Setup(x => x.Delete(alice));
 
-            bool passed = false;
-            try
-            {
-                controller.Remove(alice);
-            }
-            catch (Exception)
-            {
-                Assert.Fail("Threw exception. SHould not");
-            }
-            
+            bool expected = true;
+            bool actual = controller.Remove(alice);
+
+            Assert.AreEqual(expected, actual);
         }
 
+
         [TestMethod]
-        public void GetNextMembershipNumber_NoStateChanged_ReturnsNextUniqueNumber()
+        public void Remove_UserDoesNotExists_False()
         {
-            Member alice = new Member();
+            userDAL.Setup(x => x.Delete(alice)).Throws(new InvalidOperationException());
+
+            bool expected = false;
+            bool actual = controller.Remove(alice);
+
+            Assert.AreEqual(expected, actual);
+        }
+
+
+        //[TestMethod]
+        //public void GetNextMembershipNumber_NoStateChanged_ReturnsNextUniqueNumber()
+        //{
+        //    Member alice = new Member();
 
             
-            int aliceNum = alice.MembershipNumber;
+        //    int aliceNum = alice.MembershipNumber;
 
-            Member bob = new Member();
+        //    Member bob = new Member();
 
-            Assert.AreEqual(aliceNum + 1, bob.MembershipNumber);
-        }
+        //    Assert.AreEqual(aliceNum + 1, bob.MembershipNumber);
+        //}
     }
 }
