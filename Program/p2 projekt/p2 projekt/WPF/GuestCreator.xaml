@@ -1,0 +1,34 @@
+﻿<Window x:Class="p2_projekt.WPF.GuestCreator"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:controllers="clr-namespace:p2_projekt.WPF"
+        Height="350" Width="350">
+    <Grid>
+        <DockPanel Grid.Column="0" LastChildFill="False" Margin="10" Grid.ColumnSpan="1" Grid.Row="1" >
+            <Border CornerRadius="1" BorderBrush="Gray" Background="LightGray" BorderThickness="2" DockPanel.Dock="Top">
+                <Grid>
+                    <StackPanel Grid.Column="2" Grid.ColumnSpan="2">
+                        <controllers:InfolineController x:Name="name" Title="Name" readOnly="False"/>
+                        <controllers:InfolineController x:Name="phone" Title="Phone" readOnly="False"/>
+                        <controllers:InfolineController x:Name="streetName" Title="Adresse" readOnly="False"/>
+                        <controllers:InfolineController x:Name="postalCode" Title="Postal Code" readOnly="False"/>
+                        <controllers:InfolineController x:Name="country" Title="Country" readOnly="False"/>
+                        <controllers:InfolineController x:Name="boatName" Title="Boat name" readOnly="False"/>
+                        <controllers:InfolineController x:Name="boatLength" Title="Boat length" readOnly="False"/>
+                        <controllers:InfolineController x:Name="boatWidth" Title="Boat Width" readOnly="False"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="130"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Height="auto">Leaving the Harbor on:</Label>
+                <DatePicker HorizontalAlignment="Right" Grid.Column="1"/>
+            </Grid>
+        </DockPanel>
+    </Grid>
+</Window>
