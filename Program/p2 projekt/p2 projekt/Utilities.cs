@@ -76,19 +76,37 @@ namespace p2_projekt
                 throw new NotImplementedException();
             }
 
-            public void Read<T, T2>(Predicate<T> pre) where T2: class //T = input T2 = output type
+            public void Read<TResult>(Func<TResult,bool> predicate) where TResult: class
             {    
-                PropertyInfo[] fields = typeof(LobopContext).GetProperties();
+                Type lobobContextType = typeof(LobopContext);
+                PropertyInfo[] fields = lobobContextType.GetProperties();
                 bool tableFound = false;
+                Type DBsetType = typeof(DbSet<TResult>);
                 
                 foreach (PropertyInfo f in fields)
                 {
-                    if (typeof(DbSet<T2>) == f.PropertyType) tableFound = true;
-                    Console.WriteLine(tableFound + "-----------------");
+                    if (DBsetType == f.PropertyType) tableFound = true;
                 }
 
                 if (tableFound)
                 {
+                    string dbSetTarget = string.Empty;
+                    foreach (var item in fields)
+                    {
+                        if (item.ToString().Contains(DBsetType.ToString()))
+                        {
+                            dbSetTarget = item.ToString().Split(' ')[1];
+                        }
+                            
+                            
+                            
+                    }
+                    DbSet<TResult> dbSet = (DbSet<TResult>) lobobContextType.GetProperty(dbSetTarget).GetValue(_context, null);
+                    
+                    foreach (var item in dbSet.Where(predicate))
+                    {
+                        Console.WriteLine(item + "----------------------------");
+                    }
                     
                 }
                 else

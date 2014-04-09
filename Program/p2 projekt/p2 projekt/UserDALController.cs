@@ -31,9 +31,9 @@ namespace p2_projekt
             return successful; 
         }
 
-        public void ReadUser<T, T2>(Predicate<T> pre) where T2 : class
+        public void Read<TResult>(Func<TResult, bool> pre) where TResult : class
         {
-            _iUserDal.Read<T, T2>(pre);
+            _iUserDal.Read<TResult>(pre);
         }
 
         public bool Remove(Member user)

@@ -12,6 +12,6 @@ namespace p2_projekt
         void Create(User user);
         void Delete(User user);
         bool Update(User user);
-        void Read<T, T2>(Predicate<T> pre) where T2 : class;
+        void Read<TResult>(Func<TResult, bool> predicate) where TResult : class;
     }
 }
