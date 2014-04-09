@@ -69,14 +69,14 @@ namespace p2_projekt.models
         CivicAddress Adress { get; set; }
     }
 
-    interface ISailer
+    interface ISailor
     {
         List<Travel> Travels { get; set; } // All travels. Old and new.
         List<Boat> Boats {get; set;} // boats owned
     }
     
     
-    public class Member : User, IFullPersonalInfo, ISailer, ILoginable
+    public class Member : User, IFullPersonalInfo, ISailor, ILoginable
     {
         public int MembershipNumber { get; private set; } // backwards compatible with existing numbers from Vestre Baadelaug database.
         //public List<Travel> Travels { get; private set; } // All travels. Old and new.
@@ -171,7 +171,7 @@ namespace p2_projekt.models
 
     }
 
-    public class Guest : User, ISailer
+    public class Guest : User, ISailor
     {
         public bool hasPaid { get; set; } //TODO Overvej at flytte denne til ny interface f.eks. IRenter
 
