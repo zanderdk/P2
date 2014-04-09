@@ -8,20 +8,59 @@
              d:DesignHeight="600" d:DesignWidth="800">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="9*"/>
-            <RowDefinition Height="91*"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        <Label Content="Medlem:" Grid.RowSpan="1" VerticalAlignment="Bottom" Margin="10,0,10,0"></Label>
+        <Label Content="Medlem:" Grid.RowSpan="1" VerticalAlignment="Bottom" Margin="10,0,10,0"/>
         <DockPanel Grid.Column="0" LastChildFill="False" Margin="10,0,10,0" Grid.ColumnSpan="1" Grid.Row="1" >
             <Border CornerRadius="1" BorderBrush="Gray" Background="LightGray" BorderThickness="2" DockPanel.Dock="Top">
-                <StackPanel Grid.Column="2" Grid.ColumnSpan="2">
-                    <controllers:InfolineController Title="Navn:" Text="Sven Sved"/>
+                <StackPanel>
+                    <controllers:InfolineController x:Name="name" Title="Navn" Text="Sven Sved"/>
+                    <controllers:InfolineController x:Name="birthday" Title="Fødselsdag" Text="24-12-0000"/> <!--TODO Datetime?-->
+                    <controllers:InfolineController x:Name="phone" Title="Telefon" Text="+45 22 22 22 22"/>
+                    <controllers:InfolineController x:Name="email" Title="Email" Text="svend@sved.dk"/>
+                    <controllers:InfolineController x:Name="adresse" Title="Adresse" Text="winvej 1337"/>
+                    <controllers:InfolineController x:Name="postal" Title="Post nr" Text="9001"/>
+                    <controllers:InfolineController x:Name="country" Title="Land" Text="Fyn"/>
+                    <controllers:InfolineController x:Name="memberID" Title="Medlems nr" Text="59151561651"/>
+                    <controllers:InfolineController x:Name="memberSince" Title="Oprettet" Text="01-01-1970"/>
+                    <controllers:InfolineController x:Name="memberTimeTotal" Title="Medlemstid" Text="1970 år"/>
+                    <controllers:InfolineController x:Name="isActive" Title="Aktiv" Text="Ja" Visibility="Collapsed"/> <!--TODO visiblity skal kunne ændres-->
+
+                </StackPanel>
+            </Border> 
+        </DockPanel>
+
+        <Label Content="Båd:" Grid.Column="1" VerticalAlignment="Bottom" Margin="10,0,10,0"/>
+        <DockPanel Grid.Column="1" LastChildFill="False" Margin="10,0,10,0" Grid.ColumnSpan="1" Grid.Row="1" >
+            <Border CornerRadius="1" BorderBrush="Gray" Background="LightGray" BorderThickness="2" DockPanel.Dock="Top">
+                <StackPanel>
+                    <ListView Name="listBoats" VerticalAlignment="Top" Height="100">
+                        <ListView.View>
+
+                            <GridView>
+                                <GridViewColumn/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
                 </StackPanel>
             </Border>
+            <Border Margin="0,10,0,0" CornerRadius="1" BorderBrush="Gray" Background="LightGray" BorderThickness="2" DockPanel.Dock="Top">
+                <StackPanel>
+                    
+                <controllers:InfolineController x:Name="boatOwner" Title="Ejere(e)" Text="Lars,Larss,Larsss, Svend Sved"/>
+                    <controllers:InfolineController x:Name="boatName" Title="Navn" Text="Johanne"/>
+                    <controllers:InfolineController x:Name="boatSpace" Title="Plads" Text="Bom 2 Plads 46"/>
+                    <controllers:InfolineController x:Name="boatID" Title="ID" Text="Ja" Visibility="Collapsed"/> <!--HEYEYEYYE boatID skal medlemmer ikke se mand!-->
+                    <controllers:InfolineController x:Name="boatLength" Title="Længde" Text="73"/>
+                    <controllers:InfolineController x:Name="boatWidth" Title="Bredde" Text="1"/>
+                    
+                </StackPanel>
+            </Border>            
         </DockPanel>
 
     </Grid>

@@ -69,7 +69,7 @@ namespace p2_projekt.models
         CivicAddress Adress { get; set; }
     }
 
-    interface ISailor
+    public interface ISailor
     {
         List<Travel> Travels { get; set; } // All travels. Old and new.
         List<Boat> Boats {get; set;} // boats owned

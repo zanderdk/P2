@@ -57,7 +57,7 @@ namespace p2_projekt
             //});
 
             
-            //app.Run(new ChipRequester());
+            app.Run(new ChipRequester());
         }
 
     }

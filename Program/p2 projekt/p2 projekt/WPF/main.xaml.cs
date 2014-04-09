@@ -21,25 +21,16 @@ namespace p2_projekt.WPF
     /// </summary>
     public partial class main : Window
     {
-        User per;
-        public main(User p)
+        public main(User u)
         {
-            per = p;
-            InitializeComponent();
-            init(p.Permissions);
+            InitializeComponent(); 
+            
+            MemberInfo sailorInfo = new MemberInfo((ISailor)u);
+            TabItem tab = new TabItem() { Header = "adder", Content = sailorInfo };
+            this.tabControler.Items.Add(tab);
         }
 
-        void init(Permissions p)
-        {
-            if(p.member)
-            {
-                //add testtab = new add(per);
-                //testtab.Resources.Add("readOnly", p.readOnlyMember);
-                //TabItem tab = new TabItem() { Header = "adder", Content = testtab };
-                //this.tabControler.Items.Add(tab);
-                
-            }
-        }
+       //TODO opret kun efter permissions
 
     }
 }
