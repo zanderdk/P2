@@ -29,19 +29,21 @@ namespace p2_projekt
             Boat b = new Boat() { Name = "test Ship", BoatSpace = bs, registrationNumber = "fdsf" };
             Travel travel = new Travel(new DateTime(2008, 1, 1), new DateTime(2001, 1, 1));
             Member alice = new Member("Alice", new System.Device.Location.CivicAddress());
-            alice.Travels.Add(travel);
+            //alice.Travels.Add(travel);
             alice.Birthday = new DateTime(2013, 1, 1);
+            alice.RegistrationDate = new DateTime(2013,1,1);
+            
             alice.Boats.Add(b);
 
 
             Utilities.Database db = new Utilities.Database();
             UserController userController = new UserController(db);
-            //userController.Add(alice);
+            userController.Add(alice);
 
             //User us = userController.ReadUser("Alice");
             //Member m = (Member)us;
 
-            db.Read<User, Boat>(x => x.UserId == 1 );
+            db.Read<User>(x => x.Name == "Alice" );
             
             //TODO
             //Member alice = new Member("alice",new System.Device.Location.CivicAddress());
