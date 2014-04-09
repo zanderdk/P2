@@ -9,13 +9,12 @@ using System.ComponentModel.DataAnnotations;
 namespace p2_projekt.models
 {
     
-    public abstract class User : IBasicPersonalInfo
+    public abstract class User
     {
         public int UserId { get; set; }// Unique. Only used internally
         //public Int64 Phone { get; set; }
         //public List<Boat> boats; // boats owned
         //public string Name { get; set; }
-
 
         public Permissions Permissions; // must be initialized with no access at all. E.g = new Permissions().LowestAccess;
 
@@ -54,7 +53,7 @@ namespace p2_projekt.models
         string Password { get; set; }
     }
 
-    public interface IFullPersonalInfo : IBasicPersonalInfo
+    public interface IFullPersonalInfo
     {
         string Email { get; set; }
         DateTime Birthday { get; set; }
