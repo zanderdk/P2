@@ -9,7 +9,7 @@ namespace p2_projekt
 {
     public class UserController
     {
-        IUserDAL _iUserDal;
+         public IUserDAL _iUserDal;
 
         public UserController(IUserDAL userDAL)
         {
@@ -29,6 +29,11 @@ namespace p2_projekt
             }
 
             return successful; 
+        }
+
+        public void ReadUser<T, T2>(Predicate<T> pre) where T2 : class
+        {
+            _iUserDal.Read<T, T2>(pre);
         }
 
         public bool Remove(Member user)

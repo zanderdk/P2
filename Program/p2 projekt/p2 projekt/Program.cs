@@ -24,13 +24,24 @@ namespace p2_projekt
 
             AppDomain.CurrentDomain.SetData("DataDirectory", root_path);
 
+
+            BoatSpace bs = new WaterSpace(0,10.0, 10.0) { info="dfgdfg" };
+            Boat b = new Boat() { Name = "test Ship", BoatSpace = bs, registrationNumber = "fdsf" };
+            Travel travel = new Travel(new DateTime(2008, 1, 1), new DateTime(2001, 1, 1));
             Member alice = new Member("Alice", new System.Device.Location.CivicAddress());
-            alice.UserId = 257;
+            alice.Travels.Add(travel);
             alice.Birthday = new DateTime(2013, 1, 1);
+            alice.Boats.Add(b);
 
-            UserController userController = new UserController(new Utilities.Database());
 
-            userController.Add(alice);
+            Utilities.Database db = new Utilities.Database();
+            UserController userController = new UserController(db);
+            //userController.Add(alice);
+
+            //User us = userController.ReadUser("Alice");
+            //Member m = (Member)us;
+
+            db.Read<User, Boat>(x => x.UserId == 1 );
             
             //TODO
             //Member alice = new Member("alice",new System.Device.Location.CivicAddress());
@@ -38,7 +49,7 @@ namespace p2_projekt
             //alice.Birthday = new DateTime(2013, 1, 1);
             //Utilities.Database.Action( (LobopContext db) => {
             //    if(db.Members.Find(alice.UserId) == null) 
-            //        db.Members.Add(alice);
+            //        db.Memb ers.Add(alice);
                 
             //    db.SaveChanges();
 
@@ -46,7 +57,7 @@ namespace p2_projekt
             //});
 
             
-            app.Run(new ChipRequester());
+            //app.Run(new ChipRequester());
         }
 
     }

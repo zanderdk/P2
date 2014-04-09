@@ -58,6 +58,12 @@ namespace ModelTests
             Assert.AreEqual(expected, actual);
         }
 
+        [TestMethod]
+        public void Find_ObjectExists_ObjectFound()
+        {
+            //userDAL.Setup(x => x.Read(1)).Returns(alice);
+
+        }
 
         [TestMethod]
         public void Remove_UserDoesNotExists_False()

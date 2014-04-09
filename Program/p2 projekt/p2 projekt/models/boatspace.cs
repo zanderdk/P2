@@ -10,16 +10,18 @@ namespace p2_projekt.models
 {
     public abstract class BoatSpace
     {
+
+        public BoatSpace() { } // må kun bruges af Entity.
+
         [Key, ForeignKey("Boat")]
-        //public int BoatId { get; set; }
-        public int BoatSpaceId { get; private set; }
+        public int BoatId { get; set; }
         public String info { get; set; }
         public double Length { get; private set; }
-        public double Height { get; private set; }
+        public double Width { get; private set; }
 
         private bool _boatChange;
         private Boat _boat;
-        public Boat Boat 
+        public virtual Boat Boat 
         { 
             get
             {
@@ -40,7 +42,7 @@ namespace p2_projekt.models
                     if (value == null)
                     {
                         _boatChange = true;
-                        _boat.Space = null;
+                        _boat.BoatSpace = null;
                         _boat = null;
                         _boatChange = false;
                     }
@@ -55,19 +57,22 @@ namespace p2_projekt.models
 
         public BoatSpace(int id, double length, double height)
         {
-            BoatSpaceId = id;
+            BoatId = id;
             Length = length;
-            Height = height;
+            Width = height;
         }
     }
 
     public class WaterSpace : BoatSpace
     {
+
+        public WaterSpace() { }
         public WaterSpace(int id, double length, double height) : base(id, length, height) {}
     }
 
     public class LandSpace : BoatSpace
     {
-        public LandSpace() : base(0, 0, 0) { } //TODO
+
+        public LandSpace() { }
     }
 }

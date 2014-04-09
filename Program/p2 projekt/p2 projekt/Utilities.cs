@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Reflection;
 
 namespace p2_projekt
 {
@@ -13,8 +14,13 @@ namespace p2_projekt
 
         public class Database : IUserDAL
         {
-            private LobopContext _context;
+            public LobopContext _context;
 
+
+            public LobopContext lists()
+            {
+                return _context;
+            }
 
             public Database()
             {
@@ -70,9 +76,25 @@ namespace p2_projekt
                 throw new NotImplementedException();
             }
 
-            public bool Read(User user)
-            {
-                throw new NotImplementedException();
+            public void Read<T, T2>(Predicate<T> pre) where T2: class //T = input T2 = output type
+            {    
+                PropertyInfo[] fields = typeof(LobopContext).GetProperties();
+                bool tableFound = false;
+                
+                foreach (PropertyInfo f in fields)
+                {
+                    if (typeof(DbSet<T2>) == f.PropertyType) tableFound = true;
+                    Console.WriteLine(tableFound + "-----------------");
+                }
+
+                if (tableFound)
+                {
+                    
+                }
+                else
+                {
+                    throw new KeyNotFoundException("table ikke fundet");
+                }
             }
         }
         

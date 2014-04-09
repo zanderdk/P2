@@ -58,6 +58,9 @@ namespace p2_projekt.models
     {
         string Email { get; set; }
         DateTime Birthday { get; set; }
+        DateTime RegistrationDate { get; set; } //TODO automatisk registrering kun getter
+        TimeSpan MebershipDuration { get; set; } //TODO calculate shit
+
     }
 
     public interface IBasicPersonalInfo
@@ -82,9 +85,14 @@ namespace p2_projekt.models
         //public string Email { get; set; }
         //public CivicAddress Adress { get; set; }
         //public DateTime Birthday { get; set; }
-        
+
+        public DateTime RegistrationDate { get; set; } //TODO automatisk registrering kun getter
+        public TimeSpan MebershipDuration { get; set; } //TODO calculate shit
+
+
         public Member() : base() {
             Travels = new List<Travel>();
+            Boats = new List<Boat>();
             //MembershipNumber = Utilities.GetNextMembershipNumber();
         }
 
@@ -112,13 +120,13 @@ namespace p2_projekt.models
         }
 
         // TODO simon: skal denne ikke være private? vi skal ikke give al info væk. Det skal gå gennem addnewtravel osv.
-        public List<Travel> Travels
+        public virtual List<Travel> Travels
         {
             get;
             set;
         }
 
-        public List<Boat> Boats
+        public virtual List<Boat> Boats
         {
             get;
             set;
@@ -158,6 +166,10 @@ namespace p2_projekt.models
             get;
             set;
         }
+
+        public DateTime RegistrationDate { get; set; } //TODO automatisk registrering kun getter
+        public TimeSpan MebershipDuration { get; set; } //TODO calculate shit
+
     }
 
     public class Guest : User, ISailer

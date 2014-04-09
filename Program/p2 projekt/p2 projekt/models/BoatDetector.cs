@@ -15,7 +15,7 @@ namespace p2_projekt.models
             // Vær ommærksom på at dette måske ikke er den bedste måde at gør det på
             foreach (SettingsProperty currentProperty in HarborStatus.Default.Properties)
             {
-                if (String.Compare(currentProperty.Name, "space" + space.BoatSpaceId) == 0)
+                if (String.Compare(currentProperty.Name, "space" + space.BoatId) == 0)
                     return (BoatStatus) Convert.ToInt32( currentProperty.DefaultValue);
             }
             
