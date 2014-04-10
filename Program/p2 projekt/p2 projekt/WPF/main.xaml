@@ -6,9 +6,7 @@
         Title="main" Height="600" Width="800">
     <Grid>
         <TabControl x:Name="tabControler" Margin="0,0,0,0">
-            <TabItem Header="dgfdfg">
  
-            </TabItem>
         </TabControl>
     </Grid>
 </Window>

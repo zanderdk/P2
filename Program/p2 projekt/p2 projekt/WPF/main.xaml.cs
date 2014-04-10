@@ -23,11 +23,17 @@ namespace p2_projekt.WPF
     {
         public main(User u)
         {
-            InitializeComponent(); 
+            InitializeComponent();
+
+
+            WelcomeTab welcome = new WelcomeTab();
+            TabItem welcomeTab = new TabItem() { Header = "Forside", Content = welcome };
+            this.tabControler.Items.Add(welcomeTab);
+
+            MemberInfo sailorInfo = new MemberInfo((ISailor)u);            
+            TabItem sailorInfoTab = new TabItem() { Header = "Profil", Content = sailorInfo };
+            this.tabControler.Items.Add(sailorInfoTab);
             
-            MemberInfo sailorInfo = new MemberInfo((ISailor)u);
-            TabItem tab = new TabItem() { Header = "adder", Content = sailorInfo };
-            this.tabControler.Items.Add(tab);
         }
 
        //TODO opret kun efter permissions

@@ -106,6 +106,9 @@
     <Compile Include="WPF\Travels.xaml.cs">
       <DependentUpon>Travels.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WPF\WelcomeTab.xaml.cs">
+      <DependentUpon>WelcomeTab.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="EntityFramework">
@@ -164,6 +167,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WPF\Travels.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WPF\WelcomeTab.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
