@@ -1,12 +1,12 @@
 \section{Databasehåndtering}
 \label{sec:database}
-I dette projekt benyttes Entity Framework, som er Microsofts anbefalede teknologi til at tilgå data \cite{entity}. Entity Framework er et object-relation mapping framework \cite{lerman2010programming}, der gør det muligt at konvertere data mellem objekter og andre typesystemser som for eksempel en database. Dette gør at man får virtual objekt database, hvor det ser fra programørens sysvinkel ser ud som om man kan gemme objekter i en database der normalt kun kan gemme enkelte talværdier. Entity er med til nedsætte behovet for at skrive kode der har med data tilgang at gøre. Det er disse fordele der har gjort at entity blev valgt. Entity er en del af .NET Frameworket.
+I dette projekt benyttes Entity Framework, som er Microsofts anbefalede teknologi til at tilgå data \cite{entity}. Entity Framework er et object-relation mapping framework \cite{lerman2010programming}, der gør det muligt at konvertere data mellem objekter og andre typesystemser som for eksempel en database. Dette gør at programøren får en virtual objekt database, hvor det ser fra programørens sysvinkel ser ud som om man kan gemme objekter i en database der normalt kun kan gemme enkelte talværdier. Entity er med til nedsætte behovet for at skrive kode der har med data tilgang at gøre. Det er disse fordele der har gjort at entity blev valgt. Entity er en del af .NET Frameworket.
 
 \frnote{skal læses igennem}
 
 \subsection{Code First}
 \label{sub:code_first}
-For at entuty kan virke skal man definere en model. Der er flere måder at gøre dette på, men vi har valgt at bruge \enquote{Code First}. Med Code First skal man først skrive sin model som en C\# klasse. Derefter kan man bruge frameworket til at gemme disse klasser i en database. Entity Framework kan ud fra felterne i den modellerede klasse selv oprette de nødvendige kolonner i databasen. Entity Framework er altså en abstraktion for tilgangen til en underliggende database. Dermed kan brugeren af Enity Framework nøjes med at bekymre sig om programmeringen af modellen der skal gemmes.
+Entity bruger en model for hvert objekt den skal gemme. Brugeren af Frameworket skal definere en model. Der er flere måder at gøre dette på, men i dette projekt bruges \enquote{Code First}. Med Code First skal programøren først skrive sin model som en C\# klasse. Derefter kan frameworket bruges til at gemme disse klasser i en database. Entity Framework kan ud fra felterne i den modellerede klasse selv oprette de nødvendige kolonner i databasen. Entity Framework er altså en abstraktion for tilgangen til en underliggende database. Dermed kan brugeren af Enity Framework nøjes med at bekymre sig om programmeringen af modellen der skal gemmes.
 
 \subsection{Annoteringer}
 \label{sub:annoteringer}
@@ -15,10 +15,10 @@ Selvom Entity Framework kan gøre mange ting automatisk, skal brugeren af framew
 \subsection{Migreringer}
 \label{sub:migreringer}
 
-Migreringer skal benyttes når man gerne vil flytte data fra én database til en anden. En sådan situation kan opstå hvis en eksisterende database mangler en bestemt kolonne, f.eks. antal æbler. Denne database har været i brug, og indeholder derfor vigtig information, som ikke må gå tabt. Opgaven er nu at flytte den vigtige information fra den eksisterende database til en ny database der har den ønskede antal æbler kolonne.
+Migreringer skal benyttes når programmøren gerne vil flytte data fra én database til en anden. En sådan situation kan opstå hvis en eksisterende database mangler en bestemt kolonne, f.eks. antal æbler. Denne database har været i brug, og indeholder derfor vigtig information, som ikke må gå tabt. Opgaven er nu at flytte den vigtige information fra den eksisterende database til en ny database der har den ønskede antal æbler kolonne.
 
-Dette foregår i Entity Framework ved hjælp af Package Manager Console i Visual Studio. Først skal man fortælle Entity Framework at den skal slå migrationer til. Dette gøres ved at skrive \enquote{Enable-Migrations} i Package Manager Console.
+Dette foregår i Entity Framework ved hjælp af Package Manager Console i Visual Studio. Først skal programmøren fortælle Entity Framework at den skal slå migrationer til. Dette gøres ved at skrive \enquote{Enable-Migrations} i Package Manager Console.
 
-Nu kan man lave en ændring i en model, i dette tilfælde tilføje et felt holder informationer om antallet af æbler. I Package Manager Console skrives nu \enquote{Add-Migration <migrations tekst>}, hvor migrations tekst er en beskrivende tekst til migrationen. Entity Framework klarer nu arbjedet med at udregne hvilke ændringer der skal foretages når der skal opgraderes til denne nyligt kreerede migration, samt hvad der skal ske hvis der skal nedgraderes fra denne migration.
+Nu kan programmøren lave en ændring i en model, i dette tilfælde tilføje et felt holder informationer om antallet af æbler. I Package Manager Console skrives nu \enquote{Add-Migration <migrations tekst>}, hvor migrations tekst er en beskrivende tekst til migrationen. Entity Framework klarer nu arbjedet med at udregne hvilke ændringer der skal foretages når der skal opgraderes til denne nyligt kreerede migration, samt hvad der skal ske hvis der skal nedgraderes fra denne migration.
 
 For at anvende den nye migration, skrives \enquote{Update-Database} i Package Manager Console.
