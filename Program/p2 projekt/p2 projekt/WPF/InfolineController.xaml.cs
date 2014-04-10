@@ -24,6 +24,8 @@ namespace p2_projekt.WPF
 
         public String Text { get { return textbox.Text; } set { textbox.Text = value; } }
 
+        public event TextChangedEventHandler TextChanged { add { textbox.TextChanged += value; } remove { textbox.TextChanged -= value; } }
+
         public bool readOnly { set { textbox.IsReadOnly = value; } }
 
         public InfolineController()

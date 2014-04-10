@@ -9,6 +9,7 @@ namespace p2_projekt.models
 {
     public class Boat
     {
+
         public int BoatId { get; set; }
         public string Name { get; set; }
 
@@ -17,6 +18,7 @@ namespace p2_projekt.models
 
         private bool _spaceChange;
         private BoatSpace _space;
+
 
         public virtual BoatSpace BoatSpace
         {
@@ -40,7 +42,7 @@ namespace p2_projekt.models
                     _spaceChange = false;
                 }
 
-                //opdater ny
+                // Opdater ny
                 if (_space != null)
                 {
                     _spaceChange = true;
@@ -52,5 +54,11 @@ namespace p2_projekt.models
         public double Lenght { get; set; }
         public double Width { get; set; }
         public string registrationNumber { get; set; }
+
+
+        public override string ToString()
+        {
+            return string.Format("{0}", Name);
+        }
     }
 }

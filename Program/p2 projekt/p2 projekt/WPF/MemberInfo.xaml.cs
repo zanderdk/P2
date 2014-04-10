@@ -72,5 +72,7 @@ namespace p2_projekt.WPF
         {
             fillBoat(e.AddedItems[0] as Boat);
         }
+
+       
     }
 }
