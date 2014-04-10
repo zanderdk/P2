@@ -68,7 +68,7 @@ namespace p2_projekt.WPF
             country.Text = u.Adress.CountryRegion;
         }
 
-        private void listBoats_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void listBoats_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
             fillBoat(e.AddedItems[0] as Boat);
         }

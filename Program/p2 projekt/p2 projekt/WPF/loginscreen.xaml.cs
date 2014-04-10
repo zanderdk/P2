@@ -37,15 +37,12 @@ namespace p2_projekt.WPF
                     AddressLine1 = "Bobstreet 5", 
                     PostalCode = "1337", 
                     CountryRegion = "Fyn"
-                }, 
-                Boats = new List<Boat>() {
-                    new Boat() {                    
-                        Lenght = 5, 
-                        Width = 10, 
-                        Name = "The Bertha"
-                    }
                 }
             };
+
+            Andreas.Boats.Add(new Boat() { User=Andreas, Name="testboat1", Width=3, Lenght=4, registrationNumber="3424234" });
+            Andreas.Boats.Add(new Boat() { User = Andreas, Name = "testboat2", Width = 3, Lenght = 4, registrationNumber = "3424435345234" });
+
             Andreas.Permissions = new Permissions() { member = true, readOnlyMember = true };
 
 
