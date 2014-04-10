@@ -68,11 +68,11 @@ namespace p2_projekt
             private DbSet<T> VerifyTable<T>(LobopContext context) where T : class
             {
                 Type lobobContextType = typeof(LobopContext);
-                PropertyInfo[] fields = lobobContextType.GetProperties();
+                PropertyInfo[] properties = lobobContextType.GetProperties();
                 Type DBsetType = typeof(DbSet<T>);
                 string dbSetTarget = string.Empty;
 
-                foreach (PropertyInfo item in fields)
+                foreach (PropertyInfo item in properties)
                 {
                     if (DBsetType == item.PropertyType)
                     {
