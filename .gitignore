@@ -209,3 +209,7 @@ UpgradeLog*.htm
 
 # Microsoft Fakes
 FakesAssemblies/
+
+# database
+*.mdf
+*.ldf
