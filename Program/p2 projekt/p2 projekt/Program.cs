@@ -39,7 +39,14 @@ namespace p2_projekt
             UserController userController = new UserController(db);
             userController.Add<User>(alice);
 
+            var test = userController.ReadAll<User>(x => true);
 
+            foreach(var item in test){
+                Member m = (Member) item;
+                Console.WriteLine(m.MembershipNumber + m.Password);
+            }
+
+            
             
             app.Run(new ChipRequester());
         }

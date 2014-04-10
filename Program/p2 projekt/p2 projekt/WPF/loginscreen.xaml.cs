@@ -60,7 +60,7 @@ namespace p2_projekt.WPF
                         {
                             main main = new main(u);
                             main.Show();
-                            this.Close();
+                            this.Hide();
                         }
                         else
                         {

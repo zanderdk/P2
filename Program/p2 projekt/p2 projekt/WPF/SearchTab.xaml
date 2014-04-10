@@ -49,12 +49,11 @@
             <Border CornerRadius="1" BorderBrush="Gray" Background="LightGray" BorderThickness="2" DockPanel.Dock="Top">
                 <StackPanel>
                     <ListBox Name="listResult" SelectionMode="Single" VerticalAlignment="Top" Height="300" MouseDoubleClick="listResult_MouseDoubleClick"  SelectionChanged="listResult_SelectionChanged"/>
+                    <TextBox GotFocus="TextBox_GotFocus"/>
                 </StackPanel>
             </Border>
             <Border Margin="0,10,0,0" CornerRadius="1" BorderBrush="Gray" Background="LightGray" BorderThickness="2" DockPanel.Dock="Top">
-                <TextBlock Height="100">
-                    Bonus info goes here
-                </TextBlock>
+                <TextBlock Name="bonusInfo" Height="150"/>
             </Border>
         </DockPanel>
     </Grid>
