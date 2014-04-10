@@ -14,13 +14,7 @@ namespace p2_projekt
 
         public class Database : IDAL
         {
-            public LobopContext _context;
-
-
-            public LobopContext lists()
-            {
-                return _context;
-            }
+            private LobopContext _context;
 
             public Database()
             {
@@ -59,9 +53,13 @@ namespace p2_projekt
                 Action(action, new LobopContext());
             }
 
-            public void Create(User user)
+            public void Create<TInput>(TInput item) where TInput : class
             {
-                _context.Users.Add(user);
+                DbSet<TInput> dbSet = VerifyTable<TInput>();
+
+                if (dbSet == null) throw new KeyNotFoundException("table ikke fundet");
+
+                dbSet.Add(item);
                 _context.SaveChanges();
             }
 
@@ -76,11 +74,11 @@ namespace p2_projekt
                 throw new NotImplementedException();
             }
 
-            public TResult Read<TResult>(Func<TResult,bool> predicate) where TResult: class
-            {    
+            private DbSet<T> VerifyTable<T>() where T : class
+            {
                 Type lobobContextType = typeof(LobopContext);
                 PropertyInfo[] fields = lobobContextType.GetProperties();
-                Type DBsetType = typeof(DbSet<TResult>);
+                Type DBsetType = typeof(DbSet<T>);
                 string dbSetTarget = string.Empty;
 
                 foreach (PropertyInfo item in fields)
@@ -89,12 +87,30 @@ namespace p2_projekt
                     {
                         // table found
                         dbSetTarget = item.ToString().Split(' ')[1];
-                        DbSet<TResult> dbSet = (DbSet<TResult>)lobobContextType.GetProperty(dbSetTarget).GetValue(_context, null);
-                        return dbSet.First(predicate);
+                        DbSet<T> dbSet = (DbSet<T>)lobobContextType.GetProperty(dbSetTarget).GetValue(_context, null);
+                        return dbSet;
                     }
                 }
-                
-                throw new KeyNotFoundException("table ikke fundet");
+                // table of type not found
+                return null;
+            }
+
+            public TResult Read<TResult>(Func<TResult,bool> predicate) where TResult: class
+            {
+                DbSet<TResult> dbSet = VerifyTable<TResult>();
+
+                if (dbSet == null) throw new KeyNotFoundException("table ikke fundet");
+
+                return dbSet.First(predicate);
+            }
+
+            public IEnumerable<TResult> ReadAll<TResult>(Func<TResult, bool> predicate) where TResult : class
+            {
+                DbSet<TResult> dbSet = VerifyTable<TResult>();
+
+                if (dbSet == null) throw new KeyNotFoundException("table ikke fundet");
+
+                return dbSet.Where(predicate);
             }
         }
         

@@ -28,23 +28,32 @@ namespace p2_projekt
             BoatSpace bs = new WaterSpace(0,10.0, 10.0) { info="dfgdfg" };
             Boat b = new Boat() { Name = "test Ship", BoatSpace = bs, registrationNumber = "fdsf" };
             Travel travel = new Travel(new DateTime(2008, 1, 1), new DateTime(2001, 1, 1));
-            Member alice = new Member("Alice", new System.Device.Location.CivicAddress());
+            Member alice = new Member("Alices", new System.Device.Location.CivicAddress());
             //alice.Travels.Add(travel);
             alice.Birthday = new DateTime(2013, 1, 1);
             alice.RegistrationDate = new DateTime(2013,1,1);
-            
             alice.Boats.Add(b);
 
             Utilities.Database db = new Utilities.Database();
             UserController userController = new UserController(db);
-            userController.Add(alice);
+            userController.Add<User>(alice);
 
             //User us = userController.ReadUser("Alice");
             //Member m = (Member)us;
 
-            User outTest = userController.Read<User>(x => x.Name == "Alice" );
+            IEnumerable<User> outUsers = userController.ReadAll<User>(x => x.Name.Contains( "Alice") );
 
-            Console.WriteLine(outTest.Name);
+            foreach (var item in outUsers)
+            {
+                Console.WriteLine(item.Name);
+            }
+
+            IEnumerable<Boat> allboats = userController.ReadAll<Boat>(x => true);
+
+            foreach (var item in allboats)
+            {
+                Console.WriteLine(item.Name);
+            }
             
             //TODO
             //Member alice = new Member("alice",new System.Device.Location.CivicAddress());
@@ -60,7 +69,7 @@ namespace p2_projekt
             //});
 
             
-            app.Run(new ChipRequester());
+            //app.Run(new ChipRequester());
         }
 
     }
