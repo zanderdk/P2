@@ -1,6 +1,6 @@
 \section{Databasehåndtering}
 \label{sec:database}
-I dette projekt benyttes Entity Framework, som er Microsofts anbefalede teknologi til at tilgå data \cite{entity}. Entity Framework er et object-relation mapping framework \cite{lerman2010programming}, der gør det muligt at konvertere data mellem objekter og andre typesystemser som for eksempel en database. Dette gør at programøren får en virtual objekt database, hvor det ser fra programørens sysvinkel ser ud som om man kan gemme objekter i en database der normalt kun kan gemme enkelte talværdier. Entity er med til nedsætte behovet for at skrive kode der har med data tilgang at gøre. Det er disse fordele der har gjort at entity blev valgt. Entity er en del af .NET Frameworket.
+I dette projekt benyttes Entity Framework, som er Microsofts anbefalede teknologi til at tilgå data \cite{entity}. Entity Framework er et object-relation mapping framework \cite{lerman2010programming}, der gør det muligt at konvertere data i mellem objekter og andre typesystemer som for eksempel en database. Dette giver programøren en virtuel objekt database, hvor det fremstår, som at man kan gemme objekter i en database, der normalt kun kan gemme enkelte talværdier. Entity er med til nedsætte behovet for at skrive kode der har med data tilgang at gøre. Det er disse fordele der har gjort at Entity blev valgt. Entity er en del af .NET Frameworket.
 
 \frnote{skal læses igennem}
 
@@ -19,6 +19,6 @@ Migreringer skal benyttes når programmøren gerne vil flytte data fra én datab
 
 Dette foregår i Entity Framework ved hjælp af Package Manager Console i Visual Studio. Først skal programmøren fortælle Entity Framework at den skal slå migrationer til. Dette gøres ved at skrive \enquote{Enable-Migrations} i Package Manager Console.
 
-Nu kan programmøren lave en ændring i en model, i dette tilfælde tilføje et felt holder informationer om antallet af æbler. I Package Manager Console skrives nu \enquote{Add-Migration <migrations tekst>}, hvor migrations tekst er en beskrivende tekst til migrationen. Entity Framework klarer nu arbjedet med at udregne hvilke ændringer der skal foretages når der skal opgraderes til denne nyligt kreerede migration, samt hvad der skal ske hvis der skal nedgraderes fra denne migration.
+Nu kan programmøren lave en ændring i en model, i dette tilfælde tilføje et felt holder informationer om antallet af æbler. I Package Manager Console skrives nu \enquote{Add-Migration <migrations tekst>}, hvor migrations tekst er en beskrivende tekst til migrationen. Entity Framework klarer nu arbejdet med at udregne hvilke ændringer der skal foretages når der skal opgraderes til denne nyligt oprettede migration, samt hvad der skal ske hvis der skal nedgraderes fra denne migration.
 
 For at anvende den nye migration, skrives \enquote{Update-Database} i Package Manager Console.
