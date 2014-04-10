@@ -28,11 +28,11 @@ namespace p2_projekt
             BoatSpace bs = new WaterSpace(0,10.0, 10.0) { info="dfgdfg" };
             Boat b = new Boat() { Name = "test Ship", BoatSpace = bs, registrationNumber = "fdsf" };
             Travel travel = new Travel(new DateTime(2008, 1, 1), new DateTime(2001, 1, 1));
-            Member alice = new Member("Frederik", new System.Device.Location.CivicAddress()) { Password="test"};
+            Member alice = new Member("Frederik", new System.Device.Location.CivicAddress()) { Password="test", MembershipNumber = 1337};
             //alice.Travels.Add(travel);
             alice.Birthday = new DateTime(2013, 1, 1);
             alice.RegistrationDate = new DateTime(2013,1,1);
-            
+                        
             
 
             Utilities.Database db = new Utilities.Database();

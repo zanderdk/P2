@@ -93,6 +93,12 @@ namespace p2_projekt.models
         public DateTime RegistrationDate { get; set; } //TODO automatisk registrering kun getter
         public TimeSpan MebershipDuration { get; set; } //TODO calculate shit
 
+        public Member(string name, CivicAddress adress, int memerShipNumer)
+        {
+            Name = name;
+            Adress = adress;
+            MembershipNumber = memerShipNumer;
+        }
 
         public Member() : base() {
             Travels = new List<Travel>();
@@ -100,10 +106,9 @@ namespace p2_projekt.models
             //MembershipNumber = Utilities.GetNextMembershipNumber();
         }
 
-        public Member(string name, CivicAddress adress) : this()
+        public Member(string name, CivicAddress adress): this(name, adress, 0)
         {
-            Name = name;
-            Adress = adress;
+           
         }
 
         public void AddNewTravel(DateTime start, DateTime end)
