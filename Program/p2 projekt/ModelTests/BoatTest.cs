@@ -12,10 +12,10 @@ namespace ModelTests
         {
             Boat BoatOne = new Boat();
             BoatSpace BoatSpaceOne = new WaterSpace(9001, 4, 2);
-            BoatOne.Space = null;
+            BoatOne.BoatSpace = null;
             BoatSpaceOne.Boat = null;
 
-            BoatOne.Space = BoatSpaceOne;
+            BoatOne.BoatSpace = BoatSpaceOne;
 
             Assert.AreEqual(BoatOne, BoatSpaceOne.Boat);
             Assert.AreEqual(BoatSpaceOne.Boat, BoatOne);
@@ -27,11 +27,11 @@ namespace ModelTests
             BoatSpace BoatSpaceOne = new WaterSpace(9001, 4, 2);
             BoatSpace BoatSpaceTwo = new WaterSpace(900001, 1,4);
 
-            BoatOne.Space = BoatSpaceOne;
+            BoatOne.BoatSpace = BoatSpaceOne;
             BoatSpaceTwo.Boat = null;
 
-            BoatOne.Space = BoatSpaceTwo;
-            Assert.AreEqual(BoatSpaceTwo, BoatOne.Space);
+            BoatOne.BoatSpace = BoatSpaceTwo;
+            Assert.AreEqual(BoatSpaceTwo, BoatOne.BoatSpace);
             Assert.AreEqual(BoatOne, BoatSpaceTwo.Boat);
             Assert.AreEqual(null , BoatSpaceOne.Boat);
         }
@@ -43,11 +43,11 @@ namespace ModelTests
             Boat BoatTwo = new Boat();
             BoatSpace BoatSpaceOne = new WaterSpace(9001, 4, 2);
 
-            BoatOne.Space = BoatSpaceOne;
+            BoatOne.BoatSpace = BoatSpaceOne;
 
             try
             {
-                BoatTwo.Space = BoatSpaceOne;
+                BoatTwo.BoatSpace = BoatSpaceOne;
             }
             catch(Exception)
             {
@@ -60,11 +60,11 @@ namespace ModelTests
         {
             Boat BoatOne = new Boat();
             BoatSpace BoatSpaceOne = new WaterSpace(9001, 4, 2);
-            BoatOne.Space = BoatSpaceOne;
+            BoatOne.BoatSpace = BoatSpaceOne;
 
-            BoatOne.Space = BoatSpaceOne;
+            BoatOne.BoatSpace = BoatSpaceOne;
 
-            Assert.AreEqual(BoatSpaceOne, BoatOne.Space);
+            Assert.AreEqual(BoatSpaceOne, BoatOne.BoatSpace);
             Assert.AreEqual(BoatOne, BoatSpaceOne.Boat);
         }
     }

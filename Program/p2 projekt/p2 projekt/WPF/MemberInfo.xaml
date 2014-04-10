@@ -19,17 +19,17 @@
         <DockPanel Grid.Column="0" LastChildFill="False" Margin="10,0,10,0" Grid.ColumnSpan="1" Grid.Row="1" >
             <Border CornerRadius="1" BorderBrush="Gray" Background="LightGray" BorderThickness="2" DockPanel.Dock="Top">
                 <StackPanel>
-                    <controllers:InfolineController x:Name="name" Title="Navn" Text="Sven Sved"/>
-                    <controllers:InfolineController x:Name="birthday" Title="Fødselsdag" Text="24-12-0000"/> <!--TODO Datetime?-->
-                    <controllers:InfolineController x:Name="phone" Title="Telefon" Text="+45 22 22 22 22"/>
-                    <controllers:InfolineController x:Name="email" Title="Email" Text="svend@sved.dk"/>
-                    <controllers:InfolineController x:Name="adresse" Title="Adresse" Text="winvej 1337"/>
-                    <controllers:InfolineController x:Name="postal" Title="Post nr" Text="9001"/>
-                    <controllers:InfolineController x:Name="country" Title="Land" Text="Fyn"/>
-                    <controllers:InfolineController x:Name="memberID" Title="Medlems nr" Text="59151561651"/>
-                    <controllers:InfolineController x:Name="memberSince" Title="Oprettet" Text="01-01-1970"/>
-                    <controllers:InfolineController x:Name="memberTimeTotal" Title="Medlemstid" Text="1970 år"/>
-                    <controllers:InfolineController x:Name="isActive" Title="Aktiv" Text="Ja" Visibility="Collapsed"/> <!--TODO visiblity skal kunne ændres-->
+                    <controllers:InfolineController x:Name="name" Title="Navn"/>
+                    <controllers:InfolineController x:Name="birthday" Title="Fødselsdag"/> <!--TODO Datetime?-->
+                    <controllers:InfolineController x:Name="phone" Title="Telefon"/>
+                    <controllers:InfolineController x:Name="email" Title="Email"/>
+                    <controllers:InfolineController x:Name="adresse" Title="Adresse"/>
+                    <controllers:InfolineController x:Name="postal" Title="Post nr"/>
+                    <controllers:InfolineController x:Name="country" Title="Land"/>
+                    <controllers:InfolineController x:Name="memberID" Title="Medlems nr"/>
+                    <controllers:InfolineController x:Name="memberSince" Title="Oprettet"/>
+                    <controllers:InfolineController x:Name="memberTimeTotal" Title="Medlemstid"/>
+                    <controllers:InfolineController x:Name="isActive" Title="Aktiv" Visibility="Collapsed"/> <!--TODO visiblity skal kunne ændres-->
 
                 </StackPanel>
             </Border> 
@@ -39,21 +39,19 @@
         <DockPanel Grid.Column="1" LastChildFill="False" Margin="10,0,10,0" Grid.ColumnSpan="1" Grid.Row="1" >
             <Border CornerRadius="1" BorderBrush="Gray" Background="LightGray" BorderThickness="2" DockPanel.Dock="Top">
                 <StackPanel>
-                    <ListBox Name="listBoats" VerticalAlignment="Top" Height="100" SelectionChanged="listBoats_SelectionChanged_1">
+                    <ListBox Name="listBoats" SelectionMode="Single" VerticalAlignment="Top" Height="100" SelectionChanged="listBoats_SelectionChanged_1">
                         
                     </ListBox>
                 </StackPanel>
             </Border>
             <Border Margin="0,10,0,0" CornerRadius="1" BorderBrush="Gray" Background="LightGray" BorderThickness="2" DockPanel.Dock="Top">
-                <StackPanel>
-                    
-                <controllers:InfolineController x:Name="boatOwner" Title="Ejere(e)" Text=""/>
-                    <controllers:InfolineController x:Name="boatName" Title="Navn" Text=""/>
-                    <controllers:InfolineController x:Name="boatSpace" Title="Plads" Text=""/>
-                    <controllers:InfolineController x:Name="boatID" Title="ID" Text="Ja" Visibility="Collapsed"/> <!--HEYEYEYYE boatID skal medlemmer ikke se mand!-->
-                    <controllers:InfolineController x:Name="boatLength" Title="Længde" Text=""/>
-                    <controllers:InfolineController x:Name="boatWidth" Title="Bredde" Text=""/>
-                    
+                <StackPanel>                    
+                <controllers:InfolineController x:Name="boatOwner" Title="Ejere(e)"/>
+                    <controllers:InfolineController x:Name="boatName" Title="Navn"/>
+                    <controllers:InfolineController x:Name="boatSpace" Title="Plads"/>
+                    <controllers:InfolineController x:Name="boatID" Title="ID" Visibility="Collapsed"/> <!--HEYEYEYYE boatID skal medlemmer ikke se mand!-->
+                    <controllers:InfolineController x:Name="boatLength" Title="Længde"/>
+                    <controllers:InfolineController x:Name="boatWidth" Title="Bredde"/>                    
                 </StackPanel>
             </Border>            
         </DockPanel>

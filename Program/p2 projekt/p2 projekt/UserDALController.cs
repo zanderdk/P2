@@ -16,16 +16,17 @@ namespace p2_projekt
             _iUserDal = userDAL;
         }
 
-        public bool Add(User user){
+        public bool Add<TInput>(TInput item) where TInput : class
+        {
             bool successful = false;
             try
             {
-                _iUserDal.Create(user);
+                _iUserDal.Create(item);
                 successful = true;
             }
             catch (InvalidOperationException)
             {
-                Console.WriteLine("could not add user");
+                Console.WriteLine("could not add item");
             }
 
             return successful; 
@@ -35,6 +36,12 @@ namespace p2_projekt
         {
 
             return _iUserDal.Read<TResult>(pre);
+        }
+
+        public IEnumerable<TResult> ReadAll<TResult>(Func<TResult, bool> pre) where TResult : class
+        {
+
+            return _iUserDal.ReadAll<TResult>(pre);
         }
 
         public bool Remove(Member user)
