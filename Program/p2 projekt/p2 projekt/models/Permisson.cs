@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace p2_projekt.models
 {
-    public class Permissions
+    public class Permission
     {
         [Key]
-        public int UserId { get; set; }
+        public int PermissionId { get; set; }
         public bool member { get; set; }
         public bool readOnlyMember { get; set; }
         public bool search { get; set; }

@@ -70,7 +70,7 @@
     <Compile Include="models\BoatDetector.cs" />
     <Compile Include="models\boatspace.cs" />
     <Compile Include="models\boat.cs" />
-    <Compile Include="models\Permissons.cs" />
+    <Compile Include="models\Permisson.cs" />
     <Compile Include="models\person.cs" />
     <Compile Include="models\Travel.cs" />
     <Compile Include="Program.cs" />

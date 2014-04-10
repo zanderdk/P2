@@ -20,5 +20,6 @@ namespace p2_projekt
         public virtual DbSet<Boat> Boats { get; set; }
         public virtual DbSet<BoatSpace> BoatSpaces { get; set; }
         public virtual DbSet<Travel> Travels { get; set; }
+        public virtual DbSet<Permission> Permissions { get; set; } // required for making one-way relations 
     }
 }

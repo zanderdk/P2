@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Device.Location;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace p2_projekt.models
 {
@@ -16,18 +17,19 @@ namespace p2_projekt.models
         //public List<Boat> boats; // boats owned
         //public string Name { get; set; }
 
-        [Required]
-        public Permissions Permissions { get; set; } // must be initialized with no access at all. E.g = new Permissions().LowestAccess;
+        [ForeignKey("Permission")]
+        public int PermissionId { get; set; }
+        public Permission Permission { get; set; } // must be initialized with no access at all. E.g = new Permissions().LowestAccess;
 
         public User()
         {
-            Permissions = new Permissions();
             //boats = new List<Boat>();
         }
 
         public User(string name) : this()
         {
             Name = name;
+            Permission = new Permission();
         }
 
 
@@ -107,9 +109,8 @@ namespace p2_projekt.models
                 _username = value;
             }}
 
-        public Member(string name, CivicAddress adress, int memerShipNumer)
+        public Member(string name, CivicAddress adress, int memerShipNumer) :base(name)
         {
-            Name = name;
             Adress = adress;
             MembershipNumber = memerShipNumer;
             Travels = new List<Travel>();
@@ -177,6 +178,15 @@ namespace p2_projekt.models
     // has no member ID
     public class HarbourMaster : User, IFullPersonalInfo, ILoginable
     {
+        public HarbourMaster()
+        {
+
+        }
+
+        public HarbourMaster(string name) : base(name)
+        {
+
+        }
 
         public string Username { get; set; }
 

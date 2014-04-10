@@ -19,7 +19,7 @@ namespace p2_projekt
             System.Windows.Application app = new System.Windows.Application();
 
             HarbourMaster har = new HarbourMaster();
-            har.Permissions = new Permissions();
+            har.Permission = new Permission();
             string root_path = Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
 
             AppDomain.CurrentDomain.SetData("DataDirectory", root_path);
@@ -29,7 +29,7 @@ namespace p2_projekt
             Boat b = new Boat() { Name = "test Ship", BoatSpace = bs, registrationNumber = "fdsf" };
             Travel travel = new Travel(new DateTime(2008, 1, 1), new DateTime(2001, 1, 1));
             Member alice = new Member("Kasper", new System.Device.Location.CivicAddress()) { Password="test"};
-            alice.Permissions = new Permissions() { search=true };
+            alice.Permission = new Permission() { search=true };
             //alice.Travels.Add(travel);
             alice.Birthday = new DateTime(2013, 1, 1);
             alice.RegistrationDate = new DateTime(2013,1,1);
