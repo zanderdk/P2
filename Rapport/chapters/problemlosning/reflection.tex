@@ -1,0 +1,51 @@
+\section{Reflection}
+\label{sec:reflection}
+
+Reflection er en metode i C\# til at undersøge objekter i et program ved kørselstid \cite{michaelis2012essential}. Et eksempel på brugen af reflection kan være, at programmøren ønsker at finde et felt i en klasse ved navn.
+
+I dette projekt bruges reflection til at gøre metoder der tilgår databasen, meget generiske, hvilket sikrer stor kodegenbrug. Som beskrevet i \cref{sec:database}, består databasen af forskellige tabeller, herunder \enquote{Users}, \enquote{Boats}, \enquote{BoatSpaces} og \enquote{Travels}. Lad os forestille os en metode der skal slette et objekt fra en specifik tabel. Metodesignaturen for en sådan metode kunne se ud som vist i \cref{lst:reflection_remove1}.
+
+
+\begin{lstlisting}[label=lst:reflection_remove1]
+public void RemoveUser(User user)
+\end{lstlisting}
+
+Problemet med denne metode er at denne metode kun virker på \enquote{User} objekter. Dette betyder at der udover denne metode også skal skrives en \enquote{RemoveBoat}, \enquote{RemoveBoatSpace} og en \enquote{RemoveTravel} metode. For at undgå dette, kan der laves en \enquote{Remove} metode, med en parameter der afgør hvilken tabel der skal slettes noget i. Metodesignaturen kunne se ud som i \cref{lst:reflection_remove2}.
+
+
+\begin{lstlisting}[label=lst:reflection_remove2]
+public void Remove<T>(T item, string table)
+\end{lstlisting}
+
+Problemet er, at metoden \enquote{Remove} skal have \enquote{hard-codet} alle de forskellige navne på alle eksisterende tabeller ind i denne metode. Hvis navnet på en tabel så ændrer sig, vil metoden ikke længere virke.
+
+For at løse ovenstående problemer kommer reflection ind i billedet. \Cref{lst:reflection_verifytable} er et kodeeksempel fra programmet, som leder efter en property der er af typen \enquote{DbSet<T>}, hvor T er en generisk type. Først finder metoden alle properties der er defineret på typen \enquote{LobobContext}. DBsetType er den property der ønskes fundet. Metoden itererer nu alle properties igennem, indtil en property der matcher DBsetType er fundet. Hvis der er ingen matches, findes den ønskede tabel ikke, og null returneres. Hvis der er et match i foreach løkken, findes property navnet, og lægges over i dbSetTarget. Det er nu muligt at dynamisk oprette en DbSet<T> ud fra typen \enquote{LobobContext}. Denne DbSet<T> returneres, og kan nu bruges i en \enquote{Remove} metode.
+
+\begin{lstlisting}[label=lst:reflection_verifytable]
+private DbSet<T> VerifyTable<T>(LobopContext context) where T : class
+{
+    Type lobobContextType = typeof(LobopContext);
+    PropertyInfo[] properties = lobobContextType.GetProperties();
+    Type DBsetType = typeof(DbSet<T>);
+    string dbSetTarget = string.Empty;
+
+    foreach (PropertyInfo item in properties)
+    {
+        if (DBsetType == item.PropertyType)
+        {
+            // table found
+            dbSetTarget = item.ToString().Split(' ')[1];
+            DbSet<T> dbSet = (DbSet<T>)lobobContextType.GetProperty(dbSetTarget).GetValue(context, null);
+            return dbSet;
+        }
+    }
+    // table of type not found
+    return null;
+}
+\end{lstlisting}
+
+Den færdige Remove metode der er generisk, virker nu på tværs af alle klasser, ved hjælp af reflection. Hvis en Titanic båden skal fjernes fra \enquote{Boats} tabellen, kaldes koden set i \cref{lst:reflection_remove3}. Der er nu ingen behov for at specificere i hvilken tabel titanic skal fjernes fra, da Remove selv kan regne dette ud udfra den generiske typeparameter <Boat>.
+
+\begin{lstlisting}[label=lst:reflection_remove3]
+Remove<Boat>(titanic);
+\end{lstlisting}
