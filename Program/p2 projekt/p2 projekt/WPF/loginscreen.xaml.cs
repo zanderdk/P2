@@ -28,14 +28,14 @@ namespace p2_projekt.WPF
               
         }
         
-        User findUserByNumber(int MemebershipNumber)
+        User findUserByUsername(string username)
         {
             
             UserController userController = new UserController(new Utilities.Database());
             User u = userController.Read<User>( x=> {
-                if(x is Member)
+                if(x is ILoginable)
                 {
-                    if((x as Member).MembershipNumber == MemebershipNumber)
+                    if((x as ILoginable).Username == username)
                     {
                         return true;
                     }
@@ -47,10 +47,8 @@ namespace p2_projekt.WPF
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            int number;
-            if(int.TryParse(membernr.Text, out number))
-            {
-                User u = findUserByNumber(number);
+
+                User u = findUserByUsername(membernr.Text);
                 if(u != null)
                 {
                     if(u is ILoginable)
@@ -60,7 +58,7 @@ namespace p2_projekt.WPF
                         {
                             main main = new main(u);
                             main.Show();
-                            this.Hide();
+                            this.Close();
                         }
                         else
                         {
@@ -77,9 +75,7 @@ namespace p2_projekt.WPF
                     MessageBox.Show("Bruger ikke fundet.");
                 }
             }
-            else { MessageBox.Show("Uglydigt Medlemsnummer."); }
 
-        }
     }
 
 }

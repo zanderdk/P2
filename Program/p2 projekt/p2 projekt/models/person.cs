@@ -20,6 +20,7 @@ namespace p2_projekt.models
 
         public User()
         {
+            Permissions = new Permissions();
             //boats = new List<Boat>();
         }
 
@@ -55,6 +56,7 @@ namespace p2_projekt.models
 
     public interface ILoginable
     {
+        string Username { get; set; }
         string Password { get; set; }
     }
 
@@ -93,22 +95,33 @@ namespace p2_projekt.models
         public DateTime RegistrationDate { get; set; } //TODO automatisk registrering kun getter
         public TimeSpan MebershipDuration { get; set; } //TODO calculate shit
 
+        private string _username;
+
+        public string Username 
+        { 
+            get { 
+                if (_username != null) return _username; return MembershipNumber.ToString(); 
+            } 
+            set {
+                _username = value;
+            }}
+
         public Member(string name, CivicAddress adress, int memerShipNumer)
         {
             Name = name;
             Adress = adress;
             MembershipNumber = memerShipNumer;
+            Travels = new List<Travel>();
+            Boats = new List<Boat>();
         }
 
         public Member() : base() {
-            Travels = new List<Travel>();
-            Boats = new List<Boat>();
-            //MembershipNumber = Utilities.GetNextMembershipNumber();
+            //only used by Entity framework
         }
 
-        public Member(string name, CivicAddress adress): this(name, adress, 0)
+        public Member(string name, CivicAddress adress) : this(name, adress, Utilities.GetNextMembershipNumber())
         {
-           
+
         }
 
         public void AddNewTravel(DateTime start, DateTime end)
@@ -161,8 +174,12 @@ namespace p2_projekt.models
     }
     
     // has no member ID
-    public class HarbourMaster : User, IFullPersonalInfo
+    public class HarbourMaster : User, IFullPersonalInfo, ILoginable
     {
+
+        public string Username { get; set; }
+
+        public string Password { get; set; }
 
         public string Email
         {

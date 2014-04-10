@@ -107,9 +107,14 @@ namespace p2_projekt
 
                 return result;
             }
-            public int GetNextMembershipNumber()
+           
+        }
+
+        public static int GetNextMembershipNumber()
+        {
+            using(var db = new LobopContext())
             {
-                return ReadAll<User>(x => true).Max(x => { 
+                return db.Users.Max<User>(x => { 
                 
                     if(x is Member)
                     {
@@ -119,5 +124,6 @@ namespace p2_projekt
                 }) + 1;
             }
         }
+
     }
 }
