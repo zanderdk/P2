@@ -42,7 +42,7 @@ namespace p2_projekt
             //User us = userController.ReadUser("Alice");
             //Member m = (Member)us;
 
-            User outTest = db.Read<User>(x => x.Name == "Alice" );
+            User outTest = userController.Read<User>(x => x.Name == "Alice" );
 
             Console.WriteLine(outTest.Name);
             

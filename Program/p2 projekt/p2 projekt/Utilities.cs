@@ -93,7 +93,7 @@ namespace p2_projekt
                         return dbSet.First(predicate);
                     }
                 }
-                    
+                
                 throw new KeyNotFoundException("table ikke fundet");
             }
         }
