@@ -38,19 +38,26 @@ namespace p2_projekt
             return _iUserDal.Read<TResult>(pre);
         }
 
+       
+
+        public void Update<TInput>(TInput item) where TInput : class
+        {
+            _iUserDal.Update(item);
+        }
+
         public IEnumerable<TResult> ReadAll<TResult>(Func<TResult, bool> pre) where TResult : class
         {
 
             return _iUserDal.ReadAll<TResult>(pre);
         }
 
-        public bool Remove(Member user)
+        public bool Remove<TInput>(TInput item) where TInput : class
         {
             bool sucessful = false;
 
             try
             {
-                _iUserDal.Delete(user);
+                _iUserDal.Delete(item);
                 sucessful = true;
             }
             catch (InvalidOperationException)
@@ -59,5 +66,7 @@ namespace p2_projekt
             }
             return sucessful;
         }
+
+        
     }
 }

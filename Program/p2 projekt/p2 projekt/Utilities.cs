@@ -63,15 +63,27 @@ namespace p2_projekt
                 _context.SaveChanges();
             }
 
-            public void Delete(User user)
+            public void Delete<TInput>(TInput item) where TInput : class
             {
-                _context.Users.Remove(user);
+                DbSet<TInput> dbSet = VerifyTable<TInput>();
+
+                if (dbSet == null) throw new KeyNotFoundException("table ikke fundet");
+                dbSet.Remove(item);
                 _context.SaveChanges();
             }
 
-            public bool Update(User user)
+            public void Update<TInput>(TInput item) where TInput : class
             {
-                throw new NotImplementedException();
+                DbSet<TInput> dbSet = VerifyTable<TInput>();
+
+                if (dbSet == null) throw new KeyNotFoundException("table ikke fundet");
+
+                dbSet.Attach(item);
+                var entry = _context.Entry<TInput>(item);
+                entry.State = EntityState.Modified;
+
+                _context.SaveChanges();
+               
             }
 
             private DbSet<T> VerifyTable<T>() where T : class
@@ -101,7 +113,7 @@ namespace p2_projekt
 
                 if (dbSet == null) throw new KeyNotFoundException("table ikke fundet");
 
-                return dbSet.First(predicate);
+                return dbSet.FirstOrDefault(predicate);
             }
 
             public IEnumerable<TResult> ReadAll<TResult>(Func<TResult, bool> predicate) where TResult : class

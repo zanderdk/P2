@@ -33,18 +33,33 @@ namespace p2_projekt
             alice.Birthday = new DateTime(2013, 1, 1);
             alice.RegistrationDate = new DateTime(2013,1,1);
             
-            alice.Boats.Add(b);
+            sophie.Travels.Add(travel2);
+            sophie.Birthday = new DateTime(2008, 1, 1);
+            sophie.RegistrationDate = new DateTime(2011, 1, 1);
+            sophie.Boats.Add(b2);
 
             Utilities.Database db = new Utilities.Database();
             UserController userController = new UserController(db);
-            //userController.Add(alice);
+            userController.Add<User>(alice);
+
             
-            //User us = userController.ReadUser("Alice");
-            //Member m = (Member)us;
+            Console.WriteLine("Før:");
 
-            User outTest = userController.Read<User>(x => x.Name == "Alice" );
+            foreach (var item in userController.ReadAll<User>(x => true))
+            {
+                Console.WriteLine(item.Name);
+            }
+            var bob = userController.Read<User>(x => x.Name == "Bob");
+            bob.Name = "Simon";
+            userController.Update(bob);
+            Console.WriteLine("Efter:");
 
-            Console.WriteLine(outTest.Name);
+            foreach (var item in userController.ReadAll<User>(x => true))
+            {
+                Console.WriteLine(item.Name);
+            }
+
+
             
             //TODO
             //Member alice = new Member("alice",new System.Device.Location.CivicAddress());
