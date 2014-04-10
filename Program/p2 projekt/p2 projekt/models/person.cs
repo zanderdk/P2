@@ -16,7 +16,8 @@ namespace p2_projekt.models
         //public List<Boat> boats; // boats owned
         //public string Name { get; set; }
 
-        public Permissions Permissions; // must be initialized with no access at all. E.g = new Permissions().LowestAccess;
+        [Required]
+        public Permissions Permissions { get; set; } // must be initialized with no access at all. E.g = new Permissions().LowestAccess;
 
         public User()
         {

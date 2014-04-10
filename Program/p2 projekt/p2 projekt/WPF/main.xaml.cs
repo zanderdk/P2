@@ -25,18 +25,24 @@ namespace p2_projekt.WPF
         {
             InitializeComponent();
 
+            addToTabControler(new WelcomeTab(), "Forside");
+           
+           if(u.Permissions.ChangePersonalInfo)
+           {
+               addToTabControler(new MemberInfo(u), "Profil");
+           }
 
-            WelcomeTab welcome = new WelcomeTab();
-            TabItem welcomeTab = new TabItem() { Header = "Forside", Content = welcome };
-            this.tabControler.Items.Add(welcomeTab);
-
-            MemberInfo sailorInfo = new MemberInfo(u);            
-            TabItem sailorInfoTab = new TabItem() { Header = "Profil", Content = sailorInfo };
-            this.tabControler.Items.Add(sailorInfoTab);
-            
+            if(u.Permissions.search)
+            {
+                addToTabControler(new SearchTab(), "Søg");
+            }
         }
 
-       //TODO opret kun efter permissions
-
-    }
+            public void addToTabControler(UserControl us, string name)
+            {
+                TabItem tabItem = new TabItem() { Header = name, Content = us };
+                tabControler.Items.Add(tabItem);
+            }
+            
+        }
 }

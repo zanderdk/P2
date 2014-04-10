@@ -114,6 +114,10 @@ namespace p2_projekt
         {
             using(var db = new LobopContext())
             {
+                if(db.Users.Count() == 0)
+                {
+                    return 0;
+                }
                 return db.Users.Max<User>(x => { 
                 
                     if(x is Member)
