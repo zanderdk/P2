@@ -39,9 +39,6 @@ namespace p2_projekt
             UserController userController = new UserController(db);
             userController.Add<User>(alice);
 
-            
-            
-
 
             
             app.Run(new ChipRequester());
