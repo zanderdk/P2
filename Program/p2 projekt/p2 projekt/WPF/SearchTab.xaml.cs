@@ -12,12 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using p2_projekt.models;
 
 namespace p2_projekt.WPF
 {
-    /// <summary>
-    /// Interaction logic for SearchTab.xaml
-    /// </summary>
     public partial class SearchTab : UserControl
     {
         public SearchTab()
@@ -40,29 +38,37 @@ namespace p2_projekt.WPF
             Add_ControllerDelegates(boatID);
             Add_ControllerDelegates(boatSpace);
             Add_ControllerDelegates(boatLength);
-            Add_ControllerDelegates(boatWidth);
-            
+            Add_ControllerDelegates(boatWidth);            
         }
 
-        public void Add_ControllerDelegates(InfolineController i)
+        void Add_ControllerDelegates(InfolineController c)
         {
-            i.TextChanged += delegate { textbox_SearchChanged(); };
+            c.TextChanged += delegate { textbox_SearchChanged(); };
         }
 
-        public void textbox_SearchChanged()
+        void textbox_SearchChanged()
         {
-            
+
         }
 
+        void infobox(User u)
+        {
+            //TODO fill bonus info
+        }
 
         public void listResult_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            infobox(e.AddedItems[0] as User);
         }
 
         private void listResult_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
 
+        }
+
+        private void TextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("magic!");
         }
     }
 }

@@ -37,8 +37,7 @@ namespace p2_projekt
 
             Utilities.Database db = new Utilities.Database();
             UserController userController = new UserController(db);
-            userController.Add<User>(alice);
-
+            //userController.Add<User>(alice);
 
             
             app.Run(new ChipRequester());

@@ -24,10 +24,13 @@ namespace p2_projekt.WPF
             InitializeComponent();
         }
 
-        public MemberInfo(ISailor s)
+        public MemberInfo(User s)
             : this()
         {
-            initSailor(s);
+            if (s is ISailor)
+            {
+                initSailor(s as ISailor);
+            }
         }
 
         void initSailor(ISailor s)

@@ -26,6 +26,8 @@ namespace p2_projekt.WPF
 
         public event TextChangedEventHandler TextChanged { add { textbox.TextChanged += value; } remove { textbox.TextChanged -= value; } }
 
+        public bool Sorted { get; set; }
+
         public bool readOnly { set { textbox.IsReadOnly = value; } }
 
         public InfolineController()
