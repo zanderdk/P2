@@ -14,79 +14,58 @@ namespace p2_projekt
 
         public class Database : IDAL
         {
-            private LobopContext _context;
-
-            public Database()
-            {
-                _context = new LobopContext();  
-            }
-
-            public static void AddUser(User user, LobopContext context)
-            {
-                Action(db =>
-                {
-                    db.Users.Add(user);
-                    db.SaveChanges();
-                }, context);
-            }
-
-            public static void AddUser(User user)
-            {
-                LobopContext context = new LobopContext();
-                
-                AddUser(user, context);
-            }
-
-
-            public static void Action(Action<LobopContext> action, LobopContext context)
+            public void Action<TInput>(Action<LobopContext, DbSet<TInput>> action, LobopContext context) where TInput : class
             {
                 if (context == null) throw new ArgumentNullException();
 
                 using (var db = context)
                 {
-                    action(db);
+                    DbSet<TInput> dbSet = VerifyTable<TInput>(db);
+                    if (dbSet == null) throw new KeyNotFoundException("table ikke fundet");
+                    action(db, dbSet);
                 }
             }
 
-            public static void Action(Action<LobopContext> action)
+            public void Action<TInput>(Action<LobopContext, DbSet<TInput>> action) where TInput : class
             {
-                Action(action, new LobopContext());
+                Action<TInput>(action, new LobopContext());
             }
 
             public void Create<TInput>(TInput item) where TInput : class
             {
-                DbSet<TInput> dbSet = VerifyTable<TInput>();
+                Action<TInput>((db, dbSet) =>
+                {
+                    dbSet.Add(item);
+                    db.SaveChanges();
+                });
 
-                if (dbSet == null) throw new KeyNotFoundException("table ikke fundet");
-
-                dbSet.Add(item);
-                _context.SaveChanges();
             }
 
             public void Delete<TInput>(TInput item) where TInput : class
             {
-                DbSet<TInput> dbSet = VerifyTable<TInput>();
 
-                if (dbSet == null) throw new KeyNotFoundException("table ikke fundet");
-                dbSet.Remove(item);
-                _context.SaveChanges();
+                Action<TInput>((db, dbSet) =>
+                {
+                    dbSet.Remove(item);
+                    db.SaveChanges();
+                });
+
             }
 
             public void Update<TInput>(TInput item) where TInput : class
             {
-                DbSet<TInput> dbSet = VerifyTable<TInput>();
 
-                if (dbSet == null) throw new KeyNotFoundException("table ikke fundet");
+                Action<TInput>((db, dbSet) =>
+                {
+                    dbSet.Attach(item);
+                    var entry = db.Entry<TInput>(item);
+                    entry.State = EntityState.Modified;
+                    db.SaveChanges();
+                });
 
-                dbSet.Attach(item);
-                var entry = _context.Entry<TInput>(item);
-                entry.State = EntityState.Modified;
-
-                _context.SaveChanges();
-               
             }
 
-            private DbSet<T> VerifyTable<T>() where T : class
+            private DbSet<T> VerifyTable<T>(LobopContext context) where T : class
             {
                 Type lobobContextType = typeof(LobopContext);
                 PropertyInfo[] fields = lobobContextType.GetProperties();
@@ -99,7 +78,7 @@ namespace p2_projekt
                     {
                         // table found
                         dbSetTarget = item.ToString().Split(' ')[1];
-                        DbSet<T> dbSet = (DbSet<T>)lobobContextType.GetProperty(dbSetTarget).GetValue(_context, null);
+                        DbSet<T> dbSet = (DbSet<T>)lobobContextType.GetProperty(dbSetTarget).GetValue(context, null);
                         return dbSet;
                     }
                 }
@@ -107,22 +86,26 @@ namespace p2_projekt
                 return null;
             }
 
-            public TResult Read<TResult>(Func<TResult,bool> predicate) where TResult: class
+            public TResult Read<TResult>(Func<TResult, bool> predicate) where TResult : class
             {
-                DbSet<TResult> dbSet = VerifyTable<TResult>();
+                TResult result = null;
+                Action<TResult>((db, dbSet) =>
+                {
+                    result = dbSet.FirstOrDefault(predicate);
+                });
 
-                if (dbSet == null) throw new KeyNotFoundException("table ikke fundet");
-
-                return dbSet.FirstOrDefault(predicate);
+                return result;
             }
 
             public IEnumerable<TResult> ReadAll<TResult>(Func<TResult, bool> predicate) where TResult : class
             {
-                DbSet<TResult> dbSet = VerifyTable<TResult>();
+                IEnumerable<TResult> result = null;
+                Action<TResult>((db, dbSet) =>
+                {
+                    result = dbSet.Where(predicate).ToList();
+                });
 
-                if (dbSet == null) throw new KeyNotFoundException("table ikke fundet");
-
-                return dbSet.Where(predicate);
+                return result;
             }
             public int GetNextMembershipNumber()
             {
