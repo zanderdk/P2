@@ -35,7 +35,6 @@ namespace p2_projekt
             
             alice.Boats.Add(b);
 
-
             Utilities.Database db = new Utilities.Database();
             UserController userController = new UserController(db);
             userController.Add(alice);
@@ -43,7 +42,9 @@ namespace p2_projekt
             //User us = userController.ReadUser("Alice");
             //Member m = (Member)us;
 
-            db.Read<User>(x => x.Name == "Alice" );
+            User outTest = db.Read<User>(x => x.Name == "Alice" );
+
+            Console.WriteLine(outTest.Name);
             
             //TODO
             //Member alice = new Member("alice",new System.Device.Location.CivicAddress());

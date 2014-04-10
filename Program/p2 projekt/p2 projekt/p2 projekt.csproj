@@ -65,7 +65,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>HarborStatus.settings</DependentUpon>
     </Compile>
-    <Compile Include="IUserDAL.cs" />
+    <Compile Include="IDAL.cs" />
     <Compile Include="LobopContext.cs" />
     <Compile Include="models\BoatDetector.cs" />
     <Compile Include="models\boatspace.cs" />

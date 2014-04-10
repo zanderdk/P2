@@ -12,7 +12,7 @@ namespace ModelTests
     public class UserDALControllerTest
     {
         Member alice;
-        Mock<IUserDAL> userDAL;
+        Mock<IDAL> userDAL;
         UserController controller;
 
         [TestInitialize]
@@ -21,7 +21,7 @@ namespace ModelTests
             alice = new Member("Alice", new System.Device.Location.CivicAddress());
             alice.UserId = 1;
             alice.Birthday = new DateTime(2013, 1, 1);
-            userDAL = new Mock<IUserDAL>();
+            userDAL = new Mock<IDAL>();
             controller = new UserController(userDAL.Object);
         }
 

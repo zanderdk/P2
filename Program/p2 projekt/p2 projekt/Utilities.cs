@@ -12,7 +12,7 @@ namespace p2_projekt
     public static class Utilities
     {
 
-        public class Database : IUserDAL
+        public class Database : IDAL
         {
             public LobopContext _context;
 
@@ -76,43 +76,25 @@ namespace p2_projekt
                 throw new NotImplementedException();
             }
 
-            public void Read<TResult>(Func<TResult,bool> predicate) where TResult: class
+            public TResult Read<TResult>(Func<TResult,bool> predicate) where TResult: class
             {    
                 Type lobobContextType = typeof(LobopContext);
                 PropertyInfo[] fields = lobobContextType.GetProperties();
-                bool tableFound = false;
                 Type DBsetType = typeof(DbSet<TResult>);
-                
-                foreach (PropertyInfo f in fields)
-                {
-                    if (DBsetType == f.PropertyType) tableFound = true;
-                }
+                string dbSetTarget = string.Empty;
 
-                if (tableFound)
+                foreach (PropertyInfo item in fields)
                 {
-                    string dbSetTarget = string.Empty;
-                    foreach (var item in fields)
+                    if (DBsetType == item.PropertyType)
                     {
-                        if (item.ToString().Contains(DBsetType.ToString()))
-                        {
-                            dbSetTarget = item.ToString().Split(' ')[1];
-                        }
-                            
-                            
-                            
+                        // table found
+                        dbSetTarget = item.ToString().Split(' ')[1];
+                        DbSet<TResult> dbSet = (DbSet<TResult>)lobobContextType.GetProperty(dbSetTarget).GetValue(_context, null);
+                        return dbSet.First(predicate);
                     }
-                    DbSet<TResult> dbSet = (DbSet<TResult>) lobobContextType.GetProperty(dbSetTarget).GetValue(_context, null);
-                    
-                    foreach (var item in dbSet.Where(predicate))
-                    {
-                        Console.WriteLine(item + "----------------------------");
-                    }
-                    
                 }
-                else
-                {
-                    throw new KeyNotFoundException("table ikke fundet");
-                }
+                    
+                throw new KeyNotFoundException("table ikke fundet");
             }
         }
         

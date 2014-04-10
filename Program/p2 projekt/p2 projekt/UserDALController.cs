@@ -9,9 +9,9 @@ namespace p2_projekt
 {
     public class UserController
     {
-         public IUserDAL _iUserDal;
+         private IDAL _iUserDal;
 
-        public UserController(IUserDAL userDAL)
+        public UserController(IDAL userDAL)
         {
             _iUserDal = userDAL;
         }
@@ -31,9 +31,10 @@ namespace p2_projekt
             return successful; 
         }
 
-        public void Read<TResult>(Func<TResult, bool> pre) where TResult : class
+        public TResult Read<TResult>(Func<TResult, bool> pre) where TResult : class
         {
-            _iUserDal.Read<TResult>(pre);
+
+            return _iUserDal.Read<TResult>(pre);
         }
 
         public bool Remove(Member user)

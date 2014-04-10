@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace p2_projekt
 {
-    public interface IUserDAL
+    public interface IDAL
     {
         void Create(User user);
         void Delete(User user);
         bool Update(User user);
-        void Read<TResult>(Func<TResult, bool> predicate) where TResult : class;
+        TResult Read<TResult>(Func<TResult, bool> predicate) where TResult : class;
     }
 }
