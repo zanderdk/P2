@@ -109,7 +109,14 @@ namespace p2_projekt
             }
             public int GetNextMembershipNumber()
             {
-                return 0;
+                return ReadAll<User>(x => true).Max(x => { 
+                
+                    if(x is Member)
+                    {
+                        return (x as Member).MembershipNumber;
+                    }
+                    return 0;
+                }) + 1;
             }
         }
     }
