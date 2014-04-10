@@ -33,31 +33,15 @@ namespace p2_projekt
             alice.Birthday = new DateTime(2013, 1, 1);
             alice.RegistrationDate = new DateTime(2013,1,1);
             
-            alice.Boats.Add(b);
+            
 
             Utilities.Database db = new Utilities.Database();
             UserController userController = new UserController(db);
-            //userController.Add(alice);
+            userController.Add<User>(alice);
+
             
-            //User us = userController.ReadUser("Alice");
-            //Member m = (Member)us;
-
-            User outTest = userController.Read<User>(x => x.Name == "Alice" );
-
-            Console.WriteLine(outTest.Name);
             
-            //TODO
-            //Member alice = new Member("alice",new System.Device.Location.CivicAddress());
-            //alice.UserId = 1;
-            //alice.Birthday = new DateTime(2013, 1, 1);
-            //Utilities.Database.Action( (LobopContext db) => {
-            //    if(db.Members.Find(alice.UserId) == null) 
-            //        db.Memb ers.Add(alice);
-                
-            //    db.SaveChanges();
 
-            //    foreach (var item in db.Members) Console.WriteLine(item.UserId);
-            //});
 
             
             app.Run(new ChipRequester());
