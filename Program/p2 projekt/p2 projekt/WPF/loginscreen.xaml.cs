@@ -27,28 +27,58 @@ namespace p2_projekt.WPF
             InitializeComponent();
               
         }
+        
+        User findUserByNumber(int MemebershipNumber)
+        {
+            
+            UserController userController = new UserController(new Utilities.Database());
+            User u = userController.Read<User>( x=> {
+                if(x is Member)
+                {
+                    if((x as Member).MembershipNumber == MemebershipNumber)
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            });
+            return u;
+        }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Member Andreas = new Member() { 
-                Name = "Andreas Hansen", 
-                UserId = 12653, 
-                Adress = new CivicAddress() {
-                    AddressLine1 = "Bobstreet 5", 
-                    PostalCode = "1337", 
-                    CountryRegion = "Fyn"
+            int number;
+            if(int.TryParse(membernr.Text, out number))
+            {
+                User u = findUserByNumber(number);
+                if(u != null)
+                {
+                    if(u is ILoginable)
+                    {
+                        ILoginable log = (u as ILoginable);
+                        if (password.Password == log.Password)
+                        {
+                            main main = new main(u);
+                            main.Show();
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Forkert password.");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Brugeren har ikke regtighed til at logge ind.");
+                    }
                 }
-            };
+                else
+                {
+                    MessageBox.Show("Bruger ikke fundet.");
+                }
+            }
+            else { MessageBox.Show("Uglydigt Medlemsnummer."); }
 
-            Andreas.Boats.Add(new Boat() { User=Andreas, Name="testboat1", Width=3, Lenght=4, registrationNumber="3424234" });
-            Andreas.Boats.Add(new Boat() { User = Andreas, Name = "testboat2", Width = 3, Lenght = 4, registrationNumber = "3424435345234" });
-
-            Andreas.Permissions = new Permissions() { member = true, readOnlyMember = true };
-
-
-            main main = new main(Andreas);
-            main.Show();
-            this.Close();
         }
     }
 

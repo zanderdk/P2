@@ -96,14 +96,9 @@ namespace p2_projekt
                 
                 throw new KeyNotFoundException("table ikke fundet");
             }
-        }
-        
-        public static int GetNextMembershipNumber()
-        {
-            using (var db = new LobopContext())
+            public int GetNextMembershipNumber()
             {
-                return db.Users.OfType<Member>().Max(m => m.MembershipNumber) + 1;
-                //return db.Members.Max(m => m.MembershipNumber) + 1;
+                return 0;
             }
         }
     }
