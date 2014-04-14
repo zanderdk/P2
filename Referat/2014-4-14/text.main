@@ -1,0 +1,40 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\begin{document}
+
+\section{Referat mandag d. 14. april - SW2-405a}
+
+\subsection{Status på projekt}
+
+Gruppen: Det går meget godt. Vi er i igang med funktionalitet. Der skal skrives noget ned i forhold til løsningen. Vi føler at vi er godt med tidsmæssigt. Databasen tog noget tid, men vi er ved at have godt styr på det. En del tid er blevet brugt på GUI. Adgang af data (felter der kan redigeres)
+Gruppen: vi er i tvivl om reflection er noget snavs.
+Brian: Mener ikke det er noget snavs men kan give os nogle udfordringer. Brian mener vi bør overveje om vi gaber over mere end vi kan tygge i forhold til det programmerings tekniske. Han pointere også at alle skal have styr på all kode herunder også reflection. 
+Brian: få styr på kerne function, husk efter påske er der ikke lang tid igen.
+Brian: få dokumenteret reflection ordendeligt, og hvorfor vi bruger det. Brug de danske programmerings termer properties/enskaber reflection/reflektion.
+Rapporten skal kigges igennem efter Danglish. 
+
+Brian: VerifyTable skal forklares bedre. Det kommer lidt uden sammenhæng.
+
+Brian: Afsnittet om Unit testing mangler mere om TDD.
+
+Gruppen: Hvordan unit tester vi databasen?
+
+Brian: Det vil være nemmest for jer at lave en test database i populerer, og derefter tester på den. I må dog også vise at I kan mocke en database. 
+
+Brian: Forklar i database afsnittet hvad en transaktion er. Forklar savechanges metoden på databasen.
+
+Brian: Hvorfor bruger i Code First i Entity Framework? Skriv om dette.
+
+Brian: Brugertilladelser: Specificer hvad et datafelt er. Forklar at det er et element i GUI. Vær mere specifik i forklaringen af brugertilladelser. Forklar hvordan vi gør dette.
+
+Brian: Internet of things.4.1.2: Relater tilbage til afsnittet før om internet om things?
+
+Brian: Mere klar konklusion om at internet of things er fællesmængden af alle visionerne.
+
+Brian: Rund af på Sensorer osv.
+
+Brian: I skal skrive hvordan i designer koden. Klassediagram!
+
+Næste vejledermøde Mandag d.28 april 2014 kl. 8.45 
+
+\end{document}
