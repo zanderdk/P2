@@ -1,0 +1,64 @@
+\section{Reflektion}
+\label{sec:reflektion}
+
+Reflektion er en måde i C\# til at undersøge objekter i et program ved kørselstid \cite{michaelis2012essential}. Et eksempel på brugen af reflektion kan være, at programmøren ønsker at finde et felt i en klasse ved navn.
+
+I dette projekt bruges reflektion til at gøre metoder der tilgår databasen, meget generiske, hvilket sikrer stor kodegenbrug. Som beskrevet i \cref{sec:database}, består databasen af forskellige tabeller, herunder \enquote{Users}, \enquote{Boats}, \enquote{BoatSpaces} og \enquote{Travels}. Lad os forestille os en metode der skal slette et objekt fra en specifik tabel. Metodesignaturen for en sådan metode kunne se ud som vist i \cref{lst:reflektion_remove1}.
+
+
+\begin{lstlisting}[label=lst:reflektion_remove1]
+public void RemoveUser(User user)
+\end{lstlisting}
+
+Problemet med denne metode er at denne metode kun virker på \enquote{User} objekter. Dette betyder at der udover denne metode også skal skrives en \enquote{RemoveBoat}, \enquote{RemoveBoatSpace} og en \enquote{RemoveTravel} metode. For at undgå dette, kan der laves en \enquote{Remove} metode, med en parameter der afgør hvilken tabel der skal slettes noget i. Metodesignaturen kunne se ud som i \cref{lst:reflektion_remove2}.
+
+
+\begin{lstlisting}[label=lst:reflektion_remove2]
+public void Remove<T>(T item, string table)
+\end{lstlisting}
+
+Problemet er, at metoden \enquote{Remove} skal have \enquote{hard-codet} alle de forskellige navne på alle eksisterende tabeller ind i denne metode. Hvis navnet på en tabel så ændrer sig, vil metoden ikke længere virke.
+
+For at løse ovenstående problemer kommer reflektion ind i billedet. Metoden VerifyTable som ses i \Cref{lst:reflektion_verifytable} er et kodeeksempel fra programmet. VerifyTable bruger reflektion til at gennemsøge en klasse, her LobobContext, for at finde en egenskab af typen DbSet<T>. DbSet<T> er en databasetabel der gemmer oplysninger af typen T. Hvis den ønskede tabel bliver fundet, returneres denne. Hvis ingen tabel bliver fundet, returneres null. Først finder metoden alle egenskaber der er defineret på typen \enquote{LobobContext}. DBsetType er den egenskab der ønskes fundet. Metoden itererer nu alle egenskaber igennem, indtil en egenskab der matcher DBsetType er fundet. Hvis der er et match i foreach løkken, findes egenskab navnet, og lægges over i dbSetTarget. Det er nu muligt at dynamisk oprette en DbSet<T> ud fra typen \enquote{LobobContext}. Denne DbSet<T> returneres, og kan nu bruges i en \enquote{Remove} metode.
+
+\begin{lstlisting}[label=lst:reflektion_verifytable, caption={Metode der tjekker om en tabel af typen T findes i databasen.}]
+private DbSet<T> VerifyTable<T>(LobopContext context) where T : class
+{
+    Type lobobContextType = typeof(LobopContext);
+    PropertyInfo[] properties = lobobContextType.GetProperties();
+    Type DBsetType = typeof(DbSet<T>);
+    string dbSetTarget = string.Empty;
+
+    foreach (PropertyInfo item in properties)
+    {
+        if (DBsetType == item.PropertyType)
+        {
+            // table found
+            dbSetTarget = item.ToString().Split(' ')[1];
+            DbSet<T> dbSet = (DbSet<T>)lobobContextType.GetProperty(dbSetTarget).GetValue(context, null);
+            return dbSet;
+        }
+    }
+    // table of type not found
+    return null;
+}
+\end{lstlisting}
+
+\begin{lstlisting}[label=lst:reflektion_remove3, caption={Remove metode der kan tage en vilkårlig klasse ind, finde den rette tabel og derefter slette det parametiserede objekt}]
+  public void Remove<TInput>(TInput item) where TInput : class
+  {
+      using (var db = new LobobContext())
+      {
+          DbSet<TInput> dbSet = VerifyTable<TInput>(db);
+          if (dbSet == null) throw new KeyNotFoundException("table ikke fundet");
+          dbSet.Remove(item);
+          db.SaveChanges();
+      }
+  } 
+\end{lstlisting}
+
+Den færdige Remove metode der er generisk, virker nu på tværs af alle klasser, ved hjælp af reflektion. En forsimplet implementation der benytter VerifyTable af Remove meotden ses i \cref{lst:reflektion_remove3}. Hvis en Titanic båden skal fjernes fra \enquote{Boats} tabellen, kaldes koden set i \cref{lst:reflektion_remove4}. Der er nu ingen behov for at specificere i hvilken tabel titanic skal fjernes fra, da Remove selv kan regne dette ud udfra den generiske typeparameter <Boat>.
+
+\begin{lstlisting}[label=lst:reflektion_remove4]
+Remove<Boat>(titanic);
+\end{lstlisting}
