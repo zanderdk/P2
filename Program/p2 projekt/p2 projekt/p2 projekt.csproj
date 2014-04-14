@@ -51,7 +51,9 @@
     <StartupObject>p2_projekt.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="HarborStatus.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>HarborStatus.Designer.cs</LastGenOutput>
@@ -71,10 +73,10 @@
     <Compile Include="models\boatspace.cs" />
     <Compile Include="models\boat.cs" />
     <Compile Include="models\Permisson.cs" />
-    <Compile Include="models\person.cs" />
+    <Compile Include="models\User.cs" />
     <Compile Include="models\Travel.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="UserDALController.cs" />
+    <Compile Include="UserController.cs" />
     <Compile Include="Utilities.cs" />
     <Compile Include="WPF\ChipRequester.xaml.cs">
       <DependentUpon>ChipRequester.xaml</DependentUpon>

@@ -67,6 +67,7 @@
     <Compile Include="BoatDetectorTest.cs" />
     <Compile Include="TravelTest.cs" />
     <Compile Include="BoatTest.cs" />
+    <Compile Include="PermissionTest.cs" />
     <Compile Include="UserDALControllerTest.cs" />
   </ItemGroup>
   <ItemGroup>

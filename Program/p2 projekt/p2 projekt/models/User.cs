@@ -111,10 +111,10 @@ namespace p2_projekt.models
                 _username = value;
             }}
 
-        public Member(string name, CivicAddress adress, int memerShipNumer) :base(name)
+        public Member(string name, CivicAddress adress, int membershipNumber) :base(name)
         {
             Adress = adress;
-            MembershipNumber = memerShipNumer;
+            MembershipNumber = membershipNumber;
             Travels = new List<Travel>();
             Boats = new List<Boat>();
         }
@@ -123,7 +123,8 @@ namespace p2_projekt.models
             //only used by Entity framework
         }
 
-        public Member(string name, CivicAddress adress) : this(name, adress, Utilities.GetNextMembershipNumber())
+        public Member(string name, CivicAddress adress) 
+            : this(name, adress, new UserController(new Utilities.Database()).GetNextMemberShipNumber())
         {
 
         }

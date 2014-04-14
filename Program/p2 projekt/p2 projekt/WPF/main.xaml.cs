@@ -25,20 +25,20 @@ namespace p2_projekt.WPF
         {
             InitializeComponent();
 
-            addToTabControler(new WelcomeTab(), "Forside");
+            AddToTabController(new WelcomeTab(), "Forside");
            
-           if(u.Permission.ChangePersonalInfo)
+           /*if(u.Permission.ChangePersonalInfo)
            {
-               addToTabControler(new MemberInfo(u), "Profil");
+               AddToTabController(new MemberInfo(u), "Profil");
            }
 
             if(u.Permission.search)
             {
-                addToTabControler(new SearchTab(), "Søg");
-            }
+                AddToTabController(new SearchTab(), "Søg");
+            }*/
         }
 
-            public void addToTabControler(UserControl us, string name)
+            public void AddToTabController(UserControl us, string name)
             {
                 TabItem tabItem = new TabItem() { Header = name, Content = us };
                 tabControler.Items.Add(tabItem);

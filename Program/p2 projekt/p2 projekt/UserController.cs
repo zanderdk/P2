@@ -16,6 +16,16 @@ namespace p2_projekt
             _iUserDal = userDAL;
         }
 
+        public int GetNextMemberShipNumber()
+        {
+            int result = _iUserDal.Max<User>(x =>
+            {
+                return (x as Member).MembershipNumber;
+            });
+
+            return result + 1;
+        }
+
         public bool Add<TInput>(TInput item) where TInput : class
         {
             bool successful = false;

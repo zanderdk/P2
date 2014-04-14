@@ -8,41 +8,28 @@ using System.Threading.Tasks;
 
 namespace p2_projekt.models
 {
+    public enum PermissionLevel { None, Read, Write }
+
     public class Permission
     {
-        private bool _searchRead;
-        private bool _searchWrite;
-
         public int PermissionId { get; set; }
-        public bool member { get; set; }
-        public bool readOnlyMember { get; set; }
-        public bool search { get; set; }
-        public bool SearchWrite { 
-            get {
-                return _searchWrite;
-                } 
-            set {
-                    if (value == true)
-                    {
-                        _searchWrite = true;
-                        SearchRead = true;
-                    }
-                }
-        }
-        public bool SearchRead { 
-            get {
-                return _searchRead;
-        
-                }
-            set {
-                if (value == false)
-                {
-                    SearchWrite = value;
-                }
 
-                 _searchRead = value;
-            }
+        public bool CanRead(PermissionLevel permissionField)
+        {
+            return permissionField > PermissionLevel.None;
         }
+
+        public bool CanWrite(PermissionLevel permissionField)
+        {
+            return permissionField == PermissionLevel.Write;
+        }
+
+        public PermissionLevel MemberInfo { get; set; }
+
+        
+        
+        public bool search { get; set; }
+        
         public bool ChangePersonalInfo { get; set; }
     }
 }

@@ -31,6 +31,18 @@ namespace p2_projekt
                 Action<TInput>(action, new LobopContext());
             }
 
+            public int Max<TInput>(Func<TInput,int> pred) where TInput : class
+            {
+                int result = 0;
+                Action<TInput>((db, dbSet) =>
+                {
+                    if(dbSet.Count() != 0)
+                    result = dbSet.Max<TInput>(pred);
+                });
+
+                return result;
+            }
+
             public void Create<TInput>(TInput item) where TInput : class
             {
                 Action<TInput>((db, dbSet) =>
@@ -106,28 +118,7 @@ namespace p2_projekt
                 });
 
                 return result;
-            }
-           
+            }  
         }
-
-        public static int GetNextMembershipNumber()
-        {
-            using(var db = new LobopContext())
-            {
-                if(db.Users.Count() == 0)
-                {
-                    return 0;
-                }
-                return db.Users.Max<User>(x => { 
-                
-                    if(x is Member)
-                    {
-                        return (x as Member).MembershipNumber;
-                    }
-                    return 0;
-                }) + 1;
-            }
-        }
-
     }
 }

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,20 +25,23 @@ namespace p2_projekt
             AppDomain.CurrentDomain.SetData("DataDirectory", root_path);
 
 
-            BoatSpace bs = new WaterSpace(0,10.0, 10.0) { info="dfgdfg" };
+            BoatSpace bs = new WaterSpace(0, 10.0, 10.0) { info = "dfgdfg" };
             Boat b = new Boat() { Name = "test Ship", BoatSpace = bs, registrationNumber = "fdsf" };
             Travel travel = new Travel(new DateTime(2008, 1, 1), new DateTime(2001, 1, 1));
-            Member alice = new Member("Kasper", new System.Device.Location.CivicAddress()) { Password="test"};
-            alice.Permission = new Permission() { search=true };
+            Member alice = new Member("Kasper", new System.Device.Location.CivicAddress()) { Password = "test" };
+            alice.Permission = new Permission() { search = true };
             //alice.Travels.Add(travel);
             alice.Birthday = new DateTime(2013, 1, 1);
-            alice.RegistrationDate = new DateTime(2013,1,1);
+            alice.RegistrationDate = new DateTime(2013, 1, 1);
                         
             
 
             Utilities.Database db = new Utilities.Database();
             UserController userController = new UserController(db);
             userController.Add<User>(alice);
+
+            
+            
 
             var test = userController.ReadAll<User>(x => true);
 
@@ -49,7 +52,7 @@ namespace p2_projekt
 
             
             
-            app.Run(new ChipRequester());
+            //app.Run(new ChipRequester());
         }
 
     }
