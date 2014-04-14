@@ -103,7 +103,9 @@ namespace p2_projekt.models
         public string Username 
         { 
             get { 
-                if (_username != null) return _username; return MembershipNumber.ToString(); 
+                if (_username != null) return _username; 
+                
+                return MembershipNumber.ToString(); 
             } 
             set {
                 _username = value;
