@@ -48,7 +48,11 @@ namespace p2_projekt.models
                     }
                     else
                     {
-                        throw new Exception("This spot already has a boat on it");
+                        if(_boat != value) //entity gør dette men det er ikke et problem da (_boat altid er == value).
+                        {
+                            throw new Exception("This spot already has a boat on it");
+                        }
+               
                     }
                 }
 

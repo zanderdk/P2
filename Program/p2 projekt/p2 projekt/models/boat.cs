@@ -55,6 +55,45 @@ namespace p2_projekt.models
         public double Width { get; set; }
         public string RegistrationNumber { get; set; }
 
+        public override bool Equals(object obj)
+        {
+            if(obj == null)
+            {
+                return false;
+            }
+            
+            if(obj.GetType() != this.GetType())
+            {
+                return false;
+            }
+
+            return (obj as Boat).BoatId == this.BoatId;
+        }
+
+        public override int GetHashCode()
+        {
+            return BoatId.GetHashCode();
+        }
+
+        public static bool operator ==(Boat b1, Boat b2)
+        {
+            if(ReferenceEquals(b1, null))
+            {
+                if (ReferenceEquals(b2, null))
+                    return true;
+                else
+                    return false;
+            }
+            else
+            {
+                return b1.Equals(b2);
+            }
+        }
+
+        public static bool operator !=(Boat b1, Boat b2)
+        {
+            return !(b1 == b2);
+        }
 
         public override string ToString()
         {
