@@ -77,6 +77,11 @@
     <Compile Include="models\User.cs" />
     <Compile Include="models\Travel.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="UserController.cs" />
     <Compile Include="Utilities.cs" />
     <Compile Include="WPF\ChipRequester.xaml.cs">
@@ -96,6 +101,9 @@
     </Compile>
     <Compile Include="WPF\main.xaml.cs">
       <DependentUpon>main.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WPF\TabMap.xaml.cs">
+      <DependentUpon>TabMap.xaml</DependentUpon>
     </Compile>
     <Compile Include="WPF\MemberInfo.xaml.cs">
       <DependentUpon>MemberInfo.xaml</DependentUpon>
@@ -157,6 +165,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="WPF\TabMap.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WPF\MemberInfo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -194,6 +206,17 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BlackWhiteHarbor.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
