@@ -25,6 +25,8 @@ namespace p2_projekt.WPF
         {
             InitializeComponent();
 
+            AddToTabController(new TabMap(), "Kort");
+
             AddToTabController(new WelcomeTab(), "Forside");
 
             Permission p = u.Permission;
@@ -43,8 +45,8 @@ namespace p2_projekt.WPF
 
             public void AddToTabController(UserControl us, string name)
             {
-                TabItem tabItem = new TabItem() { Header = name, Content = us };
-                tabControler.Items.Add(tabItem);
+                TabItem tabItem = new TabItem() { Header = name, Content = us, Margin=new Thickness(0) };
+                tabController.Items.Add(tabItem);
             }
             
         }
