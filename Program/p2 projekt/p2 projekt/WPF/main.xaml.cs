@@ -29,13 +29,14 @@ namespace p2_projekt.WPF
 
             AddToTabController(new WelcomeTab(), "Forside");
 
-           
-           if(Permission.CanRead(u.Permission.ChangePersonalInfo))
-           {
-               AddToTabController(new MemberInfo(u), "Profil");
-           }
+            Permission p = u.Permission;
 
-            if(Permission.CanRead(u.Permission.search))
+            if (Permission.CanRead(u.Permission.ChangePersonalInfo))
+            {
+                AddToTabController(new MemberInfo(u), "Profil");
+            }
+
+            if (Permission.CanRead(u.Permission.search))
             {
                 AddToTabController(new SearchTab(), "Søg");
             }

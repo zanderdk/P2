@@ -28,5 +28,11 @@ namespace p2_projekt.WPF
 
             
         }
+
+        private void Rectangle_clicked(object sender, MouseButtonEventArgs e)
+        {
+            if ((sender as Rectangle).Fill == Brushes.Red) (sender as Rectangle).Fill = Brushes.Green;
+            else (sender as Rectangle).Fill = Brushes.Red;
+        }
     }
 }
