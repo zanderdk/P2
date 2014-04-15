@@ -51,9 +51,9 @@ namespace p2_projekt.models
                 }
             }
         }
-        public double Lenght { get; set; }
+        public double Length { get; set; }
         public double Width { get; set; }
-        public string registrationNumber { get; set; }
+        public string RegistrationNumber { get; set; }
 
 
         public override string ToString()

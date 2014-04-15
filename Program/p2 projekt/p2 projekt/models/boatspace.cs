@@ -13,7 +13,7 @@ namespace p2_projekt.models
 
         public BoatSpace() { } // må kun bruges af Entity.
 
-        [Key, ForeignKey("Boat")]
+        [Key,ForeignKey("Boat")]
         public int BoatId { get; set; }
         public String info { get; set; }
         public double Length { get; private set; }
@@ -55,9 +55,8 @@ namespace p2_projekt.models
             }
         }
 
-        public BoatSpace(int id, double length, double height)
+        public BoatSpace(double length, double height)
         {
-            BoatId = id;
             Length = length;
             Width = height;
         }
@@ -67,7 +66,7 @@ namespace p2_projekt.models
     {
 
         public WaterSpace() { }
-        public WaterSpace(int id, double length, double height) : base(id, length, height) {}
+        public WaterSpace(double length, double height) : base(length, height) {}
     }
 
     public class LandSpace : BoatSpace

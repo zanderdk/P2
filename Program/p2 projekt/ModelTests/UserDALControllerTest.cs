@@ -36,7 +36,7 @@ namespace ModelTests
             //alice.RegistrationDate = new DateTime(2013, 1, 1);
 
             BoatSpace bs = new WaterSpace(0, 10.0, 10.0) { info = "dfgdfg" };
-            Boat b = new Boat() { Name = "test Ship", BoatSpace = bs, registrationNumber = "fdsf" };
+            Boat b = new Boat() { Name = "test Ship", BoatSpace = bs, RegistrationNumber = "fdsf" };
             Travel travel = new Travel(new DateTime(2008, 1, 1), new DateTime(2001, 1, 1));
             alice = new Member("Kasper", new System.Device.Location.CivicAddress()) { Password = "test" };
             alice.Permission = new Permission() { search = true };
