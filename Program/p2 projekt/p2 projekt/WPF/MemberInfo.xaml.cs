@@ -49,13 +49,13 @@ namespace p2_projekt.WPF
         {
             boatName.Text = b.Name;
             boatOwner.Text = b.User.Name;
-            boatLength.Text = b.Lenght.ToString();
+            boatLength.Text = b.Length.ToString();
             boatWidth.Text = b.Width.ToString();
             if (b.BoatSpace != null)
             {
                 boatSpace.Text = b.BoatSpace.ToString(); //TODO mere info om bådplads
             }
-            boatID.Text = b.registrationNumber;
+            boatID.Text = b.RegistrationNumber;
         }
 
         public void fillSailor(ISailor s)

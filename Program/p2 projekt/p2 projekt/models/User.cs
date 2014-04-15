@@ -14,18 +14,13 @@ namespace p2_projekt.models
     {
         
         public int UserId { get; set; }// Unique. Only used internally
-        //public Int64 Phone { get; set; }
-        //public List<Boat> boats; // boats owned
-        //public string Name { get; set; }
 
         public virtual Permission Permission { get; set; }
 
-        bool Change;
         
 
         public User()
         {
-            //boats = new List<Boat>();
         }
 
         public User(string name) : this()

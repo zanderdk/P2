@@ -29,8 +29,6 @@ namespace p2_projekt.WPF
 
             AddToTabController(new WelcomeTab(), "Forside");
 
-            Permission p = u.Permission;
-            Console.WriteLine(p.ToString());
            
            if(Permission.CanRead(u.Permission.ChangePersonalInfo))
            {
