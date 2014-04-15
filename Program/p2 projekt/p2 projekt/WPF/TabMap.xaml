@@ -3,31 +3,35 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             mc:Ignorable="d" 
+             mc:Ignorable="d"
              d:DesignHeight="600" d:DesignWidth="800">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="218"/>
-            <ColumnDefinition Width="139"/>
-            <ColumnDefinition Width="43"/>
-            <ColumnDefinition Width="40"/>
-            <ColumnDefinition Width="55"/>
-            <ColumnDefinition Width="63"/>
-            <ColumnDefinition Width="80"/>
-            <ColumnDefinition Width="162*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="140"/>
-            <RowDefinition Height="35"/>
-            <RowDefinition Height="27"/>
-            <RowDefinition Height="35"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Image Name="image" Source="..\Resources/BlackWhiteHarbor.png" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100" Grid.RowSpan="9" Grid.ColumnSpan="8"/>
+    <Grid Height="600" Width="800" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <Grid HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="6*"/>
+                <RowDefinition Height="6*"/>
+                <RowDefinition Height="8*"/>
+                <RowDefinition Height="6*"/>
+                <RowDefinition Height="6*"/>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="15*"/>
+            </Grid.RowDefinitions>
+            <Image  Name="image" Source="..\Resources/BlackWhiteHarbor.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.RowSpan="9" Grid.ColumnSpan="6"/>
+            <Rectangle Name="B1L1" Fill="Red" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="1" Grid.RowSpan="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="50" Width="80" Margin="10"/>
+            <Rectangle Name="B1L2" Fill="Red" Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="1" Grid.RowSpan="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="50" Width="80" Margin="10"/>
+            <Rectangle Name="B1L3" Fill="Red" Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="1" Grid.RowSpan="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="50" Width="80" Margin="10"/>
+            <Rectangle Name="B1L4" Fill="Red" Grid.Column="4" Grid.Row="2" Grid.ColumnSpan="1" Grid.RowSpan="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="50" Width="80" Margin="10"/>
 
+        </Grid>
     </Grid>
 </UserControl>
