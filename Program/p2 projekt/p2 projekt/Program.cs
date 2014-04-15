@@ -29,7 +29,7 @@ namespace p2_projekt
             Boat b = new Boat() { Name = "test Ship", BoatSpace = bs, registrationNumber = "fdsf" };
             Travel travel = new Travel(new DateTime(2008, 1, 1), new DateTime(2001, 1, 1));
             Member alice = new Member("Kasper", new System.Device.Location.CivicAddress()) { Password = "test" };
-            alice.Permission = new Permission() { MemberInfo=PermissionLevel.Write, User=alice };
+            alice.Permission = new Permission() { MemberInfo=PermissionLevel.Write, search=PermissionLevel.Write, ChangePersonalInfo=PermissionLevel.Write };
             //alice.Travels.Add(travel);
             //Permission2 p2 = new Permission2();
             //p2.MyProperty = "hej";
@@ -45,7 +45,7 @@ namespace p2_projekt
             User testBoat = userController.Read<User>(x => true);
             Console.WriteLine(testBoat.Permission.MemberInfo);
 
-            
+            Permission.CanRead(alice.Permission.MemberInfo);
 
             //using (var db1 = new LobopContext())
             //{
@@ -68,6 +68,8 @@ namespace p2_projekt
             //}
 
             
+            
+
             
             app.Run(new ChipRequester());
         }

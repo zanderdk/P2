@@ -18,14 +18,7 @@ namespace p2_projekt
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            // Configure the primary key for the OfficeAssignment 
-            modelBuilder.Entity<User>()
-                .HasRequired(x => x.Permission)
-                .WithRequiredDependent(x => x.User);
 
-            modelBuilder.Entity<Permission>()
-                .HasRequired(t => t.User)
-                .WithRequiredPrincipal(x => x.Permission);
         }
 
         public virtual DbSet<User> Users { get; set; }

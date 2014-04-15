@@ -15,26 +15,21 @@ namespace p2_projekt.models
         // primary key
         public int PermissionId { get; set; }
 
-        public bool CanRead(PermissionLevel permissionField)
+        public static bool CanRead(PermissionLevel permissionField)
         {
             return permissionField > PermissionLevel.None;
         }
 
-        public bool CanWrite(PermissionLevel permissionField)
+        public static bool CanWrite(PermissionLevel permissionField)
         {
             return permissionField == PermissionLevel.Write;
         }
 
-        public PermissionLevel MemberInfo { get; set; }
+        public PermissionLevel MemberInfo { get;  set; }
      
-        public bool search { get; set; }
+        public PermissionLevel search { get; set; }
         
-        public bool ChangePersonalInfo { get; set; }
-
-        private bool change;
-
-        public virtual User User { get; set; }
-
+        public PermissionLevel ChangePersonalInfo { get; set; }
         
 
         }

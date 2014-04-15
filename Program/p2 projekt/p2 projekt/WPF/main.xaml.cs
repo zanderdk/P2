@@ -30,12 +30,12 @@ namespace p2_projekt.WPF
             Permission p = u.Permission;
             Console.WriteLine(p.ToString());
            
-           if(u.Permission.ChangePersonalInfo)
+           if(Permission.CanRead(u.Permission.ChangePersonalInfo))
            {
                AddToTabController(new MemberInfo(u), "Profil");
            }
 
-            if(u.Permission.search)
+            if(Permission.CanRead(u.Permission.search))
             {
                 AddToTabController(new SearchTab(), "Søg");
             }
