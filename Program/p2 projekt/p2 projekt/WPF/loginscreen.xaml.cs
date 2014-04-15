@@ -48,34 +48,37 @@ namespace p2_projekt.WPF
 
         private void Login_Click(object sender, RoutedEventArgs e)
         {
-            Member mb = new Member("Name", new CivicAddress("dfgdfgfdg", "dfgdfgdfg", "dfdfg", "dfdfggh", "dfgdg", "dfgdfg", "dfgdfg", "dfgdg"), 123);
+            User u = findUserByUsername(membernr.Text);
+            if (u != null)
+            {
+                ILoginable loginable = (u as ILoginable);
+                if (password.Password == loginable.Password)
+                {
+                    main main = new main(u);
+                    main.Show();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Forkert password.");
+                }
 
-            main main = new main(mb);
-            main.Show();
-            this.Close();
-
-
-                //User u = findUserByUsername(membernr.Text);
-                //if(u != null)
-                //{   
-                //    ILoginable loginable = (u as ILoginable);
-                //    if (password.Password == loginable.Password)
-                //    {
-                //        main = new main(u);
-                //        main.Show();
-                //        this.Close();
-                //    }
-                //    else
-                //    {
-                //        MessageBox.Show("Forkert password.");
-                //    }
-                    
-                //}
-                //else
-                //{
-                //    MessageBox.Show("Bruger ikke fundet.");
-                //}
+            }
+            else
+            {
+                MessageBox.Show("Bruger ikke fundet.");
+            }
         }
+
+        private void password_KeyUp(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Enter)
+            {
+                Login_Click(sender, e);
+            }
+        }
+
+        
     }
 }
 
