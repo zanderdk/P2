@@ -12,7 +12,7 @@ namespace p2_projekt.models
         public DateTime Start { get; set; } 
         public DateTime End { get; set; }
         public bool isActive { get { return true; } }// TODO must change based on today
-        public virtual User User { get; set; }
+        public User User { get; set; }
 
         public Travel(DateTime start, DateTime end)
         {

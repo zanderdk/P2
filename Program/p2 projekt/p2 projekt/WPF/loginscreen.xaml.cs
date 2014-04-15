@@ -42,33 +42,28 @@ namespace p2_projekt.WPF
                 }
                 return false;
             });
+            Console.WriteLine(u.Permission.MemberInfo);
             return u;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Login_Click(object sender, RoutedEventArgs e)
         {
 
                 User u = findUserByUsername(membernr.Text);
                 if(u != null)
-                {
-                    if(u is ILoginable)
+                {   
+                    ILoginable loginable = (u as ILoginable);
+                    if (password.Password == loginable.Password)
                     {
-                        ILoginable log = (u as ILoginable);
-                        if (password.Password == log.Password)
-                        {
-                            main main = new main(u);
-                            main.Show();
-                            this.Close();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Forkert password.");
-                        }
+                        main main = new main(u);
+                        main.Show();
+                        this.Close();
                     }
                     else
                     {
-                        MessageBox.Show("Brugeren har ikke regtighed til at logge ind.");
+                        MessageBox.Show("Forkert password.");
                     }
+                    
                 }
                 else
                 {

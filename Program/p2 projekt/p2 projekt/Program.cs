@@ -29,26 +29,31 @@ namespace p2_projekt
             Boat b = new Boat() { Name = "test Ship", BoatSpace = bs, registrationNumber = "fdsf" };
             Travel travel = new Travel(new DateTime(2008, 1, 1), new DateTime(2001, 1, 1));
             Member alice = new Member("Kasper", new System.Device.Location.CivicAddress()) { Password = "test" };
-            alice.Permission = new Permission() { MemberInfo=PermissionLevel.Write };
+            //alice.Permission = new Permission() { MemberInfo=PermissionLevel.Write, User=alice };
             //alice.Travels.Add(travel);
+            Permission2 p2 = new Permission2();
+            p2.MyProperty = "hej";
+            alice.Permission2 = p2;
             alice.Birthday = new DateTime(2013, 1, 1);
             alice.RegistrationDate = new DateTime(2013, 1, 1);
-                        
-            
+            alice.Boats.Add(b);
 
             Utilities.Database db = new Utilities.Database();
             UserController userController = new UserController(db);
             userController.Add<User>(alice);
 
-
+            Boat testBoat = userController.Read<Boat>(x => true);
+            Console.WriteLine(b.BoatSpace.Length);
             Permission per = userController.Read<Permission>(x => true);
 
-            var test = userController.ReadAll<User>(x => true);
+            User test = userController.Read<User>(x => true);
+            Console.WriteLine(test.Permission2.MyProperty);
+            //Console.WriteLine(per.MemberInfo);
 
-            foreach(var item in test){
-                Member m = (Member) item;
-                Console.WriteLine(m.MembershipNumber + m.Password);
-            }
+            //foreach(var item in test){
+            //    Member m = (Member) item;
+            //    Console.WriteLine(m.MembershipNumber + m.Password);
+            //}
 
             
             

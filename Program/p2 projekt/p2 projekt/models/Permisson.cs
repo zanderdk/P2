@@ -34,7 +34,7 @@ namespace p2_projekt.models
         private bool change;
 
         private User _User;
-        public virtual User User { get { return _User; }
+        public User User { get { return _User; }
             set {
                 if (change) return;
 

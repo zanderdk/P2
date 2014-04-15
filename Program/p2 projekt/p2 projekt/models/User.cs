@@ -17,9 +17,11 @@ namespace p2_projekt.models
         //public List<Boat> boats; // boats owned
         //public string Name { get; set; }
 
+        public Permission2 Permission2 { get; set; }
+
         bool Change;
         private Permission _Permission;
-        public virtual Permission Permission { get { return _Permission; } 
+        public Permission Permission { get { return _Permission; } 
             set { 
                 if(Change) return;
 
@@ -167,13 +169,13 @@ namespace p2_projekt.models
         }
 
         // TODO simon: skal denne ikke være private? vi skal ikke give al info væk. Det skal gå gennem addnewtravel osv.
-        public virtual List<Travel> Travels
+        public List<Travel> Travels
         {
             get;
             set;
         }
 
-        public virtual List<Boat> Boats
+        public List<Boat> Boats
         {
             get;
             set;

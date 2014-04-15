@@ -14,13 +14,13 @@ namespace p2_projekt.models
         public string Name { get; set; }
 
         public int UserId { get; set; }
-        public virtual User User { get; set; }
+        public   User User { get; set; }
 
         private bool _spaceChange;
         private BoatSpace _space;
 
 
-        public virtual BoatSpace BoatSpace
+        public   BoatSpace BoatSpace
         {
             get
             {

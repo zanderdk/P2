@@ -26,8 +26,11 @@ namespace p2_projekt.WPF
             InitializeComponent();
 
             AddToTabController(new WelcomeTab(), "Forside");
+
+            Permission p = u.Permission;
+            Console.WriteLine(p.ToString());
            
-           /*if(u.Permission.ChangePersonalInfo)
+           if(u.Permission.ChangePersonalInfo)
            {
                AddToTabController(new MemberInfo(u), "Profil");
            }
@@ -35,7 +38,7 @@ namespace p2_projekt.WPF
             if(u.Permission.search)
             {
                 AddToTabController(new SearchTab(), "Søg");
-            }*/
+            }
         }
 
             public void AddToTabController(UserControl us, string name)
