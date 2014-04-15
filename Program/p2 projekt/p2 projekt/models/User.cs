@@ -17,9 +17,29 @@ namespace p2_projekt.models
         //public List<Boat> boats; // boats owned
         //public string Name { get; set; }
 
-        [ForeignKey("Permission")]
-        public int PermissionId { get; set; }
-        public Permission Permission { get; set; } // must be initialized with no access at all. E.g = new Permissions().LowestAccess;
+        bool Change;
+        private Permission _Permission;
+        public virtual Permission Permission { get { return _Permission; } 
+            set { 
+                if(Change) return;
+
+                Change = true;
+
+                if(value != null)
+                {
+                    _Permission = value;
+                    _Permission.User = this;
+                }
+                else
+                {
+                    if(_Permission != null)
+                    {
+                        _Permission.User = null;
+                    }
+                    _Permission = null;
+                }
+
+            } } // must be initialized with no access at all. E.g = new Permissions().LowestAccess;
 
         public User()
         {

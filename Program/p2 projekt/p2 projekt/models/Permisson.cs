@@ -12,7 +12,8 @@ namespace p2_projekt.models
 
     public class Permission
     {
-        public int PermissionId { get; set; }
+        [Key, ForeignKey("User")]
+        public int UserId { get; set; }
 
         public bool CanRead(PermissionLevel permissionField)
         {
@@ -25,11 +26,36 @@ namespace p2_projekt.models
         }
 
         public PermissionLevel MemberInfo { get; set; }
-
-        
-        
+     
         public bool search { get; set; }
         
         public bool ChangePersonalInfo { get; set; }
+
+        private bool change;
+
+        private User _User;
+        public virtual User User { get { return _User; }
+            set {
+                if (change) return;
+
+                change = true;
+
+                if(value != null)
+                {
+                    _User = value;
+                    _User.Permission = this;
+                }
+                else
+                {
+                    if(_User.Permission != null)
+                    {
+                        _User.Permission = null;
+                    }
+                    _User = null;
+                }
+
+                change = false;
+            }
+        }
     }
 }

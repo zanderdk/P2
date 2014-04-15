@@ -29,7 +29,7 @@ namespace p2_projekt
             Boat b = new Boat() { Name = "test Ship", BoatSpace = bs, registrationNumber = "fdsf" };
             Travel travel = new Travel(new DateTime(2008, 1, 1), new DateTime(2001, 1, 1));
             Member alice = new Member("Kasper", new System.Device.Location.CivicAddress()) { Password = "test" };
-            alice.Permission = new Permission() { search = true };
+            alice.Permission = new Permission() { MemberInfo=PermissionLevel.Write };
             //alice.Travels.Add(travel);
             alice.Birthday = new DateTime(2013, 1, 1);
             alice.RegistrationDate = new DateTime(2013, 1, 1);
@@ -40,8 +40,8 @@ namespace p2_projekt
             UserController userController = new UserController(db);
             userController.Add<User>(alice);
 
-            
-            
+
+            Permission per = userController.Read<Permission>(x => true);
 
             var test = userController.ReadAll<User>(x => true);
 
