@@ -33,7 +33,7 @@
                             <ColumnDefinition Width="{StaticResource textboxWidth}"/>
                         </Grid.ColumnDefinitions>
                         <Label Content="Password:" Grid.Column="0"></Label>
-                        <PasswordBox Name="password" Grid.Column="1"></PasswordBox>
+                        <PasswordBox KeyUp="password_KeyUp" Name="password" Grid.Column="1"></PasswordBox>
                     </Grid>
                     <Grid>
                         <Grid.ColumnDefinitions>

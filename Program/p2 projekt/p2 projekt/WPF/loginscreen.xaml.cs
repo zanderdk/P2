@@ -70,6 +70,14 @@ namespace p2_projekt.WPF
                 }
             }
 
+        private void password_KeyUp(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Enter)
+            {
+                Login_Click(sender, e);
+            }
+        }
+
     }
 
 }
