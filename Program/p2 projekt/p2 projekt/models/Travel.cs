@@ -20,7 +20,7 @@ namespace p2_projekt.models
             }
         }
 
-        public User User { get; set; }
+        public virtual User User { get; set; }
 
         public Travel(DateTime start, DateTime end)
         {

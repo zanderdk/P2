@@ -72,7 +72,6 @@
     <Compile Include="models\BoatDetector.cs" />
     <Compile Include="models\boatspace.cs" />
     <Compile Include="models\boat.cs" />
-    <Compile Include="models\Permission2cs.cs" />
     <Compile Include="models\Permisson.cs" />
     <Compile Include="models\User.cs" />
     <Compile Include="models\Travel.cs" />

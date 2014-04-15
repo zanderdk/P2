@@ -42,7 +42,6 @@ namespace p2_projekt.WPF
                 }
                 return false;
             });
-            Console.WriteLine(u.Permission.MemberInfo);
             return u;
         }
 

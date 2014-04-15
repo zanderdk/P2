@@ -12,26 +12,52 @@ namespace ModelTests
     public class UserDALControllerTest
     {
         Member alice;
-        Mock<IDAL> userDAL;
-        UserController controller;
+        Mock<IDAL> MockIDAL;
+        UserController MockController;
+        IDAL RealIDAL;
+        UserController RealController;
+
+        [TestCleanup]
+        public void Teardown()
+        {
+            using (var db = new LobopContext())
+            {
+                db.Database.Delete();
+                db.SaveChanges();
+            }
+        }
+
 
         [TestInitialize]
         public void Setup()
         {
-            alice = new Member("Alice", new System.Device.Location.CivicAddress());
-            alice.UserId = 1;
+            //alice = new Member("Alice", new System.Device.Location.CivicAddress());
+            //alice.Birthday = new DateTime(2013, 1, 1);
+            //alice.RegistrationDate = new DateTime(2013, 1, 1);
+
+            BoatSpace bs = new WaterSpace(0, 10.0, 10.0) { info = "dfgdfg" };
+            Boat b = new Boat() { Name = "test Ship", BoatSpace = bs, registrationNumber = "fdsf" };
+            Travel travel = new Travel(new DateTime(2008, 1, 1), new DateTime(2001, 1, 1));
+            alice = new Member("Kasper", new System.Device.Location.CivicAddress()) { Password = "test" };
+            alice.Permission = new Permission() { search = true };
+            //alice.Travels.Add(travel);
             alice.Birthday = new DateTime(2013, 1, 1);
-            userDAL = new Mock<IDAL>();
-            controller = new UserController(userDAL.Object);
+            alice.RegistrationDate = new DateTime(2013, 1, 1);
+            
+            MockIDAL = new Mock<IDAL>();
+            MockController = new UserController(MockIDAL.Object);
+
+            RealIDAL = new Utilities.Database();
+            RealController = new UserController(RealIDAL);
         }
 
         [TestMethod]
         public void Add_UserDoesNotExist_True()
         {
-            userDAL.Setup(x => x.Create(alice));
+            MockIDAL.Setup(x => x.Create(alice));
             
             bool expected = true;
-            bool actual = controller.Add(alice);
+            bool actual = MockController.Add(alice);
 
             Assert.AreEqual(expected, actual);
         }
@@ -39,10 +65,10 @@ namespace ModelTests
         [TestMethod]
         public void Add_UserAlreadyExists_False()
         {
-            userDAL.Setup(x => x.Create(alice)).Throws(new InvalidOperationException());
+            MockIDAL.Setup(x => x.Create(alice)).Throws(new InvalidOperationException());
 
             bool expected = false;
-            bool actual = controller.Add(alice);
+            bool actual = MockController.Add(alice);
 
             Assert.AreEqual(expected, actual);
         }
@@ -50,10 +76,10 @@ namespace ModelTests
         [TestMethod]
         public void Remove_UserExists_True()
         {
-            userDAL.Setup(x => x.Delete(alice));
+            MockIDAL.Setup(x => x.Delete(alice));
 
             bool expected = true;
-            bool actual = controller.Remove(alice);
+            bool actual = MockController.Remove(alice);
 
             Assert.AreEqual(expected, actual);
         }
@@ -68,26 +94,28 @@ namespace ModelTests
         [TestMethod]
         public void Remove_UserDoesNotExists_False()
         {
-            userDAL.Setup(x => x.Delete(alice)).Throws(new InvalidOperationException());
+            MockIDAL.Setup(x => x.Delete(alice)).Throws(new InvalidOperationException());
 
             bool expected = false;
-            bool actual = controller.Remove(alice);
+            bool actual = MockController.Remove(alice);
 
             Assert.AreEqual(expected, actual);
         }
 
 
-        //[TestMethod]
-        //public void GetNextMembershipNumber_NoStateChanged_ReturnsNextUniqueNumber()
-        //{
-        //    Member alice = new Member();
+        [TestMethod]
+        public void GetNextMembershipNumber_NoStateChanged_ReturnsNextUniqueNumber()
+        {
+            //alice = new Member("Alice", new System.Device.Location.CivicAddress());
+            RealController.Add<User>(alice);
+            Member bob = new Member("Bob", new System.Device.Location.CivicAddress());
+
+            int expected = alice.MembershipNumber + 1;
+            int actual = bob.MembershipNumber;
 
             
-        //    int aliceNum = alice.MembershipNumber;
 
-        //    Member bob = new Member();
-
-        //    Assert.AreEqual(aliceNum + 1, bob.MembershipNumber);
-        //}
+            Assert.AreEqual(expected,actual);
+        }
     }
 }

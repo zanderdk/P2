@@ -76,6 +76,11 @@ namespace p2_projekt.WPF
             fillBoat(e.AddedItems[0] as Boat);
         }
 
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
        
     }
 }

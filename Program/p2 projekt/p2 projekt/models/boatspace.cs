@@ -21,7 +21,7 @@ namespace p2_projekt.models
 
         private bool _boatChange;
         private Boat _boat;
-        public  Boat Boat 
+        public virtual Boat Boat 
         { 
             get
             {

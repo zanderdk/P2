@@ -12,36 +12,16 @@ namespace p2_projekt.models
     
     public abstract class User
     {
+        
         public int UserId { get; set; }// Unique. Only used internally
         //public Int64 Phone { get; set; }
         //public List<Boat> boats; // boats owned
         //public string Name { get; set; }
 
-        public Permission2 Permission2 { get; set; }
+        public virtual Permission Permission { get; set; }
 
         bool Change;
-        private Permission _Permission;
-        public Permission Permission { get { return _Permission; } 
-            set { 
-                if(Change) return;
-
-                Change = true;
-
-                if(value != null)
-                {
-                    _Permission = value;
-                    _Permission.User = this;
-                }
-                else
-                {
-                    if(_Permission != null)
-                    {
-                        _Permission.User = null;
-                    }
-                    _Permission = null;
-                }
-
-            } } // must be initialized with no access at all. E.g = new Permissions().LowestAccess;
+        
 
         public User()
         {
@@ -51,7 +31,6 @@ namespace p2_projekt.models
         public User(string name) : this()
         {
             Name = name;
-            Permission = new Permission();
         }
 
 
@@ -89,8 +68,8 @@ namespace p2_projekt.models
     {
         string Email { get; set; }
         DateTime Birthday { get; set; }
-        DateTime RegistrationDate { get; set; } //TODO automatisk registrering kun getter
-        TimeSpan MebershipDuration { get; set; } //TODO calculate shit
+        DateTime RegistrationDate { get; } //TODO automatisk registrering kun getter
+        TimeSpan MebershipDuration { get; } //TODO calculate shit
 
     }
 
@@ -117,8 +96,9 @@ namespace p2_projekt.models
         //public CivicAddress Adress { get; set; }
         //public DateTime Birthday { get; set; }
 
-        public DateTime RegistrationDate { get; set; } //TODO automatisk registrering kun getter
-        public TimeSpan MebershipDuration { get; set; } //TODO calculate shit
+
+        public DateTime RegistrationDate { get; set; }
+        public TimeSpan MebershipDuration { get { return RegistrationDate - DateTime.Now; } } //TODO calculate shit
 
         private string _username;
 
@@ -139,6 +119,7 @@ namespace p2_projekt.models
             MembershipNumber = membershipNumber;
             Travels = new List<Travel>();
             Boats = new List<Boat>();
+            RegistrationDate = DateTime.Now;
         }
 
         public Member() : base() {
@@ -169,13 +150,13 @@ namespace p2_projekt.models
         }
 
         // TODO simon: skal denne ikke være private? vi skal ikke give al info væk. Det skal gå gennem addnewtravel osv.
-        public List<Travel> Travels
+        public virtual List<Travel> Travels
         {
             get;
             set;
         }
 
-        public List<Boat> Boats
+        public virtual List<Boat> Boats
         {
             get;
             set;
@@ -210,7 +191,7 @@ namespace p2_projekt.models
 
         public HarbourMaster(string name) : base(name)
         {
-
+            RegistrationDate = DateTime.Now;
         }
 
         public string Username { get; set; }
@@ -229,8 +210,8 @@ namespace p2_projekt.models
             set;
         }
 
-        public DateTime RegistrationDate { get; set; } //TODO automatisk registrering kun getter
-        public TimeSpan MebershipDuration { get; set; } //TODO calculate shit
+        public DateTime RegistrationDate { get; set; }
+        public TimeSpan MebershipDuration { get { return RegistrationDate - DateTime.Now; } } //TODO calculate shit
 
     }
 
@@ -238,13 +219,13 @@ namespace p2_projekt.models
     {
         public bool hasPaid { get; set; } //TODO Overvej at flytte denne til ny interface f.eks. IRenter
 
-        public List<Travel> Travels
+        public virtual List<Travel> Travels
         {
             get;
             set;
         }
 
-        public List<Boat> Boats
+        public virtual List<Boat> Boats
         {
             get;
             set;

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Reflection;
+using System.Linq.Expressions;
 
 namespace p2_projekt
 {
@@ -14,21 +15,25 @@ namespace p2_projekt
 
         public class Database : IDAL
         {
-            public void Action<TInput>(Action<LobopContext, DbSet<TInput>> action, LobopContext context) where TInput : class
-            {
-                if (context == null) throw new ArgumentNullException();
 
-                using (var db = context)
-                {
-                    DbSet<TInput> dbSet = VerifyTable<TInput>(db);
-                    if (dbSet == null) throw new KeyNotFoundException("table ikke fundet");
-                    action(db, dbSet);
-                }
+            private LobopContext _context;
+
+            public Database()
+            {
+                _context = new LobopContext();
             }
+
+
+
+            
 
             public void Action<TInput>(Action<LobopContext, DbSet<TInput>> action) where TInput : class
             {
-                Action<TInput>(action, new LobopContext());
+                var db = _context;
+
+                DbSet<TInput> dbSet = VerifyTable<TInput>(db);
+                if (dbSet == null) throw new KeyNotFoundException("table ikke fundet");
+                action(db, dbSet);
             }
 
             public int Max<TInput>(Func<TInput,int> pred) where TInput : class
@@ -77,6 +82,8 @@ namespace p2_projekt
 
             }
 
+
+
             private DbSet<T> VerifyTable<T>(LobopContext context) where T : class
             {
                 Type lobobContextType = typeof(LobopContext);
@@ -101,19 +108,74 @@ namespace p2_projekt
             public TResult Read<TResult>(Func<TResult, bool> predicate) where TResult : class
             {
                 TResult result = null;
+                
                 Action<TResult>((db, dbSet) =>
                 {
+                    //List<string> get = GetAllProperties<TResult>(db);
+                    //dbSet.Include("BoatSpaces");
+                    //result = dbSet.Include("Boat").FirstOrDefault(predicate);
+
                     result = dbSet.FirstOrDefault(predicate);
+                    
                 });
 
                 return result;
             }
 
+            private List<string> GetAllProperties<TEntity>(LobopContext context) where TEntity : class
+            {
+                Type TEntityType = typeof(LobopContext);
+                PropertyInfo[] properties = TEntityType.GetProperties();
+                string dbSetTarget = string.Empty;
+                string SourceType = typeof(TEntity).ToString().Split('.')[2] + "s";
+
+                List<string> propertiesString = new List<string>();
+
+                foreach (var i in properties)
+                {
+
+                    dbSetTarget = i.ToString().Split(' ', '.', '`')[3];
+                    if(dbSetTarget == "DbSet")
+                    {
+                        
+                        if(SourceType != i.Name)
+                        {
+                            propertiesString.Add(i.Name);
+                        }
+                    }
+                        //TEntity type = (TEntity) TEntityType.GetProperty(dbSetTarget).GetValue(context, null);
+
+
+                        VerifyTable <TEntity> (context);
+                    
+                }
+
+                return propertiesString;
+            }
+
+            //public IQueryable<TEntity> GetAllIncluding<TEntity>(params Expression<Func<TEntity, object>>[] includeProperties)
+            //{
+            //    IQueryable<TEntity> queryable = GetAll();
+            //    foreach (Expression<Func<TEntity, object>> includeProperty in includeProperties)
+            //    {
+            //        queryable = queryable.Include<TEntity, object>(includeProperty);
+            //    }
+
+            //    return queryable;
+            //}
+
+
             public IEnumerable<TResult> ReadAll<TResult>(Func<TResult, bool> predicate) where TResult : class
             {
+                
                 IEnumerable<TResult> result = null;
                 Action<TResult>((db, dbSet) =>
                 {
+                    List<string> get = GetAllProperties<TResult>(db);
+                    foreach(string i in get)
+                    {
+                        dbSet.Include(i);
+                    }
                     result = dbSet.Where(predicate).ToList();
                 });
 
