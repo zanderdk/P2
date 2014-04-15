@@ -11,8 +11,16 @@ namespace p2_projekt.models
         public int TravelId { get; set; }
         public DateTime Start { get; set; } 
         public DateTime End { get; set; }
-        public bool isActive { get { return true; } }// TODO must change based on today
-        public User User { get; set; }
+        public bool isActive 
+        { 
+            get 
+            {
+                if (Start < DateTime.Now && End > DateTime.Now) return true;
+                else return false;
+            }
+        }
+
+        public virtual User User { get; set; }
 
         public Travel(DateTime start, DateTime end)
         {
