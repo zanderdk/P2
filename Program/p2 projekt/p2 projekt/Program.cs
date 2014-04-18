@@ -13,6 +13,7 @@ namespace p2_projekt
 {
     class Program
     {
+
         [STAThread]
         public static void Main()
         {
@@ -28,15 +29,15 @@ namespace p2_projekt
             BoatSpace bs = new WaterSpace(10.0, 10.0) { info = "dfgdfg" };
             Boat b = new Boat() { Name = "test Ship", BoatSpace = bs, RegistrationNumber = "fdsf" };
             Travel travel = new Travel(new DateTime(2008, 1, 1), new DateTime(2001, 1, 1));
-            Member alice = new Member("Kasper", new System.Device.Location.CivicAddress()) { Password = "test" };
+            Member alice = new Member("Christian", new System.Device.Location.CivicAddress("bistands crib no 1", "", "", "kbh", "Denmark", "", "fuck", "" )) { Password = "test", Birthday = new DateTime(2000, 1, 1) };
             alice.Permission = new Permission() { MemberInfo=PermissionLevel.Write, search=PermissionLevel.Write, ChangePersonalInfo=PermissionLevel.Write };
             //alice.Travels.Add(travel);
             //Permission2 p2 = new Permission2();
             //p2.MyProperty = "hej";
             //alice.Permission2 = p2;
-            alice.Birthday = new DateTime(2013, 1, 1);
             alice.RegistrationDate = new DateTime(2013, 1, 1);
             alice.Boats.Add(b);
+            alice.Email = "Christian_gay@royal.danishKingdom.dk";
 
             Utilities.Database db = new Utilities.Database();
             UserController userController = new UserController(db);
@@ -66,9 +67,6 @@ namespace p2_projekt
             //    Member m = (Member) item;
             //    Console.WriteLine(m.MembershipNumber + m.Password);
             //}
-
-            
-            
 
             
             app.Run(new ChipRequester());

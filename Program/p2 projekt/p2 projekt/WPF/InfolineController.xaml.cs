@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using p2_projekt.models;
 
 namespace p2_projekt.WPF
 {
@@ -20,13 +21,20 @@ namespace p2_projekt.WPF
     /// </summary>
     public partial class InfolineController : UserControl
     {
+        public bool textChanged { get { return (Text != ""); } }
         public String Title { get { return label.Content.ToString(); } set { label.Content = value; } }
 
         public String Text { get { return textbox.Text; } set { textbox.Text = value; } }
 
         public event TextChangedEventHandler TextChanged { add { textbox.TextChanged += value; } remove { textbox.TextChanged -= value; } }
 
-        public bool Sorted { get; set; }
+        public event RoutedEventHandler LostFocus { add { textbox.LostFocus += value; } remove { textbox.LostFocus -= value; } }
+
+        public event RoutedEventHandler GotFocus { add { textbox.GotFocus += value; } remove { textbox.GotFocus -= value; } }
+
+        public Func<User, bool> predicate;
+
+        public bool Sorted { get { return (Text != ""); } }
 
         public bool readOnly { set { textbox.IsReadOnly = value; } }
 

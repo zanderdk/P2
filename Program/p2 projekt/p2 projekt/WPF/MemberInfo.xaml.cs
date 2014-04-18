@@ -27,14 +27,21 @@ namespace p2_projekt.WPF
         public MemberInfo(User s)
             : this()
         {
-            if (s is ISailor)
+            initUser(s);
+        }
+
+
+        public void initUser(User u)
+        {
+            if (u is ISailor)
             {
-                initSailor(s as ISailor);
+                initSailor(u as ISailor);
             }
         }
 
         void initSailor(ISailor s)
         {
+            listBoats.Items.Clear();
             fillSailor(s);
             if (s.Boats != null)
             {

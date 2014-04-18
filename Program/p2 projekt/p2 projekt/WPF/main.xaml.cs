@@ -21,9 +21,12 @@ namespace p2_projekt.WPF
     /// </summary>
     public partial class main : Window
     {
+        User loggedIn;
         public main(User u)
         {
             InitializeComponent();
+
+            loggedIn = u;
 
             AddToTabController(new TabMap(), "Kort");
 
@@ -38,7 +41,7 @@ namespace p2_projekt.WPF
 
             if (Permission.CanRead(u.Permission.search))
             {
-                AddToTabController(new SearchTab(), "Søg");
+                AddToTabController(new SearchTab(this), "Søg");
             }
         }
 
@@ -46,6 +49,28 @@ namespace p2_projekt.WPF
             {
                 TabItem tabItem = new TabItem() { Header = name, Content = us, Margin=new Thickness(0) };
                 tabController.Items.Add(tabItem);
+            }
+
+            TabItem GetTabItemByName(string name)
+            {
+                foreach(TabItem tab in tabController.Items)
+                {
+                    if(tab.Header == name)
+                    {
+                        return tab;
+                    }
+                }
+                throw new InvalidOperationException();
+            }
+
+            public void selectUser(User u)
+            {
+                if(Permission.CanRead(loggedIn.Permission.MemberInfo))
+                {
+                    tabController.SelectedItem = GetTabItemByName("Profil");
+                    MemberInfo mem = (MemberInfo)(tabController.SelectedItem as TabItem).Content;
+                    mem.initUser(u);
+                }
             }
             
         }

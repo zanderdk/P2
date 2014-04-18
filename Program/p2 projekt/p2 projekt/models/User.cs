@@ -59,7 +59,7 @@ namespace p2_projekt.models
         string Password { get; set; }
     }
 
-    public interface IFullPersonalInfo
+    public interface IFullPersonalInfo : IBasicPersonalInfo
     {
         string Email { get; set; }
         DateTime Birthday { get; set; }
@@ -115,6 +115,7 @@ namespace p2_projekt.models
             Travels = new List<Travel>();
             Boats = new List<Boat>();
             RegistrationDate = DateTime.Now;
+            IsActive = true;
         }
 
         public Member() : base() {
