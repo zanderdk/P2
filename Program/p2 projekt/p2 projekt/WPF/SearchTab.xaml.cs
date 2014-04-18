@@ -169,7 +169,7 @@ namespace p2_projekt.WPF
             refreshInternal();
         }
 
-        private void TextBox_LostFocus(object sender, RoutedEventArgs e)
+        private void TextBox_LostFocus(object sender, RoutedEventArgs e) //TODO fix internalRefresh
         {
             InfolineController send = dict[sender as TextBox];
             if (send.Sorted)
@@ -395,9 +395,136 @@ namespace p2_projekt.WPF
                 };
             }
 
+            if (info.Name == "boatOwner")
+            {
+                return x => {
+
+                    if (!(x is ISailor))
+                        return false;
+
+                    foreach(Boat b in (x as ISailor).Boats)
+                    {
+                        if (b.User.Name.ToLower().Contains(info.Text.ToLower()))
+                            return true;
+                    }
+
+                    return false;
+
+                };
+            }
+
+            if (info.Name == "boatName")
+            {
+                return x => {
+
+                    if (!(x is ISailor))
+                        return false;
+
+                    foreach (Boat b in (x as ISailor).Boats)
+                    {
+                        if (b.Name.ToLower().Contains(info.Text.ToLower()))
+                            return true;
+                    }
+
+                    return false;
+                    
+                };
+            }
+
+            if (info.Name == "boatID")
+            {
+                return x =>
+                {
+                    int id;
+
+                    if(!int.TryParse(info.Text, out id))
+                        return false;
+
+                    if (!(x is ISailor))
+                        return false;
+
+                    foreach (Boat b in (x as ISailor).Boats)
+                    {
+                        if (b.BoatId == id)
+                            return true;
+                    }
+
+                    return false;
+
+                };
+            }
+
+            if (info.Name == "boatName")
+            {
+                return x =>
+                {
+
+                    if (!(x is ISailor))
+                        return false;
+
+                    foreach (Boat b in (x as ISailor).Boats)
+                    {
+                        if (b.BoatSpace != null)
+                        {
+                            if (b.BoatSpace.info.ToLower().Contains(info.Text.ToLower()))
+                                return true;
+                        }
+                            
+                    }
+
+                    return false;
+
+                };
+            }
+
+            if (info.Name == "boatLength")
+            {
+                return x =>
+                {
+                    int id;
+
+                    if (!int.TryParse(info.Text, out id))
+                        return false;
+
+                    if (!(x is ISailor))
+                        return false;
+
+                    foreach (Boat b in (x as ISailor).Boats)
+                    {
+                        if (b.Length == id)
+                            return true;
+                    }
+
+                    return false;
+
+                };
+            }
+
+            if (info.Name == "boatWidth")
+            {
+                return x =>
+                {
+                    int id;
+
+                    if (!int.TryParse(info.Text, out id))
+                        return false;
+
+                    if (!(x is ISailor))
+                        return false;
+
+                    foreach (Boat b in (x as ISailor).Boats)
+                    {
+                        if (b.Width == id)
+                            return true;
+                    }
+
+                    return false;
+
+                };
+            }
+
             throw new InvalidOperationException();
         }
-
 
     }
 }
