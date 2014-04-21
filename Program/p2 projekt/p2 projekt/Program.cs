@@ -19,8 +19,6 @@ namespace p2_projekt
         {
             System.Windows.Application app = new System.Windows.Application();
 
-            HarbourMaster har = new HarbourMaster();
-            har.Permission = new Permission();
             string root_path = Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
 
             AppDomain.CurrentDomain.SetData("DataDirectory", root_path);
@@ -29,8 +27,8 @@ namespace p2_projekt
             BoatSpace bs = new WaterSpace(10.0, 10.0) { info = "dfgdfg" };
             Boat b = new Boat() { Name = "test Ship", BoatSpace = bs, RegistrationNumber = "fdsf" };
             Travel travel = new Travel(new DateTime(2008, 1, 1), new DateTime(2001, 1, 1));
-            Member alice = new Member("Christian", new System.Device.Location.CivicAddress("bistands crib no 1", "", "", "kbh", "Denmark", "", "fuck", "" )) { Password = "test", Birthday = new DateTime(2000, 1, 1) };
-            alice.Permission = new Permission() { MemberInfo=PermissionLevel.Write, search=PermissionLevel.Write, ChangePersonalInfo=PermissionLevel.Write };
+            Member alice = new Member("Christian", new System.Device.Location.CivicAddress("bistands crib no 1", "", "", "kbh", "Denmark", "", "fuck", "")) { Password = "test", Birthday = new DateTime(2000, 1, 1) };
+            alice.Permission = new Permission() { MemberInfo = PermissionLevel.Write, search = PermissionLevel.Write, ChangePersonalInfo = PermissionLevel.Write };
             //alice.Travels.Add(travel);
             //Permission2 p2 = new Permission2();
             //p2.MyProperty = "hej";
@@ -39,14 +37,9 @@ namespace p2_projekt
             alice.Boats.Add(b);
             alice.Email = "Christian_gay@royal.danishKingdom.dk";
 
-            Utilities.Database db = new Utilities.Database();
-            UserController userController = new UserController(db);
-            userController.Add<User>(alice);
+            UserController us = new UserController(new Utilities.Database());
+            us.Add<User>(alice);
 
-            User testBoat = userController.Read<User>(x => true);
-            Console.WriteLine(testBoat.Permission.MemberInfo);
-
-            Permission.CanRead(alice.Permission.MemberInfo);
 
             //using (var db1 = new LobopContext())
             //{

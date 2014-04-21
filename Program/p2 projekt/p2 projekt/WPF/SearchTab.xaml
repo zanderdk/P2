@@ -21,14 +21,14 @@
             <Border CornerRadius="1" BorderBrush="Gray" Background="LightGray" BorderThickness="2" DockPanel.Dock="Top">
                 <StackPanel>
                     <controllers:InfolineController x:Name="name" Title="Navn"/>
-                    <controllers:InfolineController x:Name="birthday" Title="Fødselsdag"/>
+                    <controllers:InfolineController x:Name="birthday" Text="dag/måned/år" Title="Fødselsdag"/>
                     <controllers:InfolineController x:Name="phone" Title="Telefon"/>
                     <controllers:InfolineController x:Name="email" Title="Email"/>
                     <controllers:InfolineController x:Name="adresse" Title="Adresse"/>
                     <controllers:InfolineController x:Name="postal" Title="Post nr"/>
                     <controllers:InfolineController x:Name="country" Title="Land"/>
                     <controllers:InfolineController x:Name="memberID" Title="Medlems nr"/>
-                    <controllers:InfolineController x:Name="memberSince" Title="Oprettet"/>
+                    <controllers:InfolineController x:Name="memberSince" Text="dag/måned/år" Title="Oprettet"/>
                     <controllers:InfolineController x:Name="isActive" Title="Aktiv"/>
                 </StackPanel>
             </Border>

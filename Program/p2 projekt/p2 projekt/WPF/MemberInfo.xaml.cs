@@ -19,20 +19,25 @@ namespace p2_projekt.WPF
     //TODO Synlighed ved "aktiv" felt
     public partial class MemberInfo : UserControl
     {
+        User current;
+        main main;
+
         public MemberInfo()
         {
             InitializeComponent();
         }
 
-        public MemberInfo(User s)
+        public MemberInfo(main m, User s)
             : this()
         {
             initUser(s);
+            main = m;
         }
 
 
         public void initUser(User u)
         {
+            current = u;
             if (u is ISailor)
             {
                 initSailor(u as ISailor);
@@ -80,7 +85,10 @@ namespace p2_projekt.WPF
 
         private void listBoats_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
-            fillBoat(e.AddedItems[0] as Boat);
+            if((sender as ListBox).SelectedItem != null)
+            {
+                fillBoat(((sender as ListBox).SelectedItem as Boat)); 
+            }
         }
 
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
@@ -88,6 +96,18 @@ namespace p2_projekt.WPF
 
         }
 
-       
+        private void Button_AddPerson(object sender, RoutedEventArgs e)
+        {
+            UserController us = main.controller;
+            current.Name = "zander5";
+            us.Update<User>(current);
+        }
+
+        //User getUser()
+        //{
+            
+
+        //}
+
     }
 }

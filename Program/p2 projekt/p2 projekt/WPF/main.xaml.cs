@@ -22,11 +22,14 @@ namespace p2_projekt.WPF
     public partial class main : Window
     {
         User loggedIn;
+        public UserController controller;
         public main(User u)
         {
             InitializeComponent();
 
             loggedIn = u;
+
+            controller = new UserController(new Utilities.Database());
 
             AddToTabController(new TabMap(), "Kort");
 
@@ -36,12 +39,12 @@ namespace p2_projekt.WPF
 
             if (Permission.CanRead(u.Permission.ChangePersonalInfo))
             {
-                AddToTabController(new MemberInfo(u), "Profil");
+                AddToTabController(new MemberInfo(this, u), "Profil");
             }
 
             if (Permission.CanRead(u.Permission.search))
             {
-                AddToTabController(new SearchTab(this), "Søg");
+                //AddToTabController(new SearchTab(this), "Søg");
             }
         }
 

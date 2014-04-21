@@ -28,10 +28,10 @@ namespace p2_projekt.WPF
               
         }
         
-        User findUserByUsername(string username)
+        User findUserByUsername(string username, UserController us)
         {
-            
-            UserController userController = new UserController(new Utilities.Database());
+            UserController userController = us;
+            //UserController userController = new UserController(new Utilities.Database());
             User u = userController.Read<User>( x=> {
                 if(x is ILoginable)
                 {
@@ -48,15 +48,18 @@ namespace p2_projekt.WPF
 
         private void Login_Click(object sender, RoutedEventArgs e)
         {
-            User u = findUserByUsername(membernr.Text);
+            UserController us = new UserController(new Utilities.Database());
+            User u = findUserByUsername(membernr.Text, us);
             if (u != null)
             {
                 ILoginable loginable = (u as ILoginable);
                 if (password.Password == loginable.Password)
                 {
-                    main main = new main(u);
-                    main.Show();
-                    this.Close();
+                    //main main = new main(u);
+                    //main.Show();
+                    //this.Close();
+                    u.Name = "zander6";
+                    us.Update(u);
                 }
                 else
                 {

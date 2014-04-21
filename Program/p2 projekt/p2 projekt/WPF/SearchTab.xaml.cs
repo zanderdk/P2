@@ -102,7 +102,7 @@ namespace p2_projekt.WPF
         public void refreshInternal()
         {
             internalList.Clear();
-            UserController us = new UserController(new Utilities.Database());
+            UserController us = main.controller;
 
             if(SearchPredicates.Count == 0)
             {
@@ -172,7 +172,7 @@ namespace p2_projekt.WPF
         private void TextBox_LostFocus(object sender, RoutedEventArgs e) //TODO fix internalRefresh
         {
             InfolineController send = dict[sender as TextBox];
-            if (send.Sorted)
+            if (send.Sorted && send.predicate != null)
             {
                 SearchPredicates.Add(send.predicate);
             }
