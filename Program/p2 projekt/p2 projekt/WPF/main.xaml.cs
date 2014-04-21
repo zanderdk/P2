@@ -29,7 +29,7 @@ namespace p2_projekt.WPF
 
             loggedIn = u;
 
-            controller = new UserController(new Utilities.Database());
+            controller = Utilities.lobopDB;
 
             AddToTabController(new TabMap(), "Kort");
 
@@ -39,7 +39,7 @@ namespace p2_projekt.WPF
 
             if (Permission.CanRead(u.Permission.ChangePersonalInfo))
             {
-                AddToTabController(new MemberInfo(this, u), "Profil");
+                AddToTabController(new MemberInfo(u), "Profil");
             }
 
             if (Permission.CanRead(u.Permission.search))

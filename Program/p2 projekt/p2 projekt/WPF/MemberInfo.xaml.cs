@@ -20,18 +20,16 @@ namespace p2_projekt.WPF
     public partial class MemberInfo : UserControl
     {
         User current;
-        main main;
 
         public MemberInfo()
         {
             InitializeComponent();
         }
 
-        public MemberInfo(main m, User s)
+        public MemberInfo(User s)
             : this()
         {
             initUser(s);
-            main = m;
         }
 
 
@@ -98,16 +96,7 @@ namespace p2_projekt.WPF
 
         private void Button_AddPerson(object sender, RoutedEventArgs e)
         {
-            UserController us = main.controller;
-            current.Name = "zander5";
-            us.Update<User>(current);
-        }
-
-        //User getUser()
-        //{
             
-
-        //}
-
+        }
     }
 }

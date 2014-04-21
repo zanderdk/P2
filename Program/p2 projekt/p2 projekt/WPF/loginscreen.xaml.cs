@@ -28,9 +28,9 @@ namespace p2_projekt.WPF
               
         }
         
-        User findUserByUsername(string username, UserController us)
+        User findUserByUsername(string username)
         {
-            UserController userController = us;
+            UserController userController = Utilities.lobopDB;
             //UserController userController = new UserController(new Utilities.Database());
             User u = userController.Read<User>( x=> {
                 if(x is ILoginable)
@@ -48,18 +48,16 @@ namespace p2_projekt.WPF
 
         private void Login_Click(object sender, RoutedEventArgs e)
         {
-            UserController us = new UserController(new Utilities.Database());
-            User u = findUserByUsername(membernr.Text, us);
+            User u = findUserByUsername(membernr.Text);
             if (u != null)
             {
                 ILoginable loginable = (u as ILoginable);
                 if (password.Password == loginable.Password)
                 {
-                    //main main = new main(u);
-                    //main.Show();
-                    //this.Close();
-                    u.Name = "zander6";
-                    us.Update(u);
+                    main main = new main(u);
+                    main.Show();
+                    this.Close();
+                    
                 }
                 else
                 {

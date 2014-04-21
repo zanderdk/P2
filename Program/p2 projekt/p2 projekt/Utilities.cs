@@ -10,8 +10,15 @@ using System.Linq.Expressions;
 
 namespace p2_projekt
 {
+
     public static class Utilities
     {
+        public static UserController lobopDB { get; set; }
+
+        static Utilities()
+        {
+            lobopDB = new UserController(new Utilities.Database());
+        }
 
         public class Database : IDAL
         {
@@ -22,9 +29,6 @@ namespace p2_projekt
             {
                 _context = new LobopContext();
             }
-
-
-
             
 
             public void Action<TInput>(Action<LobopContext, DbSet<TInput>> action) where TInput : class
