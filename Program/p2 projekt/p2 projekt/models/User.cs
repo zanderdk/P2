@@ -213,6 +213,13 @@ namespace p2_projekt.models
 
     public class Guest : User, ISailor
     {
+        public Guest()
+        {
+            Boats = new List<Boat>();
+            Travels = new List<Travel>();
+        }
+
+
         public bool hasPaid { get; set; } //TODO Overvej at flytte denne til ny interface f.eks. IRenter
 
         public virtual List<Travel> Travels

@@ -20,7 +20,8 @@ namespace p2_projekt
         {
             int result = _iUserDal.Max<User>(x =>
             {
-                return (x as Member).MembershipNumber;
+                if (x is Member) { return (x as Member).MembershipNumber; }
+                else return 0;
             });
 
             return result + 1;
@@ -36,7 +37,7 @@ namespace p2_projekt
             }
             catch (InvalidOperationException)
             {
-                Console.WriteLine("could not add item");
+                throw;
             }
 
             return successful; 

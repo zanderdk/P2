@@ -9,6 +9,14 @@ namespace p2_projekt.models
 {
     public class Boat
     {
+        public Boat(){}
+
+        public Boat(string name, double length, double width)
+        {
+            Name = name;
+            Length = length;
+            Width = width;
+        }
 
         public int BoatId { get; set; }
         public string Name { get; set; }

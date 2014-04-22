@@ -32,23 +32,49 @@ namespace p2_projekt.WPF
             {
                 Name = name.Text,
                 Phone = phone.Text,
-                Adress = new CivicAddress() { AddressLine1 = streetName.Text, PostalCode = postalCode.Text, CountryRegion = country.Text }
+                Adress = new CivicAddress() { 
+                    AddressLine1 = streetName.Text, 
+                    PostalCode = postalCode.Text,
+                    CountryRegion = country.Text 
+                }
             };
+
+            double bLength = 0;
+            double bWidth = 0;
+
+            if(!double.TryParse(boatLength.Text, out bLength) || !double.TryParse(boatWidth.Text, out bWidth)){
+                MessageBox.Show("Boat length or width not in valid format");
+                return;
+            }
+            TimeSpan timespan = LeavingDate.SelectedDate.Value.Subtract(DateTime.Now);
+
+            if (timespan.Days < 0)
+            {
+                MessageBox.Show("Leaving date must be in the future");
+                return;
+            }
+
+            Boat boat = new Boat(boatName.Text, bLength, bWidth);
+            newGuest.Boats.Add(boat);
+
+            Travel t = new Travel(DateTime.Now, LeavingDate.SelectedDate.Value);
+            newGuest.Travels.Add(t);
             
+
             try
             {
                 UserController userController = new UserController(new Utilities.Database());
 
-                userController.Add(newGuest);
+                userController.Add<User>(newGuest);
 
                 ChipRequester ChipLogin = new ChipRequester(); //TODO overvej om den kan logge ind med det samme?
                 ChipLogin.Show();
                 this.Close();
             }
 
-            catch (Exception) //TODO User add exception
+            catch (InvalidOperationException ex) //TODO User add exception
             {
-                System.Windows.MessageBox.Show("ERROR");
+                System.Windows.MessageBox.Show(ex.Message);
                 this.Close();
             }
 
