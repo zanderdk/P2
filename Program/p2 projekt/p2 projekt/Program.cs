@@ -37,7 +37,7 @@ namespace p2_projekt
             alice.Boats.Add(b);
             alice.Email = "Christian_gay@royal.danishKingdom.dk";
 
-            UserController us = new UserController(new Utilities.Database());
+            UserController us = Utilities.lobopDB;
             us.Add<User>(alice);
 
 

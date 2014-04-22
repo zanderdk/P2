@@ -44,7 +44,7 @@ namespace p2_projekt.WPF
 
             if (Permission.CanRead(u.Permission.search))
             {
-                //AddToTabController(new SearchTab(this), "Søg");
+                AddToTabController(new SearchTab(this), "Søg");
             }
         }
 

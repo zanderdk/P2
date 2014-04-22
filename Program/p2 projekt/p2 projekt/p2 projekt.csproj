@@ -61,6 +61,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="controllers\SearchController.cs" />
+    <Compile Include="controllers\SearchPredicate.cs" />
     <Compile Include="HarborStatus.cs" />
     <Compile Include="HarborStatus.Designer.cs">
       <AutoGen>True</AutoGen>
