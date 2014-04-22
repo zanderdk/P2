@@ -6,6 +6,6 @@
         <TextBlock HorizontalAlignment="Center" Margin="0,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center"><Run Language="da-dk" Text="Insæt Chipkort"/><Run Language="da-dk"/></TextBlock>
         <Button Click="Button_Click" Content="Medlemslogin" HorizontalAlignment="Center" Margin="0,120,0,0" VerticalAlignment="Center" Width="auto"/>
         <Button Click="Button_Click_1" Content="Ny Gæst?" HorizontalAlignment="Center" Margin="0,70,0,0" VerticalAlignment="Center" Width="auto"/>
-    
+        <TextBox KeyUp="ChipNum_KeyUp" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="20" Width="120" TextWrapping="Wrap" Name="ChipNum" Margin="0,0,0,20"/>
     </Grid>
 </Window>
