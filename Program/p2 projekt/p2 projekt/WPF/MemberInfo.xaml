@@ -43,10 +43,6 @@
                         </Style>
                     </StackPanel.Resources>
                     <Label Content="Tiladelser:"/>
-                    <StackPanel Orientation="Horizontal">
-                        <RadioButton Content="Gæst" GroupName="member"></RadioButton>
-                        <RadioButton Content="Medlem" GroupName="member"></RadioButton>
-                    </StackPanel>
                     <CheckBox Content="Tiladelse til at søge"></CheckBox>
                 </StackPanel>
             </Border>
