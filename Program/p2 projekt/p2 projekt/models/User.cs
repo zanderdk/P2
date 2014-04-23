@@ -175,6 +175,51 @@ namespace p2_projekt.models
             get;
             set;
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+
+            if (obj.GetType() != this.GetType())
+            {
+                return false;
+            }
+
+            return (obj as Member).MembershipNumber == this.MembershipNumber;
+        }
+
+        public override int GetHashCode()
+        {
+            return MembershipNumber.GetHashCode();
+        }
+
+        public static bool operator ==(Member u1, Member u2)
+        {
+            if (ReferenceEquals(u1, null))
+            {
+                if (ReferenceEquals(u2, null))
+                    return true;
+                else
+                    return false;
+            }
+            else
+            {
+                return u1.Equals(u2);
+            }
+        }
+
+        public static bool operator !=(Member u1, Member u2)
+        {
+            return !(u1 == u2);
+        }
+
+        public override string ToString()
+        {
+            return string.Format("{0}", Name);
+        }
     }
     
     // has no member ID
@@ -209,6 +254,47 @@ namespace p2_projekt.models
         public DateTime RegistrationDate { get; set; }
         public TimeSpan MebershipDuration { get { return RegistrationDate - DateTime.Now; } } //TODO calculate shit
 
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+
+            if (obj.GetType() != this.GetType())
+            {
+                return false;
+            }
+
+            return (obj as HarbourMaster).Username == this.Username;
+        }
+
+        public override int GetHashCode()
+        {
+            return Username.GetHashCode();
+        }
+
+        public static bool operator ==(HarbourMaster u1, HarbourMaster u2)
+        {
+            if (ReferenceEquals(u1, null))
+            {
+                if (ReferenceEquals(u2, null))
+                    return true;
+                else
+                    return false;
+            }
+            else
+            {
+                return u1.Equals(u2);
+            }
+        }
+
+        public static bool operator !=(HarbourMaster u1, HarbourMaster u2)
+        {
+            return !(u1 == u2);
+        }
+
+
     }
 
     public class Guest : User, ISailor
@@ -233,5 +319,46 @@ namespace p2_projekt.models
             get;
             set;
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+
+            if (obj.GetType() != this.GetType())
+            {
+                return false;
+            }
+
+            return (obj as Guest).UserId == this.UserId;
+        }
+
+        public override int GetHashCode()
+        {
+            return UserId.GetHashCode();
+        }
+
+        public static bool operator ==(Guest u1, Guest u2)
+        {
+            if (ReferenceEquals(u1, null))
+            {
+                if (ReferenceEquals(u2, null))
+                    return true;
+                else
+                    return false;
+            }
+            else
+            {
+                return u1.Equals(u2);
+            }
+        }
+
+        public static bool operator !=(Guest u1, Guest u2)
+        {
+            return !(u1 == u2);
+        }
+
     }
 }

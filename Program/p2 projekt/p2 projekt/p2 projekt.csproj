@@ -61,6 +61,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="controllers\memberInfoController.cs" />
     <Compile Include="controllers\SearchController.cs" />
     <Compile Include="controllers\SearchPredicate.cs" />
     <Compile Include="HarborStatus.cs" />
@@ -216,6 +217,13 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="lobopDB.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="lobopDB_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>lobopDB.mdf</DependentUpon>
+    </Content>
     <Content Include="Resources\BlackWhiteHarbor.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

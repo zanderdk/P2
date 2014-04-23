@@ -26,6 +26,7 @@
                     <controllers:InfolineController x:Name="email" Title="Email"/>
                     <controllers:InfolineController x:Name="adresse" Title="Adresse"/>
                     <controllers:InfolineController x:Name="postal" Title="Post nr"/>
+                    <controllers:InfolineController x:Name="city" Title="By"/>
                     <controllers:InfolineController x:Name="country" Title="Land"/>
                     <controllers:InfolineController x:Name="memberID" Title="Medlems nr"/>
                     <controllers:InfolineController x:Name="memberSince" Title="Oprettet"/>
@@ -43,6 +44,15 @@
                         </Style>
                     </StackPanel.Resources>
                     <Label Content="Tiladelser:"/>
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel.Resources>
+                            <Style TargetType="RadioButton">
+                                <Setter Property="Margin" Value="0,0,30,0"/>
+                            </Style>
+                        </StackPanel.Resources>
+                        <RadioButton GroupName="member" Name="memberRadio" Content="Medlem" IsChecked="True"/>
+                        <RadioButton GroupName="member"  Name="adminRadio" Content="guest"/>
+                    </StackPanel>
                     <CheckBox Content="Tiladelse til at søge"></CheckBox>
                 </StackPanel>
             </Border>
@@ -98,7 +108,7 @@
             </Border>
 
             <Border VerticalAlignment="Top" Grid.RowSpan="20" CornerRadius="1" BorderBrush="Gray" Margin="0,10,0,0" Background="LightGray" BorderThickness="2" DockPanel.Dock="Top" Grid.ColumnSpan="1">
-                <ListBox Height="100"></ListBox>
+                <ListBox Name="travelList" Height="100"></ListBox>
             </Border>
             
             <Border VerticalAlignment="Top" Grid.RowSpan="20" CornerRadius="1" BorderBrush="Gray" Margin="0,10,0,0" Background="LightGray" BorderThickness="2" DockPanel.Dock="Top" Grid.ColumnSpan="1">
