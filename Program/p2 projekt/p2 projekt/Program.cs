@@ -17,21 +17,25 @@ namespace p2_projekt
         [STAThread]
         public static void Main()
         {
-            string root_path = Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
-            string database_path = root_path + @"\lobopDB.mdf";
-            if(File.Exists(database_path) == true )
-            {
-                
-            }
-            else
-            {
-
-            }
 
             System.Windows.Application app = new System.Windows.Application();
 
+
             
+            string root_path = Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
+            string database_path = root_path + @"\lobopDB.mdf";
+
             AppDomain.CurrentDomain.SetData("DataDirectory", root_path);
+
+
+            UserController us = Utilities.lobopDB;
+            
+            if(File.Exists(database_path) == false )
+            {
+            new DatabaseCreation().CreateDataset(us, 50);
+            }
+
+            
 
 
             BoatSpace bs = new WaterSpace(10.0, 10.0) { info = "dfgdfg" };
@@ -47,9 +51,14 @@ namespace p2_projekt
             alice.Boats.Add(b);
             alice.Email = "Christian_gay@royal.danishKingdom.dk";
 
-            UserController us = Utilities.lobopDB;
-            us.Add<User>(alice);
 
+
+            var users = us.ReadAll<User>(x => true);
+
+            foreach (var item in users)
+            {
+                Console.WriteLine((item as Member).Password + "  " + (item as Member).MembershipNumber);
+            }
 
             //using (var db1 = new LobopContext())
             //{
