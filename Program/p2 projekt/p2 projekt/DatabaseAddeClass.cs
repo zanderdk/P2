@@ -7,7 +7,7 @@ using p2_projekt.models;
 
 namespace p2_projekt
 {
-    public class DatabaseAddeClass
+    public static class DatabaseAddeClass
     {
         Random r = new Random();
         
@@ -94,12 +94,12 @@ namespace p2_projekt
                 adding.Add(m);
             }
 
-            foreach(Boat b in Båd)
+            foreach(Boat b in Boats)
             {
                 adding.Add(b);
             }
 
-            foreach(BoatSpace bs in BådPlads)
+            foreach(BoatSpace bs in BoatSpaces)
             {
                 adding.Add(bs);
             }

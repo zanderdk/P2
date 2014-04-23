@@ -17,10 +17,20 @@ namespace p2_projekt
         [STAThread]
         public static void Main()
         {
+            string root_path = Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
+            string database_path = root_path + @"\lobopDB.mdf";
+            if(File.Exists(database_path) == true )
+            {
+                
+            }
+            else
+            {
+
+            }
+
             System.Windows.Application app = new System.Windows.Application();
 
-            string root_path = Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
-
+            
             AppDomain.CurrentDomain.SetData("DataDirectory", root_path);
 
 
