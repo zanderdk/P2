@@ -102,6 +102,7 @@ namespace p2_projekt.WPF
                 User u = parseParameters();
                 memberInfoController.validateUser(u);
                 Utilities.lobopDB.Add(u);
+                MessageBox.Show("Bruger oprettet.");
                 
             }catch (ArgumentException arg)
             {

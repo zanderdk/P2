@@ -183,7 +183,7 @@ namespace p2_projekt.models
                 return false;
             }
 
-            if (obj.GetType() != this.GetType())
+            if (!(obj is Member))
             {
                 return false;
             }
@@ -261,7 +261,7 @@ namespace p2_projekt.models
                 return false;
             }
 
-            if (obj.GetType() != this.GetType())
+            if (!(obj is HarbourMaster))
             {
                 return false;
             }
@@ -327,7 +327,7 @@ namespace p2_projekt.models
                 return false;
             }
 
-            if (obj.GetType() != this.GetType())
+            if (!(obj is Guest))
             {
                 return false;
             }
