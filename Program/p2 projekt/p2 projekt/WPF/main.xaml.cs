@@ -35,8 +35,6 @@ namespace p2_projekt.WPF
 
             AddToTabController(new TabMap(), "Kort");
             
-            Permission p = u.Permission;
-
             if (Permission.CanRead(u.Permission.ChangePersonalInfo))
             {
                 AddToTabController(new MemberInfo(u), "Profil");
