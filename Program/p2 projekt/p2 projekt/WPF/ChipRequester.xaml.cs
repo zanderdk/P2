@@ -23,6 +23,7 @@ namespace p2_projekt.WPF
         public ChipRequester()
         {
             InitializeComponent();
+            ChipNum.Focus();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -38,7 +39,7 @@ namespace p2_projekt.WPF
             newGuestCreator.Show();
             this.Close();
         }
-        private void ChipNum_KeyUp(object sender, KeyEventArgs e) //Simluering af chiplæser
+        private void ChipNum_KeyUp(object sender, KeyEventArgs e) //Simluering af chiplæser PAS PÅ MED NULL-REFERENCES
         {
             if (e.Key == Key.Enter && !string.IsNullOrEmpty(ChipNum.Text))
             {

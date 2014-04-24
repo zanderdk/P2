@@ -3,7 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:controls="clr-namespace:p2_projekt.WPF"
         Title="Lobop">
-    <Grid> 
-        <TabControl x:Name="tabController"/>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TabControl x:Name="tabController" Grid.RowSpan="1" Grid.Row="1"/>
+        <Button Content="Log Ud" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" Click="LogUdClick"/>
     </Grid>
 </Window>

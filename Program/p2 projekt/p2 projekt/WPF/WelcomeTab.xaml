@@ -6,7 +6,13 @@
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="800">
     <Grid>
-        <TextBlock HorizontalAlignment="Center" Margin="0,150,0,0" TextWrapping="Wrap" Text="Velkommen" VerticalAlignment="Top" FontWeight="Bold" FontSize="48" FontFamily="century gothic"/>
-        <TextBlock HorizontalAlignment="Center" Margin="0,210,0,0" TextWrapping="Wrap" Text="Benyt fanerne øverst til at navigere Lobop" FontSize="24"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,150,0,0" TextWrapping="WrapWithOverflow" Text="Velkommen"  FontWeight="Bold" FontSize="48" FontFamily="century gothic" Grid.ColumnSpan="3"/>
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,200,0,0" TextWrapping="Wrap" Text="Benyt fanerne øverst til at navigere Lobop" FontSize="24" Grid.ColumnSpan="3"/>
+        
     </Grid>
 </UserControl>

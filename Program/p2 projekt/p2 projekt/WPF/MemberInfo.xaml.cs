@@ -20,7 +20,7 @@ namespace p2_projekt.WPF
     //TODO Synlighed ved "aktiv" felt
     public partial class MemberInfo : UserControl
     {
-        User current;
+        private User Current;
 
         public MemberInfo()
         {
@@ -30,33 +30,46 @@ namespace p2_projekt.WPF
         public MemberInfo(User s)
             : this()
         {
-            initUser(s);
+            InitUser(s);
         }
 
 
-        public void initUser(User u)
+        public void InitUser(User u)
         {
-            current = u;
+            Current = u;
             if (u is ISailor)
             {
-                initSailor(u as ISailor);
+                InitSailor(u as ISailor);
             }
         }
 
-        void initSailor(ISailor s)
+        void InitSailor(ISailor s)
         {
-            listBoats.Items.Clear();
-            fillSailor(s);
+            FillSailor(s);
             if (s.Boats != null)
             {
-                foreach (Boat b in s.Boats)
-                {
-                    listBoats.Items.Add(b);
-                }
+                listBoats.ItemsSource = s.Boats;
+                SetDefaultSelectedItem(s, listBoats);
             }
+
+            if (s.Travels != null)
+                {
+                listTravels.ItemsSource = s.Travels;
+                SetDefaultSelectedItem(s, listTravels);
+                }
+
+            if (s is Member) { NewTravelButton.IsEnabled = true; }
+            }
+
+        private void SetDefaultSelectedItem(ISailor s, ListBox list)
+        {
+            if (s.Boats.Count() > 0)
+            {
+                list.SelectedIndex = 0;
+        }
         }
 
-        public void fillBoat(Boat b)
+        public void FillBoat(Boat b)
         {
             boatName.Text = b.Name;
             boatOwner.Text = b.User.Name;
@@ -64,12 +77,18 @@ namespace p2_projekt.WPF
             boatWidth.Text = b.Width.ToString();
             if (b.BoatSpace != null)
             {
-                boatSpace.Text = b.BoatSpace.ToString(); //TODO mere info om bådplads
+                boatSpace.Text = b.BoatSpace.ToString();
             }
             boatID.Text = b.RegistrationNumber;
         }
 
-        public void fillSailor(ISailor s)
+        private void FillTravel(Travel t)
+        {
+            travelStart.Text = t.Start.ToShortDateString();
+            travelEnd.Text = t.End.ToShortDateString();
+        }
+
+        public void FillSailor(ISailor s)
         {
             //TODO label hvorvidt Sailor er medlem eller gæst.
             //TODO tilføj/fjern båd skal ikke være mulig for alle.
@@ -80,13 +99,19 @@ namespace p2_projekt.WPF
             adresse.Text = u.Adress.AddressLine1;
             postal.Text = u.Adress.PostalCode;
             country.Text = u.Adress.CountryRegion;
+
+            IFullPersonalInfo fullPersonalInfo = u as IFullPersonalInfo;
+            if (fullPersonalInfo != null)
+            {
+                birthday.Text = fullPersonalInfo.Birthday.ToString();
+        }
         }
 
         private void listBoats_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
             if((sender as ListBox).SelectedItem != null)
             {
-                fillBoat(((sender as ListBox).SelectedItem as Boat)); 
+                FillBoat(((sender as ListBox).SelectedItem as Boat)); 
             }
         }
 
@@ -116,6 +141,29 @@ namespace p2_projekt.WPF
                     MessageBox.Show(arg.Message);
                 }
             }
+        }
+
+        public void ClearBoatInfo()
+        {
+            boatName.Text = "";
+            boatOwner.Text = "";
+            boatLength.Text = "";
+            boatWidth.Text = "";
+            boatSpace.Text = "";
+            boatID.Text = "";
+        }
+
+        private void AddNewTravel(object sender, RoutedEventArgs e)
+        {
+            TravelAddPopup AddingTravel = new TravelAddPopup(Current);
+            AddingTravel.Show();
+        }
+
+
+        private void Button_EditTravel(object sender, RoutedEventArgs e)
+        {
+            Travel selectedItem = listTravels.SelectedItem as Travel;
+            
         }
 
         User parseParameters()
@@ -158,12 +206,12 @@ namespace p2_projekt.WPF
                     ((Member)user).Email = email.Text;
                 }
 
-                if(travelList.Items.Count > 0)
-                {
-                    foreach(Travel t in travelList.Items){
-                        ((Member)user).Travels.Add(t);
-                    }
-                }
+                //if(travelList.Items.Count > 0)
+                //{
+                //    foreach(Travel t in travelList.Items){
+                //        ((Member)user).Travels.Add(t);
+                //    }
+                //}
 
             }
             else if(adminRadio.IsChecked == true)

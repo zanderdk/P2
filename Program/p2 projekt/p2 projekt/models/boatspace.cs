@@ -10,7 +10,6 @@ namespace p2_projekt.models
 {
     public abstract class BoatSpace
     {
-
         public BoatSpace() { } // må kun bruges af Entity.
 
         [Key,ForeignKey("Boat")]
@@ -18,6 +17,17 @@ namespace p2_projekt.models
         public String info { get; set; }
         public double Length { get; private set; }
         public double Width { get; private set; }
+
+        public enum EnumBoatSpaceStatus { Occupied , Empty }
+
+        public EnumBoatSpaceStatus BoatSpaceStatus 
+        { 
+            get
+            {
+                if (Boat == null) { return EnumBoatSpaceStatus.Empty; }
+                else { return EnumBoatSpaceStatus.Occupied; }
+            }
+        }
 
         private bool _boatChange;
         private Boat _boat;
@@ -51,11 +61,9 @@ namespace p2_projekt.models
                         if(_boat != value) //entity gør dette men det er ikke et problem da (_boat altid er == value).
                         {
                             throw new Exception("This spot already has a boat on it");
-                        }
-               
+                        }               
                     }
                 }
-
             }
         }
 
@@ -64,18 +72,21 @@ namespace p2_projekt.models
             Length = length;
             Width = height;
         }
+
+        public override string ToString()
+        {
+            return String.Format("Info: {0}, Tilhørende båd: {1}", info, Boat);
+        }
     }
 
     public class WaterSpace : BoatSpace
     {
-
         public WaterSpace() { }
         public WaterSpace(double length, double height) : base(length, height) {}
     }
 
     public class LandSpace : BoatSpace
     {
-
         public LandSpace() { }
     }
 }

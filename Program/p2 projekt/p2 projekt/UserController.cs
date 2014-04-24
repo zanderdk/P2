@@ -78,6 +78,11 @@ namespace p2_projekt
             return sucessful;
         }
 
-        
+
+
+        internal void CreateDatabaseIfNotExists()
+        {
+         
+        }
     }
 }
