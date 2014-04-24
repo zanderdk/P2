@@ -23,6 +23,7 @@ namespace p2_projekt.WPF
         public ChipRequester()
         {
             InitializeComponent();
+            ChipNum.Focus();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
