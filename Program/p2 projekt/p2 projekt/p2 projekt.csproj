@@ -116,6 +116,9 @@
     <Compile Include="WPF\Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WPF\TravelAddPopup.xaml.cs">
+      <DependentUpon>TravelAddPopup.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WPF\Travels.xaml.cs">
       <DependentUpon>Travels.xaml</DependentUpon>
     </Compile>
@@ -180,6 +183,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="WPF\Settings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WPF\TravelAddPopup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

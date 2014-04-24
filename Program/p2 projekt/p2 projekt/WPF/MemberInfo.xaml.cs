@@ -53,6 +53,8 @@ namespace p2_projekt.WPF
                     listBoats.Items.Add(b);
                 }
             }
+
+            if (s is Member) { NewTravelButton.IsEnabled = true; }
         }
 
         public void fillBoat(Boat b)
@@ -113,6 +115,12 @@ namespace p2_projekt.WPF
             boatWidth.Text = "";
             boatSpace.Text = "";
             boatID.Text = "";
+        }
+
+        private void AddNewTravel(object sender, RoutedEventArgs e)
+        {
+            TravelAddPopup AddingTravel = new TravelAddPopup(current);
+            AddingTravel.Show();
         }
     }
 }
