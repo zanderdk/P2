@@ -9,6 +9,6 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <TabControl x:Name="tabController" Grid.RowSpan="1" Grid.Row="1"/>
-        <Button Content="Log Ud" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" MouseUp="LogUd"/>
+        <Button Content="Log Ud" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" Click="LogUdClick"/>
     </Grid>
 </Window>

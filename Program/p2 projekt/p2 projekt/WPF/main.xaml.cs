@@ -76,8 +76,8 @@ namespace p2_projekt.WPF
             }
         }
 
-        private void LogUd(object sender, MouseButtonEventArgs e)
-        {            
+        private void LogUdClick(object sender, RoutedEventArgs e)
+        {
             ChipRequester ChipReq = new ChipRequester();
             ChipReq.Show();
             this.Close();
