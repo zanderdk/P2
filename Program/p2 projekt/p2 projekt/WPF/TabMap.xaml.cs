@@ -1,4 +1,5 @@
-﻿using System;
+﻿using p2_projekt.models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,13 +27,35 @@ namespace p2_projekt.WPF
         {
             InitializeComponent();
 
-            
+            FillBoatSpaceRepresentations();
         }
 
-        private void Rectangle_clicked(object sender, MouseButtonEventArgs e)
+        private void FillBoatSpaceRepresentations()
         {
-            if ((sender as Rectangle).Fill == Brushes.Red) (sender as Rectangle).Fill = Brushes.Green;
-            else (sender as Rectangle).Fill = Brushes.Red;
+            UserController us = Utilities.lobopDB;
+
+            var boats = us.ReadAll<Boat>(x => x != null);
+            var wrapPanels = BoatSpacesGrid.Children.OfType<WrapPanel>();
+
+            List<BoatSpaceRepresentation> boatspaceRepresentations = new List<BoatSpaceRepresentation>();
+
+            foreach (var item in wrapPanels)
+            {
+                BoatSpaceRepresentation bsr = item.Children.OfType<BoatSpaceRepresentation>().ElementAt(0);
+                boatspaceRepresentations.Add(bsr);
+            }
+
+            for (int i = 0; i < boatspaceRepresentations.Count; i++)
+            {
+                BoatSpaceRepresentation bsr = boatspaceRepresentations[i];
+                BoatSpace bs = boats.ElementAt(i).BoatSpace;
+
+                bsr.BoatSpace = bs;
+                bsr.Label.Content = bs.BoatId;
+                // TODO brug den geniale formel til at vise rigtige plads id
+
+            }
         }
+
     }
 }

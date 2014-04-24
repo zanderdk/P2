@@ -99,8 +99,8 @@ namespace p2_projekt
                 Member m = CreateUser();
                 Boat b = CreateBoat();
                 BoatSpace bs = CreateBoatSpace();
-            
-                bs.Boat = b;
+                b.BoatSpace = bs;
+                //bs.Boat = b;
                 m.Boats.Add(b);
                 uc.Add<User>(m);
 
