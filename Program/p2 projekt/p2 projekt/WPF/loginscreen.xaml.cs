@@ -78,8 +78,6 @@ namespace p2_projekt.WPF
                 Login_Click(sender, e);
             }
         }
-
-        
     }
 }
 

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using p2_projekt.WPF;
 
 namespace p2_projekt.WPF
 {
@@ -23,6 +24,11 @@ namespace p2_projekt.WPF
         public WelcomeTab()
         {
             InitializeComponent();
+        }
+
+        private void Button_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+
         }
     }
 }
