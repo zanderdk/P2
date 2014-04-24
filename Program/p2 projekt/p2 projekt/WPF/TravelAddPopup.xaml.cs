@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using p2_projekt.models;
+using p2_projekt.controllers;
 
 namespace p2_projekt.WPF
 {
@@ -50,6 +51,8 @@ namespace p2_projekt.WPF
             UserController uc = Utilities.lobopDB;
             uc.Update<User>(traveller);
 
+            SearchController.main.selectUser(traveller);
+            
             this.Close();
         }
     }
