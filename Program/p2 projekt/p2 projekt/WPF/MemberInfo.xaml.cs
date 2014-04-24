@@ -72,13 +72,19 @@ namespace p2_projekt.WPF
         {
             //TODO label hvorvidt Sailor er medlem eller gæst.
             //TODO tilføj/fjern båd skal ikke være mulig for alle.
-
+            
             User u = (User)s;
             name.Text = u.Name;
             phone.Text = u.Phone;
             adresse.Text = u.Adress.AddressLine1;
             postal.Text = u.Adress.PostalCode;
             country.Text = u.Adress.CountryRegion;
+
+            IFullPersonalInfo fullPersonalInfo = u as IFullPersonalInfo;
+            if (fullPersonalInfo != null)
+            {
+                birthday.Text = fullPersonalInfo.Birthday.ToString();
+            }
         }
 
         private void listBoats_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
