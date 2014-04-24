@@ -64,6 +64,11 @@ namespace p2_projekt.models
             Length = length;
             Width = height;
         }
+
+        public override string ToString()
+        {
+            return String.Format("Info: {0}, Tilhørende båd: {1}", info, Boat);
+        }
     }
 
     public class WaterSpace : BoatSpace
