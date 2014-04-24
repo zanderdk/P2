@@ -24,6 +24,9 @@ namespace p2_projekt
         string[] info = new string[] { "Der er sæler på pladsen", "Der bor Ænder her", " Vandet er lavt her", "Jørgens Iphone 5 ligger et eller andet sted her", "Den er lidt brændt", "Den er meget beskidt", "Egon ligger ved siden af den", "Gammel Plads", "Alle både der ligger her synker", "Pladsen er grøn" };
         string[] Email = new string[] { "@stupid.com", "@sved.dk", "@hotmail.com", "@gmail.com", "@yahoo.dk", "@blizzard.com", "@maersk.dk", "@apple.dk" };
         string[] Country = new string[] { "Danmark", "Svenskerland", "Norge", "Tyskland", "Frankrig", "Finland", "Rusland", "Nordpolen", "'Merica" };
+        string[] Cities = new string[] { "Svedstrup", "Paris", "Oslo", "Malmø", "Skive", "Horsens", "København", "Viborg", "Ulstrup", "Göteborg", "warszawa" };
+        string[] AdressP1 = new string[] {"Sved","Kage","Nodre","Faldskærms","Danmarks","Pakke","Ligge","Internet"};
+        string[] AdressP2 = new string[] { "vej", "ly", "krattet", "gade" };
         double[] Dimensions = new double[] { 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12, 12.5, 13, 13.5, 14, 14.5, 15, 15.5, 16, 16.5, 17, 17.5, 18, 18.5, 19, 19.5, 20, 20.5, 21, 21.5, 22, 22.5, 23, 23.5, 24, 24.5, 25 };
 
 
@@ -50,7 +53,9 @@ namespace p2_projekt
                 member.Email = tempEmail;
                 member.Phone = phonenumber;
                 member.Adress.CountryRegion = Country[r.Next(0, Country.Length)];
-                //member.Adress.City
+                member.Adress.City = Cities[r.Next(0, Cities.Length)];
+                member.Adress.AddressLine1 = "" + AdressP1[r.Next(0, AdressP1.Length)] + AdressP2[r.Next(0, AdressP2.Length)]+" "+r.Next(1,500);
+                member.Adress.PostalCode = "" + r.Next(1000, 9999);
 
                 // TODO alle skal ikke have søge rettigheder
                 member.Permission = new Permission() { MemberInfo = PermissionLevel.Write, search = PermissionLevel.Write, ChangePersonalInfo = PermissionLevel.Write};

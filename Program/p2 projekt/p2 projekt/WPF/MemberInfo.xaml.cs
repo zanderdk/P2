@@ -104,7 +104,19 @@ namespace p2_projekt.WPF
             if (fullPersonalInfo != null)
             {
                 birthday.Text = fullPersonalInfo.Birthday.ToString();
+<<<<<<< 0fc3e97f4de3d347ef039133aa5e419da2c01b73
         }
+=======
+                
+                email.Text = fullPersonalInfo.Email.ToString();
+
+            }
+            Member Member = u as Member;
+            if (Member != null)
+            {
+               
+            }
+>>>>>>> e2071c2f065269ae04c613831545bffa446461b5
         }
 
         private void listBoats_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
