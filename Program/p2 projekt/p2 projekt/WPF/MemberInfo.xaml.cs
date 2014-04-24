@@ -44,7 +44,10 @@ namespace p2_projekt.WPF
 
         void initSailor(ISailor s)
         {
+            // clear list of boats and travels
             listBoats.Items.Clear();
+            listTravels.Items.Clear();
+
             fillSailor(s);
             if (s.Boats != null)
             {

@@ -48,7 +48,6 @@ namespace p2_projekt.WPF
                 Travel TravelToBeAdded = new Travel() { Start = LeavingDate.SelectedDate.Value, End = ArrivalDate.SelectedDate.Value, User = traveller };
                 (traveller as ISailor).Travels.Add(TravelToBeAdded);
             }
-            //TODO Rejse skal ikke addes til samtlige users
             UserController uc = Utilities.lobopDB;
             uc.Update<User>(traveller);
             
