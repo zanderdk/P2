@@ -11,10 +11,8 @@
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        <TextBlock HorizontalAlignment="Center" Margin="265,150,100.885,0" TextWrapping="Wrap" Text="Velkommen" VerticalAlignment="Top" FontWeight="Bold" FontSize="48" FontFamily="century gothic" Grid.ColumnSpan="2"/>
-        <TextBlock HorizontalAlignment="Center" Margin="179,210,14.885,0" TextWrapping="Wrap" Text="Benyt fanerne øverst til at navigere Lobop" FontSize="24" Grid.ColumnSpan="2"/>
-        <Button Content="Log Ud" HorizontalAlignment="Left" Margin="0,0,0,50" VerticalAlignment="Bottom" Width="75" Grid.Column="2" MouseUp="Button_MouseUp"/>
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,150,0,0" TextWrapping="WrapWithOverflow" Text="Velkommen"  FontWeight="Bold" FontSize="48" FontFamily="century gothic" Grid.ColumnSpan="3"/>
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,200,0,0" TextWrapping="Wrap" Text="Benyt fanerne øverst til at navigere Lobop" FontSize="24" Grid.ColumnSpan="3"/>
         
-
     </Grid>
 </UserControl>

@@ -31,10 +31,10 @@ namespace p2_projekt.WPF
 
             controller = Utilities.lobopDB;
 
-            AddToTabController(new TabMap(), "Kort");
-
             AddToTabController(new WelcomeTab(), "Forside");
 
+            AddToTabController(new TabMap(), "Kort");
+            
             Permission p = u.Permission;
 
             if (Permission.CanRead(u.Permission.ChangePersonalInfo))
@@ -75,12 +75,12 @@ namespace p2_projekt.WPF
                 mem.initUser(u);
             }
         }
-            
-        public void logout()
-        {
-            this.Close();
+
+        private void LogUd(object sender, MouseButtonEventArgs e)
+        {            
             ChipRequester ChipReq = new ChipRequester();
             ChipReq.Show();
+            this.Close();
         }
     }
 }

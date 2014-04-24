@@ -25,10 +25,5 @@ namespace p2_projekt.WPF
         {
             InitializeComponent();
         }
-
-        private void Button_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-
-        }
     }
 }

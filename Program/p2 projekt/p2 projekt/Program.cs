@@ -53,12 +53,12 @@ namespace p2_projekt
 
 
 
-            var users = us.ReadAll<User>(x => true);
+            //var users = us.ReadAll<User>(x => true);
 
-            foreach (var item in users)
-            {
-                Console.WriteLine((item as Member).Password + "  " + (item as Member).MembershipNumber);
-            }
+            //foreach (var item in users)
+            //{
+            //    Console.WriteLine((item as Member).Password + "  " + (item as Member).MembershipNumber);
+            //}
 
             //using (var db1 = new LobopContext())
             //{
