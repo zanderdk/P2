@@ -98,5 +98,15 @@ namespace p2_projekt.WPF
         {
             
         }
+
+        public void ClearBoatInfo()
+        {
+            boatName.Text = "";
+            boatOwner.Text = "";
+            boatLength.Text = "";
+            boatWidth.Text = "";
+            boatSpace.Text = "";
+            boatID.Text = "";
+        }
     }
 }

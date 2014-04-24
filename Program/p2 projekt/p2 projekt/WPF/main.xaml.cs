@@ -73,6 +73,7 @@ namespace p2_projekt.WPF
                 tabController.SelectedItem = GetTabItemByName("Profil");
                 MemberInfo mem = (MemberInfo)(tabController.SelectedItem as TabItem).Content;
                 mem.initUser(u);
+                mem.ClearBoatInfo();
             }
         }
 
