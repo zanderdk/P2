@@ -37,7 +37,7 @@ namespace p2_projekt.WPF
                 MessageBox.Show("Vælg nyere Udrejse dato");
                 return;
             }
-            else if(ArrivalDate.SelectedDate.Value.Subtract(DateTime.Now).Days < 0)
+            else if(ArrivalDate.SelectedDate.Value.Subtract(LeavingDate.SelectedDate.Value).Days < 0)
             {
                 MessageBox.Show("Vælg ny Hjemkost dato");
                 return;

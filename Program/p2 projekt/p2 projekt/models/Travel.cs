@@ -37,25 +37,29 @@ namespace p2_projekt.models
             return first ^ second ^ third;
         }
         
-       public bool Equals(Travel other)
+        public bool Equals(Travel other)
         {
-           if (other == null)
-           {
+            if (other == null)
+            {
                 return false;
-           }
+            }
 
-           if (Travel.ReferenceEquals(this, other))
-           {
-               return true;
-           }
+            if (Travel.ReferenceEquals(this, other))
+            {
+                return true;
+            }
 
-           if(GetHashCode() != other.GetHashCode())
-           {
-               return false;
-           }
+            if(GetHashCode() != other.GetHashCode())
+            {
+                return false;
+            }
                      
-           return this.Start.Equals(other.Start) && this.End.Equals(other.End);
+            return this.Start.Equals(other.Start) && this.End.Equals(other.End);
         }
 
+        public override string ToString()
+        {
+            return string.Format("Udrejse: {0} Hjemkomst: {1}", this.Start, this.End );
+        }
     }
 }

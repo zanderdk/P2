@@ -54,6 +54,14 @@ namespace p2_projekt.WPF
                 }
             }
 
+            if (s.Travels != null)
+            {
+                foreach (Travel t in s.Travels)
+                {
+                    listTravels.Items.Add(t);
+                }
+            }
+
             if (s is Member) { NewTravelButton.IsEnabled = true; }
         }
 
