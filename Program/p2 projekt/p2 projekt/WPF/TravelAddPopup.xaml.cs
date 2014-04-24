@@ -22,14 +22,15 @@ namespace p2_projekt.WPF
     public partial class TravelAddPopup : Window
     {
         User traveller;
+        private Travel t;
 
         public TravelAddPopup(User u)
         {
             InitializeComponent();
 
             traveller = u;
-
         }
+
 
         private void AddChosenTravel(object sender, RoutedEventArgs e)
         {

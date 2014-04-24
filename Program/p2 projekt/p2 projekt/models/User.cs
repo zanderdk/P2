@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Device.Location;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Collections.ObjectModel;
 
 namespace p2_projekt.models
 {
@@ -77,15 +78,15 @@ namespace p2_projekt.models
 
     public interface ISailor
     {
-        List<Travel> Travels { get; set; } // All travels. Old and new.
-        List<Boat> Boats {get; set;} // boats owned
+        ObservableCollection<Travel> Travels { get; set; } // All travels. Old and new.
+        ObservableCollection<Boat> Boats {get; set;} // boats owned
     }
     
     
     public class Member : User, IFullPersonalInfo, ISailor, ILoginable
     {
         public int MembershipNumber { get; private set; } // backwards compatible with existing numbers from Vestre Baadelaug database.
-        //public List<Travel> Travels { get; private set; } // All travels. Old and new.
+        //public ObservableCollection<Travel> Travels { get; private set; } // All travels. Old and new.
         public bool IsActive { get; set; } // Still active in club
         //public string Email { get; set; }
         //public CivicAddress Adress { get; set; }
@@ -112,8 +113,8 @@ namespace p2_projekt.models
         {
             Adress = adress;
             MembershipNumber = membershipNumber;
-            Travels = new List<Travel>();
-            Boats = new List<Boat>();
+            Travels = new ObservableCollection<Travel>();
+            Boats = new ObservableCollection<Boat>();
             RegistrationDate = DateTime.Now;
             IsActive = true;
         }
@@ -146,13 +147,13 @@ namespace p2_projekt.models
         }
 
         // TODO simon: skal denne ikke være private? vi skal ikke give al info væk. Det skal gå gennem addnewtravel osv.
-        public virtual List<Travel> Travels
+        public virtual ObservableCollection<Travel> Travels
         {
             get;
             set;
         }
 
-        public virtual List<Boat> Boats
+        public virtual ObservableCollection<Boat> Boats
         {
             get;
             set;
@@ -215,20 +216,20 @@ namespace p2_projekt.models
     {
         public Guest()
         {
-            Boats = new List<Boat>();
-            Travels = new List<Travel>();
+            Boats = new ObservableCollection<Boat>();
+            Travels = new ObservableCollection<Travel>();
         }
 
 
         public bool hasPaid { get; set; } //TODO Overvej at flytte denne til ny interface f.eks. IRenter
 
-        public virtual List<Travel> Travels
+        public virtual ObservableCollection<Travel> Travels
         {
             get;
             set;
         }
 
-        public virtual List<Boat> Boats
+        public virtual ObservableCollection<Boat> Boats
         {
             get;
             set;
