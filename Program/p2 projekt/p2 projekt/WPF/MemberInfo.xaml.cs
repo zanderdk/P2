@@ -99,7 +99,7 @@ namespace p2_projekt.WPF
             adresse.Text = u.Adress.AddressLine1;
             postal.Text = u.Adress.PostalCode;
             country.Text = u.Adress.CountryRegion;
-
+            city.Text = u.Adress.City;
             IFullPersonalInfo fullPersonalInfo = u as IFullPersonalInfo;
             if (fullPersonalInfo != null)
             {
