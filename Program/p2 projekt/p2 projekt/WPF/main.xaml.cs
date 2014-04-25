@@ -27,6 +27,9 @@ namespace p2_projekt.WPF
         {
             InitializeComponent();
 
+            this.Width = Properties.Settings.Default.appWidth;
+            this.Height = Properties.Settings.Default.appLenght;
+
             loggedIn = u;
 
             controller = Utilities.lobopDB;
@@ -79,6 +82,13 @@ namespace p2_projekt.WPF
             ChipRequester ChipReq = new ChipRequester();
             ChipReq.Show();
             this.Close();
+        }
+
+        private void Grid_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            Properties.Settings.Default.appWidth = this.Width;
+            Properties.Settings.Default.appLenght = this.Height;
+            Properties.Settings.Default.Save();
         }
     }
 }

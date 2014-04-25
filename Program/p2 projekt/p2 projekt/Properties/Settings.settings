@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="p2_projekt.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="appWidth" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">3840</Value>
+    </Setting>
+    <Setting Name="appLenght" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">2160</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
