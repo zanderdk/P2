@@ -163,6 +163,11 @@ namespace p2_projekt.WPF
             boatID.Text = "";
         }
 
+        private void Button_ChangeUser(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         private void AddNewTravel(object sender, RoutedEventArgs e)
         {
             TravelAddPopup AddingTravel = new TravelAddPopup(Current);

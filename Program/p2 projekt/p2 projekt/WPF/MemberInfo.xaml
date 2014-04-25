@@ -66,7 +66,7 @@
                         </Style>
                     </StackPanel.Resources>
                     <Button Content="Tilføj person" Click="Button_AddPerson"/>
-                    <Button Content="Ændre person"/>
+                    <Button Content="Ændre person" Click="Button_ChangeUser"/>
                     <Button Content="Fjern person"/>
                 </StackPanel>
             </Border>
