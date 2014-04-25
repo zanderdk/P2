@@ -125,6 +125,15 @@ namespace p2_projekt.WPF
             }
         }
 
+        private void listTravels_SelectionChanged(object sender, SelectionChangedEventArgs e)
+         {
+             Travel selectedItem = (sender as ListBox).SelectedItem as Travel;
+             if (selectedItem != null)
+             {
+                 FillTravel(selectedItem);
+             }
+         }
+
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
         {
 
@@ -173,7 +182,37 @@ namespace p2_projekt.WPF
         private void Button_EditTravel(object sender, RoutedEventArgs e)
         {
             Travel selectedItem = listTravels.SelectedItem as Travel;
-            
+
+            // We know it is a sailor, because otherwise he wouldn't be able to remove travel, so no need to null check
+            ISailor sailor = Current as ISailor;
+            DateTime newStart = Convert.ToDateTime(travelStart.Text);
+            DateTime newEnd = Convert.ToDateTime(travelEnd.Text);
+            if (selectedItem != null)
+            {
+                Travel newTravel = new Travel(newStart, newEnd);
+                int indexToReplace = sailor.Travels.IndexOf(selectedItem);
+                sailor.Travels.Remove(selectedItem);
+                sailor.Travels.Insert(indexToReplace, newTravel);
+                UserController uc = Utilities.lobopDB;
+                uc.Update<User>(sailor as User);
+            }
+
+        }
+
+        private void Button_RemoveTravel(object sender, RoutedEventArgs e)
+        {
+            Travel selectedItem = listTravels.SelectedItem as Travel;
+
+            // We know it is a sailor, because otherwise he wouldn't be able to remove travel, so no need to null check
+            ISailor sailor = Current as ISailor;
+
+
+            if (selectedItem != null)
+            {
+                sailor.Travels.Remove(selectedItem);
+                UserController uc = Utilities.lobopDB;
+                uc.Update<User>(sailor as User);
+            }
         }
 
         User parseParameters()
