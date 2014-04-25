@@ -29,6 +29,7 @@ namespace p2_projekt.WPF
 
             this.Width = Properties.Settings.Default.appWidth;
             this.Height = Properties.Settings.Default.appLenght;
+            
 
             loggedIn = u;
 
