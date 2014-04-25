@@ -35,7 +35,7 @@ namespace p2_projekt.WPF
 
             controller = Utilities.lobopDB;
 
-            AddToTabController(new WelcomeTab(), "Forside");
+            AddToTabController(new WelcomeTab(u), "Forside");
 
             AddToTabController(new TabMap(), "Kort");
             

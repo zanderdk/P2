@@ -13,6 +13,9 @@
         </Grid.ColumnDefinitions>
         <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,150,0,0" TextWrapping="WrapWithOverflow" Text="Velkommen"  FontWeight="Bold" FontSize="48" FontFamily="century gothic" Grid.ColumnSpan="3"/>
         <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,200,0,0" TextWrapping="Wrap" Text="Benyt fanerne øverst til at navigere Lobop" FontSize="24" Grid.ColumnSpan="3"/>
-        
+        <StackPanel Name="Panel" HorizontalAlignment="Left" Height="181" Margin="97,267,0,0" VerticalAlignment="Top" Width="293">
+            <Button Content="Button"/>
+        </StackPanel>
+
     </Grid>
 </UserControl>
