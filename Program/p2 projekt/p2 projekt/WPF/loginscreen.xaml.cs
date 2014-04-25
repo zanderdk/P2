@@ -56,8 +56,7 @@ namespace p2_projekt.WPF
                 {
                     main main = new main(u);
                     main.Show();
-                    this.Close();
-                    
+                    Close();
                 }
                 else
                 {
@@ -68,14 +67,6 @@ namespace p2_projekt.WPF
             else
             {
                 MessageBox.Show("Bruger ikke fundet.");
-            }
-        }
-
-        private void password_KeyUp(object sender, KeyEventArgs e)
-        {
-            if(e.Key == Key.Enter)
-            {
-                Login_Click(sender, e);
             }
         }
     }

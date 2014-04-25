@@ -57,7 +57,6 @@ namespace p2_projekt.controllers
                 list.Add(x);
             }
             ListToListBox();
-            return;
         }
 
         public static void refreshInternal()

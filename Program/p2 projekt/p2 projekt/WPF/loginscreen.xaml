@@ -33,14 +33,14 @@
                             <ColumnDefinition Width="{StaticResource textboxWidth}"/>
                         </Grid.ColumnDefinitions>
                         <Label Content="Password:" Grid.Column="0"></Label>
-                        <PasswordBox KeyUp="password_KeyUp" Name="password" Grid.Column="1"/>
+                        <PasswordBox Name="password" Grid.Column="1"/>
                     </Grid>
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="{StaticResource labelWidth}"/>
                             <ColumnDefinition Width="{StaticResource textboxWidth}"/>
                         </Grid.ColumnDefinitions>
-                        <Button Grid.Column="1" Grid.ColumnSpan="1" Width="100" Content="Login" HorizontalAlignment="Left" Margin="0,5,0,5" Click="Login_Click"/>
+                        <Button Grid.Column="1" Grid.ColumnSpan="1" Width="100" Content="Login" HorizontalAlignment="Left" Margin="0,5,0,5" Click="Login_Click" IsDefault="True"/>
                     </Grid>
                 </StackPanel>
             </Border>
