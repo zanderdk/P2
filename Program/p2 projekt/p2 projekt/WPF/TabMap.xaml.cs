@@ -51,6 +51,7 @@ namespace p2_projekt.WPF
                 BoatSpace bs = boats.ElementAt(i).BoatSpace;
 
                 bsr.BoatSpace = bs;
+
                 bsr.Label.Content = bs.BoatId;
                 // TODO brug den geniale formel til at vise rigtige plads id
 

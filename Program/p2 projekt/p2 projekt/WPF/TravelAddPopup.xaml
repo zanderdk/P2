@@ -9,10 +9,10 @@
                 <StackPanel Height="150">
                     <StackPanel>
                         <Label Content="Udrejse Dato" Width="100" HorizontalAlignment="Left"/>
-                        <DatePicker Name="LeavingDate">
+                        <DatePicker Name="LeavingDate" SelectedDate="{Binding Start}">
                         </DatePicker>
                         <Label Content="Hjemkost Dato" Width="100" HorizontalAlignment="Left"/>
-                        <DatePicker Name="ArrivalDate"/>
+                        <DatePicker Name="ArrivalDate" SelectedDate="{Binding End}"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <Button Content="Tilføj rejse" Width="100" HorizontalAlignment="Left" Margin="5,15,10,0" Click="AddChosenTravel"/>

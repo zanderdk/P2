@@ -36,6 +36,11 @@ namespace p2_projekt.WPF
                     AddressLine1 = streetName.Text, 
                     PostalCode = postalCode.Text,
                     CountryRegion = country.Text 
+                },
+                Permission = new Permission(){
+                    ChangePersonalInfo = PermissionLevel.Read,
+                    MemberInfo = PermissionLevel.Read,
+                    search = PermissionLevel.None
                 }
             };
 

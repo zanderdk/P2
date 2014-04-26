@@ -65,7 +65,7 @@ namespace p2_projekt.models
         string Email { get; set; }
         DateTime Birthday { get; set; }
         DateTime RegistrationDate { get; } //TODO automatisk registrering kun getter
-        TimeSpan MebershipDuration { get; } //TODO calculate shit
+        string MembershipDuration { get; } //TODO calculate shit
 
     }
 
@@ -94,7 +94,7 @@ namespace p2_projekt.models
 
 
         public DateTime RegistrationDate { get; set; }
-        public TimeSpan MebershipDuration { get { return RegistrationDate - DateTime.Now; } } //TODO calculate shit
+        public string MembershipDuration { get { return (DateTime.Now - RegistrationDate).ToString(); } } //TODO calculate shit
 
         private string _username;
 
@@ -253,7 +253,7 @@ namespace p2_projekt.models
         }
 
         public DateTime RegistrationDate { get; set; }
-        public TimeSpan MebershipDuration { get { return RegistrationDate - DateTime.Now; } } //TODO calculate shit
+        public string MembershipDuration { get { return (DateTime.Now - RegistrationDate).ToString(); } } //TODO calculate shit
 
         public override bool Equals(object obj)
         {

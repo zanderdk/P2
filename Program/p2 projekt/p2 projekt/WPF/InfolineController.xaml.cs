@@ -21,8 +21,26 @@ namespace p2_projekt.WPF
     /// </summary>
     public partial class InfolineController : UserControl
     {
+        public String Title
+        {
+            get { return (String)GetValue(LabelProperty); }
+            set { SetValue(LabelProperty, value); }
+        }
+
+        public static readonly DependencyProperty LabelProperty =
+      DependencyProperty.Register("Title", typeof(string),
+        typeof(InfolineController), new PropertyMetadata(""));
+
+        public object Value {
+            get { return (object)GetValue(ValueProperty); }
+            set { SetValue(ValueProperty, value); }
+        }
+
+        public static readonly DependencyProperty ValueProperty = 
+            DependencyProperty.Register("Value", typeof(object), typeof(InfolineController), new PropertyMetadata(null));
+
         public bool textChanged { get { return (Text != ""); } }
-        public String Title { get { return label.Content.ToString(); } set { label.Content = value; } }
+        //public String Title { get { return label.Content.ToString(); } set { label.Content = value; } }
 
         public String Text { get { return textbox.Text; } set { textbox.Text = value; } }
 
@@ -41,6 +59,7 @@ namespace p2_projekt.WPF
         public InfolineController()
         {
             InitializeComponent();
+            LayoutRoot.DataContext = this;
         }
     }
 }

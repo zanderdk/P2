@@ -96,6 +96,9 @@
     </Compile>
     <Compile Include="UserController.cs" />
     <Compile Include="Utilities.cs" />
+    <Compile Include="WPF\BoatForm.xaml.cs">
+      <DependentUpon>BoatForm.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WPF\BoatSpaceRepresentation.xaml.cs">
       <DependentUpon>BoatSpaceRepresentation.xaml</DependentUpon>
     </Compile>
@@ -117,6 +120,9 @@
     <Compile Include="WPF\main.xaml.cs">
       <DependentUpon>main.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WPF\NewBoatPopup.xaml.cs">
+      <DependentUpon>NewBoatPopup.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WPF\TabMap.xaml.cs">
       <DependentUpon>TabMap.xaml</DependentUpon>
     </Compile>
@@ -131,9 +137,6 @@
     </Compile>
     <Compile Include="WPF\TravelAddPopup.xaml.cs">
       <DependentUpon>TravelAddPopup.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="WPF\Travels.xaml.cs">
-      <DependentUpon>Travels.xaml</DependentUpon>
     </Compile>
     <Compile Include="WPF\WelcomeTab.xaml.cs">
       <DependentUpon>WelcomeTab.xaml</DependentUpon>
@@ -159,6 +162,10 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="WPF\BoatForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WPF\BoatSpaceRepresentation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -187,6 +194,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="WPF\NewBoatPopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WPF\TabMap.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -204,10 +215,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WPF\TravelAddPopup.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="WPF\Travels.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

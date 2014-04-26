@@ -21,26 +21,39 @@ namespace p2_projekt.WPF
     public partial class MemberInfo : UserControl
     {
         private User Current;
+        public Boat SelectedBoat { get; set; }
+        public Travel SelectedTravel { get; set; }
 
         public MemberInfo()
         {
             InitializeComponent();
+            
         }
 
         public MemberInfo(User s)
             : this()
         {
             InitUser(s);
+            
+            
+            //new NewBoatPopup((Current as ISailor).Boats[0]).Show();
         }
 
 
         public void InitUser(User u)
         {
             Current = u;
+            
             if (u is ISailor)
             {
                 InitSailor(u as ISailor);
             }
+            DataContext = new
+            {
+                User = Current,
+                Boat = SelectedBoat,
+                Travel = SelectedTravel
+            };
         }
 
         void InitSailor(ISailor s)
@@ -71,21 +84,21 @@ namespace p2_projekt.WPF
 
         public void FillBoat(Boat b)
         {
-            boatName.Text = b.Name;
-            boatOwner.Text = b.User.Name;
-            boatLength.Text = b.Length.ToString();
-            boatWidth.Text = b.Width.ToString();
-            if (b.BoatSpace != null)
-            {
-                boatSpace.Text = b.BoatSpace.ToString();
-            }
-            boatID.Text = b.RegistrationNumber;
+            //boatName.Text = b.Name;
+            ////boatOwner.Text = b.User.Name;
+            //boatLength.Text = b.Length.ToString();
+            //boatWidth.Text = b.Width.ToString();
+            //if (b.BoatSpace != null)
+            //{
+            //    boatSpace.Text = b.BoatSpace.ToString();
+            //}
+            //boatID.Text = b.RegistrationNumber;
         }
 
         private void FillTravel(Travel t)
         {
-            travelStart.Text = t.Start.ToShortDateString();
-            travelEnd.Text = t.End.ToShortDateString();
+            //travelStart.Text = t.Start.ToShortDateString();
+            //travelEnd.Text = t.End.ToShortDateString();
         }
 
         public void FillSailor(ISailor s)
@@ -94,19 +107,19 @@ namespace p2_projekt.WPF
             //TODO tilføj/fjern båd skal ikke være mulig for alle.
 
             User u = (User)s;
-            name.Text = u.Name;
-            phone.Text = u.Phone;
-            adresse.Text = u.Adress.AddressLine1;
-            postal.Text = u.Adress.PostalCode;
-            country.Text = u.Adress.CountryRegion;
-            city.Text = u.Adress.City;
+            //name.Text = u.Name;
+            //phone.Text = u.Phone;
+            //adresse.Text = u.Adress.AddressLine1;
+            //postal.Text = u.Adress.PostalCode;
+            //country.Text = u.Adress.CountryRegion;
+            //city.Text = u.Adress.City;
             IFullPersonalInfo fullPersonalInfo = u as IFullPersonalInfo;
             if (fullPersonalInfo != null)
             {
-                birthday.Text = fullPersonalInfo.Birthday.ToString();
+                //birthday.Text = fullPersonalInfo.Birthday.ToString();
 
                 
-                email.Text = fullPersonalInfo.Email.ToString();
+                //email.Text = fullPersonalInfo.Email.ToString();
 
             }
             //Member Member = u as Member;
@@ -119,18 +132,21 @@ namespace p2_projekt.WPF
 
         private void listBoats_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
+            Boat b = ((sender as ListBox).SelectedItem as Boat);
+            SelectedBoat = b;
             if((sender as ListBox).SelectedItem != null)
             {
-                FillBoat(((sender as ListBox).SelectedItem as Boat)); 
+                //FillBoat(b); 
             }
         }
 
         private void listTravels_SelectionChanged(object sender, SelectionChangedEventArgs e)
          {
              Travel selectedItem = (sender as ListBox).SelectedItem as Travel;
+             SelectedTravel = selectedItem;
              if (selectedItem != null)
              {
-                 FillTravel(selectedItem);
+                 //FillTravel(selectedItem);
              }
          }
 
@@ -164,12 +180,12 @@ namespace p2_projekt.WPF
 
         public void ClearBoatInfo()
         {
-            boatName.Text = "";
-            boatOwner.Text = "";
-            boatLength.Text = "";
-            boatWidth.Text = "";
-            boatSpace.Text = "";
-            boatID.Text = "";
+            //boatName.Text = "";
+            //boatOwner.Text = "";
+            //boatLength.Text = "";
+            //boatWidth.Text = "";
+            //boatSpace.Text = "";
+            //boatID.Text = "";
         }
 
         private void Button_ChangeUser(object sender, RoutedEventArgs e)
@@ -179,34 +195,34 @@ namespace p2_projekt.WPF
 
         private void AddNewTravel(object sender, RoutedEventArgs e)
         {
-            TravelAddPopup AddingTravel = new TravelAddPopup(Current);
+            TravelAddPopup AddingTravel = new TravelAddPopup(Current as ISailor);
             AddingTravel.Show();
         }
 
 
         private void Button_EditTravel(object sender, RoutedEventArgs e)
         {
-            Travel selectedItem = listTravels.SelectedItem as Travel;
+            //Travel selectedItem = listTravels.SelectedItem as Travel;
 
-            // We know it is a sailor, because otherwise he wouldn't be able to remove travel, so no need to null check
-            ISailor sailor = Current as ISailor;
-            DateTime newStart = Convert.ToDateTime(travelStart.Text);
-            DateTime newEnd = Convert.ToDateTime(travelEnd.Text);
-            if (selectedItem != null)
-            {
-                Travel newTravel = new Travel(newStart, newEnd);
-                int indexToReplace = sailor.Travels.IndexOf(selectedItem);
-                sailor.Travels.Remove(selectedItem);
-                sailor.Travels.Insert(indexToReplace, newTravel);
-                UserController uc = Utilities.lobopDB;
-                uc.Update<User>(sailor as User);
-            }
+            new TravelAddPopup(SelectedTravel, Current as ISailor).Show();
+
+            //// We know it is a sailor, because otherwise he wouldn't be able to remove travel, so no need to null check
+            //ISailor sailor = Current as ISailor;
+            //if (selectedItem != null)
+            //{
+            //    Travel newTravel = new Travel(newStart, newEnd);
+            //    int indexToReplace = sailor.Travels.IndexOf(selectedItem);
+            //    sailor.Travels.Remove(selectedItem);
+            //    sailor.Travels.Insert(indexToReplace, newTravel);
+            //    UserController uc = Utilities.lobopDB;
+            //    uc.Update<User>(sailor as User);
+            //}
 
         }
 
         private void Button_RemoveTravel(object sender, RoutedEventArgs e)
         {
-            Travel selectedItem = listTravels.SelectedItem as Travel;
+            Travel selectedItem = SelectedTravel;
 
             // We know it is a sailor, because otherwise he wouldn't be able to remove travel, so no need to null check
             ISailor sailor = Current as ISailor;
@@ -217,6 +233,7 @@ namespace p2_projekt.WPF
                 sailor.Travels.Remove(selectedItem);
                 UserController uc = Utilities.lobopDB;
                 uc.Update<User>(sailor as User);
+                SelectedTravel = null;
             }
         }
 
@@ -250,10 +267,10 @@ namespace p2_projekt.WPF
 
                 ((Member)user).Birthday = Convert.ToDateTime(birthday.Text);
 
-                if(registrationNumber.Text != "")
-                {
-                    ((Member)user).RegistrationDate = Convert.ToDateTime(registrationNumber.Text);
-                }
+                //if(registrationNumber.Text != "")
+                //{
+                //    ((Member)user).RegistrationDate = Convert.ToDateTime(registrationNumber.Text);
+                //}
 
                 if(email.Text != "")
                 {
@@ -299,6 +316,11 @@ namespace p2_projekt.WPF
             user.Phone = phone.Text;
 
             return user;
+        }
+
+        private void AddNewBoat(object sender, RoutedEventArgs e)
+        {
+
         }
 
     }

@@ -21,14 +21,38 @@ namespace p2_projekt.WPF
     /// </summary>
     public partial class TravelAddPopup : Window
     {
-        User traveller;
-        private Travel t;
+        private ISailor traveller;
+        private Travel travel;
+        private Travel originalTravel;
+        private Operation operation;
+        private enum Operation { Add, Edit}
 
-        public TravelAddPopup(User u)
+        public TravelAddPopup(ISailor u)
         {
-            InitializeComponent();
+            
+            Init();
 
             traveller = u;
+            operation = Operation.Add;
+        }
+
+        private void Init(){
+            InitializeComponent();
+        }
+
+        /// <summary>
+        /// Edit travel constructor
+        /// </summary>
+        /// <param name="t"></param>
+        public TravelAddPopup(Travel t, ISailor s)
+        {
+            travel = t;
+
+            traveller = s;
+            Init();
+            DataContext = t;
+            operation = Operation.Edit;
+
         }
 
 
@@ -44,15 +68,31 @@ namespace p2_projekt.WPF
                 MessageBox.Show("Vælg ny Hjemkost dato");
                 return;
             }
-            else
+            
+            
+            
+
+            if (operation == Operation.Edit)
+            {
+                
+
+                //int indexToReplace = traveller.Travels.IndexOf(originalTravel);
+                //traveller.Travels.Remove(originalTravel);
+                //traveller.Travels.Insert(indexToReplace, travel);
+            }
+            else if (operation == Operation.Add)
             {
                 Travel TravelToBeAdded = new Travel() { Start = LeavingDate.SelectedDate.Value, End = ArrivalDate.SelectedDate.Value, User = traveller };
                 (traveller as ISailor).Travels.Add(TravelToBeAdded);
             }
+
+
+
+
             UserController uc = Utilities.lobopDB;
-            uc.Update<User>(traveller);
+            uc.Update<User>(traveller as User);
             
-            SearchController.main.selectUser(traveller);
+            SearchController.main.selectUser(traveller as User);
             
             this.Close();
         }

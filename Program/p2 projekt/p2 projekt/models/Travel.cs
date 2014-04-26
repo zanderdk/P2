@@ -1,16 +1,43 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 
 namespace p2_projekt.models
 {
-    public class Travel : IEquatable<Travel>
+    public class Travel : IEquatable<Travel>, INotifyPropertyChanged
     {
         public Travel() { }
         public int TravelId { get; set; }
-        public DateTime Start { get; set; } 
-        public DateTime End { get; set; }
+        private DateTime _Start;
+        public DateTime Start { get { return _Start; }
+            set {
+                _Start = value;
+                OnPropertyChanged("Start");
+            }
+        }
+
+        private DateTime _End;
+        public DateTime End
+        {
+            get { return _End; }
+            set
+            {
+                _End = value;
+                OnPropertyChanged("End");
+            }
+        }
+
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged(string propertyName)
+        {
+            PropertyChangedEventHandler handler = this.PropertyChanged;
+            if (handler != null)
+                handler(this, new PropertyChangedEventArgs(propertyName));
+        }
+
         public bool isActive 
         { 
             get 
@@ -20,7 +47,7 @@ namespace p2_projekt.models
             }
         }
 
-        public virtual User User { get; set; }
+        public virtual ISailor User { get; set; }
 
         public Travel(DateTime start, DateTime end)
         {

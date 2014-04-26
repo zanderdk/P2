@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace p2_projekt.models
 {
-    public class Boat
+    public class Boat : INotifyPropertyChanged
     {
         public Boat(){}
 
@@ -18,8 +19,25 @@ namespace p2_projekt.models
             Width = width;
         }
 
+        private string _Name;
+        public string Name
+        {
+            get { return _Name; }
+            set { 
+                _Name = value;
+                OnPropertyChanged("Name");
+                }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged(string propertyName)
+        {
+            PropertyChangedEventHandler handler = this.PropertyChanged;
+            if (handler != null)
+                handler(this, new PropertyChangedEventArgs(propertyName));
+        }
+
         public int BoatId { get; set; }
-        public string Name { get; set; }
 
         public int UserId { get; set; }
         public virtual  User User { get; set; }
