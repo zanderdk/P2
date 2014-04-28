@@ -78,11 +78,20 @@
     <Compile Include="IDAL.cs" />
     <Compile Include="LobopContext.cs" />
     <Compile Include="models\BoatDetector.cs" />
-    <Compile Include="models\boatspace.cs" />
-    <Compile Include="models\boat.cs" />
+    <Compile Include="models\BoatSpace.cs" />
+    <Compile Include="models\Boat.cs" />
+    <Compile Include="models\Guest.cs" />
+    <Compile Include="models\HarbourMaster.cs" />
+    <Compile Include="models\IBasicPersonalInfo.cs" />
+    <Compile Include="models\IFullPersonalInfo.cs" />
+    <Compile Include="models\ILoginable.cs" />
+    <Compile Include="models\ISailor.cs" />
+    <Compile Include="models\LandSpace.cs" />
+    <Compile Include="models\Member.cs" />
     <Compile Include="models\Permisson.cs" />
     <Compile Include="models\User.cs" />
     <Compile Include="models\Travel.cs" />
+    <Compile Include="models\WaterSpace.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>

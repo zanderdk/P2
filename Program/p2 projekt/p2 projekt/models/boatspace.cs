@@ -78,15 +78,4 @@ namespace p2_projekt.models
             return String.Format("Info: {0}, Tilhørende båd: {1}", info, Boat);
         }
     }
-
-    public class WaterSpace : BoatSpace
-    {
-        public WaterSpace() { }
-        public WaterSpace(double length, double height) : base(length, height) {}
-    }
-
-    public class LandSpace : BoatSpace
-    {
-        public LandSpace() { }
-    }
 }
