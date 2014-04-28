@@ -167,7 +167,7 @@ namespace p2_projekt.WPF
             {
                 User u = parseParameters();
                 MemberInfoController.ValidateUser(u);
-                Utilities.lobopDB.Add(u);
+                Utilities.LobopDB.Add(u);
                 MessageBox.Show("Bruger oprettet.");
                 
             }catch (ArgumentException arg)
@@ -237,7 +237,7 @@ namespace p2_projekt.WPF
             if (selectedItem != null)
             {
                 sailor.Travels.Remove(selectedItem);
-                DALController uc = Utilities.lobopDB;
+                DALController uc = Utilities.LobopDB;
                 uc.Update<User>(sailor as User);
                 SelectedTravel = null;
             }

@@ -33,7 +33,7 @@ namespace p2_projekt.WPF
 
             loggedIn = u;
 
-            controller = Utilities.lobopDB;
+            controller = Utilities.LobopDB;
 
             AddToTabController(new WelcomeTab(u), "Forside");
 

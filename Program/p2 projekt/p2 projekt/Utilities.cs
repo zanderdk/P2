@@ -9,11 +9,11 @@ namespace p2_projekt
 
     public static class Utilities
     {
-        public static DALController lobopDB { get; set; }
+        public static DALController LobopDB { get; set; }
 
         static Utilities()
         {
-            lobopDB = new DALController(new Utilities.Database());
+            LobopDB = new DALController(new Utilities.Database());
         }
 
         public class Database : IDAL

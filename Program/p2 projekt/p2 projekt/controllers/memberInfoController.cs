@@ -10,7 +10,7 @@ namespace p2_projekt.controllers
             if(u is Member)
             {
                 Member m = (u as Member);
-                var test = Utilities.lobopDB.Read<User>(
+                var test = Utilities.LobopDB.Read<User>(
                     x => {
                         if (x is Member)
                             return (x as Member) == m;
@@ -26,7 +26,7 @@ namespace p2_projekt.controllers
             if(u is HarbourMaster)
             {
                 HarbourMaster h = (u as HarbourMaster);
-                var test = Utilities.lobopDB.Read<User>(
+                var test = Utilities.LobopDB.Read<User>(
                     x =>
                     {
                         if (x is HarbourMaster)
@@ -43,7 +43,7 @@ namespace p2_projekt.controllers
             if(u is Guest)
             {
                 Guest g = (u as Guest);
-                var test = Utilities.lobopDB.Read<User>(
+                var test = Utilities.LobopDB.Read<User>(
                     x => {
                         if (x is Guest)
                             return (x as Guest) == g;

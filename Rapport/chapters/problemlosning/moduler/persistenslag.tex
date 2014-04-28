@@ -9,8 +9,12 @@ Persistenslag modullet har til opgave at manipulere og læse data fra et persist
 
 Et eksempel på brugen af persistenslag modullet, kunne være logind modulet. Logind modulet skal verificere om et indtastet brugernavn matcher et indtastet kodeord. Til dette kan logind modulet tilgå databasen i gennem persistenslagets read operation.
 
+\subsubsection{Elementer}
+\label{ssub:Elementer}
+
+
 
 \subsubsection{Implementation}
 \label{ssub:Implementation}
 
-I denne løsning er persistenslaget en klasse 
+I denne løsning delegerer persistenslaget CRUD operationerne videre til en IDAL, som er et interface bestående af CRUD operationer. IDAL interface implementeres af alle de persistenslag persistenslagsmetoden skal understøtte.

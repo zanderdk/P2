@@ -32,7 +32,7 @@ namespace p2_projekt.WPF
 
         private void FillBoatSpaceRepresentations()
         {
-            DALController us = Utilities.lobopDB;
+            DALController us = Utilities.LobopDB;
 
             var boats = us.ReadAll<Boat>(x => x != null);
             var wrapPanels = BoatSpacesGrid.Children.OfType<WrapPanel>();

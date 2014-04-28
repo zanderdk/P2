@@ -13,17 +13,6 @@ namespace p2_projekt
             _iUserDal = userDAL;
         }
 
-        public int GetNextMemberShipNumber()
-        {
-            int result = _iUserDal.Max<User>(x =>
-            {
-                if (x is Member) { return (x as Member).MembershipNumber; }
-                return 0;
-            });
-
-            return result + 1;
-        }
-
         public bool Add<TInput>(TInput item) where TInput : class
         {
             bool successful = false;
@@ -70,16 +59,9 @@ namespace p2_projekt
             }
             catch (InvalidOperationException)
             {
-                Console.WriteLine("Could not remove user.");
+                Console.WriteLine("Could not remove item.");
             }
             return sucessful;
-        }
-
-
-
-        internal void CreateDatabaseIfNotExists()
-        {
-         
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using p2_projekt.controllers;
+using System;
 using System.Collections.ObjectModel;
 using System.Device.Location;
 
@@ -50,7 +51,7 @@ namespace p2_projekt.models
         }
 
         public Member(string name, CivicAddress adress)
-            : this(name, adress, new DALController(new Utilities.Database()).GetNextMemberShipNumber())
+            : this(name, adress, new UserController().GetNextMemberShipNumber())
         {
 
         }
