@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using p2_projekt.models;
 
 namespace p2_projekt.controllers
 {
-    public static class memberInfoController
+    public static class MemberInfoController
     {
-        public static void validateUser(User u)
+        public static void ValidateUser(User u)
         {
             if(u is Member)
             {

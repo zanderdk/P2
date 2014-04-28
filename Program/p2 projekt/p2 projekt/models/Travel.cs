@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
 
 namespace p2_projekt.models
 {
@@ -10,21 +7,21 @@ namespace p2_projekt.models
     {
         public Travel() { }
         public int TravelId { get; set; }
-        private DateTime _Start;
-        public DateTime Start { get { return _Start; }
+        private DateTime _start;
+        public DateTime Start { get { return _start; }
             set {
-                _Start = value;
+                _start = value;
                 OnPropertyChanged("Start");
             }
         }
 
-        private DateTime _End;
+        private DateTime _end;
         public DateTime End
         {
-            get { return _End; }
+            get { return _end; }
             set
             {
-                _End = value;
+                _end = value;
                 OnPropertyChanged("End");
             }
         }
@@ -33,17 +30,17 @@ namespace p2_projekt.models
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(string propertyName)
         {
-            PropertyChangedEventHandler handler = this.PropertyChanged;
+            PropertyChangedEventHandler handler = PropertyChanged;
             if (handler != null)
                 handler(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public bool isActive 
+        public bool IsActive 
         { 
-            get 
+            get
             {
                 if (Start < DateTime.Now && End > DateTime.Now) return true;
-                else return false;
+                return false;
             }
         }
 
@@ -52,14 +49,14 @@ namespace p2_projekt.models
         public Travel(DateTime start, DateTime end)
         {
             // TODO: Complete member initialization
-            this.Start = start;
-            this.End = end;
+            Start = start;
+            End = end;
         }
 
         public override int GetHashCode()
         {
-            int first = (Start == null ? 0 : Start.GetHashCode());
-            int second = (End == null ? 0 : End.GetHashCode());
+            int first = (Start.GetHashCode());
+            int second = (End.GetHashCode());
             int third = TravelId.GetHashCode();
             return first ^ second ^ third;
         }
@@ -71,7 +68,7 @@ namespace p2_projekt.models
                 return false;
             }
 
-            if (Travel.ReferenceEquals(this, other))
+            if (ReferenceEquals(this, other))
             {
                 return true;
             }
@@ -81,12 +78,12 @@ namespace p2_projekt.models
                 return false;
             }
                      
-            return this.Start.Equals(other.Start) && this.End.Equals(other.End);
+            return Start.Equals(other.Start) && End.Equals(other.End);
         }
 
         public override string ToString()
         {
-            return string.Format("Udrejse: {0} Hjemkomst: {1}", this.Start, this.End );
+            return string.Format("Udrejse: {0} Hjemkomst: {1}", Start, End );
         }
     }
 }

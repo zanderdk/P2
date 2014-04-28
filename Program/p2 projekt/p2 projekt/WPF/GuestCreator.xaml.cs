@@ -40,7 +40,7 @@ namespace p2_projekt.WPF
                 Permission = new Permission(){
                     ChangePersonalInfo = PermissionLevel.Read,
                     MemberInfo = PermissionLevel.Read,
-                    search = PermissionLevel.None
+                    Search = PermissionLevel.None
                 }
             };
 

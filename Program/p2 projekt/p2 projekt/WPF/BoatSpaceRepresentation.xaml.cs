@@ -47,7 +47,7 @@ namespace p2_projekt.WPF
         {
 
             // TODO går bare ind på brugeren der er på pladsen lige nu
-            SearchController.main.selectUser(BoatSpace.Boat.User);
+            SearchController.Main.selectUser(BoatSpace.Boat.User);
         }
     }
 }

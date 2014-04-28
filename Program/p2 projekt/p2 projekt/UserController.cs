@@ -1,9 +1,6 @@
 ﻿using p2_projekt.models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace p2_projekt
 {
@@ -21,7 +18,7 @@ namespace p2_projekt
             int result = _iUserDal.Max<User>(x =>
             {
                 if (x is Member) { return (x as Member).MembershipNumber; }
-                else return 0;
+                return 0;
             });
 
             return result + 1;

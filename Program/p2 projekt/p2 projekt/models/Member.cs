@@ -45,7 +45,6 @@ namespace p2_projekt.models
         }
 
         public Member()
-            : base()
         {
             //only used by Entity framework
         }
@@ -116,7 +115,7 @@ namespace p2_projekt.models
                 return false;
             }
 
-            return (obj as Member).MembershipNumber == this.MembershipNumber;
+            return (obj as Member).MembershipNumber == MembershipNumber;
         }
 
         public override int GetHashCode()
@@ -130,13 +129,9 @@ namespace p2_projekt.models
             {
                 if (ReferenceEquals(u2, null))
                     return true;
-                else
-                    return false;
+                return false;
             }
-            else
-            {
-                return u1.Equals(u2);
-            }
+            return u1.Equals(u2);
         }
 
         public static bool operator !=(Member u1, Member u2)

@@ -11,7 +11,7 @@ namespace p2_projekt.models
         }
 
 
-        public bool hasPaid { get; set; } //TODO Overvej at flytte denne til ny interface f.eks. IRenter
+        public bool HasPaid { get; set; } //TODO Overvej at flytte denne til ny interface f.eks. IRenter
 
         public virtual ObservableCollection<Travel> Travels
         {
@@ -37,7 +37,7 @@ namespace p2_projekt.models
                 return false;
             }
 
-            return (obj as Guest).UserId == this.UserId;
+            return (obj as Guest).UserId == UserId;
         }
 
         public override int GetHashCode()
@@ -51,13 +51,9 @@ namespace p2_projekt.models
             {
                 if (ReferenceEquals(u2, null))
                     return true;
-                else
-                    return false;
+                return false;
             }
-            else
-            {
-                return u1.Equals(u2);
-            }
+            return u1.Equals(u2);
         }
 
         public static bool operator !=(Guest u1, Guest u2)
