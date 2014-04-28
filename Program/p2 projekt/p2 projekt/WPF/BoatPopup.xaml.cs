@@ -18,13 +18,13 @@ namespace p2_projekt.WPF
     /// <summary>
     /// Interaction logic for NewBoatPopup.xaml
     /// </summary>
-    public partial class NewBoatPopup : Window
+    public partial class BoatPopup : Window
     {
-        public NewBoatPopup(Boat b)
+        public BoatPopup(ISailor s)
         {
             
             InitializeComponent();
-            DataContext = b;
+            //DataContext = s.;
         }
     }
 }

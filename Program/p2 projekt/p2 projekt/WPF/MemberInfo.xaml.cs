@@ -21,8 +21,10 @@ namespace p2_projekt.WPF
     public partial class MemberInfo : UserControl
     {
         private User Current;
-        public Boat SelectedBoat { get; set; }
-        public Travel SelectedTravel { get; set; }
+        public Boat SelectedBoat { get; private set; }
+        public Travel SelectedTravel { get; private set; }
+        public AddTravelCommand addTravelCommand { get; private set; }
+        public AddBoatCommand addBoatCommand { get; private set; }
 
         public MemberInfo()
         {
@@ -33,6 +35,8 @@ namespace p2_projekt.WPF
         public MemberInfo(User s)
             : this()
         {
+            addTravelCommand = new AddTravelCommand(s);
+            addBoatCommand = new AddBoatCommand(s);
             InitUser(s);
             
             
@@ -52,7 +56,9 @@ namespace p2_projekt.WPF
             {
                 User = Current,
                 Boat = SelectedBoat,
-                Travel = SelectedTravel
+                Travel = SelectedTravel,
+                addTravelCommand = addTravelCommand,
+                addBoatCommand = addBoatCommand
             };
         }
 
@@ -71,7 +77,7 @@ namespace p2_projekt.WPF
                 SetDefaultSelectedItem(s, listTravels);
                 }
 
-            if (s is Member) { NewTravelButton.IsEnabled = true; }
+            //if (s is Member) { NewTravelButton.IsEnabled = true; }
             }
 
         private void SetDefaultSelectedItem(ISailor s, ListBox list)
@@ -195,7 +201,7 @@ namespace p2_projekt.WPF
 
         private void AddNewTravel(object sender, RoutedEventArgs e)
         {
-            TravelAddPopup AddingTravel = new TravelAddPopup(Current as ISailor);
+            TravelPopup AddingTravel = new TravelPopup(Current as ISailor);
             AddingTravel.Show();
         }
 
@@ -204,7 +210,7 @@ namespace p2_projekt.WPF
         {
             //Travel selectedItem = listTravels.SelectedItem as Travel;
 
-            new TravelAddPopup(SelectedTravel, Current as ISailor).Show();
+            new TravelPopup(SelectedTravel, Current as ISailor).Show();
 
             //// We know it is a sailor, because otherwise he wouldn't be able to remove travel, so no need to null check
             //ISailor sailor = Current as ISailor;
@@ -318,10 +324,59 @@ namespace p2_projekt.WPF
             return user;
         }
 
-        private void AddNewBoat(object sender, RoutedEventArgs e)
+        private void AddTravel_Executed(object sender, ExecutedRoutedEventArgs e)
         {
+            new TravelPopup(Current as ISailor).Show();
+        }
 
+        private void AddTravel_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = Current is ISailor;
+        }
+
+        public class AddBoatCommand : ICommand
+        {
+            private User user;
+            public AddBoatCommand(User s)
+            {
+                user = s;
+            }
+
+            public bool CanExecute(object parameter)
+            {
+                return user is Member;
+            }
+
+            public event EventHandler CanExecuteChanged;
+
+            public void Execute(object parameter)
+            {
+                new BoatPopup(user as ISailor).Show();
+            }
+        }
+
+        public class AddTravelCommand : ICommand
+        {
+            private User user;
+            public AddTravelCommand(User s)
+            {
+                user = s;
+            }
+
+            public bool CanExecute(object parameter)
+            {
+                return  user is Member;
+            }
+
+            public event EventHandler CanExecuteChanged;
+
+            public void Execute(object parameter)
+            {
+                new TravelPopup(user as ISailor).Show();
+            }
         }
 
     }
+
+    
 }

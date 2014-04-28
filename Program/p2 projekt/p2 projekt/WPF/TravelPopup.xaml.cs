@@ -19,15 +19,14 @@ namespace p2_projekt.WPF
     /// <summary>
     /// Interaction logic for TravelAddPopup.xaml
     /// </summary>
-    public partial class TravelAddPopup : Window
+    public partial class TravelPopup : Window
     {
         private ISailor traveller;
         private Travel travel;
-        private Travel originalTravel;
         private Operation operation;
         private enum Operation { Add, Edit}
 
-        public TravelAddPopup(ISailor u)
+        public TravelPopup(ISailor u)
         {
             
             Init();
@@ -44,7 +43,7 @@ namespace p2_projekt.WPF
         /// Edit travel constructor
         /// </summary>
         /// <param name="t"></param>
-        public TravelAddPopup(Travel t, ISailor s)
+        public TravelPopup(Travel t, ISailor s)
         {
             travel = t;
 
@@ -72,15 +71,8 @@ namespace p2_projekt.WPF
             
             
 
-            if (operation == Operation.Edit)
-            {
-                
-
-                //int indexToReplace = traveller.Travels.IndexOf(originalTravel);
-                //traveller.Travels.Remove(originalTravel);
-                //traveller.Travels.Insert(indexToReplace, travel);
-            }
-            else if (operation == Operation.Add)
+            
+            if (operation == Operation.Add)
             {
                 Travel TravelToBeAdded = new Travel() { Start = LeavingDate.SelectedDate.Value, End = ArrivalDate.SelectedDate.Value, User = traveller };
                 (traveller as ISailor).Travels.Add(TravelToBeAdded);

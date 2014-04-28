@@ -120,8 +120,8 @@
     <Compile Include="WPF\main.xaml.cs">
       <DependentUpon>main.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WPF\NewBoatPopup.xaml.cs">
-      <DependentUpon>NewBoatPopup.xaml</DependentUpon>
+    <Compile Include="WPF\BoatPopup.xaml.cs">
+      <DependentUpon>BoatPopup.xaml</DependentUpon>
     </Compile>
     <Compile Include="WPF\TabMap.xaml.cs">
       <DependentUpon>TabMap.xaml</DependentUpon>
@@ -135,8 +135,8 @@
     <Compile Include="WPF\Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WPF\TravelAddPopup.xaml.cs">
-      <DependentUpon>TravelAddPopup.xaml</DependentUpon>
+    <Compile Include="WPF\TravelPopup.xaml.cs">
+      <DependentUpon>TravelPopup.xaml</DependentUpon>
     </Compile>
     <Compile Include="WPF\WelcomeTab.xaml.cs">
       <DependentUpon>WelcomeTab.xaml</DependentUpon>
@@ -194,7 +194,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="WPF\NewBoatPopup.xaml">
+    <Page Include="WPF\BoatPopup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -214,7 +214,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="WPF\TravelAddPopup.xaml">
+    <Page Include="WPF\TravelPopup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -251,6 +251,9 @@
     <Content Include="Resources\BlackWhiteHarbor.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ViewModels\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
