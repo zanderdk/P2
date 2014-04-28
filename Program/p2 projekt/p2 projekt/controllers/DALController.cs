@@ -4,11 +4,11 @@ using System.Collections.Generic;
 
 namespace p2_projekt
 {
-    public class UserController
+    public class DALController
     {
          private IDAL _iUserDal;
 
-        public UserController(IDAL userDAL)
+        public DALController(IDAL userDAL)
         {
             _iUserDal = userDAL;
         }

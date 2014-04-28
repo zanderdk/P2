@@ -22,9 +22,19 @@ namespace p2_projekt.WPF
     {
         public BoatPopup(ISailor s)
         {
-            
-            InitializeComponent();
+
+            Init();
             //DataContext = s.;
+        }
+
+        public BoatPopup(Boat b, ISailor s)
+        {
+            Init();
+        }
+
+        private void Init()
+        {
+            InitializeComponent();
         }
     }
 }

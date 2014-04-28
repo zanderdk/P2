@@ -22,7 +22,7 @@ namespace p2_projekt.WPF
     public partial class main : Window
     {
         User loggedIn;
-        public UserController controller;
+        public DALController controller;
         public main(User u)
         {
             InitializeComponent();

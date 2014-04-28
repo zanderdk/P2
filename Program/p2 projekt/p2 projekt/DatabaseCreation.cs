@@ -90,7 +90,7 @@ namespace p2_projekt
         
 
 
-        public void CreateDataset(UserController uc, int wantedUsers)
+        public void CreateDataset(DALController uc, int wantedUsers)
         {
 
             List<User> Users = new List<User>();

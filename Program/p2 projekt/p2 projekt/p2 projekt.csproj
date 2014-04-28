@@ -65,7 +65,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="controllers\MemberInfoController.cs" />
+    <Compile Include="controllers\UserController.cs" />
+    <Compile Include="controllers\memberInfoController.cs" />
     <Compile Include="controllers\SearchController.cs" />
     <Compile Include="controllers\SearchPredicate.cs" />
     <Compile Include="DatabaseCreation.cs" />
@@ -103,7 +104,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="UserController.cs" />
+    <Compile Include="controllers\DALController.cs" />
     <Compile Include="Utilities.cs" />
     <Compile Include="WPF\BoatForm.xaml.cs">
       <DependentUpon>BoatForm.xaml</DependentUpon>

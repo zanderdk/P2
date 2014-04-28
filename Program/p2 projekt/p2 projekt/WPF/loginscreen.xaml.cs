@@ -30,7 +30,7 @@ namespace p2_projekt.WPF
         
         User findUserByUsername(string username)
         {
-            UserController userController = Utilities.lobopDB;
+            DALController userController = Utilities.lobopDB;
             //UserController userController = new UserController(new Utilities.Database());
             User u = userController.Read<User>( x=> {
                 if(x is ILoginable)

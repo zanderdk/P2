@@ -53,7 +53,7 @@ namespace p2_projekt.controllers
         public static void RefreshInternal()
         {
             internalList.Clear();
-            UserController us = Main.controller;
+            DALController us = Main.controller;
 
             if(SearchPredicates.Count == 0)
             {

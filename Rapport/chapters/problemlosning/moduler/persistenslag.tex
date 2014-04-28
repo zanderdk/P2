@@ -1,0 +1,16 @@
+\subsection{Persistenslag}
+\label{sub:persistenslag}
+
+\subsubsection{Funktionalitet}
+\label{ssub:Funktionalitet}
+
+
+Persistenslag modullet har til opgave at manipulere og læse data fra et persistenslag. Et persistenslag kunne f.eks. være en database. Modullet tilbyder basale CRUD (create, read, update og delete) operationer, hvorfra alle tænkelige persistenslagsoperationer kan opbygges af.
+
+Et eksempel på brugen af persistenslag modullet, kunne være logind modulet. Logind modulet skal verificere om et indtastet brugernavn matcher et indtastet kodeord. Til dette kan logind modulet tilgå databasen i gennem persistenslagets read operation.
+
+
+\subsubsection{Implementation}
+\label{ssub:Implementation}
+
+I denne løsning er persistenslaget en klasse 

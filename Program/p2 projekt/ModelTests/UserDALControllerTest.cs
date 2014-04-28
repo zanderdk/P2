@@ -13,9 +13,9 @@ namespace ModelTests
     {
         Member alice;
         Mock<IDAL> MockIDAL;
-        UserController MockController;
+        DALController MockController;
         IDAL RealIDAL;
-        UserController RealController;
+        DALController RealController;
 
         [TestCleanup]
         public void Teardown()
@@ -45,10 +45,10 @@ namespace ModelTests
             alice.RegistrationDate = new DateTime(2013, 1, 1);
             
             MockIDAL = new Mock<IDAL>();
-            MockController = new UserController(MockIDAL.Object);
+            MockController = new DALController(MockIDAL.Object);
 
             RealIDAL = new Utilities.Database();
-            RealController = new UserController(RealIDAL);
+            RealController = new DALController(RealIDAL);
         }
 
         [TestMethod]

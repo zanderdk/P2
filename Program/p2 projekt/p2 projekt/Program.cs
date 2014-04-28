@@ -28,7 +28,7 @@ namespace p2_projekt
             AppDomain.CurrentDomain.SetData("DataDirectory", root_path);
 
 
-            UserController us = Utilities.lobopDB;
+            DALController us = Utilities.lobopDB;
             
             if(File.Exists(database_path) == false )
             {

@@ -50,7 +50,7 @@ namespace p2_projekt.models
         }
 
         public Member(string name, CivicAddress adress)
-            : this(name, adress, new UserController(new Utilities.Database()).GetNextMemberShipNumber())
+            : this(name, adress, new DALController(new Utilities.Database()).GetNextMemberShipNumber())
         {
 
         }
