@@ -1,0 +1,16 @@
+\subsection{Login}
+\label{sub:database}
+
+Det første modul der interageres med, er login modulet, som har til formål at validere, og videresende brugeren til programmets hovedfunktioner. Login ind modulet har det primære ansvar for angive adgangsniveauer, og sikre databeskyttelse. Fra login modulet kan man vælge at oprette sig som ny gæst, eller logge ind i systemet. Hvis brugeren vælger at oprette sig som ny gæst, så vil brugeren blive sendt til et separat modul.
+
+Login modulet består af et standby- , medlemslogin-, validerings-, samt videresendings-element.
+
+Standby-elementet er udgangspunktet for al interaktion med programmet, og har henvisninger til hvordan brugeren anvender programmet. 
+
+Fra standby-elementet kan brugeren vælge at gå til medlemslogin-elementet, hvor en bruger der er medlem kan logge sig ind med sit medlemsnummer, og et kodeord.
+
+Alternativt kan brugeren indsætte et chipkort fra standby-elementet, og så sender standby-elementet brugeren direkte til validerings-elementet.
+
+Medlemsnummeret og kodeordet bliver videresendt til validerings-elementet, som krydstjekker informationerne via databasemodulet. Validerings-elementet videresender herefter en boolsk statusmelding, samt en brugerprofil fra databasen til videresendings-elementet.
+
+Videresendings-elementet tjekker status meldingen. Hvis meldingen er falsk, sender den brugeren tilbage til enten medlemslogin eller standby, med en passende fejlmelding. Hvis valideringen gik godt, så videresendes brugeren til Hovedmodulet.
