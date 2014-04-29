@@ -83,7 +83,6 @@
     <Compile Include="models\Boat.cs" />
     <Compile Include="models\Guest.cs" />
     <Compile Include="models\HarbourMaster.cs" />
-    <Compile Include="models\IBasicPersonalInfo.cs" />
     <Compile Include="models\IFullPersonalInfo.cs" />
     <Compile Include="models\ILoginable.cs" />
     <Compile Include="models\ISailor.cs" />

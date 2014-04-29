@@ -86,15 +86,13 @@ namespace p2_projekt.controllers
             {
                 return x =>
                 {
-                    if (!(x is IBasicPersonalInfo))
-                        return false;
 
-                    if ((x as IBasicPersonalInfo).Adress.AddressLine1 == null)
+                    if (x.Adress.AddressLine1 == null)
                     {
                         return false;
                     }
 
-                    if ((x as IBasicPersonalInfo).Adress.AddressLine1.ToLower().Contains(info.Text))
+                    if (x.Adress.AddressLine1.ToLower().Contains(info.Text))
                     {
                         return true;
                     }
@@ -107,15 +105,13 @@ namespace p2_projekt.controllers
             {
                 return x =>
                 {
-                    if (!(x is IBasicPersonalInfo))
-                        return false;
 
-                    if ((x as IBasicPersonalInfo).Adress.PostalCode == null)
+                    if (x.Adress.PostalCode == null)
                     {
                         return false;
                     }
 
-                    if ((x as IBasicPersonalInfo).Adress.PostalCode.ToString().ToLower().Contains(info.Text))
+                    if (x.Adress.PostalCode.ToString().ToLower().Contains(info.Text))
                     {
                         return true;
                     }
@@ -128,15 +124,13 @@ namespace p2_projekt.controllers
             {
                 return x =>
                 {
-                    if (!(x is IBasicPersonalInfo))
-                        return false;
 
-                    if ((x as IBasicPersonalInfo).Adress.CountryRegion == null)
+                    if (x.Adress.CountryRegion == null)
                     {
                         return false;
                     }
 
-                    if ((x as IBasicPersonalInfo).Adress.CountryRegion.ToString().ToLower().Contains(info.Text))
+                    if (x.Adress.CountryRegion.ToString().ToLower().Contains(info.Text))
                     {
                         return true;
                     }
