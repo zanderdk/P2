@@ -1,9 +1,15 @@
 \subsection{Login}
 \label{sub:login}
 
-\kanote{mangler diagrammer og kodeeksempler/implementation}
+Det første modul der interageres med, er login modulet, som har til formål at validere, og videresende brugeren til programmets hovedfunktioner. 
 
-Det første modul der interageres med, er login modulet, som har til formål at validere, og videresende brugeren til programmets hovedfunktioner. Login modulet har det primære ansvar for at angive adgangsniveauer, og sikre databeskyttelse. Fra login modulet kan man vælge at oprette sig som ny gæst, eller logge ind i systemet. Hvis brugeren vælger at oprette sig som ny gæst, så vil brugeren blive sendt til et separat modul.
+\subsubsection{Funktionalitet}
+\label{ssub:Funktionalitet}
+
+Login modulet har det primære ansvar for at angive adgangsniveauer, og sikre databeskyttelse. Fra login modulet kan man vælge at oprette sig som ny gæst, eller logge ind i systemet. Hvis brugeren vælger at oprette sig som ny gæst, så vil brugeren blive sendt til et separat modul.
+
+\subsubsection{Implementation}
+\label{ssub:login_implementation}
 
 Login modulet består af et standby- , medlemslogin-, validerings-, samt videresendings-element.
 
