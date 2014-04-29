@@ -1,23 +1,19 @@
-﻿using p2_projekt.models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Reflection;
-using System.Linq.Expressions;
 
 namespace p2_projekt
 {
 
     public static class Utilities
     {
-        public static UserController lobopDB { get; set; }
+        public static DALController LobopDB { get; set; }
 
         static Utilities()
         {
-            lobopDB = new UserController(new Utilities.Database());
+            LobopDB = new DALController(new Utilities.Database());
         }
 
         public class Database : IDAL

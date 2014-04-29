@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace p2_projekt.models
 {
@@ -14,7 +10,7 @@ namespace p2_projekt.models
 
         [Key,ForeignKey("Boat")]
         public int BoatId { get; set; }
-        public String info { get; set; }
+        public String Info { get; set; }
         public double Length { get; private set; }
         public double Width { get; private set; }
 
@@ -25,7 +21,7 @@ namespace p2_projekt.models
             get
             {
                 if (Boat == null) { return EnumBoatSpaceStatus.Empty; }
-                else { return EnumBoatSpaceStatus.Occupied; }
+                return EnumBoatSpaceStatus.Occupied;
             }
         }
 
@@ -75,7 +71,7 @@ namespace p2_projekt.models
 
         public override string ToString()
         {
-            return String.Format("Info: {0}, Tilhørende båd: {1}", info, Boat);
+            return String.Format("Info: {0}, Tilhørende båd: {1}", Info, Boat);
         }
     }
 }

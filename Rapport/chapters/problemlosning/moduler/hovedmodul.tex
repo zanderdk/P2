@@ -1,0 +1,7 @@
+\subsection{Hovedmodul}
+\label{sub:hovedmodul}
+
+Når en bruger har været igennem en succesfuld validering fra login modulet, bliver brugeren sendt videre til hovedmodulet. Hovedmodulet har til opgave at instantiere og kontrollere de moduler som udgør specifikke funktionaliteter for brugeren. Dette modul fungerer som skelettet for de omkringliggende moduler. Brugeren bevæger sig derfor hele tiden rundt indenfor dette moduls rammer, indtil brugeren ønsker at forlade programmet og logger ud. Når dette sker, sendes brugeren tilbage til login modulet. 
+
+Da hovedmodulet ikke selv indeholder noget information direkte til brugeren, bør den altid instantiere et default element. Dette element er forside modulet.
+

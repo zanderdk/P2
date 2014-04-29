@@ -1,30 +1,16 @@
 ﻿using p2_projekt.models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace p2_projekt
 {
-    public class UserController
+    public class DALController
     {
          private IDAL _iUserDal;
 
-        public UserController(IDAL userDAL)
+        public DALController(IDAL userDAL)
         {
             _iUserDal = userDAL;
-        }
-
-        public int GetNextMemberShipNumber()
-        {
-            int result = _iUserDal.Max<User>(x =>
-            {
-                if (x is Member) { return (x as Member).MembershipNumber; }
-                else return 0;
-            });
-
-            return result + 1;
         }
 
         public bool Add<TInput>(TInput item) where TInput : class
@@ -73,16 +59,9 @@ namespace p2_projekt
             }
             catch (InvalidOperationException)
             {
-                Console.WriteLine("Could not remove user.");
+                Console.WriteLine("Could not remove item.");
             }
             return sucessful;
-        }
-
-
-
-        internal void CreateDatabaseIfNotExists()
-        {
-         
         }
     }
 }

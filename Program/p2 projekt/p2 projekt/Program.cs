@@ -28,7 +28,7 @@ namespace p2_projekt
             AppDomain.CurrentDomain.SetData("DataDirectory", root_path);
 
 
-            UserController us = Utilities.lobopDB;
+            DALController us = Utilities.LobopDB;
             
             if(File.Exists(database_path) == false )
             {
@@ -38,11 +38,11 @@ namespace p2_projekt
             
 
 
-            BoatSpace bs = new WaterSpace(10.0, 10.0) { info = "dfgdfg" };
+            BoatSpace bs = new WaterSpace(10.0, 10.0) { Info = "dfgdfg" };
             Boat b = new Boat() { Name = "test Ship", BoatSpace = bs, RegistrationNumber = "fdsf" };
             Travel travel = new Travel(new DateTime(2008, 1, 1), new DateTime(2001, 1, 1));
             Member alice = new Member("Christian", new System.Device.Location.CivicAddress("bistands crib no 1", "", "", "kbh", "Denmark", "", "fuck", "")) { Password = "test", Birthday = new DateTime(2000, 1, 1) };
-            alice.Permission = new Permission() { MemberInfo = PermissionLevel.Write, search = PermissionLevel.Write, ChangePersonalInfo = PermissionLevel.Write };
+            alice.Permission = new Permission() { MemberInfo = PermissionLevel.Write, Search = PermissionLevel.Write, ChangePersonalInfo = PermissionLevel.Write };
             //alice.Travels.Add(travel);
             //Permission2 p2 = new Permission2();
             //p2.MyProperty = "hej";

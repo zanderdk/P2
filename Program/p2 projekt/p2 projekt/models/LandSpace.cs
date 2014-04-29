@@ -2,6 +2,5 @@
 {
     public class LandSpace : BoatSpace
     {
-        public LandSpace() { }
     }
 }

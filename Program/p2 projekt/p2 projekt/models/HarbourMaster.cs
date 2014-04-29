@@ -47,7 +47,7 @@ namespace p2_projekt.models
                 return false;
             }
 
-            return (obj as HarbourMaster).Username == this.Username;
+            return (obj as HarbourMaster).Username == Username;
         }
 
         public override int GetHashCode()
@@ -61,13 +61,9 @@ namespace p2_projekt.models
             {
                 if (ReferenceEquals(u2, null))
                     return true;
-                else
-                    return false;
+                return false;
             }
-            else
-            {
-                return u1.Equals(u2);
-            }
+            return u1.Equals(u2);
         }
 
         public static bool operator !=(HarbourMaster u1, HarbourMaster u2)

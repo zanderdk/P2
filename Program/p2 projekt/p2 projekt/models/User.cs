@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Device.Location;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Collections.ObjectModel;
+﻿using System.Device.Location;
 
 namespace p2_projekt.models
 {
@@ -50,7 +42,7 @@ namespace p2_projekt.models
 
         public override string ToString()
         {
-            return string.Format("{0} - {1} - {2}", this.Name, this.Phone, this.Adress.AddressLine1);
+            return string.Format("{0} - {1} - {2}", Name, Phone, Adress.AddressLine1);
         }
     }
     

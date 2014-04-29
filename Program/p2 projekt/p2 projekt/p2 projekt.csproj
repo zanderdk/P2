@@ -65,6 +65,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="controllers\UserController.cs" />
     <Compile Include="controllers\memberInfoController.cs" />
     <Compile Include="controllers\SearchController.cs" />
     <Compile Include="controllers\SearchPredicate.cs" />
@@ -82,7 +83,6 @@
     <Compile Include="models\Boat.cs" />
     <Compile Include="models\Guest.cs" />
     <Compile Include="models\HarbourMaster.cs" />
-    <Compile Include="models\IBasicPersonalInfo.cs" />
     <Compile Include="models\IFullPersonalInfo.cs" />
     <Compile Include="models\ILoginable.cs" />
     <Compile Include="models\ISailor.cs" />
@@ -103,7 +103,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="UserController.cs" />
+    <Compile Include="controllers\DALController.cs" />
     <Compile Include="Utilities.cs" />
     <Compile Include="WPF\BoatForm.xaml.cs">
       <DependentUpon>BoatForm.xaml</DependentUpon>

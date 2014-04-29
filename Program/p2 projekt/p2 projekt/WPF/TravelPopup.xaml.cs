@@ -81,10 +81,10 @@ namespace p2_projekt.WPF
 
 
 
-            UserController uc = Utilities.lobopDB;
+            DALController uc = Utilities.LobopDB;
             uc.Update<User>(traveller as User);
             
-            SearchController.main.selectUser(traveller as User);
+            SearchController.Main.selectUser(traveller as User);
             
             this.Close();
         }

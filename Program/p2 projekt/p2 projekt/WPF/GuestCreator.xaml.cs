@@ -40,7 +40,7 @@ namespace p2_projekt.WPF
                 Permission = new Permission(){
                     ChangePersonalInfo = PermissionLevel.Read,
                     MemberInfo = PermissionLevel.Read,
-                    search = PermissionLevel.None
+                    Search = PermissionLevel.None
                 }
             };
 
@@ -68,7 +68,7 @@ namespace p2_projekt.WPF
 
             try
             {
-                UserController userController = new UserController(new Utilities.Database());
+                DALController userController = new DALController(new Utilities.Database());
 
                 userController.Add<User>(newGuest);
 

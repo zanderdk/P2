@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace p2_projekt.models
+﻿namespace p2_projekt.models
 {
     public enum PermissionLevel { None, Read, Write }
 
@@ -27,7 +19,7 @@ namespace p2_projekt.models
 
         public PermissionLevel MemberInfo { get;  set; }
      
-        public PermissionLevel search { get; set; }
+        public PermissionLevel Search { get; set; }
         
         public PermissionLevel ChangePersonalInfo { get; set; }
         

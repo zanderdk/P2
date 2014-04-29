@@ -2,7 +2,7 @@
 
 namespace p2_projekt.models
 {
-    public interface IFullPersonalInfo : IBasicPersonalInfo
+    public interface IFullPersonalInfo
     {
         string Email { get; set; }
         DateTime Birthday { get; set; }

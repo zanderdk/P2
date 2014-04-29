@@ -1,20 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using p2_projekt.models;
 
 namespace p2_projekt.controllers
 {
-    public static class memberInfoController
+    public static class MemberInfoController
     {
-        public static void validateUser(User u)
+        public static void ValidateUser(User u)
         {
             if(u is Member)
             {
                 Member m = (u as Member);
-                var test = Utilities.lobopDB.Read<User>(
+                var test = Utilities.LobopDB.Read<User>(
                     x => {
                         if (x is Member)
                             return (x as Member) == m;
@@ -30,7 +26,7 @@ namespace p2_projekt.controllers
             if(u is HarbourMaster)
             {
                 HarbourMaster h = (u as HarbourMaster);
-                var test = Utilities.lobopDB.Read<User>(
+                var test = Utilities.LobopDB.Read<User>(
                     x =>
                     {
                         if (x is HarbourMaster)
@@ -47,7 +43,7 @@ namespace p2_projekt.controllers
             if(u is Guest)
             {
                 Guest g = (u as Guest);
-                var test = Utilities.lobopDB.Read<User>(
+                var test = Utilities.LobopDB.Read<User>(
                     x => {
                         if (x is Guest)
                             return (x as Guest) == g;

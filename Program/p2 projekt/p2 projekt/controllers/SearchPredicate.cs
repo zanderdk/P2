@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using p2_projekt.models;
 using p2_projekt.WPF;
 
@@ -10,7 +6,7 @@ namespace p2_projekt.controllers
 {
     public static class SearchPredicate
     {
-        public static Func<User, bool> getPredicat(InfolineController info)
+        public static Func<User, bool> GetPredicat(InfolineController info)
         {
             if (info.Name == "name")
             {
@@ -90,15 +86,13 @@ namespace p2_projekt.controllers
             {
                 return x =>
                 {
-                    if (!(x is IBasicPersonalInfo))
-                        return false;
 
-                    if ((x as IBasicPersonalInfo).Adress.AddressLine1 == null)
+                    if (x.Adress.AddressLine1 == null)
                     {
                         return false;
                     }
 
-                    if ((x as IBasicPersonalInfo).Adress.AddressLine1.ToLower().Contains(info.Text))
+                    if (x.Adress.AddressLine1.ToLower().Contains(info.Text))
                     {
                         return true;
                     }
@@ -111,15 +105,13 @@ namespace p2_projekt.controllers
             {
                 return x =>
                 {
-                    if (!(x is IBasicPersonalInfo))
-                        return false;
 
-                    if ((x as IBasicPersonalInfo).Adress.PostalCode == null)
+                    if (x.Adress.PostalCode == null)
                     {
                         return false;
                     }
 
-                    if ((x as IBasicPersonalInfo).Adress.PostalCode.ToString().ToLower().Contains(info.Text))
+                    if (x.Adress.PostalCode.ToString().ToLower().Contains(info.Text))
                     {
                         return true;
                     }
@@ -132,15 +124,13 @@ namespace p2_projekt.controllers
             {
                 return x =>
                 {
-                    if (!(x is IBasicPersonalInfo))
-                        return false;
 
-                    if ((x as IBasicPersonalInfo).Adress.CountryRegion == null)
+                    if (x.Adress.CountryRegion == null)
                     {
                         return false;
                     }
 
-                    if ((x as IBasicPersonalInfo).Adress.CountryRegion.ToString().ToLower().Contains(info.Text))
+                    if (x.Adress.CountryRegion.ToString().ToLower().Contains(info.Text))
                     {
                         return true;
                     }
@@ -197,7 +187,7 @@ namespace p2_projekt.controllers
                     if (!(x is Member))
                         return false;
 
-                    bool test = info.Text.ToLower() == "ja" ? true : false;
+                    bool test = info.Text.ToLower() == "ja"; // TODO test skal renames
 
                     if ((x as Member).IsActive == test)
                     {
@@ -281,7 +271,7 @@ namespace p2_projekt.controllers
                     {
                         if (b.BoatSpace != null)
                         {
-                            if (b.BoatSpace.info.ToLower().Contains(info.Text.ToLower()))
+                            if (b.BoatSpace.Info.ToLower().Contains(info.Text.ToLower()))
                                 return true;
                         }
 

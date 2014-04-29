@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using p2_projekt.models;
 
 namespace p2_projekt
@@ -58,7 +55,7 @@ namespace p2_projekt
                 member.Adress.PostalCode = "" + r.Next(1000, 9999);
 
                 // TODO alle skal ikke have søge rettigheder
-                member.Permission = new Permission() { MemberInfo = PermissionLevel.Write, search = PermissionLevel.Write, ChangePersonalInfo = PermissionLevel.Write};
+                member.Permission = new Permission() { MemberInfo = PermissionLevel.Write, Search = PermissionLevel.Write, ChangePersonalInfo = PermissionLevel.Write};
                 member.Birthday = new DateTime(BirthdayYear,BirthdayMonth,BirthdayDay);
                 member.RegistrationDate = new DateTime(RegDayYear, RegDayMonth, RegDayDay);
             
@@ -85,7 +82,7 @@ namespace p2_projekt
                 
 
                 BoatSpace boat_space = new WaterSpace(Dimensions[r.Next(0, Dimensions.Length)], Dimensions[r.Next(0, Dimensions.Length)]);
-                boat_space.info = info[r.Next(0, info.Length)];
+                boat_space.Info = info[r.Next(0, info.Length)];
             
             return boat_space;
         }
@@ -93,7 +90,7 @@ namespace p2_projekt
         
 
 
-        public void CreateDataset(UserController uc, int wantedUsers)
+        public void CreateDataset(DALController uc, int wantedUsers)
         {
 
             List<User> Users = new List<User>();

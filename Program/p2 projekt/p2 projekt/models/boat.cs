@@ -13,12 +13,12 @@ namespace p2_projekt.models
             Width = width;
         }
 
-        private string _Name;
+        private string _name;
         public string Name
         {
-            get { return _Name; }
+            get { return _name; }
             set { 
-                _Name = value;
+                _name = value;
                 OnPropertyChanged("Name");
                 }
         }
@@ -26,7 +26,7 @@ namespace p2_projekt.models
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(string propertyName)
         {
-            PropertyChangedEventHandler handler = this.PropertyChanged;
+            PropertyChangedEventHandler handler = PropertyChanged;
             if (handler != null)
                 handler(this, new PropertyChangedEventArgs(propertyName));
         }
@@ -82,12 +82,12 @@ namespace p2_projekt.models
                 return false;
             }
             
-            if(obj.GetType() != this.GetType())
+            if(obj.GetType() != GetType())
             {
                 return false;
             }
 
-            return (obj as Boat).BoatId == this.BoatId;
+            return (obj as Boat).BoatId == BoatId;
         }
 
         public override int GetHashCode()
@@ -101,13 +101,9 @@ namespace p2_projekt.models
             {
                 if (ReferenceEquals(b2, null))
                     return true;
-                else
-                    return false;
+                return false;
             }
-            else
-            {
-                return b1.Equals(b2);
-            }
+            return b1.Equals(b2);
         }
 
         public static bool operator !=(Boat b1, Boat b2)

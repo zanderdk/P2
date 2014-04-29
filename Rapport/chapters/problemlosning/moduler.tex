@@ -1,4 +1,14 @@
 \section{Moduler}
 \label{sec:moduler}
 
-\input{chapters/problemlosning/moduler/database.tex}
+Moduler i dette afsnit defineres som grupperede funktionaliteter i løsningen. Hvert modul skal så vidt muligt være uafhængig af andre moduler, og kun have et enkelt ansvar. Et login modul skal derfor ikke have funktionalitet til at oprette en ny bruger. I stedet vil et dedikeret modul til at oprette nye brugere være favorabelt. Hvis hvert modul kun har et enkelt ansvar, kan moduler nemt genbruges i andre sammenhængde.
+
+Modulerne i løsningen er beskrevet ved modulets funktionalitet, brugen af andre modelller og hvordan modellen overordnet er implementeret.
+
+\sinote{Diagram over alle moduler}
+
+\input{chapters/problemlosning/moduler/login.tex}
+\input{chapters/problemlosning/moduler/hovedmodul.tex}
+\input{chapters/problemlosning/moduler/persistenslag.tex}
+\input{chapters/problemlosning/moduler/kort.tex}
+\input{chapters/problemlosning/moduler/plads_registrering.tex}

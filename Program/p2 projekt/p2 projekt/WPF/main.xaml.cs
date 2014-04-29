@@ -22,7 +22,7 @@ namespace p2_projekt.WPF
     public partial class main : Window
     {
         User loggedIn;
-        public UserController controller;
+        public DALController controller;
         public main(User u)
         {
             InitializeComponent();
@@ -33,7 +33,7 @@ namespace p2_projekt.WPF
 
             loggedIn = u;
 
-            controller = Utilities.lobopDB;
+            controller = Utilities.LobopDB;
 
             AddToTabController(new WelcomeTab(u), "Forside");
 
@@ -44,7 +44,7 @@ namespace p2_projekt.WPF
                 AddToTabController(new MemberInfo(u), "Profil");
             }
 
-            if (Permission.CanRead(u.Permission.search))
+            if (Permission.CanRead(u.Permission.Search))
             {
                 AddToTabController(new SearchTab(this), "Søg");
             }

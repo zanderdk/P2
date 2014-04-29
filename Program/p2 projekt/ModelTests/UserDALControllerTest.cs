@@ -13,9 +13,9 @@ namespace ModelTests
     {
         Member alice;
         Mock<IDAL> MockIDAL;
-        UserController MockController;
+        DALController MockController;
         IDAL RealIDAL;
-        UserController RealController;
+        DALController RealController;
 
         [TestCleanup]
         public void Teardown()
@@ -35,7 +35,7 @@ namespace ModelTests
             //alice.Birthday = new DateTime(2013, 1, 1);
             //alice.RegistrationDate = new DateTime(2013, 1, 1);
 
-            BoatSpace bs = new WaterSpace(10.0, 10.0) { info = "dfgdfg" };
+            BoatSpace bs = new WaterSpace(10.0, 10.0) { Info = "dfgdfg" };
             Boat b = new Boat() { Name = "test Ship", BoatSpace = bs, RegistrationNumber = "fdsf" };
             Travel travel = new Travel(new DateTime(2008, 1, 1), new DateTime(2001, 1, 1));
             alice = new Member("Kasper", new System.Device.Location.CivicAddress()) { Password = "test" };
@@ -45,10 +45,10 @@ namespace ModelTests
             alice.RegistrationDate = new DateTime(2013, 1, 1);
             
             MockIDAL = new Mock<IDAL>();
-            MockController = new UserController(MockIDAL.Object);
+            MockController = new DALController(MockIDAL.Object);
 
             RealIDAL = new Utilities.Database();
-            RealController = new UserController(RealIDAL);
+            RealController = new DALController(RealIDAL);
         }
 
         [TestMethod]

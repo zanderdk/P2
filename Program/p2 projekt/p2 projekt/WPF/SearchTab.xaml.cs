@@ -24,7 +24,7 @@ namespace p2_projekt.WPF
         {
             InitializeComponent();
 
-            SearchController.main = ma;
+            SearchController.Main = ma;
 
             SearchController.ListToListBox += ListToListBox;
 
@@ -48,7 +48,7 @@ namespace p2_projekt.WPF
 
         void addToDict(InfolineController c)
         {
-            SearchController.dict.Add(c.textbox, c);
+            SearchController.Dict.Add(c.textbox, c);
         }
 
         void Add_ControllerDelegates(InfolineController c)
@@ -62,7 +62,7 @@ namespace p2_projekt.WPF
         void ListToListBox()
         {
             listResult.Items.Clear();
-            foreach(var x in SearchController.list)
+            foreach(var x in SearchController.List)
             {
                 listResult.Items.Add(x);
             }
@@ -90,7 +90,7 @@ namespace p2_projekt.WPF
             User user = (User)(sender as ListBox).SelectedItem;
             if(user != null)
             {
-                SearchController.main.selectUser(user);
+                SearchController.Main.selectUser(user);
             }
         }
 
