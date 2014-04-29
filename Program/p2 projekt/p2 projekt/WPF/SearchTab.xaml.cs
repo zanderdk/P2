@@ -20,7 +20,7 @@ namespace p2_projekt.WPF
     public partial class SearchTab : UserControl
     {
 
-        public SearchTab(main ma)
+        public SearchTab(Main ma)
         {
             InitializeComponent();
 

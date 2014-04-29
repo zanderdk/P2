@@ -19,11 +19,11 @@ namespace p2_projekt.WPF
     /// <summary>
     /// Interaction logic for main.xaml
     /// </summary>
-    public partial class main : Window
+    public partial class Main : Window
     {
         User loggedIn;
         public DALController controller;
-        public main(User u)
+        public Main(User u)
         {
             InitializeComponent();
 

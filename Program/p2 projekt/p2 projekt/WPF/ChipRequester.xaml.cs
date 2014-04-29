@@ -44,7 +44,7 @@ namespace p2_projekt.WPF
             if (e.Key == Key.Enter && !string.IsNullOrEmpty(ChipNum.Text))
             {
                 DALController userController = Utilities.LobopDB;
-                main main = new main(userController.Read<User>(x => x.UserId.ToString() == ChipNum.Text));
+                Main main = new Main(userController.Read<User>(x => x.UserId.ToString() == ChipNum.Text));
                 main.Show();
                 this.Close();
             }

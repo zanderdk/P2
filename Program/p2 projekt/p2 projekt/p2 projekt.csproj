@@ -65,6 +65,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="controllers\LoginController.cs" />
     <Compile Include="controllers\UserController.cs" />
     <Compile Include="controllers\memberInfoController.cs" />
     <Compile Include="controllers\SearchController.cs" />

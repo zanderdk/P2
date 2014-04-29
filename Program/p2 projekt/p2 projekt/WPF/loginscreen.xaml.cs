@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using p2_projekt.models;
 using System.Device.Location;
+using p2_projekt.controllers;
 
 namespace p2_projekt.WPF
 {
@@ -21,52 +22,19 @@ namespace p2_projekt.WPF
     /// </summary>
     public partial class loginscreen : Window
     {
+        private LoginController controller;
 
         public loginscreen()
         {
             InitializeComponent();
-              
-        }
-        
-        User findUserByUsername(string username)
-        {
-            DALController userController = Utilities.LobopDB;
-            //UserController userController = new UserController(new Utilities.Database());
-            User u = userController.Read<User>( x=> {
-                if(x is ILoginable)
-                {
-                    if((x as ILoginable).Username == username)
-                    {
-                        return true;
-                    }
-                }
-                return false;
-            });
-
-            return u;
+            controller = new LoginController();
         }
 
         private void Login_Click(object sender, RoutedEventArgs e)
         {
-            User u = findUserByUsername(membernr.Text);
-            if (u != null)
+            if (controller.Validate(membernr.Text, password.Password))
             {
-                ILoginable loginable = (u as ILoginable);
-                if (password.Password == loginable.Password)
-                {
-                    main main = new main(u);
-                    main.Show();
-                    Close();
-                }
-                else
-                {
-                    MessageBox.Show("Forkert password.");
-                }
-
-            }
-            else
-            {
-                MessageBox.Show("Bruger ikke fundet.");
+                Close();
             }
         }
     }
