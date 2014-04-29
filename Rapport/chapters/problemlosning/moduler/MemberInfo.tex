@@ -4,4 +4,9 @@ Alt data der bliver vist, kommer fra den lokale database, som bliver konstrueret
 Hvis brugeren har de rigtige rettigheder, kan brugeren tilføje, redigere eller fjerne medlemmer fra databasen. Dette sker ved at ved et klik på en af de respekterende knapper. Dernæst åbnes et nyt vindue, UserAddPopup, hvor den ønskede information / ændring tilføjes og der klikkes gem. Det samme er gældende for både.
 Hvis et medlem er logget ind, kan han eller hun vælge at tilføje en rejse. Ved klik på tilføj knappen, åbnes der et nyt vindue, TravelAddPopup, og den ønskede afrejse samt hjemkomst dato indtastes, og der klikkes Tilføj Rejse. 
 
-Profil tabben er blevet designet med henblik på overskuelighed, funktionalitet samt brugervenlighed. Der er bevidst blevet sat fokus på at opretholde den uofficielle standard der er almene programmer i forbindelse med brug. Det vil sige at vi har lagt knapper, informationsfelter og beskrivelser de steder hvor de normalt befinder sig i andre programmer.
+Profil tabben er blevet designet med henblik på overskuelighed, funktionalitet samt brugervenlighed. Der er bevidst blevet sat fokus på at opretholde den der er almene programmer i forbindelse med brug. Det vil sige at vi har lagt knapper, informationsfelter og beskrivelser de steder hvor de normalt befinder sig i andre programmer.
+
+//nyt//
+Efter valideringen af login informationen, videresendes brugeren til Forside tabben. Hvis brugeren klikker på profil tabben, påbegyndes MemberInfo modulet. Dette modul står for at oprette forbindelse til databasen og vise information om medlemmet/gæsten, medlemmet-/gæstens båd og dets rejser. MemberInfo benytter tre del-moduler til at redigere i databasen, Travel PopUp, Boat PopUp og UserPopUp. Disse bliver fremkaldt af MemberInfo alt efter brugerens input og de skriver de potentielle ændringer til databasen.
+
+Searchcontroller modulet vidresender brugeren til MemberInfo, når brugeren vælger et resultat i Searchtab modulet. Det vil sige at det valgte medlem i databasen bliver vist under Profiltabben i programmet.  
