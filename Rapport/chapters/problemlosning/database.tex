@@ -4,6 +4,15 @@ I dette projekt benyttes Entity Framework, som er Microsofts anbefalede teknolog
 
 \frnote{skal læses igennem}
 
+
+\subsection{databasetransaktioner}
+\label{sub:databasetransaktioner}
+En transaktion er et set bestående af en eller flere databaseinstruktioner. databasetransaktioner bruges til at indkapsle instruktioner, for at enten alle instruktioner bliver udført eller at alle instruktioner fortrydes. 
+
+
+
+% subsection databasetransaktioner (end)
+
 \subsection{Code First}
 \label{sub:code_first}
 Entity bruger en model for hvert objekt den skal gemme. Brugeren af Frameworket skal definere en model. Der er flere måder at gøre dette på, men i dette projekt bruges \enquote{Code First}. Med Code First skal programøren først skrive sin model som en C\# klasse. Derefter kan frameworket bruges til at gemme disse klasser i en database. Entity Framework kan ud fra felterne i den modellerede klasse selv oprette de nødvendige kolonner i databasen. Entity Framework er altså en abstraktion for tilgangen til en underliggende database. Dermed kan brugeren af Enity Framework nøjes med at bekymre sig om programmeringen af modellen der skal gemmes.
