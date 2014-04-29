@@ -1,20 +1,32 @@
 \section{Klasse Design}
 \label{sec:klasse_design}
-C\# er et objektorienteret programeringssprog. I objektorienteret programeringssprog er det let at dele programmet op, og på den måde lave et mere velorganiseret program, der er mere vedligeholdeligt. En af grundsøjlerne bag  det objekt orienterede paradigme, er som navnet antyder objekter. For at lave et objekt skal man definere klasser, som er skabelonen for et objekt. Klasser udgør en abstraktion eller model, der ofte er et koncept fra den virkelige verden. Der skal derfor laves en model, der kan anvendes i forbindelse med løsningen af problemformuleringen.
+C\# er et objektorienteret programeringssprog. I objektorienteret programeringssprog er det let at dele programmet op, og på den måde lave et mere velorganiseret program, der er mere vedligeholdeligt?. En af grundsøjlerne bag det objektorienterede paradigme, er som navnet antyder objekter. For at lave et objekt skal man definere klasser, som er skabelonen for et objekt. Klasser udgør en abstraktion eller model, der ofte er et koncept fra den virkelige verden. Der skal derfor laves en model, der kan anvendes i forbindelse med løsningen af problemformuleringen. Vi vil altså gerne modelere de ting der finde på havnen. Derfor har vi undersøgt hvilke entitetre man kan finde på havnen som vi gerne vil havde modeleret. For hver ting er der tænke over hvordan vi vil modeler dem og representer dem med en klasse.
 
-Dette afsnit vil beskrive hvilke valg der er taget i forbindelse med modelleringen af forskellige koncepter til programmet.
+Disse klasser skal puttes ind I et klassehieraki, som er et sæt af klasser og deres indbyrdiske relationer.
+
+I følgende afsnit beskrives hvilke valg der er taget i forbindelse med modelleringen af forskellige koncepter til programmet. 
 
 \subsection{UML-klassediagram}
 For at få et overblik over modellering er der lavet et UML-klassediagram. Et UML-klassediagram er et diagram der beskriver strukturen i et system ved at vise systemet klasser og deres relationer.
-
 
 \frnote{Her skal der være et billede at vores flotte UML diagram}
 
 \subsection{Brugere af Programmet}
 \label{sub:brugere_af_programmet}
 
-I klassehierakiets top ligger den abstrakte klasse \enquote{User}. Denne klasse definerer alle fællestræk de efterfølgende specifikke klasser skal have. Dette inkluderer brugerrettigheder og basale informationer som telefonnummer, navn og adresse.
+I klassehierakiets top ligger den abstrakte klasse \enquote{User}. En User er en general bruger af systement. Denne klasse definerer alle fællestræk de efterfølgende specifikke klasser skal have. Dette inkluderer brugerrettigheder og basale informationer som telefonnummer, navn og adresse.
 
-Subklasserne til \enquote{User} opdeler brugere som medlemmer af klubben, gæster og havnefogeden. Denne opdeling er lavet fordi der indgår forskellige felter på tværs af disse subklasser. For at differentiere subklasserne, implementerer disse forskellige interfaces. F.eks. må en havnefoged ikke have en båd, og derfor implementerer klassen \enquote{HarbourMaster} ikke \enquote{ISailer} interfacet. Medlemmer af klubben og gæster må derimod gerne have mulighed for at have en båd, og implementerer derfor \enquote{ISailer}.
+Der er tre forskellige interfaces der indeholder forskellige informationer om brugere, IFullPersonalInfo, ISailor, ILoginable
 
-\sinote{Mere..}
+Subklasserne til \enquote{User} opdeler brugere som medlemmer af klubben, gæster og havnefogeden. Til disse tre person typper bruges klasserne \enquote{HarbourMaster}, \enquote{Guest} og \enquote{Member}. Denne opdeling er lavet fordi der indgår forskellige felter på tværs af disse subklasser. For at differentiere subklasserne, implementerer disse forskellige interfaces. F.eks. må en havnefoged ikke have en båd, og derfor implementerer klassen \enquote{HarbourMaster} ikke \enquote{ISailer} interfacet. Medlemmer af klubben og gæster må derimod gerne have mulighed for at have en båd, og implementerer derfor \enquote{ISailer}. Derudover er der interfacet IFullPersonalInfo som som includere alle de informationer man skal havde om et medlem men som gæster for.eks. ikke skal have. Gæster skal ikke havde et password til at logge ind med derfor implementere klassen i I logiable. Permissions vil der blive talt om senere.
+
+En rejse modelleres med klassen Travel. Den indelholder information om rejsen start- og slutdato. Rejser bruges når et medlem er ude for at rejse. Rejser bruges også til at angive hvor lang tid en gæst ligger i havnen. Travel implementere IEquatable som gør det muligt at sammenligne med andre klasser af samme type. Klasser der implementere ISailor indenholder en list af Travels.
+
+\subsection{Både?}
+\label{sub:bade}
+
+Der er en klasse til både der hedder Boat. Den bruges til at geme data tilhørende en båd. Der gemmes dens navn og størelse, så man kan finde en plads der er stor nok.
+
+Der er to klasser til er repræsentere lejepladser. Der er WaterSpace som er en vandlegeplads og LandSpace som er en landlejeplads. Begge disse klasser ned arveler fra klassen BoatSpace, som indenholder generalle informationer om en plads.
+
+\frnote{ syntax i forbindelse med navn af klasser og interfaces}
