@@ -1,0 +1,20 @@
+\subsection{Plads registrering}
+\label{sub:plads_registrering}
+
+\subsubsection{Funktionalitet}
+\label{ssub:Funktionalitet}
+
+Plads registrering modullet har til opgave at detektere status på en bådplads. En sådan status kan være følgende stadier.
+
+\begin{itemize}
+  \item Ledig
+  \item Optaget af gæst
+  \item Optaget af medlem
+\end{itemize}
+
+Når en ændring detekteres af modullet, ændres bådpladsens status. 
+
+\subsubsection{Implementation}
+\label{ssub:plads_implementation}
+
+Modullet skal være bevidst om samtlige bådpladser således at alle bådpladser kan få detekteret og ændret deres status. Selve detekteringen af bådplads ændringer kan abstraheres væk på en sådan måde at flere implementeringer af detekteringen kan eksistere. F.eks. kan der være en hardware sensor samt en manuel måde at diktere bådpladsens status.
