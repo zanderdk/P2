@@ -4,7 +4,7 @@
 \subsubsection{Funktionalitet}
 \label{ssub:Funktionalitet}
 
-Kort modullet har til opgave at give et visuelt overblik over alle bådpladser der eksisterer på en havn. Kortet præsenterer bådpladsers status i form af en beskrivende farve. F.eks. er en rød bådplads en optaget bådplads. På samme måde er en grøn bådplads fri. Kortet er interaktivt forstået på den måde, at kortets informationer er spejlet fra virkeligheden. Det vil sige at når en bådplads markeres som fri af et andet modul, skifter denne bådplads sin beskrivende farve til grøn på kortet.
+Kort modullet har til opgave at lave et kort, der giver et visuelt overblik over alle bådpladser der eksisterer på en havn. Kortet præsenterer bådpladsers status i form af en beskrivende farve. F.eks. er en rød bådplads en optaget bådplads. På samme måde er en grøn bådplads fri. Kortet er interaktivt forstået på den måde, at kortets informationer er spejlet fra virkeligheden. Det vil sige at når en bådplads markeres som fri af et andet modul, skifter denne bådplads sin beskrivende farve til grøn på kortet.
 
 Når der klikkes på en bestemt bådplads på kortet, kan følgende scenarier ske afhængigt af hvilken bruger der klikker.
 
@@ -19,3 +19,5 @@ Når der klikkes på en bestemt bådplads på kortet, kan følgende scenarier sk
 \label{ssub:Implementation}
 
 En bådplads på kortet har en reference til en bådplads i databasen. Når en bådplads i databasen ændrer status, notificeres kort modullet, som nu kan ændre det visuelle status.
+
+\frnote{mere om kortet, hvordan bliver det tegnet? hvordan laver vi vinduet og håntere klik events?}
