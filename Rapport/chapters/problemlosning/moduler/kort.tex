@@ -1,10 +1,22 @@
 \subsection{Kort}
 \label{sub:kort}
 
+Kortmodulet har til opgave at lave et kort, der giver et visuelt overblik over alle bådpladser der eksisterer på en havn.
+
 \subsubsection{Funktionalitet}
 \label{ssub:kort_funktionalitet}
 
-Kortmodulet har til opgave at lave et kort, der giver et visuelt overblik over alle bådpladser der eksisterer på en havn. Kortet præsenterer bådpladsers status i form af en beskrivende farve. Eksempelvis er en optaget bådplads status repræsenteret med farven rød, imens en fri bådplads status repræsenteres med farven grøn. Kortet skal modellere virkeligheden, således at virkelighedens informationer er reflekteret i kortet. Når et andet modul ændrer en bådplads status, skal dette modul skifte bådplads beskrivende farve til den tilsvarende. Når der klikkes på en bådplads på kortet, kan følgende scenarier ske, afhængigt af hvilken bruger der klikker.
+Kortet præsenterer bådpladsers status i form af en beskrivende farve. Eksempelvis er en optaget bådplads status repræsenteret med farven rød, imens en fri bådplads status repræsenteres med farven grøn. Kortet skal modellere virkeligheden, således at virkelighedens informationer er reflekteret i kortet. Hvis et andet modul ændrer en bådplads status, skal dette modul skifte bådplads beskrivende farve til den tilsvarende. 
+
+
+\subsubsection{Implementation}
+\label{ssub:kort_implementation}
+
+Det implementerede kort er opbygget af to lag. Et statisk baggrundslag, som viser havnens broer. Et overliggende lag består af bådpladsrepræsentationer, som ligger i forhold til deres placering på baggrundslaget. En bådpladsrepræsentation er en direkte reference til en bådplads i databasen. Når en bådplads i databasen ændrer status, ændres dennes repræsentation sig i takt.
+
+\kanote{nobody knows?}
+
+Når der klikkes på en bådplads på kortet, kan følgende scenarier ske, afhængigt af hvilken bruger der klikker.
 
 \begin{description}
   \item[Brugeren ligger selv ved bådpladsen] Brugeren bliver videresendt, til et modul der viser oplysninger om brugeren.
@@ -15,9 +27,4 @@ Kortmodulet har til opgave at lave et kort, der giver et visuelt overblik over a
 
 Ved situationer der ikke matcher de ovenstående kriterier, sker der ingenting.
 
-\subsubsection{Implementation}
-\label{ssub:kort_implementation}
 
-En bådplads på kortet har en reference til en bådplads i databasen. Når en bådplads i databasen ændrer status, notificeres kort modulet, som nu kan ændre det visuelle status.
-
-\frnote{mere om kortet, hvordan bliver det tegnet? hvordan laver vi vinduet og håntere klik events?}
