@@ -4,16 +4,16 @@
 \subsubsection{Funktionalitet}
 \label{ssub:kort_funktionalitet}
 
-Kort modulet har til opgave at lave et kort, der giver et visuelt overblik over alle bådpladser der eksisterer på en havn. Kortet præsenterer bådpladsers status i form af en beskrivende farve. F.eks. er en rød bådplads en optaget bådplads. På samme måde er en grøn bådplads fri. Kortet er interaktivt forstået på den måde, at kortets informationer er spejlet fra virkeligheden. Det vil sige at når en bådplads markeres som fri af et andet modul, skifter denne bådplads sin beskrivende farve til grøn på kortet.
-
-Når der klikkes på en bestemt bådplads på kortet, kan følgende scenarier ske afhængigt af hvilken bruger der klikker.
+Kortmodulet har til opgave at lave et kort, der giver et visuelt overblik over alle bådpladser der eksisterer på en havn. Kortet præsenterer bådpladsers status i form af en beskrivende farve. Eksempelvis er en optaget bådplads status repræsenteret med farven rød, imens en fri bådplads status repræsenteres med farven grøn. Kortet skal modellere virkeligheden, således at virkelighedens informationer er reflekteret i kortet. Når et andet modul ændrer en bådplads status, skal dette modul skifte bådplads beskrivende farve til den tilsvarende. Når der klikkes på en bådplads på kortet, kan følgende scenarier ske, afhængigt af hvilken bruger der klikker.
 
 \begin{description}
-  \item[Bruger ligger selv ved bådpladsen] Brugeren bliver sendt hen til et modul der viser oplysninger om brugeren.
-  \item[Der ligger en anden bruger på pladsen] Hvis brugeren har adgang til at se oplysninger om andre brugere, bliver brugeren sendt hen til et modul der viser oplysninger om brugeren.
-  \item[Bruger er en gæst uden en eksisterende plads. Pladsen er ledig.] Brugeren bliver sendt til et reservationsmodul.
-  \item[Bruger er en gæst med en eksisterende plads. Pladsen er ledig.] Da brugeren allerede har en plads, spørges om brugeren vil flytte til den nye plads.
+  \item[Brugeren ligger selv ved bådpladsen] Brugeren bliver videresendt, til et modul der viser oplysninger om brugeren.
+  \item[Der ligger en anden bruger på bådpladsen, og brugeren har de nødvendige adgangstilladelser] Brugeren videresendes, til et modul der viser oplysninger om brugeren.
+  \item[Brugeren er en gæst uden en eksisterende bådplads. Bådpladsen er ledig.] Brugeren bliver sendt til et reservationsmodul.
+  \item[Brugeren er en gæst med en eksisterende bådplads. Bådpladsen er ledig.] Brugeren spørges om hvorvidt brugeren vil flytte til den nye plads.
 \end{description}
+
+Ved situationer der ikke matcher de ovenstående kriterier, sker der ingenting.
 
 \subsubsection{Implementation}
 \label{ssub:kort_implementation}
