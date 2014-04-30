@@ -17,7 +17,7 @@ namespace p2_projekt.controllers
 
         public static Main Main;
 
-        static List<Func<User, bool>> SearchPredicates;
+        public static event Func<User, bool> SearchPredicates;
         public static Func<User, bool> Current;
 
         public static Dictionary<TextBox, InfolineController> Dict;
@@ -25,7 +25,6 @@ namespace p2_projekt.controllers
         static SearchController()
         {
             Dict = new Dictionary<TextBox, InfolineController>();
-            SearchPredicates = new List<Func<User, bool>>();
             List = new List<User>();
             internalList = new List<User>();         
         }
@@ -55,7 +54,7 @@ namespace p2_projekt.controllers
             internalList.Clear();
             DALController us = Main.controller;
 
-            if(SearchPredicates.Count == 0)
+            if(SearchPredicates == null)
             {
                 foreach(var x in us.ReadAll<User>(x=> true))
                 {
@@ -67,7 +66,7 @@ namespace p2_projekt.controllers
 
             foreach (var x in us.ReadAll<User>(x =>
                 {
-                    foreach(var pre in SearchPredicates)
+                    foreach(Func<User, bool> pre in SearchPredicates.GetInvocationList())
                     {
                         if (!pre(x))
                             return false;
@@ -85,7 +84,7 @@ namespace p2_projekt.controllers
             if (send.Sorted)
             {
                 Current = send.predicate;
-                SearchPredicates.Remove(send.predicate);
+                SearchPredicates -= send.predicate;
             }
             else
             {
@@ -99,7 +98,7 @@ namespace p2_projekt.controllers
             InfolineController send = Dict[sender as TextBox];
             if (send.Sorted && send.predicate != null)
             {
-                SearchPredicates.Add(send.predicate);
+                SearchPredicates += send.predicate;
             }
             Current = null;
             RefreshInternal();
