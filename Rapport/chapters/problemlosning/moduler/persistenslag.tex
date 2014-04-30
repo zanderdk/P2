@@ -1,10 +1,12 @@
 \subsection{Persistenslag}
 \label{sub:persistenslag}
 
+Persistenslagsmodulet har til opgave at manipulere og læse data fra en datastruktur. 
+
 \subsubsection{Funktionalitet}
 \label{ssub:persistenslag_funktionalitet}
 
-Persistenslagsmodulet har til opgave at manipulere og læse data fra en datastruktur. En datastruktur kunne eksempelvis være en database eller en anden fil på harddisken. Modulet tilbyder basale CRUD (create, read, update og delete) operationer, hvorfra alle tænkelige persistenslagsoperationer kan opbygges af.
+En datastruktur kunne eksempelvis være en database eller en anden fil på harddisken. Modulet tilbyder basale CRUD (create, read, update og delete) operationer, hvorfra alle tænkelige persistenslagsoperationer kan opbygges af.
 
 Et eksempel på brugen af persistenslagsmodulet, kunne være loginmodulet. Loginmodulet skal verificere om et indtastet brugernavn matcher et indtastet kodeord. Til dette kan loginmodulet tilgå databasen igennem persistenslagets read operation, og herfra arbejde videre på den fundne data.
 
