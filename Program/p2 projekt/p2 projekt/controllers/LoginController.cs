@@ -14,8 +14,6 @@ namespace p2_projekt.controllers
     {
         private enum ValidateResult { Succes, WrongPassword, UserNotFound }
         
-        
-
         public bool Validate(string username, string password)
         {
             User u = FindUserByUsername(username);
@@ -42,6 +40,21 @@ namespace p2_projekt.controllers
 
             return shouldClose;
         }
+
+        public bool Validate(string userid)
+        {
+            DALController userController = Utilities.LobopDB;
+            User u = userController.Read<User>(x => x.UserId.ToString() == userid);
+            bool shouldClose = false;
+            if (u != null)
+            {
+                ValidateHandler(ValidateResult.Succes, u);
+                shouldClose = true;
+            }
+            return shouldClose;
+        }
+
+
 
         private User FindUserByUsername(string username)
         {

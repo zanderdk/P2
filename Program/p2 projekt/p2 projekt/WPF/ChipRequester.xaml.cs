@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using p2_projekt.models;
+using p2_projekt.controllers;
 
 namespace p2_projekt.WPF
 {
@@ -20,9 +21,12 @@ namespace p2_projekt.WPF
     /// </summary>
     public partial class ChipRequester : Window
     {
+        private LoginController controller;
+
         public ChipRequester()
         {
             InitializeComponent();
+            controller = new LoginController();
             ChipNum.Focus();
         }
 
@@ -43,19 +47,12 @@ namespace p2_projekt.WPF
         {
             if (e.Key == Key.Enter && !string.IsNullOrEmpty(ChipNum.Text))
             {
-                DALController userController = Utilities.LobopDB;
-                User u = userController.Read<User>(x => x.UserId.ToString() == ChipNum.Text);
-                if (u != null)
+                if (controller.Validate(ChipNum.Text))
                 {
-                    Main main = new Main(u);
-                    main.Show();
-                    this.Close();
-                }
-                else
-                {
+                    Close();
+                }else{
                     MessageBox.Show("Bruger ikke fundet");
                 }
-                
             }
         }
     }
