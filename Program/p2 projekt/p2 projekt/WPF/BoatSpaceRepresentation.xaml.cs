@@ -22,7 +22,14 @@ namespace p2_projekt.WPF
     /// </summary>
     public partial class BoatSpaceRepresentation : UserControl
     {
-        public BoatSpace BoatSpace { get; set; }
+        private BoatSpace boatSpace;
+        public BoatSpace BoatSpace {
+            get { return boatSpace; }
+            set {
+                boatSpace = value;
+                BoatSpace.OnBoatSpaceChange += BoatSpace_OnBoatSpaceChange;
+            }
+        }
 
         public Brush Fill {
             get
@@ -43,10 +50,26 @@ namespace p2_projekt.WPF
             InitializeComponent();
         }
 
+        void BoatSpace_OnBoatSpaceChange(object sender, BoatSpaceArgs e)
+        {
+            switch (e.Status)
+            {
+                case EnumBoatSpaceStatus.GuestBoat:
+                    Fill = new SolidColorBrush(Color.FromRgb(255, 0, 0));
+                    break;
+                case EnumBoatSpaceStatus.Empty:
+                    Fill = new SolidColorBrush(Color.FromRgb(0, 255, 0));
+                    break;
+                case EnumBoatSpaceStatus.MemberBoat:
+                    Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
+                    break;
+            }
+        }
+
         private void BoatSpaceGrid_MouseUp(object sender, MouseButtonEventArgs e)
         {
 
-            // TODO går bare ind på brugeren der er på pladsen lige nu
+            // TODO skal ikke bruge searchcontroller
             SearchController.Main.selectUser(BoatSpace.Boat.User);
         }
     }
