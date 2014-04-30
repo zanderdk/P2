@@ -82,8 +82,12 @@
     <Compile Include="models\BoatDetector.cs" />
     <Compile Include="models\BoatSpace.cs" />
     <Compile Include="models\Boat.cs" />
+    <Compile Include="models\BoatSpaceArgs.cs" />
+    <Compile Include="models\BoatSpaceSensorSimulator.cs" />
+    <Compile Include="models\EnumBoatSpaceStatus.cs" />
     <Compile Include="models\Guest.cs" />
     <Compile Include="models\HarbourMaster.cs" />
+    <Compile Include="models\IBoatSpaceManipulator.cs" />
     <Compile Include="models\IFullPersonalInfo.cs" />
     <Compile Include="models\ILoginable.cs" />
     <Compile Include="models\ISailor.cs" />
@@ -132,6 +136,9 @@
     </Compile>
     <Compile Include="WPF\BoatPopup.xaml.cs">
       <DependentUpon>BoatPopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WPF\MapControlPanel.xaml.cs">
+      <DependentUpon>MapControlPanel.xaml</DependentUpon>
     </Compile>
     <Compile Include="WPF\TabMap.xaml.cs">
       <DependentUpon>TabMap.xaml</DependentUpon>
@@ -205,6 +212,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WPF\BoatPopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WPF\MapControlPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

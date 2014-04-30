@@ -14,14 +14,22 @@ namespace p2_projekt.models
         public double Length { get; private set; }
         public double Width { get; private set; }
 
-        public enum EnumBoatSpaceStatus { Occupied , Empty }
+        public event EventHandler<BoatSpaceArgs> OnBoatSpaceChange = delegate { };
 
+        private EnumBoatSpaceStatus boatSpaceStatus;
         public EnumBoatSpaceStatus BoatSpaceStatus 
         { 
             get
             {
-                if (Boat == null) { return EnumBoatSpaceStatus.Empty; }
-                return EnumBoatSpaceStatus.Occupied;
+                return boatSpaceStatus;
+            }
+            set
+            {
+                if (value != null)
+                {
+                    boatSpaceStatus = value;
+                    OnBoatSpaceChange(this, new BoatSpaceArgs(value));
+                }
             }
         }
 

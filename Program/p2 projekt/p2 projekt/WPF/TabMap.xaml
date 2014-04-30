@@ -184,6 +184,8 @@
             </WrapPanel>
 
 
+            
+
             <!--<Rectangle MouseUp="Rectangle_clicked" Fill="Red" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="1" Grid.RowSpan="1" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="40"/>-->
             <!--<Rectangle MouseUp="Rectangle_clicked" Fill="Red" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="1" Grid.RowSpan="1" HorizontalAlignment="Right" VerticalAlignment="Top" Height="50" Width="40" Margin="0,0,10,0"/>-->
 
@@ -249,5 +251,6 @@
 
 
         </Grid>
+        
     </Grid>
 </UserControl>

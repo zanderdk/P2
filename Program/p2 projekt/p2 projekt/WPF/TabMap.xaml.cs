@@ -26,6 +26,7 @@ namespace p2_projekt.WPF
         public TabMap()
         {
             InitializeComponent();
+            new MapControlPanel().Show();
 
             FillBoatSpaceRepresentations();
         }
