@@ -39,14 +39,23 @@ namespace p2_projekt.WPF
             newGuestCreator.Show();
             this.Close();
         }
-        private void ChipNum_KeyUp(object sender, KeyEventArgs e) //Simluering af chiplæser PAS PÅ MED NULL-REFERENCES
+        private void ChipNum_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter && !string.IsNullOrEmpty(ChipNum.Text))
             {
                 DALController userController = Utilities.LobopDB;
-                Main main = new Main(userController.Read<User>(x => x.UserId.ToString() == ChipNum.Text));
-                main.Show();
-                this.Close();
+                User u = userController.Read<User>(x => x.UserId.ToString() == ChipNum.Text);
+                if (u != null)
+                {
+                    Main main = new Main(u);
+                    main.Show();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Bruger ikke fundet");
+                }
+                
             }
         }
     }
