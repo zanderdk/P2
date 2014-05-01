@@ -52,7 +52,7 @@
             </Border>
             <Border Margin="0,10,0,0" CornerRadius="1" BorderBrush="Gray" Background="LightGray" BorderThickness="2" DockPanel.Dock="Top">
                 <StackPanel>
-                    <Label Content="Bådresultateter" Grid.Column="0" HorizontalAlignment="Center"/>
+                    <Label Content="Bådresultater" Grid.Column="0" HorizontalAlignment="Center"/>
                     <ListBox Name="ListResultBoats" Height="154"></ListBox>
                 </StackPanel>
             </Border>
