@@ -15,7 +15,7 @@
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        <Label Content="Medlem:" Grid.RowSpan="1" VerticalAlignment="Bottom" Margin="10,0,10,0"/>
+        <Label Content="Brugerinformation:" Grid.RowSpan="1" VerticalAlignment="Bottom" Margin="10,0,10,0"/>
         <DockPanel Grid.Column="0" LastChildFill="False" Margin="10,0,10,0" Grid.ColumnSpan="1" Grid.Row="1" >
             <Border CornerRadius="1" BorderBrush="Gray" Background="LightGray" BorderThickness="2" DockPanel.Dock="Top">
                 <StackPanel>
@@ -104,8 +104,6 @@
             
             <Border VerticalAlignment="Top" Grid.RowSpan="20" CornerRadius="1" BorderBrush="Gray" Margin="0,10,0,0" Background="LightGray" BorderThickness="2" DockPanel.Dock="Top" Grid.ColumnSpan="1">
                 <StackPanel>
-                    <controllers:InfolineController x:Name="travelStart"  Title="Start" Value="{Binding Travel.Start}"/>
-                    <controllers:InfolineController x:Name="travelEnd" Title="Slut" Value="{Binding Travel.End}"/>
                     <StackPanel Orientation="Horizontal">
                         <StackPanel.Resources>
                             <Style TargetType="Button">

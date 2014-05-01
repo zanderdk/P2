@@ -250,7 +250,7 @@ namespace p2_projekt.controllers
 
                     foreach (Boat b in (x as ISailor).Boats)
                     {
-                        if (b.BoatId == id)
+                        if (b.BoatId.ToString().Contains(id.ToString()))
                             return true;
                     }
 
