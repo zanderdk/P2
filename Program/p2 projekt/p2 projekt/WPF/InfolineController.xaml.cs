@@ -39,9 +39,6 @@ namespace p2_projekt.WPF
         public static readonly DependencyProperty ValueProperty = 
             DependencyProperty.Register("Value", typeof(object), typeof(InfolineController), new PropertyMetadata(null));
 
-        public bool textChanged { get { return (Text != ""); } }
-        //public String Title { get { return label.Content.ToString(); } set { label.Content = value; } }
-
         public String Text { get { return textbox.Text; } set { textbox.Text = value; } }
 
         public event TextChangedEventHandler TextChanged { add { textbox.TextChanged += value; } remove { textbox.TextChanged -= value; } }
@@ -52,7 +49,7 @@ namespace p2_projekt.WPF
 
         public Func<User, bool> predicate;
 
-        public bool Sorted { get { return (Text != ""); } }
+        public bool IsNotEmpty { get { return (Text != ""); } }
 
         public bool readOnly { set { textbox.IsReadOnly = value; } }
 

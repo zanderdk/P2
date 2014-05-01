@@ -81,7 +81,7 @@ namespace p2_projekt.controllers
         public static void TextBox_GotFocus(object sender, RoutedEventArgs e)
         {
             InfolineController send = Dict[(sender as TextBox)]; // TODO hmmm
-            if (send.Sorted)
+            if (send.IsNotEmpty)
             {
                 Current = send.predicate;
                 SearchPredicates -= send.predicate;
@@ -96,7 +96,7 @@ namespace p2_projekt.controllers
         public static void TextBox_LostFocus(object sender, RoutedEventArgs e) //TODO fix internalRefresh
         {
             InfolineController send = Dict[sender as TextBox];
-            if (send.Sorted && send.predicate != null)
+            if (send.IsNotEmpty && send.predicate != null)
             {
                 SearchPredicates += send.predicate;
             }
@@ -107,7 +107,7 @@ namespace p2_projekt.controllers
         public static void textbox_SearchChanged(object sender, TextChangedEventArgs e)
         {
             InfolineController send = Dict[(sender as TextBox)];
-            if (send.Sorted)
+            if (send.IsNotEmpty)
             {
                 Current = SearchPredicate.GetPredicat(send);
                 send.predicate = Current;
