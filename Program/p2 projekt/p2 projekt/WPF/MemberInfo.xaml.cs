@@ -164,6 +164,7 @@ namespace p2_projekt.WPF
 
         private void Button_AddPerson(object sender, RoutedEventArgs e)
         {
+           
             try
             {
                 User u = parseParameters();

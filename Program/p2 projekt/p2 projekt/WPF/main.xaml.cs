@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using p2_projekt.models;
+using p2_projekt.controllers;
 
 
 namespace p2_projekt.WPF
@@ -29,7 +30,8 @@ namespace p2_projekt.WPF
 
             this.Width = Properties.Settings.Default.appWidth;
             this.Height = Properties.Settings.Default.appLenght;
-            
+
+            MainController.main = this;
 
             loggedIn = u;
 

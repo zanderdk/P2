@@ -15,8 +15,6 @@ namespace p2_projekt.controllers
 
         public static event Action ListToListBox;
 
-        public static Main Main;
-
         public static event Func<User, bool> SearchPredicates;
         public static Func<User, bool> Current;
 

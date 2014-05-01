@@ -87,16 +87,15 @@ namespace p2_projekt.WPF
             uc.Update<User>(traveller as User);
             
             
-            SearchController.Main.selectUser(traveller as User);
+            MainController.selectUser(traveller as User);
             
             this.Close();
         }
 
         private void Cancel(object sender, RoutedEventArgs e)
         {
-            travel.End = tempTravel.End;
-            travel.Start = tempTravel.Start;
-            SearchController.Main.selectUser(traveller as User);
+            travel = tempTravel;
+            MainController.selectUser(traveller as User);
             this.Close();
         }
     }

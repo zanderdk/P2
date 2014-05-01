@@ -24,8 +24,6 @@ namespace p2_projekt.WPF
         {
             InitializeComponent();
 
-            SearchController.Main = ma;
-
             SearchController.ListToListBox += ListToListBox;
 
             AddControllerDelegates(name);
@@ -90,7 +88,7 @@ namespace p2_projekt.WPF
             User user = (User)(sender as ListBox).SelectedItem;
             if(user != null)
             {
-                SearchController.Main.selectUser(user);
+                MainController.selectUser(user);
             }
         }
 
