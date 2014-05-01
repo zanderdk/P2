@@ -4,12 +4,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:controllers="clr-namespace:p2_projekt.WPF"
-        Height="350" Width="350">
+        Height="400" Width="350">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="5*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="3*"/>
         </Grid.RowDefinitions>
         <DockPanel LastChildFill="False" Margin="10" Grid.RowSpan="3">
             <Border CornerRadius="1" BorderBrush="Gray" Background="LightGray" BorderThickness="2" DockPanel.Dock="Top">
@@ -31,11 +31,15 @@
             <Label Margin="5" VerticalAlignment="Top" Content="Leaving the Harbor on:"/>
             <DatePicker Margin="5" Name="LeavingDate"/>
         </StackPanel>
-        <Button Command="Save" Content="Opret Gæst" HorizontalAlignment="Stretch" Margin="10" Grid.Row="2">
-            <Button.CommandBindings>
-                <CommandBinding Command="Save" 
+        <StackPanel Grid.Row="2" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+
+            <Button Command="Save" Content="Opret Gæst" HorizontalAlignment="Stretch" Margin="10" Grid.Row="2">
+                <Button.CommandBindings>
+                    <CommandBinding Command="Save" 
                     Executed="Save_Executed" CanExecute="Save_CanExecute"/>
-            </Button.CommandBindings>
-        </Button>
+                </Button.CommandBindings>
+            </Button>
+            <Button Content="Tilbage" HorizontalAlignment="Stretch" Margin="10" Grid.Row="2" Click="Button_Click"/>
+        </StackPanel>
     </Grid>
 </Window>

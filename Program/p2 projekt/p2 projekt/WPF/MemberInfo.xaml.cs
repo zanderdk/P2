@@ -58,7 +58,8 @@ namespace p2_projekt.WPF
                 Boat = SelectedBoat,
                 Travel = SelectedTravel,
                 addTravelCommand = addTravelCommand,
-                addBoatCommand = addBoatCommand
+                addBoatCommand = addBoatCommand,
+                Birthday = Current is IFullPersonalInfo ? (Current as IFullPersonalInfo).Birthday.ToString("dd/MM/yyyy") : ""
             };
         }
 
@@ -205,7 +206,6 @@ namespace p2_projekt.WPF
             AddingTravel.Show();
         }
 
-
         private void Button_EditTravel(object sender, RoutedEventArgs e)
         {
             //Travel selectedItem = listTravels.SelectedItem as Travel;
@@ -239,7 +239,6 @@ namespace p2_projekt.WPF
                 sailor.Travels.Remove(selectedItem);
                 DALController uc = Utilities.LobopDB;
                 uc.Update<User>(sailor as User);
-                SelectedTravel = null;
             }
         }
 

@@ -70,6 +70,7 @@ namespace p2_projekt.WPF
         {
 
             // TODO skal ikke bruge searchcontroller
+            
             SearchController.Main.selectUser(BoatSpace.Boat.User);
         }
     }

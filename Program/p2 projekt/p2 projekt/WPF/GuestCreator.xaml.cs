@@ -101,5 +101,12 @@ namespace p2_projekt.WPF
                 && !(string.IsNullOrEmpty(boatWidth.Text))
                 && !(string.IsNullOrEmpty(LeavingDate.ToString()));
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            ChipRequester ChipLogin = new ChipRequester();
+            ChipLogin.Show();
+            this.Close();
+        }
     }
 }

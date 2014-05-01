@@ -83,7 +83,7 @@ namespace p2_projekt.models
 
         public override string ToString()
         {
-            return string.Format("Udrejse: {0} Hjemkomst: {1}", Start, End );
+            return string.Format("Udrejse: {0} Hjemkomst: {1}", Start.ToString("dd/MM/yyyy"), End.ToString("dd/MM/yyyy"));
         }
     }
 }

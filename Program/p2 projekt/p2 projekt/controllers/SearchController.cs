@@ -52,7 +52,7 @@ namespace p2_projekt.controllers
         public static void RefreshInternal()
         {
             internalList.Clear();
-            DALController us = Main.controller;
+            DALController us = Utilities.LobopDB;
 
             if(SearchPredicates == null)
             {
