@@ -8,12 +8,7 @@ namespace p2_projekt
     {
         Random r = new Random();
         
-        
-        
-
-        
         int Registreringsnummer = 23914;
-
 
         string[] Name = new string[] { "Mette", "Jonas", "Jørgen", "Kasper", "Mads", "Johanne", "Sofie", "Pernille", "Daniel", "Mogens", "Dennis", "Hanne", "Johannes", "Simon", "Jonathan", "Martin", "Allan", "Mathilde", "Egon", "Pia" };
         string[] LastName = new string[] { "Madsen", "Mogensen", "Hansen", "Jackobsen", "Stalone", "Snoep", "Friis", "Frandsen", "Juul", "Karlsen", "Hoffmann", "Andersen", "Larsen", "Hedegaard", "Krog", "Rasmussen", "Toft", "Olsen", "Sved", "Lægteskov" };
@@ -26,12 +21,8 @@ namespace p2_projekt
         string[] AdressP2 = new string[] { "vej", "ly", "krattet", "gade" };
         double[] Dimensions = new double[] { 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12, 12.5, 13, 13.5, 14, 14.5, 15, 15.5, 16, 16.5, 17, 17.5, 18, 18.5, 19, 19.5, 20, 20.5, 21, 21.5, 22, 22.5, 23, 23.5, 24, 24.5, 25 };
 
-
-
         private Member CreateUser()
-        {
-          
-                
+        {                
                 int BirthdayYear = r.Next(1900,2005);
                 int BirthdayMonth = r.Next(1,12);
                 int BirthdayDay = r.Next(1,28);
@@ -78,9 +69,6 @@ namespace p2_projekt
 
         private BoatSpace CreateBoatSpace()
         {
-                
-                
-
                 BoatSpace boat_space = new WaterSpace(Dimensions[r.Next(0, Dimensions.Length)], Dimensions[r.Next(0, Dimensions.Length)]);
                 boat_space.Info = info[r.Next(0, info.Length)];
             
@@ -95,14 +83,64 @@ namespace p2_projekt
 
             List<User> Users = new List<User>();
             List<Boat> Boats = new List<Boat>();
-            
+
+            Member TestMember1 = new Member("Anders Andersen", new System.Device.Location.CivicAddress(), 1);
+            TestMember1.Birthday = new DateTime(2000, 01, 01);
+            TestMember1.RegistrationDate = new DateTime(2000, 01, 01);
+            TestMember1.Password = "testpass";
+            TestMember1.Email = "test1@emailtest.test";
+            TestMember1.Phone = "00000001";
+            TestMember1.Adress.CountryRegion = "Danmark";
+            TestMember1.Adress.City = "Grenå";
+            TestMember1.Adress.AddressLine1 = "Testervej 1";
+            TestMember1.Adress.PostalCode = "8464";
+            TestMember1.Permission = new Permission() { ChangePersonalInfo = PermissionLevel.None, MemberInfo = PermissionLevel.None, Search = PermissionLevel.None };
+            Boat b1 = CreateBoat();
+            b1.BoatSpace = CreateBoatSpace();
+            TestMember1.Boats.Add(b1);
+            uc.Add<User>(TestMember1);
+
+            Member TestMember2 = new Member("Bente Bent", new System.Device.Location.CivicAddress(), 2);
+            TestMember2.Birthday = new DateTime(2000, 01, 01);
+            TestMember2.RegistrationDate = new DateTime(2000, 01, 01);
+            TestMember2.Password = "testpass";
+            TestMember2.Email = "test2@emailtest.test";
+            TestMember2.Phone = "00000002";
+            TestMember2.Adress.CountryRegion = "Danmark";
+            TestMember2.Adress.City = "Grenå";
+            TestMember2.Adress.AddressLine1 = "Testervej 2";
+            TestMember2.Adress.PostalCode = "8464";
+            TestMember2.Permission = new Permission() { ChangePersonalInfo = PermissionLevel.Read, MemberInfo = PermissionLevel.Read, Search = PermissionLevel.Read };
+            Boat b2 = CreateBoat();
+            b2.BoatSpace = CreateBoatSpace();
+            TestMember2.Boats.Add(b2);
+            uc.Add<User>(TestMember2);
+
+            Member TestMember3 = new Member("Casper Christensen", new System.Device.Location.CivicAddress(), 3);
+            TestMember3.Birthday = new DateTime(2000, 01, 01);
+            TestMember3.RegistrationDate = new DateTime(2000, 01, 01);
+            TestMember3.Password = "testpass";
+            TestMember3.Email = "test3@emailtest.test";
+            TestMember3.Phone = "00000003";
+            TestMember3.Adress.CountryRegion = "Danmark";
+            TestMember3.Adress.City = "Grenå";
+            TestMember3.Adress.AddressLine1 = "Testervej 3";
+            TestMember3.Adress.PostalCode = "8464";
+            TestMember3.Permission = new Permission() { ChangePersonalInfo = PermissionLevel.Write, MemberInfo = PermissionLevel.None, Search = PermissionLevel.None };
+            b1 = CreateBoat();
+            b1.BoatSpace = CreateBoatSpace();
+            TestMember3.Boats.Add(b1);
+            uc.Add<User>(TestMember3);
+
+
+
+
             for (int i = 0; i < wantedUsers; i++)
             {
                 Member m = CreateUser();
                 Boat b = CreateBoat();
                 BoatSpace bs = CreateBoatSpace();
                 b.BoatSpace = bs;
-                //bs.Boat = b;
                 m.Boats.Add(b);
                 uc.Add<User>(m);
 
@@ -113,6 +151,8 @@ namespace p2_projekt
             //Her addes der specifikke medlemmer/både/pladser
 
         }
+
+        
 
         //Travel travel = new Travel(new DateTime(2008, 1, 1), new DateTime(2001, 1, 1));
         //Member alice = new Member("Alice", new System.Device.Location.CivicAddress()) { Password = "test" };
