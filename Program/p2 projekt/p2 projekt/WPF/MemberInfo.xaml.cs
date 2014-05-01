@@ -239,7 +239,6 @@ namespace p2_projekt.WPF
                 sailor.Travels.Remove(selectedItem);
                 DALController uc = Utilities.LobopDB;
                 uc.Update<User>(sailor as User);
-                SelectedTravel = null;
             }
         }
 
