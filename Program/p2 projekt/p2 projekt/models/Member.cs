@@ -10,10 +10,6 @@ namespace p2_projekt.models
         public int MembershipNumber { get; private set; } // backwards compatible with existing numbers from Vestre Baadelaug database.
         //public ObservableCollection<Travel> Travels { get; private set; } // All travels. Old and new.
         public bool IsActive { get; set; } // Still active in club
-        //public string Email { get; set; }
-        //public CivicAddress Adress { get; set; }
-        //public DateTime Birthday { get; set; }
-
 
         public DateTime RegistrationDate { get; set; }
         public string MembershipDuration { get { return (DateTime.Now - RegistrationDate).ToString(); } } //TODO calculate shit
@@ -73,7 +69,7 @@ namespace p2_projekt.models
             Travels[index] = travel;
         }
 
-        // TODO simon: skal denne ikke være private? vi skal ikke give al info væk. Det skal gå gennem addnewtravel osv.
+        //TODO simon: skal denne ikke være private? vi skal ikke give al info væk. Det skal gå gennem addnewtravel osv.
         public virtual ObservableCollection<Travel> Travels
         {
             get;
