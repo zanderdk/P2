@@ -23,6 +23,7 @@ namespace p2_projekt.WPF
     {
         private ISailor traveller;
         private Travel travel;
+        private Travel tempTravel;
         private Operation operation;
         private enum Operation { Add, Edit}
 
@@ -33,6 +34,7 @@ namespace p2_projekt.WPF
 
             traveller = u;
             operation = Operation.Add;
+            Title = "Tilføj rejse";
         }
 
         private void Init(){
@@ -46,17 +48,23 @@ namespace p2_projekt.WPF
         public TravelPopup(Travel t, ISailor s)
         {
             travel = t;
-
+            tempTravel = new Travel() { Start = t.Start, End = t.End, TravelId = t.TravelId, User = t.User };
             traveller = s;
             Init();
             DataContext = t;
             operation = Operation.Edit;
-
+            Title = "Redigér rejse";
         }
 
 
-        private void AddChosenTravel(object sender, RoutedEventArgs e)
+        private void Submit(object sender, RoutedEventArgs e)
         {
+            if (!LeavingDate.SelectedDate.HasValue || !ArrivalDate.SelectedDate.HasValue)
+            {
+                MessageBox.Show("Alle felter skal udfyldes");
+                return;
+            }
+
             if (LeavingDate.SelectedDate.Value.Subtract(DateTime.Now).Days < 0)
             {
                 MessageBox.Show("Vælg nyere Udrejse dato");
@@ -68,10 +76,6 @@ namespace p2_projekt.WPF
                 return;
             }
             
-            
-            
-
-            
             if (operation == Operation.Add)
             {
                 Travel TravelToBeAdded = new Travel() { Start = LeavingDate.SelectedDate.Value, End = ArrivalDate.SelectedDate.Value, User = traveller };
@@ -79,13 +83,19 @@ namespace p2_projekt.WPF
             }
 
 
-
-
             DALController uc = Utilities.LobopDB;
             uc.Update<User>(traveller as User);
             
+            
             SearchController.Main.selectUser(traveller as User);
             
+            this.Close();
+        }
+
+        private void Cancel(object sender, RoutedEventArgs e)
+        {
+            travel = tempTravel;
+            SearchController.Main.selectUser(traveller as User);
             this.Close();
         }
     }
