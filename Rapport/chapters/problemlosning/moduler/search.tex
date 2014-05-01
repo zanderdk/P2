@@ -5,7 +5,7 @@ Søgemodulet implementere en sorteringsfunktion som muligøre at sorter en liste
 \subsubsection{Funktionalitet}
 \label{sub:funktionalitet}
 
-Søgemodulets primære funktion er at sorter en liste af medlemmer og gæster, ud fra bruger defineret kriterier. Det er det muligt at sorter ud fra alle felter som en bruger måtte have. Derudover er det muligt at sorter på felter som på felter som en persons båd eller rejse inderholder. 
+Søgemodulets primære funktion er at sorter en liste af medlemmer og gæster, ud fra bruger defineret kriterier. Modulet muligøre at sorter ud fra alle felter som en bruger måtte have. Derudover er det muligt at sorter på felter som på felter som en persons båd eller rejse inderholder. 
 
 \subsubsection{Implementation}
 \label{sub:implementation}
@@ -13,8 +13,14 @@ Søgemodulets primære funktion er at sorter en liste af medlemmer og gæster, u
 Søgemodulet er indelet i de følgende 3 felter:
 
 \begin{itemize}
-	\item \textbf{Søge elementet} \\
-	
+	\item \textbf{Søge Betingelses elementet} \\
+		Dette element håndtere og validere den information som en bruger måtte indputte. Ud fra disse oplysninger konstruere Betingelses elementet et unikt prædikat per felt. Dette prædikat tager en bruger som input og outputter sandt hvis det indtastede inderholder er en del streng af brugernes pågældende felt. 
+	\item \textbf{Søge element} \\
+		Søge Elementet har til formål at sortere en liste af bruger på bagrund af prædikaterne fra Betingelses elementet. Der udover står den også for at hente brugernes oplysninger fra database. 
+		Når søge elementet bliver notificeret om at der er sket en ændring i et søge kriterie, henter den det tilhørende prædikat fra Betingelses elementet, og tilføjer prædikatet til en liste af søge kriterier. Ud fra prædikatliste sorteres listen af bruger, så kun bruger der returnere true for et hvert prædikat i listen bliver vist. 
+
+	\item \textbf{Bruger grænsefladen}
+		Bruger grænsefladen har andsvaret for at fremvise den sorterede liste samt kalde sorterings metoderen i søge elementet når bruger interagere med bruger grænsefladen. Listen af brugere vil kun inderholde de personer som inderholder tekst fra et hvert udfyldt felt.
 \end{itemize}
 
 % subsection implementation (end)
