@@ -28,11 +28,10 @@ namespace p2_projekt.WPF
         }
 
         public static readonly DependencyProperty LabelProperty =
-      DependencyProperty.Register("Title", typeof(string),
-        typeof(InfolineController), new PropertyMetadata(""));
+            DependencyProperty.Register("Title", typeof(string), typeof(InfolineController), new PropertyMetadata(""));
 
         public object Value {
-            get { return (object)GetValue(ValueProperty); }
+            get { return GetValue(ValueProperty); }
             set { SetValue(ValueProperty, value); }
         }
 
