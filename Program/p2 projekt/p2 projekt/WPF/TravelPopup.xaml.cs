@@ -94,7 +94,8 @@ namespace p2_projekt.WPF
 
         private void Cancel(object sender, RoutedEventArgs e)
         {
-            travel = tempTravel;
+            travel.End = tempTravel.End;
+            travel.Start = tempTravel.Start;
             SearchController.Main.selectUser(traveller as User);
             this.Close();
         }
