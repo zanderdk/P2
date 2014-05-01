@@ -28,22 +28,22 @@ namespace p2_projekt.WPF
 
             SearchController.ListToListBox += ListToListBox;
 
-            Add_ControllerDelegates(name);
-            Add_ControllerDelegates(birthday);
-            Add_ControllerDelegates(phone);
-            Add_ControllerDelegates(email);
-            Add_ControllerDelegates(adresse);
-            Add_ControllerDelegates(postal);
-            Add_ControllerDelegates(country);
-            Add_ControllerDelegates(memberID);
-            Add_ControllerDelegates(memberSince);
-            Add_ControllerDelegates(isActive);
-            Add_ControllerDelegates(boatOwner);
-            Add_ControllerDelegates(boatName);
-            Add_ControllerDelegates(boatID);
-            Add_ControllerDelegates(boatSpace);
-            Add_ControllerDelegates(boatLength);
-            Add_ControllerDelegates(boatWidth);
+            AddControllerDelegates(name);
+            AddControllerDelegates(birthday);
+            AddControllerDelegates(phone);
+            AddControllerDelegates(email);
+            AddControllerDelegates(adresse);
+            AddControllerDelegates(postal);
+            AddControllerDelegates(country);
+            AddControllerDelegates(memberID);
+            AddControllerDelegates(memberSince);
+            AddControllerDelegates(isActive);
+            AddControllerDelegates(boatOwner);
+            AddControllerDelegates(boatName);
+            AddControllerDelegates(boatID);
+            AddControllerDelegates(boatSpace);
+            AddControllerDelegates(boatLength);
+            AddControllerDelegates(boatWidth);
         }
 
         void addToDict(InfolineController c)
@@ -51,7 +51,7 @@ namespace p2_projekt.WPF
             SearchController.Dict.Add(c.textbox, c);
         }
 
-        void Add_ControllerDelegates(InfolineController c)
+        void AddControllerDelegates(InfolineController c)
         {
             c.TextChanged +=  textbox_SearchChanged;
             c.GotFocus += TextBox_GotFocus;
