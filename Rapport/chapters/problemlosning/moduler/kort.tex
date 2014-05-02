@@ -12,9 +12,7 @@ Kortet præsenterer bådpladsers status i form af en beskrivende farve. Eksempel
 \subsubsection{Implementation}
 \label{ssub:kort_implementation}
 
-Det implementerede kort er opbygget af to lag. Et statisk baggrundslag, som viser havnens broer. Et overliggende lag består af bådpladsrepræsentationer, som ligger i forhold til deres placering på baggrundslaget. En bådpladsrepræsentation er en direkte reference til en bådplads i databasen. Når en bådplads i databasen ændrer status, ændres dennes repræsentation sig i takt.
-
-\kanote{nobody knows?}
+Det implementerede kort er opbygget af to lag. Et statisk baggrundslag, som viser havnens broer. Dertil et overliggende lag bestående af bådpladsrepræsentationer, der ligger i forhold til deres placering på baggrundslaget. En bådpladsrepræsentation er en reference til en bådplads i databasen. Når en bådplads i databasen ændrer status, ændres dennes repræsentation sig i takt.
 
 Når der klikkes på en bådplads på kortet, kan følgende scenarier ske, afhængigt af hvilken bruger der klikker.
 
