@@ -8,13 +8,11 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <StackPanel>
         <!--Binding Name er boat.name-->
-        <controllers:InfolineController Title="Ejer(e)" Value="{Binding User.Name}" />
-        <controllers:InfolineController Title="Navn" Value="{Binding Name,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-        <controllers:InfolineController Title="Plads" Value="{Binding BoatSpace}"/>
-        <controllers:InfolineController Title="ID" Value="{Binding BoatId}" Visibility="Collapsed"/>
-        <!--TODO HEYEYEYYE boatID skal medlemmer ikke se mand!-->
-        <controllers:InfolineController Title="Reg. nr." Value="{Binding RegistrationNumber}"/>
-        <controllers:InfolineController Title="Længde" Value="{Binding Length}"/>
-        <controllers:InfolineController Title="Bredde" Value="{Binding Width}"/>
+        <controllers:InfolineController Title="Ejer(e)" Value="{Binding User.Name,Mode=TwoWay}" />
+        <controllers:InfolineController Title="Navn" Value="{Binding Name,Mode=TwoWay}"/>
+        <controllers:InfolineController Title="Plads" Value="{Binding BoatSpace,Mode=TwoWay}"/>
+        <controllers:InfolineController Title="Reg. nr." Value="{Binding RegistrationNumber,Mode=TwoWay}"/>
+        <controllers:InfolineController Title="Længde" Value="{Binding Length,Mode=TwoWay}"/>
+        <controllers:InfolineController Title="Bredde" Value="{Binding Width,Mode=TwoWay}"/>
     </StackPanel>
 </UserControl>

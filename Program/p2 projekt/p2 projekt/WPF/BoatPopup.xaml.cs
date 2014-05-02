@@ -21,7 +21,10 @@ namespace p2_projekt.WPF
     public partial class BoatPopup : Window
     {
         private Boat Boat;
+        private Boat TempBoat;
         private ISailor Sailor;
+        private Operation operation;
+        private enum Operation { Add, Edit }
 
         public BoatPopup(ISailor s)
         {
@@ -31,11 +34,27 @@ namespace p2_projekt.WPF
             Boat = new Boat();
             Boat.User = Sailor as User;
             DataContext = Boat;
+            operation = Operation.Add;
         }
 
         public BoatPopup(Boat b, ISailor s)
         {
+            Boat = b;
+            Sailor = s;
+            TempBoat = new Boat()
+            {
+                BoatSpace = b.BoatSpace,
+                Length = b.Length,
+                Width = b.Width,
+                Name = b.Name,
+                RegistrationNumber = b.RegistrationNumber,
+                User = b.User,
+                UserId = b.UserId
+            };
             Init();
+
+            DataContext = b;
+            operation = Operation.Edit;
         }
 
         private void Init()
@@ -45,8 +64,21 @@ namespace p2_projekt.WPF
 
         private void Submit(object sender, RoutedEventArgs e)
         {
+            if(
+                !string.IsNullOrWhiteSpace(Boat.Name))
+            {
+                MessageBox.Show("Udfyld alle felter");
+                return;
+            }
+            // TODO: Check om flere værdier er valide..
 
-            Sailor.Boats.Add(Boat);
+
+            if (operation == Operation.Add)
+            {
+                Sailor.Boats.Add(Boat);
+            }
+
+            
 
             DALController uc = Utilities.LobopDB;
             uc.Update<User>(Sailor as User);
@@ -56,7 +88,11 @@ namespace p2_projekt.WPF
 
         private void Cancel(object sender, RoutedEventArgs e)
         {
-            
+            Boat.Name = TempBoat.Name;
+            Boat.RegistrationNumber = TempBoat.RegistrationNumber;
+            Boat.Length = TempBoat.Length;
+            Boat.Width = TempBoat.Width;
+            this.Close();
         }
     }
 }

@@ -94,8 +94,8 @@
                             </Style>
                         </StackPanel.Resources>
                         <Button Content="Tilføj Ny båd" Command="{Binding addBoatCommand}"/>
-                        <Button Content="Ændre båd"/>
-                        <Button Content="Fjern båd"/>
+                        <Button Content="Ændre båd" Click="ChangeBoat"/>
+                        <Button Content="Fjern båd" Click="RemoveBoat"/>
                     </StackPanel>
                 </StackPanel>
             </Border>

@@ -337,6 +337,23 @@ namespace p2_projekt.WPF
             e.CanExecute = Current is ISailor;
         }
 
+        private void ChangeBoat(object sender, RoutedEventArgs e)
+        {
+            new BoatPopup(viewModel.Boat, viewModel.User as ISailor).Show();
+        }
+
+        private void RemoveBoat(object sender, RoutedEventArgs e)
+        {
+            Boat boat = viewModel.Boat;
+            if (boat != null)
+            {
+                ISailor sailor = viewModel.User as ISailor;
+                sailor.Boats.Remove(boat);
+                DALController uc = Utilities.LobopDB;
+                uc.Remove<Boat>(boat);
+            }
+        }
+
 
 
     }

@@ -71,9 +71,33 @@ namespace p2_projekt.models
                 }
             }
         }
-        public double Length { get; set; }
-        public double Width { get; set; }
-        public string RegistrationNumber { get; set; }
+
+        private double length;
+        public double Length { 
+            get { return length; } 
+            set { 
+                length = value; OnPropertyChanged("Length"); 
+            } 
+        }
+        private double width;
+        public double Width
+        {
+            get { return width; }
+            set
+            {
+                width = value; OnPropertyChanged("Width");
+            }
+        }
+
+        private string registrationNumber;
+        public string RegistrationNumber
+        {
+            get { return registrationNumber; }
+            set
+            {
+                registrationNumber = value; OnPropertyChanged("RegistrationNumber");
+            }
+        }
 
         public override bool Equals(object obj)
         {
