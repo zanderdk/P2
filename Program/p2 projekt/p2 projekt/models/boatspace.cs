@@ -25,11 +25,9 @@ namespace p2_projekt.models
             }
             set
             {
-                if (value != null)
-                {
-                    boatSpaceStatus = value;
-                    OnBoatSpaceChange(this, new BoatSpaceArgs(value));
-                }
+                boatSpaceStatus = value;
+                OnBoatSpaceChange(this, new BoatSpaceArgs(value));
+                
             }
         }
 

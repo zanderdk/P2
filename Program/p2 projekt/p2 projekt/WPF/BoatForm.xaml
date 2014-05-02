@@ -9,7 +9,7 @@
     <StackPanel>
         <!--Binding Name er boat.name-->
         <controllers:InfolineController Title="Ejer(e)" Value="{Binding User.Name}" />
-        <controllers:InfolineController Title="Navn" Value="{Binding Name, UpdateSourceTrigger=PropertyChanged}"/>
+        <controllers:InfolineController Title="Navn" Value="{Binding Name,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         <controllers:InfolineController Title="Plads" Value="{Binding BoatSpace}"/>
         <controllers:InfolineController Title="ID" Value="{Binding BoatId}" Visibility="Collapsed"/>
         <!--TODO HEYEYEYYE boatID skal medlemmer ikke se mand!-->

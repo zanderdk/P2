@@ -4,7 +4,14 @@
         xmlns:controllers="clr-namespace:p2_projekt.WPF"
         Title="NewBoatPopup" Height="300" Width="300">
 
-        <Grid>
-        <controllers:BoatForm></controllers:BoatForm>
-        </Grid>
+    <StackPanel>
+        <controllers:InfolineController Title="Navn" Value="{Binding Name,Mode=TwoWay}"/>
+        <controllers:InfolineController Title="Reg. nr." Value="{Binding RegistrationNumber,Mode=TwoWay}"/>
+        <controllers:InfolineController Title="Længde" Value="{Binding Length,Mode=TwoWay}"/>
+        <controllers:InfolineController Title="Bredde" Value="{Binding Width,Mode=TwoWay}"/>
+        <StackPanel Orientation="Horizontal">
+            <Button Content="OK" Width="100" HorizontalAlignment="Left" Margin="5,15,10,0" Click="Submit"/>
+            <Button Content="Annuller" Width="100" HorizontalAlignment="Left" Margin="5,15,10,0" Click="Cancel"/>
+        </StackPanel>
+    </StackPanel>
 </Window>

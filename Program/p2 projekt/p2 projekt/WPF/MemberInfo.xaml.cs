@@ -21,10 +21,9 @@ namespace p2_projekt.WPF
     public partial class MemberInfo : UserControl
     {
         private User Current;
-        public Boat SelectedBoat { get; private set; }
+        private MemberInfoViewModel viewModel;
+        public Boat Boat { get; private set; }
         public Travel SelectedTravel { get; private set; }
-        public AddTravelCommand addTravelCommand { get; private set; }
-        public AddBoatCommand addBoatCommand { get; private set; }
 
         public MemberInfo()
         {
@@ -35,8 +34,6 @@ namespace p2_projekt.WPF
         public MemberInfo(User s)
             : this()
         {
-            addTravelCommand = new AddTravelCommand(s);
-            addBoatCommand = new AddBoatCommand(s);
             InitUser(s);
             
             
@@ -47,20 +44,24 @@ namespace p2_projekt.WPF
         public void InitUser(User u)
         {
             Current = u;
-            
+            viewModel = new MemberInfoViewModel(Current, Boat, SelectedTravel);
             if (u is ISailor)
             {
                 InitSailor(u as ISailor);
             }
-            DataContext = new
-            {
-                User = Current,
-                Boat = SelectedBoat,
-                Travel = SelectedTravel,
-                addTravelCommand = addTravelCommand,
-                addBoatCommand = addBoatCommand,
-                Birthday = Current is IFullPersonalInfo ? (Current as IFullPersonalInfo).Birthday.ToString("dd/MM/yyyy") : ""
-            };
+
+            
+            //DataContext = new
+            //{
+            //    User = Current,
+            //    Boat = SelectedBoat,
+            //    Travel = SelectedTravel,
+            //    addTravelCommand = addTravelCommand,
+            //    addBoatCommand = addBoatCommand,
+            //    Birthday = Current is IFullPersonalInfo ? (Current as IFullPersonalInfo).Birthday.ToString("dd/MM/yyyy") : ""
+            //};
+
+            DataContext = viewModel;
         }
 
         void InitSailor(ISailor s)
@@ -140,7 +141,9 @@ namespace p2_projekt.WPF
         private void listBoats_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
             Boat b = ((sender as ListBox).SelectedItem as Boat);
-            SelectedBoat = b;
+            Boat = b;
+
+            viewModel.Boat = Boat;
             if((sender as ListBox).SelectedItem != null)
             {
                 //FillBoat(b); 
@@ -334,47 +337,7 @@ namespace p2_projekt.WPF
             e.CanExecute = Current is ISailor;
         }
 
-        public class AddBoatCommand : ICommand
-        {
-            private User user;
-            public AddBoatCommand(User s)
-            {
-                user = s;
-            }
 
-            public bool CanExecute(object parameter)
-            {
-                return user is Member;
-            }
-
-            public event EventHandler CanExecuteChanged;
-
-            public void Execute(object parameter)
-            {
-                new BoatPopup(user as ISailor).Show();
-            }
-        }
-
-        public class AddTravelCommand : ICommand
-        {
-            private User user;
-            public AddTravelCommand(User s)
-            {
-                user = s;
-            }
-
-            public bool CanExecute(object parameter)
-            {
-                return  user is Member;
-            }
-
-            public event EventHandler CanExecuteChanged;
-
-            public void Execute(object parameter)
-            {
-                new TravelPopup(user as ISailor).Show();
-            }
-        }
 
     }
 
