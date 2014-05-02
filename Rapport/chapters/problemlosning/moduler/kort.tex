@@ -16,12 +16,20 @@ Det implementerede kort er opbygget af to lag. Et statisk baggrundslag, som vise
 
 Når der klikkes på en bådplads på kortet, kan følgende scenarier ske, afhængigt af hvilken bruger der klikker.
 
-\begin{description}
-  \item[Brugeren ligger selv ved bådpladsen] Brugeren bliver videresendt, til et modul der viser oplysninger om brugeren.
-  \item[Der ligger en anden bruger på bådpladsen, og brugeren har de nødvendige adgangstilladelser] Brugeren videresendes, til et modul der viser oplysninger om brugeren.
-  \item[Brugeren er en gæst uden en eksisterende bådplads. Bådpladsen er ledig.] Brugeren bliver sendt til et reservationsmodul.
-  \item[Brugeren er en gæst med en eksisterende bådplads. Bådpladsen er ledig.] Brugeren spørges om hvorvidt brugeren vil flytte til den nye plads.
-\end{description}
+\begin{tabu} to \textwidth {XX}
+  \toprule
+  \textbf{Tilstand} & \textbf{Reaktion} \\
+   \midrule
+   Brugeren ligger selv ved bådpladsen & Brugeren bliver videresendt til et modul der viser oplysninger om brugeren \\
+   \midrule
+  Der ligger en anden bruger på bådpladsen, og brugeren har de nødvendige adgangstilladelser & Brugeren videresendes, til et modul der viser oplysninger om brugeren \\
+  \midrule
+   Brugeren er en gæst uden en eksisterende bådplads. Bådpladsen er ledig & Brugeren bliver sendt til et reservationsmodul \\ 
+   \midrule
+   Brugeren er en gæst med en eksisterende bådplads. Bådpladsen er ledig & Brugeren spørges om hvorvidt brugeren vil flytte til den nye plads \\
+   \bottomrule 
+\end{tabu}
+
 
 Ved situationer der ikke matcher de ovenstående kriterier, sker der ingenting.
 
