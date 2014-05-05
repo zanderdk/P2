@@ -59,7 +59,7 @@ private DbSet<T> VerifyTable<T>(LobopContext context) where T : class
   } 
 \end{lstlisting}
 
-Den færdige Remove metode der er generisk, virker nu på tværs af alle klasser, ved hjælp af reflektion. En forsimplet implementation der benytter VerifyTable af Remove meotden ses i \cref{lst:reflektion_remove3}. Hvis en Titanic båden skal fjernes fra \enquote{Boats} tabellen, kaldes koden set i \cref{lst:reflektion_remove4}. Der er nu ingen behov for at specificere i hvilken tabel titanic skal fjernes fra, da Remove selv kan regne dette ud udfra den generiske typeparameter <Boat>.
+Den færdige Remove metode der er generisk, virker nu på tværs af alle klasser, ved hjælp af reflektion. En forsimplet implementation der benytter VerifyTable af Remove meotden ses i \cref{lst:reflektion_remove3}. Hvis en Titanic båden skal fjernes fra \enquote{Boats} tabellen, kaldes koden set i \cref{lst:reflektion_remove4}. Der er nu ingen behov for at specificere i hvilken tabel Titanic skal fjernes fra, da Remove selv kan regne dette ud udfra den generiske typeparameter <Boat>.
 
 \begin{lstlisting}[label=lst:reflektion_remove4]
 Remove<Boat>(titanic);

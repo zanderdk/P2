@@ -6,7 +6,7 @@
 \frnote{Her skal der være et billede at vores flotte UML diagram}
 \label{sub:uml_diagram}
 
-\subsubsection{Modellering af Brugere}
+\subsection{Modellering af Brugere}
 \label{sub:brugere_af_programmet}
 
 I klassehierarkiets top ligger den abstrakte klasse \enquote{User}. En \enquote{User} er en generel bruger af systemet. Denne klasse definerer alle fællestræk de nedvarende klasser skal have. Dette inkluderer brugerrettigheder og basale informationer som telefonnummer, navn og adresse. Der findes tre forskellige interfaces, der indeholder forskellige informationer om brugere: \enquote{IFullPersonalInfo}, \enquote{ISailor}, \enquote{ILoginable}.
@@ -20,7 +20,7 @@ For at differentiere subklasserne, implementeres forskellige kombinationer af in
 
 En medlems rejse modelleres med klassen \enquote{Travel}. Den indeholder information om rejsen start- og slutdato. \enquote{Travels} bruges også til at angive hvor lang tid en gæst ligger i havnen. \enquote{Travel} implementere \enquote{IEquatable} interfacet, som gør det muligt at sammenligne med andre klasser af samme type. Klasser der implementere ISailor indeholder en liste af \enquote{Travels}.
 
-\subsubsection{Modellering af Både}
+\subsection{Modellering af Både}
 \label{sub:bade}
 
 Der er lavet en klasse til både, der hedder \enquote{Boat}. Denne klasse bruges til at gemme data tilhørende en båd. Der gemmes dens navn og størrelse, så man kan tjekke hvorvidt en given plads er stor nok til at rumme båden.

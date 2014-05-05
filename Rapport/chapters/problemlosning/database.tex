@@ -1,24 +1,23 @@
 \subsection{Databasehåndtering}
 \label{sec:database}
-I dette projekt benyttes Entity Framework, som er Microsofts anbefalede teknologi til at tilgå data \cite{entity}. Entity Framework er et object-relation mapping framework \cite{lerman2010programming}, der gør det muligt at konvertere data i mellem objekter og andre typesystemer som for eksempel en database. Dette giver programøren en virtuel objekt database, hvor det fremstår, som at man kan gemme objekter i en database, der normalt kun kan gemme enkelte talværdier. Entity er med til nedsætte behovet for at skrive kode der har med data tilgang at gøre. Det er disse fordele der har gjort at Entity blev valgt. Entity er en del af .NET Frameworket.
+I dette projekt benyttes Entity Framework, herefter \enquote{Entity}, som er Microsofts anbefalede teknologi til at tilgå data \cite{entity}. Entity er et \enquote{object-relation mapping framework} \cite{lerman2010programming}, der gør det muligt at konvertere data i mellem objekter og andre typesystemer som for eksempel en database. Dette giver programmøren en virtuel objekt database, hvor det fremstår, som at man kan gemme objekter i en database, der normalt kun kan gemme enkelte talværdier. Entity nedsætter behovet for at skrive kode, der har med data tilgang at gøre. Det er disse fordele der har gjort at Entity blev valgt. Entity er en del af .NET.
 
-% subsection databasetransaktioner (end)
 
 \subsection{Code First}
 \label{sub:code_first}
-Entity bruger en model for hvert objekt den skal gemme. Brugeren af Frameworket skal definere en model. Der er flere måder at gøre dette på, men i dette projekt bruges \enquote{Code First}. Med Code First skal programøren først skrive sin model som en C\# klasse. Derefter kan frameworket bruges til at gemme disse klasser i en database. Entity Framework kan ud fra felterne i den modellerede klasse selv oprette de nødvendige kolonner i databasen. Entity Framework er altså en abstraktion for tilgangen til en underliggende database. Dermed kan brugeren af Enity Framework nøjes med at bekymre sig om programmeringen af modellen der skal gemmes.
+Entity bruger en model for hvert objekt den skal gemme. Brugere af Entity skal definere modellen. Der er flere måder at gøre dette på, men i dette projekt bruges \enquote{Code First}. Med \enquote{Code First} skal programøren først skrive sin model som en C\# klasse. Derefter kan Entity bruges til at gemme disse klasser i en database. Entity kan ud fra felterne i den modellerede klasse selv oprette de nødvendige kolonner i databasen. Entity er altså en abstraktion for tilgangen til en underliggende database. Dermed kan brugeren af Entity nøjes med at bekymrer sig om programmeringen af modellen som skal gemmes.
 
 \subsection{Annoteringer}
 \label{sub:annoteringer}
-Selvom Entity Framework kan gøre mange ting automatisk, skal brugeren af frameworket angive forskellige informationer. Når Entity Framework skal lave database tabeller, skal det vide hvilket felt i C\# klassen der skal være \enquote{Primary Key}. En primary key (PK) er et unikt indeks til databasen, så den kan identificere de forskellige elementer i tabellen. Et felt i en klasse angives som PK ved at kalde feltnavnet for \enquote{<klassenavn>Id}. Denne konvention kan dog udelades, hvis bare feltet annoteres med \enquote{[Key]}.
+Selvom Entity kan gøre mange ting automatisk, skal brugeren angive forskellige informationer. Når Entity skal lave database tabeller, skal det vide hvilket felt i C\# klassen der skal være \enquote{Primary Key}. En primary key (PK) er et unikt indeks til databasen, så den kan identificere de forskellige elementer i tabellen. Et felt i en klasse angives som PK ved at kalde feltnavnet for \enquote{<klassenavn>Id}. Denne konvention kan dog udelades, hvis bare feltet annoteres med \enquote{[Key]}.
 
 \subsection{Migreringer}
 \label{sub:migreringer}
 
 Migreringer skal benyttes når programmøren gerne vil flytte data fra én database til en anden. En sådan situation kan opstå hvis en eksisterende database mangler en bestemt kolonne, f.eks. antal æbler. Denne database har været i brug, og indeholder derfor vigtig information, som ikke må gå tabt. Opgaven er nu at flytte den vigtige information fra den eksisterende database til en ny database der har den ønskede antal æbler kolonne.
 
-Dette foregår i Entity Framework ved hjælp af Package Manager Console i Visual Studio. Først skal programmøren fortælle Entity Framework at den skal slå migrationer til. Dette gøres ved at skrive \enquote{Enable-Migrations} i Package Manager Console.
+Dette foregår i Entity ved hjælp af Package Manager Console i Visual Studio. Først skal programmøren fortælle Entity at den skal slå migrationer til. Dette gøres ved at skrive \enquote{Enable-Migrations} i Package Manager Console.
 
-Nu kan programmøren lave en ændring i en model, i dette tilfælde tilføje et felt holder informationer om antallet af æbler. I Package Manager Console skrives nu \enquote{Add-Migration <migrations tekst>}, hvor migrations tekst er en beskrivende tekst til migrationen. Entity Framework klarer nu arbejdet med at udregne hvilke ændringer der skal foretages når der skal opgraderes til denne nyligt oprettede migration, samt hvad der skal ske hvis der skal nedgraderes fra denne migration.
+Nu kan programmøren lave en ændring i en model, i dette tilfælde tilføje et felt holder informationer om antallet af æbler. I Package Manager Console skrives nu \enquote{Add-Migration <migrations tekst>}, hvor migrations tekst er en beskrivende tekst til migrationen. Entity klarer nu arbejdet med at udregne hvilke ændringer der skal foretages når der skal opgraderes til denne nyligt oprettede migration, samt hvad der skal ske hvis der skal nedgraderes fra denne migration.
 
 For at anvende den nye migration, skrives \enquote{Update-Database} i Package Manager Console.
