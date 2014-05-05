@@ -18,11 +18,11 @@ namespace p2_projekt.controllers
         public static event Func<User, bool> SearchPredicates;
         public static Func<User, bool> Current;
 
-        public static Dictionary<TextBox, InfolineController> Dict;
+        public static Dictionary<TextBox, InfolineControl> Dict;
 
         static SearchController()
         {
-            Dict = new Dictionary<TextBox, InfolineController>();
+            Dict = new Dictionary<TextBox, InfolineControl>();
             List = new List<User>();
             internalList = new List<User>();         
         }
@@ -78,7 +78,7 @@ namespace p2_projekt.controllers
 
         public static void TextBox_GotFocus(object sender, RoutedEventArgs e)
         {
-            InfolineController send = Dict[(sender as TextBox)]; // TODO hmmm
+            InfolineControl send = Dict[(sender as TextBox)]; // TODO hmmm
             if (send.IsNotEmpty)
             {
                 Current = send.predicate;
@@ -93,7 +93,7 @@ namespace p2_projekt.controllers
 
         public static void TextBox_LostFocus(object sender, RoutedEventArgs e) //TODO fix internalRefresh
         {
-            InfolineController send = Dict[sender as TextBox];
+            InfolineControl send = Dict[sender as TextBox];
             if (send.IsNotEmpty && send.predicate != null)
             {
                 SearchPredicates += send.predicate;
@@ -104,7 +104,7 @@ namespace p2_projekt.controllers
 
         public static void textbox_SearchChanged(object sender, TextChangedEventArgs e)
         {
-            InfolineController send = Dict[(sender as TextBox)];
+            InfolineControl send = Dict[(sender as TextBox)];
             if (send.IsNotEmpty)
             {
                 Current = SearchPredicate.GetPredicat(send);

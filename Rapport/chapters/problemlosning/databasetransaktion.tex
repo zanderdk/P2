@@ -1,30 +1,32 @@
 \section{Database} 
 \label{sec:database}
 
-En database er en måde at organisere og strukturer støre mængder data på ved brug af tabeller. En database bruges til at hånter opgaver som at gemme, hente eller søge i lagrede data. En fil lagrede på hardisk kan ikke skrives til af flere processer på samme tid, en database derimod kan håndtere andmodningger fra flere aktører synkront. Det er et krav til vores system er at flere bruger skal kunne bruge systemet på samme tid uafhængigt af hinanden. Derfor skal flere instanser af programmet have mulighed for at tilgå den samme data både synkront og asynkront, dette er en væsentlig funktionalitet som brugen af en database tilføjer til programmet \cite{DatabaseMicosoftOffice}. 
+En database er en organisering af en mængde data, ved brug af tabeller. En database bruges til at håndtere opgaver såsom, at gemme, hente eller søge i ofte store mængder lagrede data. En normal fil kan ikke skrives til, fra flere processer på samme tid, hvor en database derimod kan håndtere anmodninger fra flere aktører synkront. Et krav til løsningen er muligheden for at flere bruger kan anvende systemet på samme tid.. Derfor skal flere instanser af programmet, have mulighed for at tilgå den samme data både synkront og asynkront. Dette er en væsentlig funktionalitet som anvendelse af en database tilføjer til programmet \cite{DatabaseMicosoftOffice}. 
 
 \subsection{Databasetransaktion}
 \label{sub:databasetransaktion}
 
-Hvergang man udføre en eller flere operation på databasen, benyttes en databasetransaktion til at sikre at alle operationerne udføres. En databasetransaktion er en gruppering af operation, som databasen betraktes som en enhed, ingen operation kan udføre for uden at resten udføres. Såfremt en operation fejler fortrydes alle andre grupperede operationer \cite{databasetransaktion}.
+Hver gang man udfører en eller flere operation på databasen, benyttes en databasetransaktion, for at sikre, at alle operationerne udføres. En databasetransaktion er en gruppering af operationer, som databasen betragter som en samlet enhed. Denne gruppering udgør en mængde operationer, hvor ingen af operationerne skal udføres uden de andre. Såfremt en operation fejler fortrydes alle andre operationer i grupperingen. Dette gøres for at opretholde en synkronisering mellem sammenhængende data\cite{databasetransaktion}.
 
 \subsection{ACID}
 \label{sub:acid}
 
-ACID er et set af egenskaber som sikre at en database handler som beskrevet tiddeligere under en hver database transaktion. ACID er et akronym de følgende fire egenskaber: 
+\kanote{overvej danske navne for ACID}
+
+ACID er et akronym for et sæt af forudsætninger, som sikrer at en database fungerer, som beskrevet tidligere, ved samtlige databasetransaktioner. Sættet består af følgende fire forudsætninger: 
 
 \begin{itemize}
 	\item \textbf{Atomicity} \\
-		I tilfælde af at en operation fejler skal alle operationer i transaktionen gendannes, så database har samme tilstand som før transaktionens start. 
+		Hvis én operation slår fejl, skal alle operationer i transaktionen tilbageføres, så database har samme tilstand som før transaktionens start. 
 
 	\item \textbf{Consistency} \\
-		Alt data skal valideres før det skrives til databasen. Denne egenskab skal sikre at alt data fra transaktion er valideret før nogen anden del af data gemmes. Derved sikres at databasen altid havner en valideret tilstand.
+		Alt data skal valideres før det skrives til databasen. Dette skal sikre at alt data fra transaktion, er valideret før nogen anden del af data gemmes. Derved sikres at databasen, altid forbliver i en valideret tilstand.
 
 	\item \textbf{Isolation} \\
-		Transaktionerne skal udføres sekventielt og isoleret fra hindanden. En transaktion må ikke kunne se ændringer fra en anden ufærdig transaktion. Ved at udføre alle transaktion sekventielt sikres det at en transaktion ikke benytter sig af ugyldigt data fra en anden transaktion.
+		Transaktionerne skal udføres sekventielt og isoleret fra hinanden. En transaktion må ikke kunne se ændringer fra en anden ufuldendt transaktion. Ved at udføre alle transaktion sekventielt sikres det at en transaktion ikke benytter sig af ugyldigt data fra en anden transaktion.
 
 	\item \textbf{Durability} \\
-		Denne egenskab skal sikre at når en transaktion er udført, er den gemt på en permanent lagerplads. Så selv hvis strømmen går skal alle effekterne af transaktionen være udført.
+		Når en transaktion er udført, skal den gemmes på en permanent lagerplads. Selv hvis strømmen går skal alle effekterne af transaktionen være udført.
 \end{itemize}
 
 % subsection acid (end)

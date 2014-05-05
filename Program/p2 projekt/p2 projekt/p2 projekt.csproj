@@ -80,8 +80,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="controllers\BoatController.cs" />
     <Compile Include="controllers\LoginController.cs" />
     <Compile Include="controllers\MainController.cs" />
+    <Compile Include="controllers\TravelController.cs" />
     <Compile Include="controllers\UserController.cs" />
     <Compile Include="controllers\memberInfoController.cs" />
     <Compile Include="controllers\SearchController.cs" />
@@ -101,6 +103,7 @@
     <Compile Include="models\BoatSpaceArgs.cs" />
     <Compile Include="models\BoatSpaceSensorSimulator.cs" />
     <Compile Include="models\EnumBoatSpaceStatus.cs" />
+    <Compile Include="models\EnumOperation.cs" />
     <Compile Include="models\Guest.cs" />
     <Compile Include="models\HarbourMaster.cs" />
     <Compile Include="models\IBoatSpaceManipulator.cs" />
@@ -141,8 +144,8 @@
     <Compile Include="WPF\GuestCreator.xaml.cs">
       <DependentUpon>GuestCreator.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WPF\InfolineController.xaml.cs">
-      <DependentUpon>InfolineController.xaml</DependentUpon>
+    <Compile Include="WPF\InfolineControl.xaml.cs">
+      <DependentUpon>InfolineControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="WPF\loginscreen.xaml.cs">
       <DependentUpon>loginscreen.xaml</DependentUpon>
@@ -168,9 +171,6 @@
     </Compile>
     <Compile Include="WPF\SearchTab.xaml.cs">
       <DependentUpon>SearchTab.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="WPF\Settings.xaml.cs">
-      <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
     <Compile Include="WPF\TravelPopup.xaml.cs">
       <DependentUpon>TravelPopup.xaml</DependentUpon>
@@ -219,7 +219,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="WPF\InfolineController.xaml">
+    <Page Include="WPF\InfolineControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -254,10 +254,6 @@
     <Page Include="WPF\SearchTab.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="WPF\Settings.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WPF\TravelPopup.xaml">
       <SubType>Designer</SubType>

@@ -20,10 +20,7 @@ namespace p2_projekt.WPF
     //TODO Synlighed ved "aktiv" felt
     public partial class MemberInfo : UserControl
     {
-        private User Current;
         private MemberInfoViewModel viewModel;
-        public Boat Boat { get; private set; }
-        public Travel SelectedTravel { get; private set; }
 
         public MemberInfo()
         {
@@ -35,38 +32,22 @@ namespace p2_projekt.WPF
             : this()
         {
             InitUser(s);
-            
-            
-            //new NewBoatPopup((Current as ISailor).Boats[0]).Show();
         }
 
 
         public void InitUser(User u)
         {
-            Current = u;
-            viewModel = new MemberInfoViewModel(Current, Boat, SelectedTravel);
+            viewModel = new MemberInfoViewModel(u);
             if (u is ISailor)
             {
                 InitSailor(u as ISailor);
             }
-
-            
-            //DataContext = new
-            //{
-            //    User = Current,
-            //    Boat = SelectedBoat,
-            //    Travel = SelectedTravel,
-            //    addTravelCommand = addTravelCommand,
-            //    addBoatCommand = addBoatCommand,
-            //    Birthday = Current is IFullPersonalInfo ? (Current as IFullPersonalInfo).Birthday.ToString("dd/MM/yyyy") : ""
-            //};
 
             DataContext = viewModel;
         }
 
         void InitSailor(ISailor s)
         {
-            FillSailor(s);
             if (s.Boats != null)
             {
                 listBoats.ItemsSource = s.Boats;
@@ -78,86 +59,28 @@ namespace p2_projekt.WPF
                 listTravels.ItemsSource = s.Travels;
                 SetDefaultSelectedItem(s, listTravels);
                 }
-
-            //if (s is Member) { NewTravelButton.IsEnabled = true; }
             }
 
         private void SetDefaultSelectedItem(ISailor s, ListBox list)
         {
-            if (s.Boats.Count() > 0)
+            if (list.Items.Count > 0)
             {
                 list.SelectedIndex = 0;
-        }
-        }
-
-        public void FillBoat(Boat b)
-        {
-            //boatName.Text = b.Name;
-            ////boatOwner.Text = b.User.Name;
-            //boatLength.Text = b.Length.ToString();
-            //boatWidth.Text = b.Width.ToString();
-            //if (b.BoatSpace != null)
-            //{
-            //    boatSpace.Text = b.BoatSpace.ToString();
-            //}
-            //boatID.Text = b.RegistrationNumber;
-        }
-
-        private void FillTravel(Travel t)
-        {
-            //travelStart.Text = t.Start.ToShortDateString();
-            //travelEnd.Text = t.End.ToShortDateString();
-        }
-
-        public void FillSailor(ISailor s)
-        {
-            //TODO label hvorvidt Sailor er medlem eller gæst.
-            //TODO tilføj/fjern båd skal ikke være mulig for alle.
-
-            User u = (User)s;
-            //name.Text = u.Name;
-            //phone.Text = u.Phone;
-            //adresse.Text = u.Adress.AddressLine1;
-            //postal.Text = u.Adress.PostalCode;
-            //country.Text = u.Adress.CountryRegion;
-            //city.Text = u.Adress.City;
-            IFullPersonalInfo fullPersonalInfo = u as IFullPersonalInfo;
-            if (fullPersonalInfo != null)
-            {
-                //birthday.Text = fullPersonalInfo.Birthday.ToString();
-
-                
-                //email.Text = fullPersonalInfo.Email.ToString();
-
             }
-            //Member Member = u as Member;
-            //if (Member != null)
-            //{
-               
-            //}
-
         }
+
 
         private void listBoats_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
             Boat b = ((sender as ListBox).SelectedItem as Boat);
-            Boat = b;
 
-            viewModel.Boat = Boat;
-            if((sender as ListBox).SelectedItem != null)
-            {
-                //FillBoat(b); 
-            }
+            viewModel.Boat = b;
         }
 
         private void listTravels_SelectionChanged(object sender, SelectionChangedEventArgs e)
          {
              Travel selectedItem = (sender as ListBox).SelectedItem as Travel;
-             SelectedTravel = selectedItem;
-             if (selectedItem != null)
-             {
-                 //FillTravel(selectedItem);
-             }
+             viewModel.Travel = selectedItem;
          }
 
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
@@ -167,86 +90,47 @@ namespace p2_projekt.WPF
 
         private void Button_AddPerson(object sender, RoutedEventArgs e)
         {
-           
-
-
-
-            //try
-            //{
-            //    User u = parseParameters();
-            //    MemberInfoController.ValidateUser(u);
-            //    Utilities.LobopDB.Add(u);
-            //    MessageBox.Show("Bruger oprettet.");
+            try
+            {
+                User u = parseParameters();
+                MemberInfoController.ValidateUser(u);
+                Utilities.LobopDB.Add(u);
+                MessageBox.Show("Bruger oprettet.");
                 
-            //}catch (ArgumentException arg)
-            //{
-            //    if (arg.Message == "ID")
-            //        MessageBox.Show("Id ikke gyldigt");
+            }catch (ArgumentException arg)
+            {
+                if (arg.Message == "ID")
+                    MessageBox.Show("Id ikke gyldigt");
 
-            //    if (arg.Message == "par")
-            //        MessageBox.Show("følgende felter skal udfyldes: \n Navn, Fødselsdag, tlf. nr., postnr., Adresse, Land, By");
-            //    else
-            //    {
-            //        MessageBox.Show(arg.Message);
-            //    }
-            //}
-        }
-
-        public void ClearBoatInfo()
-        {
-            //boatName.Text = "";
-            //boatOwner.Text = "";
-            //boatLength.Text = "";
-            //boatWidth.Text = "";
-            //boatSpace.Text = "";
-            //boatID.Text = "";
+                if (arg.Message == "par")
+                    MessageBox.Show("følgende felter skal udfyldes: \n Navn, Fødselsdag, tlf. nr., postnr., Adresse, Land, By");
+                else
+                {
+                    MessageBox.Show(arg.Message);
+                }
+            }
         }
 
         private void Button_ChangeUser(object sender, RoutedEventArgs e)
         {
-            new memberCreator(Current).Show();
+
         }
 
         private void AddNewTravel(object sender, RoutedEventArgs e)
         {
-            TravelPopup AddingTravel = new TravelPopup(Current as ISailor);
+            TravelPopup AddingTravel = new TravelPopup(viewModel.User as ISailor);
             AddingTravel.Show();
         }
 
         private void Button_EditTravel(object sender, RoutedEventArgs e)
         {
-            //Travel selectedItem = listTravels.SelectedItem as Travel;
-
-            new TravelPopup(SelectedTravel, Current as ISailor).Show();
-
-            //// We know it is a sailor, because otherwise he wouldn't be able to remove travel, so no need to null check
-            //ISailor sailor = Current as ISailor;
-            //if (selectedItem != null)
-            //{
-            //    Travel newTravel = new Travel(newStart, newEnd);
-            //    int indexToReplace = sailor.Travels.IndexOf(selectedItem);
-            //    sailor.Travels.Remove(selectedItem);
-            //    sailor.Travels.Insert(indexToReplace, newTravel);
-            //    UserController uc = Utilities.lobopDB;
-            //    uc.Update<User>(sailor as User);
-            //}
-
+            new TravelPopup(viewModel.Travel, viewModel.User as ISailor).Show();
         }
 
         private void Button_RemoveTravel(object sender, RoutedEventArgs e)
         {
-            Travel selectedItem = SelectedTravel;
-
-            // We know it is a sailor, because otherwise he wouldn't be able to remove travel, so no need to null check
-            ISailor sailor = Current as ISailor;
-
-
-            if (selectedItem != null)
-            {
-                sailor.Travels.Remove(selectedItem);
-                DALController uc = Utilities.LobopDB;
-                uc.Update<User>(sailor as User);
-            }
+            ISailor sailor = viewModel.User as ISailor;
+            new TravelController().Delete(viewModel.Travel, sailor);
         }
 
         User parseParameters()
@@ -332,12 +216,12 @@ namespace p2_projekt.WPF
 
         private void AddTravel_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            new TravelPopup(Current as ISailor).Show();
+            new TravelPopup(viewModel.User as ISailor).Show();
         }
 
         private void AddTravel_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-            e.CanExecute = Current is ISailor;
+            e.CanExecute = viewModel.User is ISailor;
         }
 
         private void ChangeBoat(object sender, RoutedEventArgs e)
@@ -348,18 +232,8 @@ namespace p2_projekt.WPF
         private void RemoveBoat(object sender, RoutedEventArgs e)
         {
             Boat boat = viewModel.Boat;
-            if (boat != null)
-            {
-                ISailor sailor = viewModel.User as ISailor;
-                sailor.Boats.Remove(boat);
-                DALController uc = Utilities.LobopDB;
-                uc.Remove<Boat>(boat);
-            }
+            ISailor sailor = viewModel.User as ISailor;
+            new BoatController().Delete(boat, sailor);
         }
-
-
-
     }
-
-    
 }

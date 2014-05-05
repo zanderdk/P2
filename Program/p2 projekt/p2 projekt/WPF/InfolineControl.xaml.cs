@@ -17,9 +17,9 @@ using p2_projekt.models;
 namespace p2_projekt.WPF
 {
     /// <summary>
-    /// Interaction logic for InfolineController.xaml
+    /// Interaction logic for InfolineControl.xaml
     /// </summary>
-    public partial class InfolineController : UserControl
+    public partial class InfolineControl : UserControl
     {
         public String Title
         {
@@ -28,7 +28,7 @@ namespace p2_projekt.WPF
         }
 
         public static readonly DependencyProperty LabelProperty =
-            DependencyProperty.Register("Title", typeof(string), typeof(InfolineController), new PropertyMetadata(""));
+            DependencyProperty.Register("Title", typeof(string), typeof(InfolineControl), new PropertyMetadata(""));
 
         public object Value {
             get { return GetValue(ValueProperty); }
@@ -36,7 +36,7 @@ namespace p2_projekt.WPF
         }
 
         public static readonly DependencyProperty ValueProperty = 
-            DependencyProperty.Register("Value", typeof(object), typeof(InfolineController), new PropertyMetadata(null));
+            DependencyProperty.Register("Value", typeof(object), typeof(InfolineControl), new PropertyMetadata(null));
 
         public String Text { get { return textbox.Text; } set { textbox.Text = value; } }
 
@@ -52,7 +52,7 @@ namespace p2_projekt.WPF
 
         public bool readOnly { set { textbox.IsReadOnly = value; } }
 
-        public InfolineController()
+        public InfolineControl()
         {
             InitializeComponent();
             LayoutRoot.DataContext = this;

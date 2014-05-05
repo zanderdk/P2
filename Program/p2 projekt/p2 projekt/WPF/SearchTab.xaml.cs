@@ -44,12 +44,12 @@ namespace p2_projekt.WPF
             AddControllerDelegates(boatWidth);
         }
 
-        void addToDict(InfolineController c)
+        void addToDict(InfolineControl c)
         {
             SearchController.Dict.Add(c.textbox, c);
         }
 
-        void AddControllerDelegates(InfolineController c)
+        void AddControllerDelegates(InfolineControl c)
         {
             c.TextChanged +=  textbox_SearchChanged;
             c.GotFocus += TextBox_GotFocus;
