@@ -81,8 +81,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="controllers\BoatController.cs" />
     <Compile Include="controllers\LoginController.cs" />
     <Compile Include="controllers\MainController.cs" />
+    <Compile Include="controllers\TravelController.cs" />
     <Compile Include="controllers\UserController.cs" />
     <Compile Include="controllers\memberInfoController.cs" />
     <Compile Include="controllers\SearchController.cs" />
@@ -102,6 +104,7 @@
     <Compile Include="models\BoatSpaceArgs.cs" />
     <Compile Include="models\BoatSpaceSensorSimulator.cs" />
     <Compile Include="models\EnumBoatSpaceStatus.cs" />
+    <Compile Include="models\EnumOperation.cs" />
     <Compile Include="models\Guest.cs" />
     <Compile Include="models\HarbourMaster.cs" />
     <Compile Include="models\IBoatSpaceManipulator.cs" />

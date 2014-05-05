@@ -1,4 +1,5 @@
-﻿using p2_projekt.models;
+﻿using p2_projekt.controllers;
+using p2_projekt.models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,46 +16,32 @@ using System.Windows.Shapes;
 
 namespace p2_projekt.WPF
 {
-    /// <summary>
-    /// Interaction logic for NewBoatPopup.xaml
-    /// </summary>
     public partial class BoatPopup : Window
     {
         private Boat Boat;
-        private Boat TempBoat;
         private ISailor Sailor;
-        private Operation operation;
-        private enum Operation { Add, Edit }
+        private BoatController controller;
+        
 
         public BoatPopup(ISailor s)
         {
-
             Init();
             Sailor = s;
             Boat = new Boat();
             Boat.User = Sailor as User;
+
             DataContext = Boat;
-            operation = Operation.Add;
+            controller = new BoatController(Boat, Sailor, EnumOperation.Add);
         }
 
         public BoatPopup(Boat b, ISailor s)
         {
+            Init();
             Boat = b;
             Sailor = s;
-            TempBoat = new Boat()
-            {
-                BoatSpace = b.BoatSpace,
-                Length = b.Length,
-                Width = b.Width,
-                Name = b.Name,
-                RegistrationNumber = b.RegistrationNumber,
-                User = b.User,
-                UserId = b.UserId
-            };
-            Init();
 
             DataContext = b;
-            operation = Operation.Edit;
+            controller = new BoatController(Boat, Sailor, EnumOperation.Edit);
         }
 
         private void Init()
@@ -64,34 +51,13 @@ namespace p2_projekt.WPF
 
         private void Submit(object sender, RoutedEventArgs e)
         {
-            if(
-                !string.IsNullOrWhiteSpace(Boat.Name))
-            {
-                MessageBox.Show("Udfyld alle felter");
-                return;
-            }
-            // TODO: Check om flere værdier er valide..
-
-
-            if (operation == Operation.Add)
-            {
-                Sailor.Boats.Add(Boat);
-            }
-
-            
-
-            DALController uc = Utilities.LobopDB;
-            uc.Update<User>(Sailor as User);
-
+            controller.SubmitChanges();
             this.Close();
         }
 
         private void Cancel(object sender, RoutedEventArgs e)
         {
-            Boat.Name = TempBoat.Name;
-            Boat.RegistrationNumber = TempBoat.RegistrationNumber;
-            Boat.Length = TempBoat.Length;
-            Boat.Width = TempBoat.Width;
+            controller.ResetChanges();
             this.Close();
         }
     }

@@ -9,7 +9,7 @@
                 <StackPanel Height="150">
                     <StackPanel>
                         <Label Content="Udrejse Dato" Width="100" HorizontalAlignment="Left"/>
-                        <DatePicker Name="LeavingDate" SelectedDate="{Binding Start}">
+                        <DatePicker Name="LeavingDate" SelectedDate="{Binding Start,Mode=TwoWay}">
                         </DatePicker>
                         <Label Content="Hjemkost Dato" Width="100" HorizontalAlignment="Left"/>
                         <DatePicker Name="ArrivalDate" SelectedDate="{Binding End}"/>

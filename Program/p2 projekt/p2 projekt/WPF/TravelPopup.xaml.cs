@@ -21,20 +21,20 @@ namespace p2_projekt.WPF
     /// </summary>
     public partial class TravelPopup : Window
     {
-        private ISailor traveller;
-        private Travel travel;
+        private ISailor Sailor;
+        private Travel Travel;
         private Travel tempTravel;
-        private Operation operation;
-        private enum Operation { Add, Edit}
 
-        public TravelPopup(ISailor u)
+        private TravelController controller;
+
+        public TravelPopup(ISailor sailor)
         {
-            
             Init();
-
-            traveller = u;
-            operation = Operation.Add;
+            Sailor = sailor;
+            Travel = new Travel(DateTime.Now, DateTime.Now);
+            controller = new TravelController(Travel, sailor, EnumOperation.Add);
             Title = "Tilføj rejse";
+            DataContext = Travel;
         }
 
         private void Init(){
@@ -47,55 +47,26 @@ namespace p2_projekt.WPF
         /// <param name="t"></param>
         public TravelPopup(Travel t, ISailor s)
         {
-            travel = t;
-            tempTravel = new Travel() { Start = t.Start, End = t.End, TravelId = t.TravelId, User = t.User };
-            traveller = s;
+            Travel = t;
+            Sailor = s;
             Init();
             DataContext = t;
-            operation = Operation.Edit;
             Title = "Redigér rejse";
+            controller = new TravelController(Travel, Sailor, EnumOperation.Edit);
         }
 
 
         private void Submit(object sender, RoutedEventArgs e)
         {
-            if (!LeavingDate.SelectedDate.HasValue || !ArrivalDate.SelectedDate.HasValue)
+            if (controller.SubmitChanges())
             {
-                MessageBox.Show("Alle felter skal udfyldes");
-                return;
+                this.Close();
             }
-
-            if (LeavingDate.SelectedDate.Value.Subtract(DateTime.Now).Days < 0)
-            {
-                MessageBox.Show("Vælg nyere Udrejse dato");
-                return;
-            }
-            else if(ArrivalDate.SelectedDate.Value.Subtract(LeavingDate.SelectedDate.Value).Days < 0)
-            {
-                MessageBox.Show("Vælg ny Hjemkost dato");
-                return;
-            }
-            
-            if (operation == Operation.Add)
-            {
-                Travel TravelToBeAdded = new Travel() { Start = LeavingDate.SelectedDate.Value, End = ArrivalDate.SelectedDate.Value, User = traveller };
-                (traveller as ISailor).Travels.Add(TravelToBeAdded);
-            }
-
-
-            DALController uc = Utilities.LobopDB;
-            uc.Update<User>(traveller as User);
-            
-            
-            MainController.selectUser(traveller as User);
-            
-            this.Close();
         }
 
         private void Cancel(object sender, RoutedEventArgs e)
         {
-            travel = tempTravel;
-            MainController.selectUser(traveller as User);
+            controller.ResetChanges();
             this.Close();
         }
     }

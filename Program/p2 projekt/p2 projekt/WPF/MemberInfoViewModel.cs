@@ -24,12 +24,9 @@ namespace p2_projekt.WPF
             }
         }
 
-        public MemberInfoViewModel(models.User Current, models.Boat SelectedBoat, models.Travel SelectedTravel)
+        public MemberInfoViewModel(User user)
         {
-            User = Current;
-            Boat = SelectedBoat;
-            Travel = SelectedTravel;
-
+            User = user;
             addBoatCommand = new AddBoatCommand(user);
             addTravelCommand = new AddTravelCommand(user);
         }
