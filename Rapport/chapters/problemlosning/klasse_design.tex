@@ -13,6 +13,8 @@ I klassehierarkiets top ligger den abstrakte klasse \enquote{User}. En \enquote{
 
 Subklasserne til \enquote{User} opdeler brugere som enten medlemmer af klubben, gæster eller havnefoged. Til disse tre brugertyper bruges klasserne \enquote{HarbourMaster}, \enquote{Guest} og \enquote{Member}. Denne opdeling er lavet fordi der indgår forskellige felter på tværs af disse subklasser. 
 
+\sinote{Definer mere præcist opdelingen}
+
 For at differentiere subklasserne, implementeres forskellige kombinationer af interfaces. Eksempelvis må en havnefoged ikke have en båd, og derfor implementerer klassen \enquote{HarbourMaster} ikke \enquote{ISailer} interfacet. Til gengæld deler \enquote{HarbourMaster}, \enquote{IFullPersonalInfo} og \enquote{ILoginable} med \enquote{Member} klassen, da de begge har behov for at gemme mere personinformation, samt at kunne logge ind med brugernavn/medlemsnummer.
 
 \subsection{Modellering af Rejser}
@@ -27,3 +29,4 @@ Der er lavet en klasse til både, der hedder \enquote{Boat}. Denne klasse bruges
 
 Der er to klasser til repræsentation af bådpladser. Klassen \enquote{WaterSpace} modellere vandpladser og \enquote{LandSpace} modellere landplads. Begge disse klasser nedarver fra klassen \enquote{BoatSpace}, som indeholder generelle informationer om bådpladser.
 
+\sinote{Flere klasser skal beskrives}
