@@ -1,14 +1,10 @@
 \section{Klasse Design}
 \label{sec:klasse_design}
-C\# er et objektorienteret programmeringssprog. I objektorienteret programmeringssprog er det let at dele programmer op, og på den måde lave mere velorganiserede programmer, der er nemmere vedligeholdes. En af grundsøjlerne bag det objektorienterede paradigme, er objekter. For at lave et objekt skal man definere en klasse, som er skabelonen for objektet. Klasser er ofte en abstraktion eller en modellering, af et koncept eller gestande fra den virkelige verden. Da det objektorienterede programmeringsparadigme ønskes anvendt, skal en model konstrueres, der kan anvendes i forbindelse med løsningen af problemformuleringen. I denne løsning ønskes der en modellering af de koncepter og genstande, der findes på en havn, og dette er derfor blevet undersøgt. For hvert relevant koncept og genstand, er der indgået overvejelser, omkring den optimale måde at modellere dem i klasser.
 
-I følgende afsnit beskrives hvilke valg der er taget i forbindelse med modelleringen af forskellige koncepter og genstande i løsningen. 
-
-\subsubsection{UML-klassediagram}
-
-For at bedre kunne opnå en optimal modellering, sættes klasser ind i et klassehierarki for at øge overskueligheden. Et klassehierarki er en organisering af et sæt af klasser og deres indbyrdes relationer. Et klassediagram beskriver opbygningen af et system ved at vise systemets klasser, deres attributter, metoder, og relationerne mellem objekter \cite{martin2006agile}. For at give et overblik over klassehierarkiet er der lavet et klassediagram efter UML standarden. UML-klassediagram for løsningen kan ses herunder.
+\kanote{introtekst til vores klasse design}
 
 \frnote{Her skal der være et billede at vores flotte UML diagram}
+\label{sub:uml_diagram}
 
 \subsubsection{Modellering af Brugere}
 \label{sub:brugere_af_programmet}
@@ -22,12 +18,12 @@ For at differentiere subklasserne, implementeres forskellige kombinationer af in
 \subsection{Modellering af Rejser}
 \label{sub:rejser}
 
-En medlems rejse modelleres med klassen Travel. Den indeholder information om rejsen start- og slutdato. Rejser bruges også til at angive hvor lang tid en gæst ligger i havnen. Travel implementere IEquatable, som gør det muligt at sammenligne med andre klasser af samme type. Klasser der implementere ISailor indeholder en liste af Travels.
+En medlems rejse modelleres med klassen \enquote{Travel}. Den indeholder information om rejsen start- og slutdato. \enquote{Travels} bruges også til at angive hvor lang tid en gæst ligger i havnen. \enquote{Travel} implementere \enquote{IEquatable} interfacet, som gør det muligt at sammenligne med andre klasser af samme type. Klasser der implementere ISailor indeholder en liste af \enquote{Travels}.
 
 \subsubsection{Modellering af Både}
 \label{sub:bade}
 
-Der er en klasse til både der hedder Boat. Denne klasse bruges til at gemme data tilhørende en båd. Der gemmes dens navn og størrelse, så man kan tjekke hvorvidt en given plads er stor nok til at rumme båden.
+Der er lavet en klasse til både, der hedder \enquote{Boat}. Denne klasse bruges til at gemme data tilhørende en båd. Der gemmes dens navn og størrelse, så man kan tjekke hvorvidt en given plads er stor nok til at rumme båden.
 
-Der er to klasser til repræsentation af bådpladser. Klassen WaterSpace modellere vandlegepladser og LandSpace modellere landlejeplads. Begge disse klasser nedarver fra klassen BoatSpace, som indeholder generelle informationer om bådpladser.
+Der er to klasser til repræsentation af bådpladser. Klassen \enquote{WaterSpace} modellere vandpladser og \enquote{LandSpace} modellere landplads. Begge disse klasser nedarver fra klassen \enquote{BoatSpace}, som indeholder generelle informationer om bådpladser.
 
