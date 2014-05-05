@@ -168,25 +168,28 @@ namespace p2_projekt.WPF
         private void Button_AddPerson(object sender, RoutedEventArgs e)
         {
            
-            try
-            {
-                User u = parseParameters();
-                MemberInfoController.ValidateUser(u);
-                Utilities.LobopDB.Add(u);
-                MessageBox.Show("Bruger oprettet.");
-                
-            }catch (ArgumentException arg)
-            {
-                if (arg.Message == "ID")
-                    MessageBox.Show("Id ikke gyldigt");
 
-                if (arg.Message == "par")
-                    MessageBox.Show("følgende felter skal udfyldes: \n Navn, Fødselsdag, tlf. nr., postnr., Adresse, Land, By");
-                else
-                {
-                    MessageBox.Show(arg.Message);
-                }
-            }
+
+
+            //try
+            //{
+            //    User u = parseParameters();
+            //    MemberInfoController.ValidateUser(u);
+            //    Utilities.LobopDB.Add(u);
+            //    MessageBox.Show("Bruger oprettet.");
+                
+            //}catch (ArgumentException arg)
+            //{
+            //    if (arg.Message == "ID")
+            //        MessageBox.Show("Id ikke gyldigt");
+
+            //    if (arg.Message == "par")
+            //        MessageBox.Show("følgende felter skal udfyldes: \n Navn, Fødselsdag, tlf. nr., postnr., Adresse, Land, By");
+            //    else
+            //    {
+            //        MessageBox.Show(arg.Message);
+            //    }
+            //}
         }
 
         public void ClearBoatInfo()
@@ -201,7 +204,7 @@ namespace p2_projekt.WPF
 
         private void Button_ChangeUser(object sender, RoutedEventArgs e)
         {
-
+            new memberCreator(Current).Show();
         }
 
         private void AddNewTravel(object sender, RoutedEventArgs e)

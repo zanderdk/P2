@@ -73,7 +73,6 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>HarborStatus.Designer.cs</LastGenOutput>
     </None>
-    <None Include="p2 projekt_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -157,6 +156,9 @@
     <Compile Include="WPF\MapControlPanel.xaml.cs">
       <DependentUpon>MapControlPanel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WPF\memberCreator.xaml.cs">
+      <DependentUpon>memberCreator.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WPF\MemberInfoViewModel.cs" />
     <Compile Include="WPF\TabMap.xaml.cs">
       <DependentUpon>TabMap.xaml</DependentUpon>
@@ -234,6 +236,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WPF\MapControlPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WPF\memberCreator.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

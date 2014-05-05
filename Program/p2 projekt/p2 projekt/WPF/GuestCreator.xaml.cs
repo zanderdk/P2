@@ -17,9 +17,9 @@ using System.Device.Location;
 
 namespace p2_projekt.WPF
 {
-    public partial class GuestCreator : Window
+    public partial class MemberCreator : Window
     {
-        public GuestCreator()
+        public MemberCreator()
         {
             InitializeComponent();
         }
