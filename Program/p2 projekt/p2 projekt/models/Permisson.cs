@@ -1,27 +1,28 @@
-﻿namespace p2_projekt.models
+﻿using p2_projekt.Enums;
+namespace p2_projekt.models
 {
-    public enum PermissionLevel { None, Read, Write }
+    
 
     public class Permission
     {
         // primary key
         public int PermissionId { get; set; }
 
-        public static bool CanRead(PermissionLevel permissionField)
+        public static bool CanRead(EnumPermissionLevel permissionField)
         {
-            return permissionField > PermissionLevel.None;
+            return permissionField > EnumPermissionLevel.None;
         }
 
-        public static bool CanWrite(PermissionLevel permissionField)
+        public static bool CanWrite(EnumPermissionLevel permissionField)
         {
-            return permissionField == PermissionLevel.Write;
+            return permissionField == EnumPermissionLevel.Write;
         }
 
-        public PermissionLevel MemberInfo { get;  set; }
+        public EnumPermissionLevel MemberInfo { get;  set; }
      
-        public PermissionLevel Search { get; set; }
+        public EnumPermissionLevel Search { get; set; }
         
-        public PermissionLevel ChangePersonalInfo { get; set; }
+        public EnumPermissionLevel ChangePersonalInfo { get; set; }
         
 
         }
