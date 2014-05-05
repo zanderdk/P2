@@ -19,27 +19,27 @@
             <Border CornerRadius="1" BorderBrush="Gray" Background="LightGray" BorderThickness="2" DockPanel.Dock="Top">
                 <StackPanel>
                     <Label Content="Brugersøgning" Grid.Column="0" HorizontalAlignment="Center"/>
-                    <controllers:InfolineController x:Name="name" Title="Navn"/>
-                    <controllers:InfolineController x:Name="birthday" Text="dag/måned/år" Title="Fødselsdag"/>
-                    <controllers:InfolineController x:Name="phone" Title="Telefon"/>
-                    <controllers:InfolineController x:Name="email" Title="Email"/>
-                    <controllers:InfolineController x:Name="adresse" Title="Adresse"/>
-                    <controllers:InfolineController x:Name="postal" Title="Post nr"/>
-                    <controllers:InfolineController x:Name="country" Title="Land"/>
-                    <controllers:InfolineController x:Name="memberID" Title="Medlems nr"/>
-                    <controllers:InfolineController x:Name="memberSince" Text="dag/måned/år" Title="Oprettet"/>
-                    <controllers:InfolineController x:Name="isActive" Title="Aktiv"/>
+                    <controllers:InfolineControl x:Name="name" Title="Navn"/>
+                    <controllers:InfolineControl x:Name="birthday" Text="dag/måned/år" Title="Fødselsdag"/>
+                    <controllers:InfolineControl x:Name="phone" Title="Telefon"/>
+                    <controllers:InfolineControl x:Name="email" Title="Email"/>
+                    <controllers:InfolineControl x:Name="adresse" Title="Adresse"/>
+                    <controllers:InfolineControl x:Name="postal" Title="Post nr"/>
+                    <controllers:InfolineControl x:Name="country" Title="Land"/>
+                    <controllers:InfolineControl x:Name="memberID" Title="Medlems nr"/>
+                    <controllers:InfolineControl x:Name="memberSince" Text="dag/måned/år" Title="Oprettet"/>
+                    <controllers:InfolineControl x:Name="isActive" Title="Aktiv"/>
                 </StackPanel>
             </Border>
             <Border Margin="0,10,0,0" CornerRadius="1" BorderBrush="Gray" Background="LightGray" BorderThickness="2" DockPanel.Dock="Top">
                 <StackPanel>
                     <Label Content="Bådsøgning" Grid.Column="0" HorizontalAlignment="Center"/>
-                    <controllers:InfolineController x:Name="boatOwner" Title="Ejere(e)"/>                    
-                    <controllers:InfolineController x:Name="boatName" Title="Navn"/>
-                    <controllers:InfolineController x:Name="boatID" Title="ID"/>
-                    <controllers:InfolineController x:Name="boatSpace" Title="Plads"/>
-                    <controllers:InfolineController x:Name="boatLength" Title="Længde"/>
-                    <controllers:InfolineController x:Name="boatWidth" Title="Bredde"/>
+                    <controllers:InfolineControl x:Name="boatOwner" Title="Ejere(e)"/>                    
+                    <controllers:InfolineControl x:Name="boatName" Title="Navn"/>
+                    <controllers:InfolineControl x:Name="boatID" Title="ID"/>
+                    <controllers:InfolineControl x:Name="boatSpace" Title="Plads"/>
+                    <controllers:InfolineControl x:Name="boatLength" Title="Længde"/>
+                    <controllers:InfolineControl x:Name="boatWidth" Title="Bredde"/>
                 </StackPanel>
             </Border>
         </DockPanel>

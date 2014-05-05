@@ -15,14 +15,14 @@
             <Border CornerRadius="1" BorderBrush="Gray" Background="LightGray" BorderThickness="2" DockPanel.Dock="Top">
                 <Grid>
                     <StackPanel Grid.RowSpan="1">
-                        <controllers:InfolineController x:Name="name" Title="Name" readOnly="False"/>
-                        <controllers:InfolineController x:Name="phone" Title="Phone" readOnly="False"/>
-                        <controllers:InfolineController x:Name="streetName" Title="Adresse" readOnly="False"/>
-                        <controllers:InfolineController x:Name="postalCode" Title="Postal Code" readOnly="False"/>
-                        <controllers:InfolineController x:Name="country" Title="Country" readOnly="False"/>
-                        <controllers:InfolineController x:Name="boatName" Title="Boat name" readOnly="False"/>
-                        <controllers:InfolineController x:Name="boatLength" Title="Boat length" readOnly="False"/>
-                        <controllers:InfolineController x:Name="boatWidth" Title="Boat Width" readOnly="False"/>
+                        <controllers:InfolineControl x:Name="name" Title="Name" readOnly="False"/>
+                        <controllers:InfolineControl x:Name="phone" Title="Phone" readOnly="False"/>
+                        <controllers:InfolineControl x:Name="streetName" Title="Adresse" readOnly="False"/>
+                        <controllers:InfolineControl x:Name="postalCode" Title="Postal Code" readOnly="False"/>
+                        <controllers:InfolineControl x:Name="country" Title="Country" readOnly="False"/>
+                        <controllers:InfolineControl x:Name="boatName" Title="Boat name" readOnly="False"/>
+                        <controllers:InfolineControl x:Name="boatLength" Title="Boat length" readOnly="False"/>
+                        <controllers:InfolineControl x:Name="boatWidth" Title="Boat Width" readOnly="False"/>
                     </StackPanel>
                 </Grid>
             </Border>

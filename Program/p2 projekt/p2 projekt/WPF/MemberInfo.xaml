@@ -19,21 +19,21 @@
         <DockPanel Grid.Column="0" LastChildFill="False" Margin="10,0,10,0" Grid.ColumnSpan="1" Grid.Row="1" >
             <Border CornerRadius="1" BorderBrush="Gray" Background="LightGray" BorderThickness="2" DockPanel.Dock="Top">
                 <StackPanel>
-                    <controllers:InfolineController x:Name="name" Title="Navn" Value="{Binding User.Name}"/>
-                    <controllers:InfolineController x:Name="birthday" Title="Fødselsdag" Value="{Binding Birthday}"/>
+                    <controllers:InfolineControl x:Name="name" Title="Navn" Value="{Binding User.Name}"/>
+                    <controllers:InfolineControl x:Name="birthday" Title="Fødselsdag" Value="{Binding Birthday}"/>
 
                         
                     <!--TODO Datetime?-->
-                    <controllers:InfolineController x:Name="phone" Title="Telefon" Value="{Binding User.Phone}"/>
-                    <controllers:InfolineController x:Name="email" Title="Email" Value="{Binding User.Email}"/>
-                    <controllers:InfolineController x:Name="adresse" Title="Adresse" Value="{Binding User.Adress.AddressLine1}"/>
-                    <controllers:InfolineController x:Name="postal" Title="Post nr" Value="{Binding User.Adress.PostalCode}"/>
-                    <controllers:InfolineController x:Name="city" Title="By" Value="{Binding User.Adress.City}"/>
-                    <controllers:InfolineController x:Name="country" Title="Land" Value="{Binding User.Adress.CountryRegion}"/>
-                    <controllers:InfolineController x:Name="memberID" Title="Medlems nr" Value="{Binding User.MembershipNumber}"/>
-                    <controllers:InfolineController x:Name="memberSince" Title="Oprettet" Value="{Binding User.RegistrationDate}"/>
-                    <controllers:InfolineController x:Name="memberTimeTotal" Title="Medlemstid" Value="{Binding User.MembershipDuration}"/>
-                    <controllers:InfolineController x:Name="isActive" Title="Aktiv" Visibility="Collapsed"/>
+                    <controllers:InfolineControl x:Name="phone" Title="Telefon" Value="{Binding User.Phone}"/>
+                    <controllers:InfolineControl x:Name="email" Title="Email" Value="{Binding User.Email}"/>
+                    <controllers:InfolineControl x:Name="adresse" Title="Adresse" Value="{Binding User.Adress.AddressLine1}"/>
+                    <controllers:InfolineControl x:Name="postal" Title="Post nr" Value="{Binding User.Adress.PostalCode}"/>
+                    <controllers:InfolineControl x:Name="city" Title="By" Value="{Binding User.Adress.City}"/>
+                    <controllers:InfolineControl x:Name="country" Title="Land" Value="{Binding User.Adress.CountryRegion}"/>
+                    <controllers:InfolineControl x:Name="memberID" Title="Medlems nr" Value="{Binding User.MembershipNumber}"/>
+                    <controllers:InfolineControl x:Name="memberSince" Title="Oprettet" Value="{Binding User.RegistrationDate}"/>
+                    <controllers:InfolineControl x:Name="memberTimeTotal" Title="Medlemstid" Value="{Binding User.MembershipDuration}"/>
+                    <controllers:InfolineControl x:Name="isActive" Title="Aktiv" Visibility="Collapsed"/>
                     <!--TODO visiblity skal kunne ændres-->
 
                 </StackPanel>

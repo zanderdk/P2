@@ -4,8 +4,8 @@
         xmlns:controllers="clr-namespace:p2_projekt.WPF"
         Title="MapControlPanel" Height="300" Width="300">
     <StackPanel>
-        <controllers:InfolineController x:Name="boatSpaceId" Title="Plads Id" >
-        </controllers:InfolineController>
+        <controllers:InfolineControl x:Name="boatSpaceId" Title="Plads Id" >
+        </controllers:InfolineControl>
         
         <ComboBox Name="statusDropdown">
             <ComboBoxItem>Optaget gæstebåd</ComboBoxItem>
