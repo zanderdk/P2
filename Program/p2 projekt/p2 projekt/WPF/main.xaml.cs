@@ -23,7 +23,6 @@ namespace p2_projekt.WPF
     public partial class Main : Window
     {
         User loggedIn;
-        public DALController controller;
         public Main(User u)
         {
             InitializeComponent();
@@ -34,8 +33,6 @@ namespace p2_projekt.WPF
             MainController.main = this;
 
             loggedIn = u;
-
-            controller = Utilities.LobopDB;
 
             AddToTabController(new WelcomeTab(u), "Forside");
 

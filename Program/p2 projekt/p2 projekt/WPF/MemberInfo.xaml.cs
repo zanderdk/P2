@@ -20,7 +20,7 @@ namespace p2_projekt.WPF
     //TODO Synlighed ved "aktiv" felt
     public partial class MemberInfo : UserControl
     {
-        private MemberInfoController viewModel;
+        private MemberInfoController controller;
 
         public MemberInfo()
         {
@@ -37,13 +37,13 @@ namespace p2_projekt.WPF
 
         public void InitUser(User u)
         {
-            viewModel = new MemberInfoController(u);
+            controller = new MemberInfoController(u);
             if (u is ISailor)
             {
                 InitSailor(u as ISailor);
             }
 
-            DataContext = viewModel;
+            DataContext = controller;
         }
 
         void InitSailor(ISailor s)
@@ -74,13 +74,13 @@ namespace p2_projekt.WPF
         {
             Boat b = ((sender as ListBox).SelectedItem as Boat);
 
-            viewModel.Boat = b;
+            controller.Boat = b;
         }
 
         private void listTravels_SelectionChanged(object sender, SelectionChangedEventArgs e)
          {
              Travel selectedItem = (sender as ListBox).SelectedItem as Travel;
-             viewModel.Travel = selectedItem;
+             controller.Travel = selectedItem;
          }
 
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
@@ -106,40 +106,40 @@ namespace p2_projekt.WPF
 
         private void AddNewTravel(object sender, RoutedEventArgs e)
         {
-            TravelPopup AddingTravel = new TravelPopup(viewModel.User as ISailor);
+            TravelPopup AddingTravel = new TravelPopup(controller.User as ISailor);
             AddingTravel.Show();
         }
 
         private void Button_EditTravel(object sender, RoutedEventArgs e)
         {
-            new TravelPopup(viewModel.Travel, viewModel.User as ISailor).Show();
+            new TravelPopup(controller.Travel, controller.User as ISailor).Show();
         }
 
         private void Button_RemoveTravel(object sender, RoutedEventArgs e)
         {
-            ISailor sailor = viewModel.User as ISailor;
-            new TravelController().Delete(viewModel.Travel, sailor);
+            ISailor sailor = controller.User as ISailor;
+            new TravelController().Delete(controller.Travel, sailor);
         }
 
         private void AddTravel_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            new TravelPopup(viewModel.User as ISailor).Show();
+            new TravelPopup(controller.User as ISailor).Show();
         }
 
         private void AddTravel_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-            e.CanExecute = viewModel.User is ISailor;
+            e.CanExecute = controller.User is ISailor;
         }
 
         private void ChangeBoat(object sender, RoutedEventArgs e)
         {
-            new BoatPopup(viewModel.Boat, viewModel.User as ISailor).Show();
+            new BoatPopup(controller.Boat, controller.User as ISailor).Show();
         }
 
         private void RemoveBoat(object sender, RoutedEventArgs e)
         {
-            Boat boat = viewModel.Boat;
-            ISailor sailor = viewModel.User as ISailor;
+            Boat boat = controller.Boat;
+            ISailor sailor = controller.User as ISailor;
             new BoatController().Delete(boat, sailor);
         }
 
