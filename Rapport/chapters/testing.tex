@@ -1,114 +1,170 @@
-		Medlemmer
-1. Medlem forlader sin plads i mere end 24 timer.
-		HANDLING: Medlemmet vælger "tilføj" under rejser, og vælger en afrejse og hjemkomst dato - Rejsen er nu gemt
-			Success a) Medlem melder til systemet et gyldigt tidspunkt for afrejse og hjemkomst.
-			Success b) Systemet melder til medlemmet at rejsen er registreret. 
-			Implied c) Systemet venter til efter tidspunktet for afrejse.
-			Failure d) Når pladsen tømmes, melder systemet at pladsen er fri.
+\subsection{Medlemmer}
+	\item{\bf{Medlem forlader sin plads i mere end 24 timer.}}
+		% HANDLING: Medlemmet vælger "tilføj" under rejser, og vælger en afrejse og hjemkomst dato - Rejsen er nu gemt
+	  \begin{enumerate}
+			\item Success -  a) Medlem melder til systemet et gyldigt tidspunkt for afrejse og hjemkomst.
+			\item Success -  b) Systemet melder til medlemmet at rejsen er registreret. 
+			\item Implied -  c) Systemet venter til efter tidspunktet for afrejse.
+			\item Failure -  d) Når pladsen tømmes, melder systemet at pladsen er fri.
+	   \end{enumerate}
 			
-		Alternativt medlem melder ikke afrejse til systemet
-			Failure aa) Systemet underetter havnefogeden om at en medlemsbåd har været væk fra havnen i mere end 24 timer
-		
-		Alternativt medlem afrejser ikke på det meldte tidspunkt
-			Failure ba) Systemet underetter både havnefogeden samt medlemmet om uoverensstemmelsen.
-			
-2. Medlem vender tilbage til sin plads efter minimums 24 timers afrejse OG DER LIGGER EN GÆST PÅ PLADSEN.
-			Failure a) Systemet melder at pladsen er optaget.
+	\paragraph{Alternativt medlem melder ikke afrejse til systemet.}
+	  \begin{enumerate}
+			\item Failure -  aa) Systemet underetter \subsection{Havnefoged}en om at en medlemsbåd har været væk fra havnen i mere end 24 timer
+	   \end{enumerate}
+	   
+	\paragraph{Alternativt medlem afrejser ikke på det meldte tidspunkt.}
+	  \begin{enumerate}
+			\item Failure -  ba) Systemet underetter både \subsection{Havnefoged}en samt medlemmet om uoverensstemmelsen.
+	   \end{enumerate}
+	   
+	\item{\bf{Medlem vender tilbage til sin plads efter minimums 24 timers afrejse og der ligger en gæst på pladsen.}}
+	  \begin{enumerate}
+			\item Failure -  a) Systemet melder at pladsen er optaget.
+	   \end{enumerate}
+	   
+	\item{\bf{Medlem vender ikke tilbage til sin plads på det meldte tidspunkt.
+	  \begin{enumerate}
+			\item Failure -  a) Systemet melder uoverensstemmelsen til \subsection{Havnefoged}en
+	   \end{enumerate}
 
-3. Medlem vender ikke tilbage til sin plads på det meldte tidspunkt.
-			Failure a) Systemet melder uoverensstemmelsen til havnefogeden
+	\item{\bf{Medlemmet ønsker at annullere en allerede anmeldt rejse.}}
+		% HANDLING: Medlemmet logger ind og markere rejsen, dernæst klikker medlemmet på fjern - Rejsen er nu slettet
+	  \begin{enumerate}
+			\item Success -  a) Medlemmet vælger den pågældende rejse fra listen over registrerede rejser.
+			\item Success -  b) Medlemmet annullerer rejsen.
+			\item Success -  c) Systemet melder tilbage at rejsen er annulleret.
+	   \end{enumerate}
 
-4. Medlemmet ønsker at annullere en allerede anmeldt rejse
-		HANDLING: Medlemmet logger ind og markere rejsen, dernæst klikker medlemmet på fjern - Rejsen er nu slettet
-			Success a) Medlemmet vælger den pågældende rejse fra listen over registrerede rejser.
-			Success b) Medlemmet annullerer rejsen.
-			Success c) Systemet melder tilbage at rejsen er annulleret.
+\subsection{Gæster}
+	\item{\bf{Gæst er ankommet til havnen, og vil leje en plads.}}
+		% HANDLING: Gæsten registrere sigselv i system og logger ind med udleveret chipkort. Gæsten kan nu se kortet over potentielt ledige pladser.
+	  \begin{enumerate}
+			\item Success -  a) Gæsten registrere sig selv i systemet.
+			\item Failure -  b) Gæsten benytter chipkortet til at logge ind.
+			\item Success -  c) Gæsten finder oversigten over havnen og finder en ledig plads
+			\item Failure -  d) Gæsten vælger den ledige plads og booker den
+			\item Failure -  e) Gæsten betaler for pladsen
+			\item Failure -  f) Systemet melder til \subsection{Havnefoged}en at der er nye ankomne.
+	   \end{enumerate}
+	   
+	\paragraph{Alternativt: Gæsten finder ikke selv en plads.}
+	  \begin{enumerate}
+			\item Success -  a) Ny gæst melder til systemet, hvor lang tid han vil ligge til.
+			\item Failure -  b) Systemet returnerer en liste over pladser som vil passe hans behov.
+			\item Failure -  c) Systemet videresender gæsten til betaling.
+	   \end{enumerate}
 
-		Gæster
-5. Gæst er ankommet til havnen, og vil leje en plads
-		HANDLING: Gæsten registrere sigselv i system og logger ind med udleveret chipkort. Gæsten kan nu se kortet over potentielt ledige pladser.
-			Success a) Gæsten registrere sig selv i systemet.
-			Failure b) Gæsten benytter chipkortet til at logge ind.
-			Success c) Gæsten finder oversigten over havnen og finder en ledig plads
-			Failure d) Gæsten vælger den ledige plads og booker den
-			Failure e) Gæsten betaler for pladsen
-			Failure f) Systemet melder til havnefogeden at der er nye ankomne.
-
-		Alternativt: Gæsten finder ikke selv en plads
-			Success a) Ny gæst melder til systemet, hvor lang tid han vil ligge til.
-			Failure b) Systemet returnerer en liste over pladser som vil passe hans behov.
-			Failure c) Systemet videresender gæsten til betaling.
-
-6. Gæst vil se informationer om plads og betaling
-		HANDLING: Gæsten indsætter chipkort og logger ind. I Brugeradministrations tabben vil information om gæsten samt hans båd og rejser.
-			Failure a) Gæst indsætter chipkort i automat.
-			Success b) systemet viser informationer vedrørende gæsten.
+	\item{\bf{Gæst vil se informationer om plads og betaling.}
+		% HANDLING: Gæsten indsætter chipkort og logger ind. I Brugeradministrations tabben vil information om gæsten samt hans båd og rejser.
+	  \begin{enumerate}
+			\item Failure -  a) Gæst indsætter chipkort i automat.
+			\item Success -  b) systemet viser informationer vedrørende gæsten.
+	   \end{enumerate}
      
-		Alternativt: Chipkort er bortkommet
-			Failure a) Gæster melder til systemet at chipkort er bortkommet.
-			Failure b) Systemet henviser gæsten til havnefogeden.
+	\paragraph{Alternativt: Chipkort er bortkommet.}
+	  \begin{enumerate}
+			\item Failure -  a) Gæster melder til systemet at chipkort er bortkommet.
+			\item Failure -  b) Systemet henviser gæsten til \subsection{Havnefoged}en.
+	   \end{enumerate}
      
-7. Gæst forlader havnen på eller før anmeldte afrejse tidspunkt
-			Failure a) Gæst aflever chipkort og får udleveret en kvittering.
-			Failure b) Gæst får returneret berettiget kapital.
+	\item{\bf{Gæst forlader havnen på eller før anmeldte afrejse tidspunkt.}}
+	  \begin{enumerate}
+			\item Failure -  a) Gæst aflever chipkort og får udleveret en kvittering.
+			\item Failure -  b) Gæst får returneret berettiget kapital.
+	   \end{enumerate}
     
-		Alternativt: Gæst bliver liggende i havnen efter det anmeldte afrejse tidspunkt
-			Failure a) Systemet melder uoverensstemmelsen til havnefogeden.
-			Failure b) Chipkortet deaktiveres.
-			Failure c) Ved efterfølgende forsøg på brug af chipkort, henvendes der til havnefogeden.
-      
-8. Gæst vil forlænge ophold
-		Handling: Gæsten logger ind, og benytter ændre rejse funktionen. (Den opdateres ikke visuelt)
-			Failure a) Gæst indsætter chipkort i automat.
-			Success b) Gæst melder ønskede ny afrejse dato til systemet.
-			Failure c) Systemet melder at den nye dato er registreret.
+	\paragraph{Alternativt: Gæst bliver liggende i havnen efter det anmeldte afrejse tidspunkt.}
+	  \begin{enumerate}
+			\item Failure -  a) Systemet melder uoverensstemmelsen til \subsection{Havnefoged}en.
+			\item Failure -  b) Chipkortet deaktiveres.
+			\item Failure -  c) Ved efterfølgende forsøg på brug af chipkort, henvendes der til \subsection{Havnefoged}en.
+	   \end{enumerate}
+			
+	\item{\bf{Gæst vil forlænge ophold.}
+		% HANDLING: Gæsten logger ind, og benytter ændre rejse funktionen. (Den opdateres ikke visuelt)
+	  \begin{enumerate}
+			\item Failure -  a) Gæst indsætter chipkort i automat.
+			\item Success -  b) Gæst melder ønskede ny afrejse dato til systemet.
+			\item Failure -  c) Systemet melder at den nye dato er registreret.
+	   \end{enumerate}
      
-		Alternativt: Nye afrejse dato overlapper med medlemshjemkomst
-			Failure a) Systemet melder at datoerne overlapper, og foreslår ny plads.
+	\paragraph{Alternativt: Nye afrejse dato overlapper med medlemshjemkomst.}
+	  \begin{enumerate}
+			\item Failure -  a) Systemet melder at datoerne overlapper, og foreslår ny plads.
+	   \end{enumerate}
       
-		Havnefoged
-9. Havnefogeden registrerer et medlemmets hjemkost
-			Implied a) Medlem meddeler tidlig hjemkomst til havnefogeden, for eksempel via telefon, mail eller lignende.
-			Success b) Havnefogeden indtaster (ny) dato i systemet.
-			Success c) Systemet returnere at datoen er accepteret
+\subsection{Havnefoged}
+	\item{\bf{\subsection{Havnefoged}en registrerer et medlemmets hjemkost.}}
+	  \begin{enumerate}
+			\item Implied -  a) Medlem meddeler tidlig hjemkomst til \subsection{Havnefoged}en, for eksempel via telefon, mail eller lignende.
+			\item Success -  b) \subsection{Havnefoged}en indtaster (ny) dato i systemet.
+			\item Success -  c) Systemet returnere at datoen er accepteret
+	   \end{enumerate}
 
-		Alternativt: En gæst har lejet pladsen for en længere periode.
-			Failure a) Systemet foreslår en ny plads til gæsten.
-			Implied b) Havnefogeden snakker med gæsten.
+	\paragraph{Alternativt: En gæst har lejet pladsen for en længere periode.}
+	 \begin{enumerate}
+			\item Failure -  a) Systemet foreslår en ny plads til gæsten.
+			\item Implied -  b) \subsection{Havnefoged}en snakker med gæsten.
+	   \end{enumerate}
       
-10. Havnefogeden vil gerne se hvilke pladser der er ledige
-			Success a) Havnefogeden åbner overbliksfunktionen i programmet.
-			Success b) Havnefogeden kan nu se på et kort over havnen, hvilke pladser der er ledige.
+	\item{\bf{\subsection{Havnefoged}en vil gerne se hvilke pladser der er ledige.}}
+	  \begin{enumerate}
+			\item Success -  a) \subsection{Havnefoged}en åbner overbliksfunktionen i programmet.
+			\item Success -  b) \subsection{Havnefoged}en kan nu se på et kort over havnen, hvilke pladser der er ledige.
+	   \end{enumerate}
       
-11. Havnefogeden vil gerne se hvilke nye gæster der er ankommet indenfor et tidsrum
-			Failure a) Havnefogeden åbner gæster funktionen i programmet.
-			Failure b) Havnefogeden vælger det ønskede tidsrum.
-			Failure c) Programmet viser nye ankomne gæster fra det specificerede tidsrum.
+	\item{\bf{\subsection{Havnefoged}en vil gerne se hvilke nye gæster der er ankommet indenfor et tidsrum.}}
+	  \begin{enumerate}
+			\item Failure -  a) \subsection{Havnefoged}en åbner gæster funktionen i programmet.
+			\item Failure -  b) \subsection{Havnefoged}en vælger det ønskede tidsrum.
+			\item Failure -  c) Programmet viser nye ankomne gæster fra det specificerede tidsrum.
+	   \end{enumerate}
   
-12.Havnefogeden vil gerne se hvilke pladser der endnu ikke er betalt for
-			Failure a) Havnefogeden åbner gæster funktionen i programmet.
-			Failure b) Havnefogeden åbner ubetalte pladser.
-			Failure c) Programmet præsenterer listen af pladser, der endnu ikke er betalt for. Tiden for hvor lang tid pladsen har været ubetalt vises også.
+	\item{\bf{\subsection{Havnefoged}en vil gerne se hvilke pladser der endnu ikke er betalt for.}}
+	  \begin{enumerate}
+			\item Failure -  a) \subsection{Havnefoged}en åbner gæster funktionen i programmet.
+			\item Failure -  b) \subsection{Havnefoged}en åbner ubetalte pladser.
+			\item Failure -  c) Programmet præsenterer listen af pladser, der endnu ikke er betalt for. Tiden for hvor lang tid pladsen har været ubetalt vises også.
+	   \end{enumerate}
+	   
+	\item{\bf{\subsection{Havnefoged}en vil gerne se hvornår et medlem vender tilbage til medlemmets plads.}}
+	  \begin{enumerate}
+			\item Success -  a) \subsection{Havnefoged}en åbner medlems funktionen i programmet.
+			\item Success -  b) \subsection{Havnefoged}en skriver i søgefeltet medlemmets navn eller medlemsnummer.
+			\item Success -  c) Programmet præsenterer en liste over matchende medlemmer.
+			\item Success -  d) \subsection{Havnefoged}en vælger det søgte medlem.
+			\item Success -  e) Programmet viser alle kendte detaljer om medlemmet, herunder hvornår medlemmet forventes tilbage.
+	   \end{enumerate}
+	   
+	\item{\bf{\subsection{Havnefoged}en bliver advaret af en fejl ved en stander.}}
+	  \begin{enumerate}
+			\item Failure -  a) Uventet fejl opstår ved en stander på havnen, eller personen ved standeren trykker på hjælp.
+			\item Failure -  b) \subsection{Havnefoged}en får besked om dette.
+	   \end{enumerate}
+	   
+\subsection{Andre}
+	\item{\bf{Automatisk arrangementsforslag.}}
+	  \begin{enumerate}
+			\item Failure -  a) Systemet melder på baggrund af aktiviteten i havnen, at det ville være en god dag for et arrangement.
+			\item Failure -  b) Et medlem af klubben ser denne melding, og foreslår et arrangement.
+	   \end{enumerate}
       
-13. Havnefogeden vil gerne se hvornår et medlem vender tilbage til medlemmets plads
-			Success a) Havnefogeden åbner medlems funktionen i programmet.
-			Success b) Havnefogeden skriver i søgefeltet medlemmets navn eller medlemsnummer.
-			Success c) Programmet præsenterer en liste over matchende medlemmer.
-			Success d) Havnefogeden vælger det søgte medlem.
-			Success e) Programmet viser alle kendte detaljer om medlemmet, herunder hvornår medlemmet forventes tilbage.
-      
-14. Havnefogeden bliver advaret af en fejl ved en stander
-			Failure a) Uventet fejl opstår ved en stander på havnen, eller personen ved standeren trykker på hjælp.
-			Failure b) Havnefogeden får besked om dette.
-
-		Andre
-15. Automatisk arrangementsforslag
-			Failure a) Systemet melder på baggrund af aktiviteten i havnen, at det ville være en god dag for et arrangement.
-			Failure b) Et medlem af klubben ser denne melding, og foreslår et arrangement.
-      
-16. Automatisk medlemstjek
-			Failure a) Systemet registrerer uoverensstemmelse med angivet rejseplan.
-			Failure b) Systemet notificerer havnefogeden omkring overensstemmelsen.
+	\item{\bf{Automatisk medlemstjek.}
+	  \begin{enumerate}
+			\item Failure -  a) Systemet registrerer uoverensstemmelse med angivet rejseplan.
+			\item Failure -  b) Systemet notificerer \subsection{Havnefoged}en omkring overensstemmelsen.
+	   \end{enumerate}
     
-17. Bestyrelsen eller havnefogeden vil se statistik over aktivitet i havnen
-			Failure a) Statistik funktionen åbnes og viser de ønskede statistikker.
+	\item{\bf{Bestyrelsen eller \subsection{Havnefoged}en vil se statistik over aktivitet i havnen.}}
+	  \begin{enumerate}
+			\item Failure -  a) Statistik funktionen åbnes og viser de ønskede statistikker.
+	   \end{enumerate}
+			
+	\item{\bf{Kasser eller \subsection{Havnefoged}e vil tilføje ny båd til et medlem}}
+	  \begin{enumerate}
+		\item Success - a) \subsection{Havnefoged}en logger ind i systemet med administrator rettigheder.
+		\item Success - b) Medlemmet bliver fundet via søge funktionen.
+		\item Success - c) \subsection{Havnefoged}en tilføjer opretter en ny båd med pågældende information.
+		\item Success - d) Systemet melder tilbage at båden er gemt
+	   \end{enumerate}

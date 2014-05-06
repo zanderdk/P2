@@ -41,13 +41,6 @@ Her følger use cases, der er inddelt i fire kategorier, alt efter hvorvidt den 
         \item Systemet underretter havnefogeden om at en medlemsbåd har været væk fra havnen i mere end 24 timer.
       \end{enumerate}
 
-    % Brian mener at vi skal Undgå simpel input validering i use case
-    %\paragraph{Alternativ: rejsens dato er ikke gyldig}
-    %  \begin{enumerate}
-    %    \item Systemet melder at indtastet dato ikke er gyldig.
-    %    \item Systemet anmoder om nyt tidspunkt.
-    %  \end{enumerate}
-
     \paragraph{Alternativ: medlem afrejser ikke på meldte tidspunkt}
       \begin{enumerate}
         \item Systemet underetter både havnefogeden samt medlemmet om uoverensstemmelsen.
@@ -73,7 +66,7 @@ Her følger use cases, der er inddelt i fire kategorier, alt efter hvorvidt den 
         \item Systemet melder tilbage at rejsen er annulleret.
       \end{enumerate}
 
-
+	  
 \subsection{Gæster}
 
 
@@ -185,6 +178,7 @@ Her følger use cases, der er inddelt i fire kategorier, alt efter hvorvidt den 
 
 \subsection{Andre}
 
+	
     \item{\bf{Automatisk arrangementsforslag}}
       \begin{enumerate}
         \item Systemet melder på baggrund af aktiviteten i havnen, at det ville være en god dag for et arrangement.
@@ -201,5 +195,14 @@ Her følger use cases, der er inddelt i fire kategorier, alt efter hvorvidt den 
       \begin{enumerate}
         \item Statistik funktionen åbnes og viser de ønskede statistikker.
       \end{enumerate}
+	  
+	\item{\bf{Kasser eller havnefogede vil tilføje ny båd til et medlem}}
+	  \begin{enumerate}
+		\item Havnefogeden logger ind i systemet med administrator rettigheder.
+		\item Medlemmet bliver fundet via søge funktionen.
+		\item Havnefogeden tilføjer opretter en ny båd med pågældende information.
+		\item Systemet melder tilbage at båden er gemt
+	   \end{enumerate}
+		
 
   \end{enumerate}
