@@ -85,7 +85,6 @@
     <Compile Include="controllers\MainController.cs" />
     <Compile Include="controllers\TravelController.cs" />
     <Compile Include="controllers\UserController.cs" />
-    <Compile Include="controllers\memberInfoController.cs" />
     <Compile Include="controllers\SearchController.cs" />
     <Compile Include="controllers\SearchPredicate.cs" />
     <Compile Include="DatabaseCreation.cs" />
@@ -159,7 +158,7 @@
     <Compile Include="WPF\memberCreator.xaml.cs">
       <DependentUpon>memberCreator.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WPF\MemberInfoViewModel.cs" />
+    <Compile Include="controllers\MemberInfoController.cs" />
     <Compile Include="WPF\TabMap.xaml.cs">
       <DependentUpon>TabMap.xaml</DependentUpon>
     </Compile>
