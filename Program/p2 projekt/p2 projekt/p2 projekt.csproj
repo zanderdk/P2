@@ -97,11 +97,10 @@
     </Compile>
     <Compile Include="IDAL.cs" />
     <Compile Include="LobopContext.cs" />
-    <Compile Include="models\BoatDetector.cs" />
     <Compile Include="models\BoatSpace.cs" />
     <Compile Include="models\Boat.cs" />
     <Compile Include="models\BoatSpaceArgs.cs" />
-    <Compile Include="models\BoatSpaceSensorSimulator.cs" />
+    <Compile Include="controllers\BoatSpaceSensorSimulator.cs" />
     <Compile Include="Enums\EnumBoatSpaceStatus.cs" />
     <Compile Include="Enums\EnumOperation.cs" />
     <Compile Include="models\Guest.cs" />
