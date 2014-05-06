@@ -68,10 +68,7 @@ namespace p2_projekt.WPF
 
         private void BoatSpaceGrid_MouseUp(object sender, MouseButtonEventArgs e)
         {
-
-            // TODO skal ikke bruge searchcontroller
-            
-            MainController.selectUser(BoatSpace.Boat.User);
+            if(BoatSpace.Boat != null) MainController.selectUser(BoatSpace.Boat.User);
         }
     }
 }
