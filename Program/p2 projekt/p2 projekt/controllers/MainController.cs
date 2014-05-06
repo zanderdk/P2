@@ -14,7 +14,7 @@ namespace p2_projekt.controllers
 
         public static void selectUser(User user)
         {
-            main.selectUser(user);
+            main.SelectUser(user);
         }
     }
 }

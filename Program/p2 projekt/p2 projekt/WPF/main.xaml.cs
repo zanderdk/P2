@@ -43,7 +43,7 @@ namespace p2_projekt.WPF
             
             if (Permission.CanRead(u.Permission.ChangePersonalInfo))
             {
-                AddToTabController(new MemberInfo(u), "Profil");
+                AddToTabController(new MemberInfo(u), "Brugeradministration");
             }
 
             if (Permission.CanRead(u.Permission.Search))
@@ -70,11 +70,11 @@ namespace p2_projekt.WPF
             throw new InvalidOperationException();
         }
 
-        public void selectUser(User u)
+        public void SelectUser(User u)
         {
             if(Permission.CanRead(loggedIn.Permission.MemberInfo))
             {
-                tabController.SelectedItem = GetTabItemByName("Profil");
+                tabController.SelectedItem = GetTabItemByName("Brugeradministration");
                 TabItem selected = tabController.SelectedItem as TabItem;
                 selected.Content = new MemberInfo(u);
             }
