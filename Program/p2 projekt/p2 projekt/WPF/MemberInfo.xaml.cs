@@ -90,33 +90,18 @@ namespace p2_projekt.WPF
 
         private void Button_AddPerson(object sender, RoutedEventArgs e)
         {
-                
             new memberCreator().Show();
-
-            //try
-            //{
-            //    User u = parseParameters();
-            //    MemberInfoController.ValidateUser(u);
-            //    Utilities.LobopDB.Add(u);
-            //    MessageBox.Show("Bruger oprettet.");
-                
-            //}catch (ArgumentException arg)
-            //{
-            //    if (arg.Message == "ID")
-            //        MessageBox.Show("Id ikke gyldigt");
-
-            //    if (arg.Message == "par")
-            //        MessageBox.Show("følgende felter skal udfyldes: \n Navn, Fødselsdag, tlf. nr., postnr., Adresse, Land, By");
-            //    else
-            //    {
-            //        MessageBox.Show(arg.Message);
-            //    }
-            //}
         }
 
         private void Button_ChangeUser(object sender, RoutedEventArgs e)
         {
-            new memberCreator(viewModel.User).Show();
+            if (viewModel.User != null)
+            {
+                new memberCreator(viewModel.User).Show();
+            }else
+            {
+                MessageBox.Show("Ingne bruger er valgt.");
+            }
         }
 
         private void AddNewTravel(object sender, RoutedEventArgs e)
@@ -134,87 +119,6 @@ namespace p2_projekt.WPF
         {
             ISailor sailor = viewModel.User as ISailor;
             new TravelController().Delete(viewModel.Travel, sailor);
-        }
-
-        User parseParameters()
-        {
-            User user;
-
-            if (name.Text == "" || birthday.Text == "" ||
-                phone.Text == "" || adresse.Text == "" ||
-                postal.Text == "" || country.Text == ""||
-                city.Text == "" || memberSince.Text != "")
-            {
-                throw new ArgumentException("par");
-            }
-
-
-            if(memberRadio.IsChecked == true)
-            {
-                if(memberID.Text != "")
-                {
-                    int id;
-                    if (!int.TryParse(memberID.Text, out id))
-                        throw new ArgumentException("ID");
-
-                    user = new Member(name.Text, new System.Device.Location.CivicAddress() { AddressLine1 = adresse.Text, City = city.Text, CountryRegion = country.Text, PostalCode=postal.Text}, id);
-                }
-                else
-                {
-                    user = new Member(name.Text, new System.Device.Location.CivicAddress() { AddressLine1 = adresse.Text, City = city.Text, CountryRegion = country.Text, PostalCode = postal.Text });
-                }
-
-                ((Member)user).Birthday = Convert.ToDateTime(birthday.Text);
-
-                //if(registrationNumber.Text != "")
-                //{
-                //    ((Member)user).RegistrationDate = Convert.ToDateTime(registrationNumber.Text);
-                //}
-
-                if(email.Text != "")
-                {
-                    ((Member)user).Email = email.Text;
-                }
-
-                //if(travelList.Items.Count > 0)
-                //{
-                //    foreach(Travel t in travelList.Items){
-                //        ((Member)user).Travels.Add(t);
-                //    }
-                //}
-
-            }
-            else if(adminRadio.IsChecked == true)
-            {
-                user = new HarbourMaster(name.Text) { Adress = new System.Device.Location.CivicAddress() { AddressLine1 = adresse.Text, City = city.Text, CountryRegion = country.Text, PostalCode = postal.Text } };
-
-                ((HarbourMaster)user).Birthday = Convert.ToDateTime(birthday.Text);
-
-                if (email.Text != "")
-                {
-                    ((HarbourMaster)user).Email = email.Text;
-                }
-
-            }
-            else
-            {
-                throw new NotImplementedException("FATAL ERROR");
-            }
-
-            if(user is ISailor)
-            {
-                if(listBoats.Items.Count > 0)
-                {
-                    foreach(Boat b in listBoats.Items)
-                    {
-                        //(user as ISailor).Boats.Add(b);
-                    }
-                }
-            }
-
-            user.Phone = phone.Text;
-
-            return user;
         }
 
         private void AddTravel_Executed(object sender, ExecutedRoutedEventArgs e)
@@ -237,6 +141,14 @@ namespace p2_projekt.WPF
             Boat boat = viewModel.Boat;
             ISailor sailor = viewModel.User as ISailor;
             new BoatController().Delete(boat, sailor);
+        }
+
+        private void Button_RemoveUser(object sender, RoutedEventArgs e)
+        {
+            DALController us = Utilities.LobopDB;
+            us.Remove(viewModel.User);
+            DataContext = null;
+            viewModel.User = null;
         }
     }
 }

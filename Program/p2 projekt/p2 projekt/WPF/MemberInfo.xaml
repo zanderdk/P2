@@ -24,14 +24,14 @@
 
                         
                     <!--TODO Datetime?-->
-                    <controllers:InfolineControl x:Name="phone" Title="Telefon" Value="{Binding User.Phone}"/>
-                    <controllers:InfolineControl x:Name="email" Title="Email" Value="{Binding User.Email}"/>
-                    <controllers:InfolineControl x:Name="adresse" Title="Adresse" Value="{Binding User.Adress.AddressLine1}"/>
-                    <controllers:InfolineControl x:Name="postal" Title="Post nr" Value="{Binding User.Adress.PostalCode}"/>
-                    <controllers:InfolineControl x:Name="city" Title="By" Value="{Binding User.Adress.City}"/>
-                    <controllers:InfolineControl x:Name="country" Title="Land" Value="{Binding User.Adress.CountryRegion}"/>
+                    <controllers:InfolineControl x:Name="phone" Title="Telefon" Value="{Binding User.Phone, Mode=TwoWay}"/>
+                    <controllers:InfolineControl x:Name="email" Title="Email" Value="{Binding User.Email, Mode=TwoWay}"/>
+                    <controllers:InfolineControl x:Name="adresse" Title="Adresse" Value="{Binding User.Adress.AddressLine1, Mode=TwoWay}"/>
+                    <controllers:InfolineControl x:Name="postal" Title="Post nr" Value="{Binding User.Adress.PostalCode, Mode=TwoWay}"/>
+                    <controllers:InfolineControl x:Name="city" Title="By" Value="{Binding User.Adress.City, Mode=TwoWay}"/>
+                    <controllers:InfolineControl x:Name="country" Title="Land" Value="{Binding User.Adress.CountryRegion, Mode=TwoWay}"/>
                     <controllers:InfolineControl x:Name="memberID" Title="Medlems nr" Value="{Binding User.MembershipNumber}"/>
-                    <controllers:InfolineControl x:Name="memberSince" Title="Oprettet" Value="{Binding User.RegistrationDate}"/>
+                    <controllers:InfolineControl x:Name="memberSince" Title="Oprettet" Value="{Binding User.RegistrationDate, Mode=TwoWay}"/>
                     <controllers:InfolineControl x:Name="memberTimeTotal" Title="Medlemstid" Value="{Binding User.MembershipDuration}"/>
                     <controllers:InfolineControl x:Name="isActive" Title="Aktiv" Visibility="Collapsed"/>
                     <!--TODO visiblity skal kunne ændres-->
@@ -46,15 +46,6 @@
                         </Style>
                     </StackPanel.Resources>
                     <Label Content="Tiladelser:"/>
-                    <StackPanel Orientation="Horizontal">
-                        <StackPanel.Resources>
-                            <Style TargetType="RadioButton">
-                                <Setter Property="Margin" Value="0,0,30,0"/>
-                            </Style>
-                        </StackPanel.Resources>
-                        <RadioButton GroupName="member" Name="memberRadio" Content="Medlem" IsChecked="True"/>
-                        <RadioButton GroupName="member"  Name="adminRadio" Content="guest"/>
-                    </StackPanel>
                     <CheckBox Content="Tiladelse til at søge"></CheckBox>
                 </StackPanel>
             </Border>
@@ -69,7 +60,7 @@
                     </StackPanel.Resources>
                     <Button Content="Tilføj person" Click="Button_AddPerson"/>
                     <Button Content="Ændre person" Click="Button_ChangeUser"/>
-                    <Button Content="Fjern person"/>
+                    <Button Content="Fjern person" Click="Button_RemoveUser" />
                 </StackPanel>
             </Border>
         </DockPanel>
