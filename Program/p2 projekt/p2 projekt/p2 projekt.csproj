@@ -86,10 +86,10 @@
     <Compile Include="controllers\memberPopupControler.cs" />
     <Compile Include="controllers\TravelController.cs" />
     <Compile Include="controllers\UserController.cs" />
-    <Compile Include="controllers\memberInfoController.cs" />
     <Compile Include="controllers\SearchController.cs" />
     <Compile Include="controllers\SearchPredicate.cs" />
     <Compile Include="DatabaseCreation.cs" />
+    <Compile Include="Enums\EnumPermissionLevel.cs" />
     <Compile Include="HarborStatus.cs" />
     <Compile Include="HarborStatus.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -98,16 +98,14 @@
     </Compile>
     <Compile Include="IDAL.cs" />
     <Compile Include="LobopContext.cs" />
-    <Compile Include="models\BoatDetector.cs" />
     <Compile Include="models\BoatSpace.cs" />
     <Compile Include="models\Boat.cs" />
     <Compile Include="models\BoatSpaceArgs.cs" />
-    <Compile Include="models\BoatSpaceSensorSimulator.cs" />
-    <Compile Include="models\EnumBoatSpaceStatus.cs" />
-    <Compile Include="models\EnumOperation.cs" />
+    <Compile Include="controllers\BoatSpaceSensorSimulator.cs" />
+    <Compile Include="Enums\EnumBoatSpaceStatus.cs" />
+    <Compile Include="Enums\EnumOperation.cs" />
     <Compile Include="models\Guest.cs" />
     <Compile Include="models\HarbourMaster.cs" />
-    <Compile Include="models\IBoatSpaceManipulator.cs" />
     <Compile Include="models\IFullPersonalInfo.cs" />
     <Compile Include="models\ILoginable.cs" />
     <Compile Include="models\ISailor.cs" />
@@ -139,9 +137,6 @@
     <Compile Include="WPF\ChipRequester.xaml.cs">
       <DependentUpon>ChipRequester.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WPF\EventCalendar.xaml.cs">
-      <DependentUpon>EventCalendar.xaml</DependentUpon>
-    </Compile>
     <Compile Include="WPF\GuestCreator.xaml.cs">
       <DependentUpon>GuestCreator.xaml</DependentUpon>
     </Compile>
@@ -163,7 +158,7 @@
     <Compile Include="WPF\memberCreator.xaml.cs">
       <DependentUpon>memberCreator.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WPF\MemberInfoViewModel.cs" />
+    <Compile Include="controllers\MemberInfoController.cs" />
     <Compile Include="WPF\TabMap.xaml.cs">
       <DependentUpon>TabMap.xaml</DependentUpon>
     </Compile>
@@ -209,10 +204,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WPF\ChipRequester.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="WPF\EventCalendar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -4,10 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace p2_projekt.models
+namespace p2_projekt.Enums
 {
-    public interface IBoatSpaceManipulator
-    {
-        void ChangeStatus();
-    }
+    public enum EnumPermissionLevel { None, Read, Write }
 }

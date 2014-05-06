@@ -20,7 +20,7 @@ namespace p2_projekt.WPF
     //TODO Synlighed ved "aktiv" felt
     public partial class MemberInfo : UserControl
     {
-        private MemberInfoViewModel viewModel;
+        private MemberInfoController viewModel;
 
         public MemberInfo()
         {
@@ -37,7 +37,7 @@ namespace p2_projekt.WPF
 
         public void InitUser(User u)
         {
-            viewModel = new MemberInfoViewModel(u);
+            viewModel = new MemberInfoController(u);
             if (u is ISailor)
             {
                 InitSailor(u as ISailor);
@@ -90,7 +90,7 @@ namespace p2_projekt.WPF
 
         private void Button_AddPerson(object sender, RoutedEventArgs e)
         {
-
+                
             new memberCreator().Show();
 
             //try

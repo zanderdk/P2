@@ -8,6 +8,7 @@ using p2_projekt.WPF;
 using p2_projekt.models;
 using System.IO;
 using System.Data.Entity;
+using p2_projekt.Enums;
 
 namespace p2_projekt
 {
@@ -36,23 +37,6 @@ namespace p2_projekt
             }
 
             
-
-
-            BoatSpace bs = new WaterSpace(10.0, 10.0) { Info = "dfgdfg" };
-            Boat b = new Boat() { Name = "test Ship", BoatSpace = bs, RegistrationNumber = "fdsf" };
-            Travel travel = new Travel(new DateTime(2008, 1, 1), new DateTime(2001, 1, 1));
-            Member alice = new Member("Christian", new System.Device.Location.CivicAddress("bistands crib no 1", "", "", "kbh", "Denmark", "", "fuck", "")) { Password = "test", Birthday = new DateTime(2000, 1, 1) };
-            alice.Permission = new Permission() { MemberInfo = PermissionLevel.Write, Search = PermissionLevel.Write, ChangePersonalInfo = PermissionLevel.Write };
-            //alice.Travels.Add(travel);
-            //Permission2 p2 = new Permission2();
-            //p2.MyProperty = "hej";
-            //alice.Permission2 = p2;
-            alice.RegistrationDate = new DateTime(2013, 1, 1);
-            alice.Boats.Add(b);
-            alice.Email = "Christian_gay@royal.danishKingdom.dk";
-
-
-
             //var users = us.ReadAll<User>(x => true);
 
             //foreach (var item in users)

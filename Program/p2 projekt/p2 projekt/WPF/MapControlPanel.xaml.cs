@@ -51,7 +51,7 @@ namespace p2_projekt.WPF
             }
             else
             {
-                boatSpace.BoatSpaceStatus = status;
+                new BoatSpaceSensorSimulator().ChangeStatus(boatSpace, status);
             }
         }
     }

@@ -1,61 +1,105 @@
-﻿using System;
-using p2_projekt.models;
+﻿using p2_projekt.models;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Input;
 
-namespace p2_projekt.controllers
+namespace p2_projekt.WPF
 {
-    public static class MemberInfoController
+    class MemberInfoController : INotifyPropertyChanged
     {
-        public static void ValidateUser(User u)
+        private User user;
+        private Boat boat;
+        private Travel travel;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void NotifyPropertyChanged(String info)
         {
-            if(u is Member)
+            if (PropertyChanged != null)
             {
-                Member m = (u as Member);
-                var test = Utilities.LobopDB.Read<User>(
-                    x => {
-                        if (x is Member)
-                            return (x as Member) == m;
-
-                        return false;
-                    }
-                    );
-                if(test != null)
-                {
-                    throw new ArgumentException("Medlem med dette medlemsnummer eksistere allerede.");
-                }
+                PropertyChanged(this, new PropertyChangedEventArgs(info));
             }
-            if(u is HarbourMaster)
-            {
-                HarbourMaster h = (u as HarbourMaster);
-                var test = Utilities.LobopDB.Read<User>(
-                    x =>
-                    {
-                        if (x is HarbourMaster)
-                            return (x as HarbourMaster) == h;
+        }
 
-                        return false;
-                    }
-                    );
-                if (test != null)
-                {
-                    throw new ArgumentException("Admin med dette brugernavn eksistere allerede.");
-                }
-            }
-            if(u is Guest)
-            {
-                Guest g = (u as Guest);
-                var test = Utilities.LobopDB.Read<User>(
-                    x => {
-                        if (x is Guest)
-                            return (x as Guest) == g;
+        public MemberInfoController(User user)
+        {
+            User = user;
+            addBoatCommand = new AddBoatCommand(user);
+            addTravelCommand = new AddTravelCommand(user);
+        }
 
-                        return false;
-                    }
-                    );
-                if(test != null)
-                {
-                    throw new ArgumentException("Guest med dette id eksistere allerede.");
-                }
+        public String Birthday { 
+            get { 
+                return User is IFullPersonalInfo ? (User as IFullPersonalInfo).Birthday.ToString("dd/MM/yyyy") : ""; 
+            } 
+        }
+
+        public User User
+        {
+            get { return user; }
+            set { user = value; }
+        }
+
+        public Boat Boat
+        {
+            get { return boat; }
+            set { boat = value;
+            NotifyPropertyChanged("Boat");
             }
+        }
+
+        public Travel Travel
+        {
+            get { return travel; }
+            set { travel = value; }
+        }
+
+        public AddTravelCommand addTravelCommand { get; private set; }
+        public AddBoatCommand addBoatCommand { get; private set; }
+    }
+
+    public class AddBoatCommand : ICommand
+    {
+        private User user;
+        public AddBoatCommand(User s)
+        {
+            user = s;
+        }
+
+        public bool CanExecute(object parameter)
+        {
+            return user is Member;
+        }
+
+        public event EventHandler CanExecuteChanged;
+
+        public void Execute(object parameter)
+        {
+            new BoatPopup(user as ISailor).Show();
+        }
+    }
+
+    public class AddTravelCommand : ICommand
+    {
+        private User user;
+        public AddTravelCommand(User s)
+        {
+            user = s;
+        }
+
+        public bool CanExecute(object parameter)
+        {
+            return user is Member;
+        }
+
+        public event EventHandler CanExecuteChanged;
+
+        public void Execute(object parameter)
+        {
+            new TravelPopup(user as ISailor).Show();
         }
     }
 }

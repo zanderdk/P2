@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using p2_projekt;
 using p2_projekt.models;
 using System.Device.Location;
+using p2_projekt.Enums;
 
 namespace p2_projekt.WPF
 {
@@ -38,9 +39,9 @@ namespace p2_projekt.WPF
                     CountryRegion = country.Text 
                 },
                 Permission = new Permission(){
-                    ChangePersonalInfo = PermissionLevel.Read,
-                    MemberInfo = PermissionLevel.Read,
-                    Search = PermissionLevel.None
+                    PersonalInfo = EnumPermissionLevel.Read,
+                    RemoveUser = EnumPermissionLevel.Read,
+                    Search = EnumPermissionLevel.None
                 }
             };
 

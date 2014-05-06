@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using p2_projekt.models;
+using p2_projekt.Enums;
 
 namespace p2_projekt
 {
@@ -46,7 +47,7 @@ namespace p2_projekt
                 member.Adress.PostalCode = "" + r.Next(1000, 9999);
 
                 // TODO alle skal ikke have søge rettigheder
-                member.Permission = new Permission() { MemberInfo = PermissionLevel.Write, Search = PermissionLevel.Write, ChangePersonalInfo = PermissionLevel.Write};
+                member.Permission = new Permission() { RemoveUser = EnumPermissionLevel.Read, Search = EnumPermissionLevel.Read, PersonalInfo = EnumPermissionLevel.Read};
                 member.Birthday = new DateTime(BirthdayYear,BirthdayMonth,BirthdayDay);
                 member.RegistrationDate = new DateTime(RegDayYear, RegDayMonth, RegDayDay);
             
@@ -94,7 +95,7 @@ namespace p2_projekt
             TestMember1.Adress.City = "Grenå";
             TestMember1.Adress.AddressLine1 = "Testervej 1";
             TestMember1.Adress.PostalCode = "8464";
-            TestMember1.Permission = new Permission() { ChangePersonalInfo = PermissionLevel.None, MemberInfo = PermissionLevel.None, Search = PermissionLevel.None };
+            TestMember1.Permission = new Permission() { PersonalInfo = EnumPermissionLevel.None, RemoveUser = EnumPermissionLevel.None, Search = EnumPermissionLevel.None };
             Boat b1 = CreateBoat();
             b1.BoatSpace = CreateBoatSpace();
             TestMember1.Boats.Add(b1);
@@ -110,7 +111,7 @@ namespace p2_projekt
             TestMember2.Adress.City = "Grenå";
             TestMember2.Adress.AddressLine1 = "Testervej 2";
             TestMember2.Adress.PostalCode = "8464";
-            TestMember2.Permission = new Permission() { ChangePersonalInfo = PermissionLevel.Read, MemberInfo = PermissionLevel.Read, Search = PermissionLevel.Read };
+            TestMember2.Permission = new Permission() { PersonalInfo = EnumPermissionLevel.Write, RemoveUser = EnumPermissionLevel.Write, Search = EnumPermissionLevel.Write };
             Boat b2 = CreateBoat();
             b2.BoatSpace = CreateBoatSpace();
             TestMember2.Boats.Add(b2);
@@ -126,7 +127,7 @@ namespace p2_projekt
             TestMember3.Adress.City = "Grenå";
             TestMember3.Adress.AddressLine1 = "Testervej 3";
             TestMember3.Adress.PostalCode = "8464";
-            TestMember3.Permission = new Permission() { ChangePersonalInfo = PermissionLevel.Write, MemberInfo = PermissionLevel.None, Search = PermissionLevel.None };
+            TestMember3.Permission = new Permission() { PersonalInfo = EnumPermissionLevel.Write, RemoveUser = EnumPermissionLevel.Write, Search = EnumPermissionLevel.None };
             b1 = CreateBoat();
             b1.BoatSpace = CreateBoatSpace();
             TestMember3.Boats.Add(b1);
