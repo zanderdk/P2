@@ -41,7 +41,7 @@ namespace p2_projekt.WPF
 
             AddToTabController(new TabMap(), "Kort");
             
-            if (Permission.CanRead(u.Permission.ChangePersonalInfo))
+            if (Permission.CanRead(u.Permission.PersonalInfo))
             {
                 AddToTabController(new MemberInfo(u), "Brugeradministration");
             }
@@ -72,7 +72,7 @@ namespace p2_projekt.WPF
 
         public void SelectUser(User u)
         {
-            if(Permission.CanRead(loggedIn.Permission.MemberInfo))
+            if(Permission.CanRead(loggedIn.Permission.PersonalInfo))
             {
                 tabController.SelectedItem = GetTabItemByName("Brugeradministration");
                 TabItem selected = tabController.SelectedItem as TabItem;

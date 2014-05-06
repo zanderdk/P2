@@ -39,8 +39,8 @@ namespace p2_projekt.WPF
                     CountryRegion = country.Text 
                 },
                 Permission = new Permission(){
-                    ChangePersonalInfo = EnumPermissionLevel.Read,
-                    MemberInfo = EnumPermissionLevel.Read,
+                    PersonalInfo = EnumPermissionLevel.Read,
+                    RemoveUser = EnumPermissionLevel.Read,
                     Search = EnumPermissionLevel.None
                 }
             };
