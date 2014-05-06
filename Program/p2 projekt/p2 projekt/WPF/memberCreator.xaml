@@ -9,12 +9,35 @@
             <Border CornerRadius="1" BorderBrush="Gray" Background="LightGray" BorderThickness="2" DockPanel.Dock="Top">
                 <Grid>
                     <StackPanel Grid.RowSpan="1">
-                        <controllers:InfolineController x:Name="name" Title="Name" Value="{Binding Name, Mode=TwoWay}" readOnly="False"/>
-                        <controllers:InfolineController x:Name="phone" Title="Phone" Value="{Binding Phone, Mode=TwoWay}" readOnly="False"/>
-                        <controllers:InfolineController x:Name="streetName" Title="Adresse" readOnly="False" />
-                        <controllers:InfolineController x:Name="postalCode" Title="Postal Code" readOnly="False"/>
-                        <controllers:InfolineController x:Name="country" Title="Country" readOnly="False"/>
-                        
+                        <controllers:InfolineControl x:Name="name" Title="Navn" Value="{Binding Name, Mode=TwoWay}" readOnly="False" Margin="0,0,0.333,0"/>
+                        <controllers:InfolineControl x:Name="phone" Title="Tlf." Value="{Binding Phone, Mode=TwoWay}" readOnly="False"/>
+                        <controllers:InfolineControl x:Name="email" Title="Email" Value="{Binding Email, Mode=TwoWay}"/>
+                        <controllers:InfolineControl x:Name="streetName" Title="Adresse" Value="{Binding Adress.AddressLine1, Mode=TwoWay}" readOnly="False" />
+                        <controllers:InfolineControl x:Name="postalCode" Title="Post nr." Value="{Binding Adress.PostalCode, Mode=TwoWay}" readOnly="False"/>
+                        <controllers:InfolineControl x:Name="city" Title="By" Value="{Binding Adress.City, Mode=TwoWay}"/>
+                        <controllers:InfolineControl x:Name="country" Title="Land" Value="{Binding Adress.CountryRegion, Mode=TwoWay}"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="75"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Content="Kode" Grid.Column="0"></Label>
+                            <PasswordBox Name="password" Grid.Column="1"></PasswordBox>
+                        </Grid>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="75"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Content="Fødselsdato" Grid.Column="0"></Label>
+                            <DatePicker Name="birthday" Text="{Binding Birthday, Mode=TwoWay}" Grid.Column="1"></DatePicker>
+                        </Grid>
+                        <Button Command="Save" Content="Ok" HorizontalAlignment="Stretch" Margin="10,10,10.333,10" Grid.Row="2">
+                            <Button.CommandBindings>
+                                <CommandBinding Command="Save" Executed="Save_Executed" CanExecute="save_canExecute"/>
+                            </Button.CommandBindings>
+                        </Button>
+                        <Button Content="Annuller" HorizontalAlignment="Stretch" Margin="10" Grid.Row="2" Click="Button_Click"/>
                     </StackPanel>
                 </Grid>
             </Border>
