@@ -107,27 +107,6 @@ namespace p2_projekt.WPF
             e.CanExecute = controller.User is ISailor;
         }
 
-        private void ChangeBoat(object sender, RoutedEventArgs e)
-        {
-            new BoatPopup(viewModel.Boat).Show();
-            new BoatPopup(controller.Boat, controller.User as ISailor).Show();
-        }
-
-        private void RemoveBoat(object sender, RoutedEventArgs e)
-        {
-            Boat boat = controller.Boat;
-            ISailor sailor = controller.User as ISailor;
-            new BoatController().Delete(boat, sailor);
-        }
-
-        private void Button_RemoveUser(object sender, RoutedEventArgs e)
-        {
-            DALController us = Utilities.LobopDB;
-            us.Remove(viewModel.User);
-            DataContext = null;
-            viewModel.User = null;
-        }
-
         private void add_canExecute(object sender, CanExecuteRoutedEventArgs e)
         {
 
