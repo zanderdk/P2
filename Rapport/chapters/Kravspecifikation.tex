@@ -1,4 +1,4 @@
-
+\section{Kravspecifikation}
 \label{sec:Kravspecifikation}
 
 Ud fra problemformuleringen er der opstillet en kravspecifikation, som har til formål at udspecificere de krav til løsningen, som er underbygget i problemanalysen. Kravspecifikationen er opstillet som små afsnit med en kort beskrivelse indeni. Beskrivelsen vil desuden indeholde en reference til problemanalysen, hvor behovet for dette krav er dokumenteret.
@@ -51,7 +51,7 @@ Når gæster benytter havnens faciliteter skal der betales for dette. Som nævnt
   Løsningen skal være i stand til at søge i det lagrede data ud fra forskellige brugerdefinerede søgekriterier. Derudover skal det også være muligt for brugeren at hente, ændre eller slette i den lagrede data ud fra disse søgekriterier. Eksempelvis kunne havnefogeden ønske at vide hvem der ligger på en bestemt plads, derfor bør det være muligt at hente data om personen som ligger på pladsen, ud det pågældende pladsnummer.
   
 \item \label{itm:gui} \textbf{Systemet skal være brugervenligt.}  
-    programmet skal have en grafisk brugergrænseflade som vil blive betegnet som GUI. GUI'en har til formål at gøre software programmet mere brugervenligt, og skabe et mere overskueligt overblik over havne for havnefogeden samt gæster og medlemmer. Behovet for dette krav er underbygget af \cref{sec:aspekter} hvor det er beskrevet at havnefogeden på visse tidspunkter har overbliksproblemer.
+    Programmet skal have en grafisk brugergrænseflade som vil blive betegnet som GUI. GUI'en har til formål at gøre software programmet mere brugervenligt, og skabe et mere overskueligt overblik over havne for havnefogeden samt gæster og medlemmer. Behovet for dette krav er underbygget af \cref{sec:aspekter} hvor det er beskrevet at havnefogeden på visse tidspunkter har overbliksproblemer.
 
 \item \label{itm:events} \textbf{Systemet skal have et modul, der kan håndtere arrangementer i klubben og det skal give overblik over hvad der sker i havnen.}
 
@@ -60,18 +60,17 @@ I forbindelse med Vestre Baadelaugs ønske om et socialt liv på havnen, som bes
 \end{enumerate}
 
 \section{Afgrænsning af krav}
-
+Kravene der inkludere et fungerende betalingssystem vil være nedprioriteret siden et betalingssystem er meget ressource krævende, og det er ikke essentielt for programmet.
+Kravene vil blive prioriteret efter hvor aktuelle de er i forhold til andre kernefunktioner eller features.
 \begin{enumerate}
-  \item \label{itm:afg_udlejning} Krav \ref{itm:udlejning} \\
-  Under kravet omkring udlejning og betaling, ligger fokus på at få funktionalitet af udlejningen til at virke. Betalingssystemet og integrationen med Vestre Baadelaugs nuværende betalingssystem bliver nedprioriteret i forhold til funktionalitet af systemet, siden det vil være en ressourcekrævende opgave.
 
-  \item \label{itm:events} \textbf{Krav 5} \\
+  \item \label{itm:afg_fejl} \textbf{itm:fejl} \\
   Kravet omkring fejlmelding til havnefogeden er ikke essentielt for programmets kernefunktionalitet, og er derfor afgrænses der fra dette, under implementation af løsningen.
 
-  \item \label{itm:events} \textbf{Krav 6} \\
+  \item \label{itm:afg_vis_information} \textbf{itm:vis_information} \\
   Dette er et vidtspændende krav om understøttelsen af gæster i systemet. Dette har medført, at kravet kun vil blive opfyldt gradvist i løsningen. De underkrav som ikke implementeres, vurderes til ikke have høj nok relevans for kernefunktionaliteten af programmet. Desuden vil implementation af disse ikke demonstrerer yderligere akademisk kendskab.
 
-  \item \label{itm:events} \textbf{Krav 9} \\
+  \item \label{itm:afg_events} \textbf{itm:events} \\
   Eventkalender anses som et socialt redskab, der kan bruges af Vestre Baadelaug, til at promovering events og LOBOP. Da dette ikke er nødvendigt for løsningens funktionalitet, og falder udenfor programmets primære formål, vil det være nederst på prioritetslisten.
 \end{enumerate}
 % section Kravspecifikation (end)

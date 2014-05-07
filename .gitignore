@@ -32,7 +32,9 @@
 *.vrb
 *.xdy
 *.tdo
-*.pdf
+master.pdf
+Aftaler/*/*.pdf
+Referat/*/*.pdf
 .DS_Store
 *~
 *.fls

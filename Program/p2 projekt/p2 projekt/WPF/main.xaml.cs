@@ -22,9 +22,13 @@ namespace p2_projekt.WPF
     /// </summary>
     public partial class Main : Window
     {
+<<<<<<< HEAD
         public static User loggedIn {get; private set; }
         public DALController controller;
         
+=======
+        User loggedIn;
+>>>>>>> b93ebfd5b2a4d8ff51dc1148574ffbb07bdc7f55
         public Main(User u)
         {
             InitializeComponent();
@@ -35,8 +39,6 @@ namespace p2_projekt.WPF
             MainController.main = this;
 
             loggedIn = u;
-
-            controller = Utilities.LobopDB;
 
             AddToTabController(new WelcomeTab(u), "Forside");
 
