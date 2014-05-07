@@ -11,45 +11,45 @@ namespace p2_projekt
         
         int Registreringsnummer = 23914;
 
-        string[] Name = new string[] { "Mette", "Jonas", "Jørgen", "Kasper", "Mads", "Johanne", "Sofie", "Pernille", "Daniel", "Mogens", "Dennis", "Hanne", "Johannes", "Simon", "Jonathan", "Martin", "Allan", "Mathilde", "Egon", "Pia" };
-        string[] LastName = new string[] { "Madsen", "Mogensen", "Hansen", "Jackobsen", "Stalone", "Snoep", "Friis", "Frandsen", "Juul", "Karlsen", "Hoffmann", "Andersen", "Larsen", "Hedegaard", "Krog", "Rasmussen", "Toft", "Olsen", "Sved", "Lægteskov" };
-        string[] BoatName = new string[] { "The Titania", "HMS Dannebro", "HMS Epangelia", "Dorthe", "Johanna V", "Den Usynkelige II", "Bodil", "Samsung", "Vraget", "Skuden", "Søsanne" };
-        string[] info = new string[] { "Der er sæler på pladsen", "Der bor Ænder her", " Vandet er lavt her", "Jørgens Iphone 5 ligger et eller andet sted her", "Den er lidt brændt", "Den er meget beskidt", "Egon ligger ved siden af den", "Gammel Plads", "Alle både der ligger her synker", "Pladsen er grøn" };
-        string[] Email = new string[] { "@stupid.com", "@sved.dk", "@hotmail.com", "@gmail.com", "@yahoo.dk", "@blizzard.com", "@maersk.dk", "@apple.dk" };
-        string[] Country = new string[] { "Danmark", "Svenskerland", "Norge", "Tyskland", "Frankrig", "Finland", "Rusland", "Nordpolen", "'Merica" };
-        string[] Cities = new string[] { "Svedstrup", "Paris", "Oslo", "Malmø", "Skive", "Horsens", "København", "Viborg", "Ulstrup", "Göteborg", "warszawa" };
-        string[] AdressP1 = new string[] {"Sved","Kage","Nodre","Faldskærms","Danmarks","Pakke","Ligge","Internet"};
-        string[] AdressP2 = new string[] { "vej", "ly", "krattet", "gade" };
-        double[] Dimensions = new double[] { 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12, 12.5, 13, 13.5, 14, 14.5, 15, 15.5, 16, 16.5, 17, 17.5, 18, 18.5, 19, 19.5, 20, 20.5, 21, 21.5, 22, 22.5, 23, 23.5, 24, 24.5, 25 };
+        readonly string[] _name = { "Mette", "Jonas", "Jørgen", "Kasper", "Mads", "Johanne", "Sofie", "Pernille", "Daniel", "Mogens", "Dennis", "Hanne", "Johannes", "Simon", "Jonathan", "Martin", "Allan", "Mathilde", "Egon", "Pia" };
+        readonly string[] _lastName = { "Madsen", "Mogensen", "Hansen", "Jackobsen", "Stalone", "Snoep", "Friis", "Frandsen", "Juul", "Karlsen", "Hoffmann", "Andersen", "Larsen", "Hedegaard", "Krog", "Rasmussen", "Toft", "Olsen", "Sved", "Lægteskov" };
+        readonly string[] _boatName = { "The Titania", "HMS Dannebro", "HMS Epangelia", "Dorthe", "Johanna V", "Den Usynkelige II", "Bodil", "Samsung", "Vraget", "Skuden", "Søsanne" };
+        readonly string[] _info = { "Der er sæler på pladsen", "Der bor Ænder her", " Vandet er lavt her", "Jørgens Iphone 5 ligger et eller andet sted her", "Den er lidt brændt", "Den er meget beskidt", "Egon ligger ved siden af den", "Gammel Plads", "Alle både der ligger her synker", "Pladsen er grøn" };
+        readonly string[] _email = { "@stupid.com", "@sved.dk", "@hotmail.com", "@gmail.com", "@yahoo.dk", "@blizzard.com", "@maersk.dk", "@apple.dk" };
+        readonly string[] _country = { "Danmark", "Svenskerland", "Norge", "Tyskland", "Frankrig", "Finland", "Rusland", "Nordpolen", "'Merica" };
+        readonly string[] _cities = { "Svedstrup", "Paris", "Oslo", "Malmø", "Skive", "Horsens", "København", "Viborg", "Ulstrup", "Göteborg", "warszawa" };
+        readonly string[] _adressP1 = {"Sved","Kage","Nodre","Faldskærms","Danmarks","Pakke","Ligge","Internet"};
+        readonly string[] _adressP2 = { "vej", "ly", "krattet", "gade" };
+        readonly double[] _dimensions = { 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12, 12.5, 13, 13.5, 14, 14.5, 15, 15.5, 16, 16.5, 17, 17.5, 18, 18.5, 19, 19.5, 20, 20.5, 21, 21.5, 22, 22.5, 23, 23.5, 24, 24.5, 25 };
 
         private Member CreateUser()
         {                
-                int BirthdayYear = r.Next(1900,2005);
-                int BirthdayMonth = r.Next(1,12);
-                int BirthdayDay = r.Next(1,28);
-                int RegDayYear = r.Next(1900,2014);
-                int RegDayMonth = r.Next(1,12);
-                int RegDayDay = r.Next(1,28);
+                int birthdayYear = r.Next(1900,2005);
+                int birthdayMonth = r.Next(1,12);
+                int birthdayDay = r.Next(1,28);
+                int regDayYear = r.Next(1900,2014);
+                int regDayMonth = r.Next(1,12);
+                int regDayDay = r.Next(1,28);
 
-                string tempName = Name[r.Next(0, Name.Length)];
-                string Password = ""+tempName+r.Next(100,9001);
-                string tempEmail = "" + tempName + BirthdayYear + Email[r.Next(0,Email.Length)];
+                string tempName = _name[r.Next(0, _name.Length)];
+                string password = ""+tempName+r.Next(100,9001);
+                string tempEmail = "" + tempName + birthdayYear + _email[r.Next(0,_email.Length)];
                 string phonenumber = "2"+r.Next(2,8)+r.Next(0,9)+r.Next(0,9)+r.Next(0,9)+r.Next(0,9)+r.Next(0,9)+r.Next(0,9);
                 
 
-                Member member = new Member((tempName + " " + LastName[r.Next(0, LastName.Length)]), new System.Device.Location.CivicAddress());
-                member.Password = Password;
+                Member member = new Member((tempName + " " + _lastName[r.Next(0, _lastName.Length)]), new System.Device.Location.CivicAddress());
+                member.Password = password;
                 member.Email = tempEmail;
                 member.Phone = phonenumber;
-                member.Adress.CountryRegion = Country[r.Next(0, Country.Length)];
-                member.Adress.City = Cities[r.Next(0, Cities.Length)];
-                member.Adress.AddressLine1 = "" + AdressP1[r.Next(0, AdressP1.Length)] + AdressP2[r.Next(0, AdressP2.Length)]+" "+r.Next(1,500);
+                member.Adress.CountryRegion = _country[r.Next(0, _country.Length)];
+                member.Adress.City = _cities[r.Next(0, _cities.Length)];
+                member.Adress.AddressLine1 = "" + _adressP1[r.Next(0, _adressP1.Length)] + _adressP2[r.Next(0, _adressP2.Length)]+" "+r.Next(1,500);
                 member.Adress.PostalCode = "" + r.Next(1000, 9999);
 
                 // TODO alle skal ikke have søge rettigheder
-                member.Permission = new Permission() { OtherUsers = EnumPermissionLevel.Read, PersonalInfo = EnumPermissionLevel.Read};
-                member.Birthday = new DateTime(BirthdayYear,BirthdayMonth,BirthdayDay);
-                member.RegistrationDate = new DateTime(RegDayYear, RegDayMonth, RegDayDay);
+                member.Permission = new Permission() { OtherUsers = PermissionLevel.Read, PersonalInfo = PermissionLevel.Read};
+                member.Birthday = new DateTime(birthdayYear,birthdayMonth,birthdayDay);
+                member.RegistrationDate = new DateTime(regDayYear, regDayMonth, regDayDay);
             
             return member;
         }
@@ -59,10 +59,10 @@ namespace p2_projekt
                             
                 Boat boat = new Boat()
                 { 
-                    Name = BoatName[r.Next(0, BoatName.Length)], 
+                    Name = _boatName[r.Next(0, _boatName.Length)], 
                     RegistrationNumber = "" + Registreringsnummer,
-                    Length = Dimensions[r.Next(0, Dimensions.Length)],
-                    Width = Dimensions[r.Next(0, Dimensions.Length)]
+                    Length = _dimensions[r.Next(0, _dimensions.Length)],
+                    Width = _dimensions[r.Next(0, _dimensions.Length)]
                 };
             
             return boat;
@@ -70,8 +70,8 @@ namespace p2_projekt
 
         private BoatSpace CreateBoatSpace()
         {
-                BoatSpace boat_space = new WaterSpace(Dimensions[r.Next(0, Dimensions.Length)], Dimensions[r.Next(0, Dimensions.Length)]);
-                boat_space.Info = info[r.Next(0, info.Length)];
+                BoatSpace boat_space = new WaterSpace(_dimensions[r.Next(0, _dimensions.Length)], _dimensions[r.Next(0, _dimensions.Length)]);
+                boat_space.Info = _info[r.Next(0, _info.Length)];
             
             return boat_space;
         }
@@ -95,7 +95,7 @@ namespace p2_projekt
             TestMember1.Adress.City = "Grenå";
             TestMember1.Adress.AddressLine1 = "Testervej 1";
             TestMember1.Adress.PostalCode = "8464";
-            TestMember1.Permission = new Permission() { PersonalInfo = EnumPermissionLevel.None, OtherUsers = EnumPermissionLevel.None };
+            TestMember1.Permission = new Permission() { PersonalInfo = PermissionLevel.None, OtherUsers = PermissionLevel.None };
             Boat b1 = CreateBoat();
             b1.BoatSpace = CreateBoatSpace();
             TestMember1.Boats.Add(b1);
@@ -111,7 +111,7 @@ namespace p2_projekt
             TestMember2.Adress.City = "Grenå";
             TestMember2.Adress.AddressLine1 = "Testervej 2";
             TestMember2.Adress.PostalCode = "8464";
-            TestMember2.Permission = new Permission() { PersonalInfo = EnumPermissionLevel.Write, OtherUsers = EnumPermissionLevel.Read };
+            TestMember2.Permission = new Permission() { PersonalInfo = PermissionLevel.Write, OtherUsers = PermissionLevel.Read };
             Boat b2 = CreateBoat();
             b2.BoatSpace = CreateBoatSpace();
             TestMember2.Boats.Add(b2);
@@ -127,7 +127,7 @@ namespace p2_projekt
             TestMember3.Adress.City = "Grenå";
             TestMember3.Adress.AddressLine1 = "Testervej 3";
             TestMember3.Adress.PostalCode = "8464";
-            TestMember3.Permission = new Permission() { PersonalInfo = EnumPermissionLevel.Write, OtherUsers = EnumPermissionLevel.Write };
+            TestMember3.Permission = new Permission() { PersonalInfo = PermissionLevel.Write, OtherUsers = PermissionLevel.Write };
             b1 = CreateBoat();
             b1.BoatSpace = CreateBoatSpace();
             TestMember3.Boats.Add(b1);

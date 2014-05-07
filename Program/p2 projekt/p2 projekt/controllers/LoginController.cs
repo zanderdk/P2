@@ -1,12 +1,6 @@
 ﻿using p2_projekt.models;
 using p2_projekt.WPF;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Input;
 
 namespace p2_projekt.controllers
 {

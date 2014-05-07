@@ -1,14 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Threading;
 using p2_projekt.WPF;
 using p2_projekt.models;
 using System.IO;
-using System.Data.Entity;
-using p2_projekt.Enums;
 
 namespace p2_projekt
 {
@@ -23,15 +16,15 @@ namespace p2_projekt
 
 
             
-            string root_path = Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
-            string database_path = root_path + @"\lobopDB.mdf";
+            string rootPath = Path.GetDirectoryName(Path.GetDirectoryName(Directory.GetCurrentDirectory()));
+            string databasePath = rootPath + @"\lobopDB.mdf";
 
-            AppDomain.CurrentDomain.SetData("DataDirectory", root_path);
+            AppDomain.CurrentDomain.SetData("DataDirectory", rootPath);
 
 
             DALController us = Utilities.LobopDB;
             
-            if(File.Exists(database_path) == false )
+            if(File.Exists(databasePath) == false )
             {
             new DatabaseCreation().CreateDataset(us, 50);
             }

@@ -1,20 +1,16 @@
-﻿using p2_projekt.models;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
-using p2_projekt.controllers;
+using p2_projekt.models;
+using p2_projekt.WPF;
 
-namespace p2_projekt.WPF
+namespace p2_projekt.controllers
 {
     class MemberInfoController : INotifyPropertyChanged
     {
-        private User user;
-        private Boat boat;
-        private Travel travel;
+        private User _user;
+        private Boat _boat;
+        private Travel _travel;
 
         public event PropertyChangedEventHandler PropertyChanged;
         private void NotifyPropertyChanged(String info)
@@ -29,8 +25,8 @@ namespace p2_projekt.WPF
         {
             User = user;
             addBoatCommand = new AddBoatCommand(user);
-            changeBoatCommand = new ChangeBoatCommand(boat, this);
-            removeBoatCommand = new RemoveBoatCommand(boat);
+            changeBoatCommand = new ChangeBoatCommand(_boat, this);
+            removeBoatCommand = new RemoveBoatCommand(_boat);
 
             addTravelCommand = new AddTravelCommand(user);
 
@@ -48,22 +44,22 @@ namespace p2_projekt.WPF
 
         public User User
         {
-            get { return user; }
-            set { user = value; }
+            get { return _user; }
+            set { _user = value; }
         }
 
         public Boat Boat
         {
-            get { return boat; }
-            set { boat = value;
+            get { return _boat; }
+            set { _boat = value;
             NotifyPropertyChanged("Boat");
             }
         }
 
         public Travel Travel
         {
-            get { return travel; }
-            set { travel = value; }
+            get { return _travel; }
+            set { _travel = value; }
         }
 
         public AddTravelCommand addTravelCommand { get; private set; }
@@ -88,10 +84,10 @@ namespace p2_projekt.WPF
             if (!(user is ISailor))
                 return false;
 
-            if (user == Main.loggedIn)
+            if (user == Main.LoggedIn)
                 return Permission.CanWrite(user.Permission.PersonalInfo);
             else
-                return Permission.CanWrite(Main.loggedIn.Permission.OtherUsers);
+                return Permission.CanWrite(Main.LoggedIn.Permission.OtherUsers);
         }
 
         public event EventHandler CanExecuteChanged;
@@ -121,10 +117,10 @@ namespace p2_projekt.WPF
             if (boat == null)
                 return false;
 
-            if (user == Main.loggedIn)
+            if (user == Main.LoggedIn)
                 return Permission.CanWrite(user.Permission.PersonalInfo);
             else
-                return Permission.CanWrite(Main.loggedIn.Permission.OtherUsers);
+                return Permission.CanWrite(Main.LoggedIn.Permission.OtherUsers);
         }
 
         public event EventHandler CanExecuteChanged;
@@ -140,14 +136,14 @@ namespace p2_projekt.WPF
         private User user;
         private Boat boat;
 
-        void call(object sender, EventArgs arg)
+        void Call(object sender, EventArgs arg)
         {
             CanExecute(null);
         }
 
         public ChangeBoatCommand(Boat b, INotifyPropertyChanged sender)
         {
-            sender.PropertyChanged += this.call;
+            sender.PropertyChanged += this.Call;
             boat = b;
             if(b != null)
                 user = b.User;
@@ -161,10 +157,10 @@ namespace p2_projekt.WPF
             if ((user is ISailor))
                 return false;
 
-            if (user == Main.loggedIn)
+            if (user == Main.LoggedIn)
                 return Permission.CanWrite(user.Permission.PersonalInfo);
             else
-                return Permission.CanWrite(Main.loggedIn.Permission.OtherUsers);
+                return Permission.CanWrite(Main.LoggedIn.Permission.OtherUsers);
         }
 
         public event EventHandler CanExecuteChanged;
@@ -184,10 +180,10 @@ namespace p2_projekt.WPF
         }
         public bool CanExecute(object parameter)
         {
-            if (user == Main.loggedIn)
+            if (user == Main.LoggedIn)
                 return false;
 
-            return Permission.CanWrite(Main.loggedIn.Permission.OtherUsers);
+            return Permission.CanWrite(Main.LoggedIn.Permission.OtherUsers);
         }
 
         public event EventHandler CanExecuteChanged;
@@ -203,14 +199,14 @@ namespace p2_projekt.WPF
     {
         public bool CanExecute(object parameter)
         {
-            return Permission.CanWrite(Main.loggedIn.Permission.OtherUsers);
+            return Permission.CanWrite(Main.LoggedIn.Permission.OtherUsers);
         }
 
         public event EventHandler CanExecuteChanged;
 
         public void Execute(object parameter)
         {
-            new memberCreator().Show();
+            new MemberCreator().Show();
         }
     }
 
@@ -225,13 +221,13 @@ namespace p2_projekt.WPF
 
         public bool CanExecute(object parameter)
         {
-            if(user == Main.loggedIn)
+            if(user == Main.LoggedIn)
             {
                 return (Permission.CanWrite(user.Permission.PersonalInfo));
             }
             else
             {
-                return (Permission.CanWrite(Main.loggedIn.Permission.OtherUsers));
+                return (Permission.CanWrite(Main.LoggedIn.Permission.OtherUsers));
             }
         }
 
@@ -239,7 +235,7 @@ namespace p2_projekt.WPF
 
         public void Execute(object parameter)
         {
-            new memberCreator(user).Show();
+            new MemberCreator(user).Show();
         }
     }
 
@@ -255,10 +251,10 @@ namespace p2_projekt.WPF
 
         public bool CanExecute(object parameter)
         {
-            if (user == Main.loggedIn)
+            if (user == Main.LoggedIn)
                 return Permission.CanWrite(user.Permission.PersonalInfo);
             else
-                return Permission.CanWrite(Main.loggedIn.Permission.OtherUsers);
+                return Permission.CanWrite(Main.LoggedIn.Permission.OtherUsers);
         }
 
         public event EventHandler CanExecuteChanged;

@@ -6,7 +6,7 @@ namespace p2_projekt
 {
     public class DALController
     {
-         private IDAL _iUserDal;
+         private readonly IDAL _iUserDal;
 
         public DALController(IDAL userDAL)
         {
@@ -32,7 +32,7 @@ namespace p2_projekt
         public TResult Read<TResult>(Func<TResult, bool> pre) where TResult : class
         {
 
-            return _iUserDal.Read<TResult>(pre);
+            return _iUserDal.Read(pre);
         }
 
        
@@ -45,7 +45,7 @@ namespace p2_projekt
         public IEnumerable<TResult> ReadAll<TResult>(Func<TResult, bool> pre) where TResult : class
         {
 
-            return _iUserDal.ReadAll<TResult>(pre);
+            return _iUserDal.ReadAll(pre);
         }
 
         public bool Remove<TInput>(TInput item) where TInput : class

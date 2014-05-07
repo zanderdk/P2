@@ -1,4 +1,5 @@
-﻿using p2_projekt.models;
+﻿using p2_projekt.Enums;
+using p2_projekt.models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,9 +14,9 @@ namespace p2_projekt.controllers
         private ISailor Sailor;
         private Travel Travel;
         private Travel TempTravel;
-        private EnumOperation Operation;
+        private Operation Operation;
 
-        public TravelController(Travel travel, ISailor sailor, EnumOperation operation)
+        public TravelController(Travel travel, ISailor sailor, Operation operation)
         {
             Travel = travel;
             Sailor = sailor;
@@ -73,7 +74,7 @@ namespace p2_projekt.controllers
             //    return;
             //}
 
-            if (Operation == EnumOperation.Add)
+            if (Operation == Operation.Add)
             {
                 Sailor.Travels.Add(Travel);
             }

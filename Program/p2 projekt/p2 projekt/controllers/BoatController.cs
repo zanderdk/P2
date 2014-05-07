@@ -1,35 +1,31 @@
-﻿using p2_projekt.models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using p2_projekt.Enums;
+using p2_projekt.models;
 using System.Windows;
 
 namespace p2_projekt.controllers
 {
     public class BoatController
     {
-        private EnumOperation Operation;
-        private Boat Boat;
-        private Boat TempBoat;
-        private ISailor Sailor;
+        private readonly Operation _operation;
+        private readonly Boat _boat;
+        private readonly Boat _tempBoat;
+        private readonly ISailor _sailor;
 
         public BoatController() { }
 
-        public BoatController(Boat boat, ISailor sailor, EnumOperation operation)
+        public BoatController(Boat boat, ISailor sailor, Operation operation)
         {
-            Operation = operation;
-            Boat = boat;
-            Sailor = sailor;
-            TempBoat = new Boat()
+            _operation = operation;
+            _boat = boat;
+            _sailor = sailor;
+            _tempBoat = new Boat
             {
-                Length = Boat.Length,
-                Width = Boat.Width,
-                Name = Boat.Name,
-                RegistrationNumber = Boat.RegistrationNumber,
-                User = Boat.User,
-                UserId = Boat.UserId
+                Length = _boat.Length,
+                Width = _boat.Width,
+                Name = _boat.Name,
+                RegistrationNumber = _boat.RegistrationNumber,
+                User = _boat.User,
+                UserId = _boat.UserId
             };
         }
 
@@ -39,22 +35,22 @@ namespace p2_projekt.controllers
             {
                 (b.User as ISailor).Boats.Remove(b);
                 DALController uc = Utilities.LobopDB;
-                uc.Remove<Boat>(b);
+                uc.Remove(b);
             }
         }
 
         public void ResetChanges()
         {
-            Boat.Name = TempBoat.Name;
-            Boat.RegistrationNumber = TempBoat.RegistrationNumber;
-            Boat.Length = TempBoat.Length;
-            Boat.Width = TempBoat.Width;
+            _boat.Name = _tempBoat.Name;
+            _boat.RegistrationNumber = _tempBoat.RegistrationNumber;
+            _boat.Length = _tempBoat.Length;
+            _boat.Width = _tempBoat.Width;
         }
 
         public void SubmitChanges()
         {
             if (
-              string.IsNullOrWhiteSpace(Boat.Name)
+              string.IsNullOrWhiteSpace(_boat.Name)
               )
             {
                 MessageBox.Show("Udfyld alle felter");
@@ -63,13 +59,13 @@ namespace p2_projekt.controllers
             // TODO: Check om flere værdier er valide..
 
 
-            if (Operation == EnumOperation.Add)
+            if (_operation == Operation.Add)
             {
-                Sailor.Boats.Add(Boat);
+                _sailor.Boats.Add(_boat);
             }
 
             DALController uc = Utilities.LobopDB;
-            uc.Update<User>(Sailor as User);
+            uc.Update(_sailor as User);
         }
     }
 }
