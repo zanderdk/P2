@@ -26,9 +26,9 @@ namespace p2_projekt.WPF
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ChipRequester ChipLogin = new ChipRequester();
-            ChipLogin.Show();
-            this.Close();
+            ChipRequester chipLogin = new ChipRequester();
+            chipLogin.Show();
+            Close();
         }
     }
 }

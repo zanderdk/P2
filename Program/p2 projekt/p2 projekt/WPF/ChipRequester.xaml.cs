@@ -1,17 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
+﻿using System.Windows;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using p2_projekt.models;
 using p2_projekt.controllers;
 
 namespace p2_projekt.WPF
@@ -34,14 +22,14 @@ namespace p2_projekt.WPF
         {
             Loginscreen login = new Loginscreen();
             login.Show();
-            this.Close();
+            Close();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             GuestCreator newGuestCreator = new GuestCreator();
             newGuestCreator.Show();
-            this.Close();
+            Close();
         }
         private void ChipNum_KeyUp(object sender, KeyEventArgs e)
         {

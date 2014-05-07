@@ -12,19 +12,19 @@ namespace p2_projekt.WPF
     /// </summary>
     public partial class Main : Window
     {
-        public static User loggedIn {get; private set; }
-        public DALController controller;
+        public static User LoggedIn {get; private set; }
+        public DALController Controller;
 
         public Main(User u)
         {
             InitializeComponent();
 
-            this.Width = Properties.Settings.Default.appWidth;
-            this.Height = Properties.Settings.Default.appLenght;
+            Width = Properties.Settings.Default.appWidth;
+            Height = Properties.Settings.Default.appLenght;
 
-            MainController.main = this;
+            MainController.Main = this;
 
-            loggedIn = u;
+            LoggedIn = u;
 
             AddToTabController(new WelcomeTab(u), "Forside");
 
@@ -61,25 +61,25 @@ namespace p2_projekt.WPF
 
         public void SelectUser(User u)
         {
-            if(Permission.CanRead(loggedIn.Permission.PersonalInfo))
+            if(Permission.CanRead(LoggedIn.Permission.PersonalInfo))
             {
                 tabController.SelectedItem = GetTabItemByName("Brugeradministration");
                 TabItem selected = tabController.SelectedItem as TabItem;
-                selected.Content = new MemberInfo(u);
+                if (selected != null) selected.Content = new MemberInfo(u);
             }
         }
 
         private void LogUdClick(object sender, RoutedEventArgs e)
         {
-            ChipRequester ChipReq = new ChipRequester();
-            ChipReq.Show();
-            this.Close();
+            ChipRequester chipReq = new ChipRequester();
+            chipReq.Show();
+            Close();
         }
 
         private void Grid_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            Properties.Settings.Default.appWidth = this.Width;
-            Properties.Settings.Default.appLenght = this.Height;
+            Properties.Settings.Default.appWidth = Width;
+            Properties.Settings.Default.appLenght = Height;
             Properties.Settings.Default.Save();
         }
     }

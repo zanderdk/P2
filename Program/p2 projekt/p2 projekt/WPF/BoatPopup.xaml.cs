@@ -1,19 +1,7 @@
 ﻿using p2_projekt.controllers;
 using p2_projekt.Enums;
 using p2_projekt.models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace p2_projekt.WPF
 {
@@ -53,13 +41,13 @@ namespace p2_projekt.WPF
         private void Submit(object sender, RoutedEventArgs e)
         {
             controller.SubmitChanges();
-            this.Close();
+            Close();
         }
 
         private void Cancel(object sender, RoutedEventArgs e)
         {
             controller.ResetChanges();
-            this.Close();
+            Close();
         }
     }
 }
