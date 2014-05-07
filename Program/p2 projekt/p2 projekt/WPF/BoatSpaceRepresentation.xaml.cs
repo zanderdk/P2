@@ -1,4 +1,5 @@
 ﻿using p2_projekt.controllers;
+using p2_projekt.Enums;
 using p2_projekt.models;
 using System;
 using System.Collections.Generic;
@@ -54,13 +55,13 @@ namespace p2_projekt.WPF
         {
             switch (e.Status)
             {
-                case EnumBoatSpaceStatus.GuestBoat:
+                case BoatSpaceStatus.GuestBoat:
                     Fill = new SolidColorBrush(Color.FromRgb(255, 0, 0));
                     break;
-                case EnumBoatSpaceStatus.Empty:
+                case BoatSpaceStatus.Empty:
                     Fill = new SolidColorBrush(Color.FromRgb(0, 255, 0));
                     break;
-                case EnumBoatSpaceStatus.MemberBoat:
+                case BoatSpaceStatus.MemberBoat:
                     Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
                     break;
             }

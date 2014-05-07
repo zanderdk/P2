@@ -1,8 +1,8 @@
-﻿<Window x:Class="p2_projekt.WPF.memberCreator"
+﻿<Window x:Class="p2_projekt.WPF.MemberCreator"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:controllers="clr-namespace:p2_projekt.WPF"
-        Title="memberCreator" Width="300"
+        Title="MemberCreator" Width="300"
         SizeToContent="Height">
     <Grid>
         <DockPanel LastChildFill="False" Margin="10" Grid.RowSpan="3">

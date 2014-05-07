@@ -1,26 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using p2_projekt;
 using p2_projekt.models;
 using System.Device.Location;
 using p2_projekt.Enums;
 
 namespace p2_projekt.WPF
 {
-    public partial class MemberCreator : Window
+    public partial class GuestCreator : Window
     {
-        public MemberCreator()
+        public GuestCreator()
         {
             InitializeComponent();
         }
@@ -39,8 +28,8 @@ namespace p2_projekt.WPF
                     CountryRegion = country.Text 
                 },
                 Permission = new Permission(){
-                    PersonalInfo = EnumPermissionLevel.Read,
-                    OtherUsers = EnumPermissionLevel.None
+                    PersonalInfo = PermissionLevel.Read,
+                    OtherUsers = PermissionLevel.None
                 }
             };
 

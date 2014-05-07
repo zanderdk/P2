@@ -1,4 +1,5 @@
-﻿using p2_projekt.models;
+﻿using p2_projekt.Enums;
+using p2_projekt.models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,17 +28,17 @@ namespace p2_projekt.WPF
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            EnumBoatSpaceStatus status = EnumBoatSpaceStatus.Empty;
+            BoatSpaceStatus status = BoatSpaceStatus.Empty;
             switch (statusDropdown.SelectedIndex)
             {
                 case 0:
-                    status = EnumBoatSpaceStatus.GuestBoat;
+                    status = BoatSpaceStatus.GuestBoat;
                     break;
                 case 1:
-                    status = EnumBoatSpaceStatus.Empty;
+                    status = BoatSpaceStatus.Empty;
                     break;
                 case 2:
-                    status = EnumBoatSpaceStatus.MemberBoat;
+                    status = BoatSpaceStatus.MemberBoat;
                     break;
                 default:
                     MessageBox.Show("Ikke gyldig status");

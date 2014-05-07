@@ -32,14 +32,14 @@ namespace p2_projekt.WPF
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            loginscreen login = new loginscreen();
+            Loginscreen login = new Loginscreen();
             login.Show();
             this.Close();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            MemberCreator newGuestCreator = new MemberCreator();
+            GuestCreator newGuestCreator = new GuestCreator();
             newGuestCreator.Show();
             this.Close();
         }

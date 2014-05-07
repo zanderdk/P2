@@ -1,4 +1,5 @@
 ﻿using p2_projekt.controllers;
+using p2_projekt.Enums;
 using p2_projekt.models;
 using System;
 using System.Collections.Generic;
@@ -31,7 +32,7 @@ namespace p2_projekt.WPF
             Boat.User = Sailor as User;
 
             DataContext = Boat;
-            controller = new BoatController(Boat, Sailor, EnumOperation.Add);
+            controller = new BoatController(Boat, Sailor, Operation.Add);
         }
 
         public BoatPopup(Boat b)
@@ -41,7 +42,7 @@ namespace p2_projekt.WPF
             Sailor = (b.User as ISailor);
 
             DataContext = b;
-            controller = new BoatController(Boat, Sailor, EnumOperation.Edit);
+            controller = new BoatController(Boat, Sailor, Operation.Edit);
         }
 
         private void Init()

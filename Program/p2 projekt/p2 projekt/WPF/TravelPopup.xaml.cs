@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using p2_projekt.Enums;
 using p2_projekt.models;
 using p2_projekt.controllers;
 
@@ -32,7 +33,7 @@ namespace p2_projekt.WPF
             Init();
             Sailor = sailor;
             Travel = new Travel(DateTime.Now, DateTime.Now);
-            controller = new TravelController(Travel, sailor, EnumOperation.Add);
+            controller = new TravelController(Travel, sailor, Operation.Add);
             Title = "Tilføj rejse";
             DataContext = Travel;
         }
@@ -52,7 +53,7 @@ namespace p2_projekt.WPF
             Init();
             DataContext = t;
             Title = "Redigér rejse";
-            controller = new TravelController(Travel, Sailor, EnumOperation.Edit);
+            controller = new TravelController(Travel, Sailor, Operation.Edit);
         }
 
 
