@@ -17,13 +17,10 @@ namespace p2_projekt.models
         {
             return permissionField == EnumPermissionLevel.Write;
         }
-
-        public EnumPermissionLevel RemoveUser { get; set; }
      
-        public EnumPermissionLevel Search { get; set; }
+        public EnumPermissionLevel OtherUsers { get; set; }
         
-        public EnumPermissionLevel PersonalInfo { get; set; }
-        
+        public EnumPermissionLevel PersonalInfo { get; set; }        
 
         }
     }

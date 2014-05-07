@@ -69,14 +69,6 @@ namespace p2_projekt.WPF
             }
         }
 
-
-        private void listBoats_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
-        {
-            Boat b = ((sender as ListBox).SelectedItem as Boat);
-
-            viewModel.Boat = b;
-        }
-
         private void listTravels_SelectionChanged(object sender, SelectionChangedEventArgs e)
          {
              Travel selectedItem = (sender as ListBox).SelectedItem as Travel;
@@ -86,22 +78,6 @@ namespace p2_projekt.WPF
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
         {
 
-        }
-
-        private void Button_AddPerson(object sender, RoutedEventArgs e)
-        {
-            new memberCreator().Show();
-        }
-
-        private void Button_ChangeUser(object sender, RoutedEventArgs e)
-        {
-            if (viewModel.User != null)
-            {
-                new memberCreator(viewModel.User).Show();
-            }else
-            {
-                MessageBox.Show("Ingne bruger er valgt.");
-            }
         }
 
         private void AddNewTravel(object sender, RoutedEventArgs e)
@@ -133,14 +109,7 @@ namespace p2_projekt.WPF
 
         private void ChangeBoat(object sender, RoutedEventArgs e)
         {
-            new BoatPopup(viewModel.Boat, viewModel.User as ISailor).Show();
-        }
-
-        private void RemoveBoat(object sender, RoutedEventArgs e)
-        {
-            Boat boat = viewModel.Boat;
-            ISailor sailor = viewModel.User as ISailor;
-            new BoatController().Delete(boat, sailor);
+            new BoatPopup(viewModel.Boat).Show();
         }
 
         private void Button_RemoveUser(object sender, RoutedEventArgs e)
@@ -149,6 +118,16 @@ namespace p2_projekt.WPF
             us.Remove(viewModel.User);
             DataContext = null;
             viewModel.User = null;
+        }
+
+        private void add_canExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+
+        }
+
+        private void add_executed(object sender, ExecutedRoutedEventArgs e)
+        {
+
         }
     }
 }

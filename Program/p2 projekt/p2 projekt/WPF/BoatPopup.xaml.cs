@@ -34,11 +34,11 @@ namespace p2_projekt.WPF
             controller = new BoatController(Boat, Sailor, EnumOperation.Add);
         }
 
-        public BoatPopup(Boat b, ISailor s)
+        public BoatPopup(Boat b)
         {
             Init();
             Boat = b;
-            Sailor = s;
+            Sailor = (b.User as ISailor);
 
             DataContext = b;
             controller = new BoatController(Boat, Sailor, EnumOperation.Edit);

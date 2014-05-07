@@ -33,11 +33,11 @@ namespace p2_projekt.controllers
             };
         }
 
-        public void Delete(Boat b, ISailor sailor)
+        public static void Delete(Boat b)
         {
             if (b != null)
             {
-                sailor.Boats.Remove(b);
+                (b.User as ISailor).Boats.Remove(b);
                 DALController uc = Utilities.LobopDB;
                 uc.Remove<Boat>(b);
             }

@@ -40,8 +40,7 @@ namespace p2_projekt.WPF
                 },
                 Permission = new Permission(){
                     PersonalInfo = EnumPermissionLevel.Read,
-                    RemoveUser = EnumPermissionLevel.Read,
-                    Search = EnumPermissionLevel.None
+                    OtherUsers = EnumPermissionLevel.None
                 }
             };
 
@@ -69,10 +68,8 @@ namespace p2_projekt.WPF
 
             try
             {
-                DALController userController = new DALController(new Utilities.Database());
-
-                userController.Add<User>(newGuest);
-
+                DALController userController = Utilities.LobopDB;
+                userController.Add(newGuest);
                 ChipRequester ChipLogin = new ChipRequester(); //TODO overvej om den kan logge ind med det samme?
                 ChipLogin.Show();
                 this.Close();

@@ -22,8 +22,9 @@ namespace p2_projekt.WPF
     /// </summary>
     public partial class Main : Window
     {
-        User loggedIn;
+        public static User loggedIn {get; private set; }
         public DALController controller;
+        
         public Main(User u)
         {
             InitializeComponent();
@@ -46,7 +47,7 @@ namespace p2_projekt.WPF
                 AddToTabController(new MemberInfo(u), "Brugeradministration");
             }
 
-            if (Permission.CanRead(u.Permission.Search))
+            if (Permission.CanRead(u.Permission.OtherUsers))
             {
                 AddToTabController(new SearchTab(this), "Søg");
             }

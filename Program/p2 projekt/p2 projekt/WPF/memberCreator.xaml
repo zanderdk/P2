@@ -32,7 +32,7 @@
                             <Label Content="Fødselsdato" Grid.Column="0"></Label>
                             <DatePicker Name="birthday" Text="{Binding Birthday, Mode=TwoWay}" Grid.Column="1"></DatePicker>
                         </Grid>
-                        <Button Command="Save" Content="Ok" HorizontalAlignment="Stretch" Margin="10,10,10.333,10" Grid.Row="2">
+                        <Button Command="Save" Content="Ok" HorizontalAlignment="Stretch" Margin="10,10,10,10">
                             <Button.CommandBindings>
                                 <CommandBinding Command="Save" Executed="Save_Executed" CanExecute="save_canExecute"/>
                             </Button.CommandBindings>
