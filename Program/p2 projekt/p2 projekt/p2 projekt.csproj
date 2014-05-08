@@ -86,7 +86,6 @@
     <Compile Include="controllers\MainController.cs" />
     <Compile Include="controllers\MemberController.cs" />
     <Compile Include="controllers\TravelController.cs" />
-    <Compile Include="controllers\UserController.cs" />
     <Compile Include="controllers\SearchController.cs" />
     <Compile Include="controllers\SearchPredicate.cs" />
     <Compile Include="DatabaseCreation.cs" />
