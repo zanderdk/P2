@@ -20,6 +20,6 @@ Et eksempel på brugen af persistenslagsmodulet, kunne være loginmodulet. Login
 \end{figure}
 \frnote{læs igennem}
 
-Persistenslagsmodulet er opbygget således at selve datastrukturen der manipuleres og læses fra, kan skiftes ud. Herved indkapsles tilgangen til datastrukturen på en sådan måde, at et program kan gå fra at benytte en xml fil som data lager, til at benytte en database uden at ødelægge anden eksisterende kode.
+Persistenslagsmodulet er opbygget således at selve datastrukturen der manipuleres og læses fra, kan skiftes ud. Herved indkapsles tilgangen til datastrukturen. Dette gør det muligt, at programmet kan skifte fra benyttelse af xml-fil som datalager, til at benytte en database, uden at ødelægge anden eksisterende kode.
 
-Som man kan se på \cref{fig:permod} består persistenslagsmodulet af en enklet klasse DALController. Denne klasse er kun bevidst om en konkret implementation af tilgangen til en datastruktur. Dette sker via interfacet IDAL. Når et andet modul ønsker at lave en læse operation på persistenslag modulet, videredelegeres denne operation til den underliggende implementation af tilgangen til en datastruktur.
+Som man kan se på \cref{fig:permod} består persistenslagsmodulet af én enkelt klasse, kaldet DALController. Denne klasse er kun bevidst om én konkret implementation af tilgangen til en datastruktur. Dette sker via interfacet IDAL. Når et andet modul ønsker at lave en CRUD operation på persistenslagsmodulet, videredelegeres denne operation, til den underliggende implementation af tilgangen til en datastruktur.
