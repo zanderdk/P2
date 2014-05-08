@@ -14,7 +14,6 @@ namespace p2_projekt
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Boat>().HasOptional(t => t.BoatSpace).WithOptionalDependent(t => t.Boat).WillCascadeOnDelete(false);
-            //modelBuilder.Entity<BoatSpace>().HasOptional(t => t.Boat).WithOptionalDependent(t => t.BoatSpace).WillCascadeOnDelete(false);
         }
 
         public virtual DbSet<User> Users { get; set; }

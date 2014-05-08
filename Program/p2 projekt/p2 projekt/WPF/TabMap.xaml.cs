@@ -42,14 +42,6 @@ namespace p2_projekt.WPF
 
             for (int i = 0; i < wrapPanels.Count; i++ )
             {
-                if (boatSpaces[i].Boat == null)
-                {
-                    Member ha = new Member("haha user", new System.Device.Location.CivicAddress());
-                    ha.Birthday = DateTime.Now;
-                    new Boat("haha", 20, 20).BoatSpace = boatSpaces[i];
-                    ha.Boats.Add(boatSpaces[i].Boat);
-                    Utilities.LobopDB.Add<User>(ha);
-                }
 
                 BoatSpaceRepresentation bsr = wrapPanels[i].Children.OfType<BoatSpaceRepresentation>().ElementAt(0);
                 BoatSpace bs = boatSpaces[i];
