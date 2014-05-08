@@ -107,7 +107,7 @@ namespace p2_projekt.controllers
             InfolineControl send = Dict[(sender as TextBox)];
             if (send.IsNotEmpty)
             {
-                Current = SearchPredicate.GetPredicat(send);
+                Current = SearchPredicate.GetPredicate(send);
                 send.predicate = Current;
             }
             else

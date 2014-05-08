@@ -24,7 +24,7 @@ namespace p2_projekt.WPF
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void back_click(object sender, RoutedEventArgs e)
         {
             ChipRequester chipLogin = new ChipRequester();
             chipLogin.Show();

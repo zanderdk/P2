@@ -37,7 +37,7 @@
                     </Grid>
                     <Grid>
                         <Button Width="100" Content="Login" HorizontalAlignment="Right" Margin="10,5,10,5" Click="Login_Click" IsDefault="True"/>
-                        <Button Margin="10,5,120,5" Content="Tilbage" Width="100" HorizontalAlignment="Right" Click="Button_Click"/>
+                        <Button Margin="10,5,120,5" Content="Tilbage" Width="100" HorizontalAlignment="Right" Click="back_click"/>
                     </Grid>
                 </StackPanel>
             </Border>

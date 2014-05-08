@@ -6,7 +6,7 @@ namespace p2_projekt.controllers
 {
     public static class SearchPredicate
     {
-        public static Func<User, bool> GetPredicat(InfolineControl info)
+        public static Func<User, bool> GetPredicate(InfolineControl info)
         {
             if (info.Name == "name")
             {
