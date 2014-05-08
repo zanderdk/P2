@@ -58,7 +58,7 @@ namespace p2_projekt.WPF
             try
             {
                 DALController userController = Utilities.LobopDB;
-                userController.Add(newGuest);
+                userController.Add<User>(newGuest);
                 ChipRequester ChipLogin = new ChipRequester(); //TODO overvej om den kan logge ind med det samme?
                 ChipLogin.Show();
                 this.Close();
