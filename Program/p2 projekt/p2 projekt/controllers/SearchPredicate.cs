@@ -1,18 +1,17 @@
 ﻿using System;
 using p2_projekt.models;
-using p2_projekt.WPF;
 
 namespace p2_projekt.controllers
 {
     public static class SearchPredicate
     {
-        public static Func<User, bool> GetPredicate(InfolineControl info)
+        public static Func<User, bool> GetPredicate(string name, string text)
         {
-            if (info.Name == "name")
+            if (name == "name")
             {
                 return x =>
                 {
-                    if (x.Name.ToLower().Contains(info.Text.ToLower()))
+                    if (x.Name.ToLower().Contains(text.ToLower()))
                     {
                         return true;
                     }
@@ -20,7 +19,7 @@ namespace p2_projekt.controllers
                 };
             }
 
-            if (info.Name == "phone") //TODO only numbers execption
+            if (name == "phone") //TODO only numbers execption
             {
                 return x =>
                 {
@@ -29,7 +28,7 @@ namespace p2_projekt.controllers
                         return false;
                     }
 
-                    if (x.Phone.Contains(info.Text))
+                    if (x.Phone.Contains(text))
                     {
                         return true;
                     }
@@ -37,16 +36,16 @@ namespace p2_projekt.controllers
                 };
             }
 
-            if (info.Name == "birthday") //TODO evt gør det mulight at søge på fx. kun årstallet
+            if (name == "birthday") //TODO evt gør det mulight at søge på fx. kun årstallet
             {
                 DateTime test;
                 return x =>
                 {
 
-                    if (info.Text == "dag/måned/år")
+                    if (text == "dag/måned/år")
                         return true;
 
-                    if (!DateTime.TryParse(info.Text, out test))
+                    if (!DateTime.TryParse(text, out test))
                         return false;
 
                     if (!(x is IFullPersonalInfo))
@@ -61,7 +60,7 @@ namespace p2_projekt.controllers
                 };
             }
 
-            if (info.Name == "email") //TODO only numbers execption
+            if (name == "email") //TODO only numbers execption
             {
                 return x =>
                 {
@@ -73,7 +72,7 @@ namespace p2_projekt.controllers
                         return false;
                     }
 
-                    if ((x as IFullPersonalInfo).Email.ToLower().Contains(info.Text))
+                    if ((x as IFullPersonalInfo).Email.ToLower().Contains(text))
                     {
                         return true;
                     }
@@ -82,7 +81,7 @@ namespace p2_projekt.controllers
                 };
             }
 
-            if (info.Name == "adresse")
+            if (name == "adresse")
             {
                 return x =>
                 {
@@ -92,7 +91,7 @@ namespace p2_projekt.controllers
                         return false;
                     }
 
-                    if (x.Adress.AddressLine1.ToLower().Contains(info.Text))
+                    if (x.Adress.AddressLine1.ToLower().Contains(text))
                     {
                         return true;
                     }
@@ -101,7 +100,7 @@ namespace p2_projekt.controllers
                 };
             }
 
-            if (info.Name == "postal")
+            if (name == "postal")
             {
                 return x =>
                 {
@@ -111,7 +110,7 @@ namespace p2_projekt.controllers
                         return false;
                     }
 
-                    if (x.Adress.PostalCode.ToString().ToLower().Contains(info.Text))
+                    if (x.Adress.PostalCode.ToString().ToLower().Contains(text))
                     {
                         return true;
                     }
@@ -120,7 +119,7 @@ namespace p2_projekt.controllers
                 };
             }
 
-            if (info.Name == "country")
+            if (name == "country")
             {
                 return x =>
                 {
@@ -130,7 +129,7 @@ namespace p2_projekt.controllers
                         return false;
                     }
 
-                    if (x.Adress.CountryRegion.ToString().ToLower().Contains(info.Text))
+                    if (x.Adress.CountryRegion.ToString().ToLower().Contains(text))
                     {
                         return true;
                     }
@@ -139,14 +138,14 @@ namespace p2_projekt.controllers
                 };
             }
 
-            if (info.Name == "memberID")
+            if (name == "memberID")
             {
                 return x =>
                 {
                     if (!(x is Member))
                         return false;
 
-                    if ((x as Member).MembershipNumber.ToString().Contains(info.Text))
+                    if ((x as Member).MembershipNumber.ToString().Contains(text))
                     {
                         return true;
                     }
@@ -154,16 +153,16 @@ namespace p2_projekt.controllers
                 };
             }
 
-            if (info.Name == "memberSince") //TODO evt gør det mulight at søge på fx. kun årstallet
+            if (name == "memberSince") //TODO evt gør det mulight at søge på fx. kun årstallet
             {
                 DateTime test;
                 return x =>
                 {
 
-                    if (info.Text == "dag/måned/år")
+                    if (text == "dag/måned/år")
                         return true;
 
-                    if (!DateTime.TryParse(info.Text, out test))
+                    if (!DateTime.TryParse(text, out test))
                         return false;
 
                     if (!(x is IFullPersonalInfo))
@@ -180,14 +179,14 @@ namespace p2_projekt.controllers
                 };
             }
 
-            if (info.Name == "isActive")
+            if (name == "isActive")
             {
                 return x =>
                 {
                     if (!(x is Member))
                         return false;
 
-                    bool test = info.Text.ToLower() == "ja"; // TODO test skal renames
+                    bool test = text.ToLower() == "ja"; // TODO test skal renames
 
                     if ((x as Member).IsActive == test)
                     {
@@ -198,7 +197,7 @@ namespace p2_projekt.controllers
                 };
             }
 
-            if (info.Name == "boatOwner")
+            if (name == "boatOwner")
             {
                 return x =>
                 {
@@ -208,7 +207,7 @@ namespace p2_projekt.controllers
 
                     foreach (Boat b in (x as ISailor).Boats)
                     {
-                        if (b.User.Name.ToLower().Contains(info.Text.ToLower()))
+                        if (b.User.Name.ToLower().Contains(text.ToLower()))
                             return true;
                     }
 
@@ -217,7 +216,7 @@ namespace p2_projekt.controllers
                 };
             }
 
-            if (info.Name == "boatName")
+            if (name == "boatName")
             {
                 return x =>
                 {
@@ -227,7 +226,7 @@ namespace p2_projekt.controllers
 
                     foreach (Boat b in (x as ISailor).Boats)
                     {
-                        if (b.Name.ToLower().Contains(info.Text.ToLower()))
+                        if (b.Name.ToLower().Contains(text.ToLower()))
                             return true;
                     }
 
@@ -236,13 +235,13 @@ namespace p2_projekt.controllers
                 };
             }
 
-            if (info.Name == "boatID")
+            if (name == "boatID")
             {
                 return x =>
                 {
                     int id;
 
-                    if (!int.TryParse(info.Text, out id))
+                    if (!int.TryParse(text, out id))
                         return false;
 
                     if (!(x is ISailor))
@@ -259,7 +258,7 @@ namespace p2_projekt.controllers
                 };
             }
 
-            if (info.Name == "boatName")
+            if (name == "boatName")
             {
                 return x =>
                 {
@@ -271,7 +270,7 @@ namespace p2_projekt.controllers
                     {
                         if (b.BoatSpace != null)
                         {
-                            if (b.BoatSpace.Info.ToLower().Contains(info.Text.ToLower()))
+                            if (b.BoatSpace.Info.ToLower().Contains(text.ToLower()))
                                 return true;
                         }
 
@@ -282,13 +281,13 @@ namespace p2_projekt.controllers
                 };
             }
 
-            if (info.Name == "boatLength")
+            if (name == "boatLength")
             {
                 return x =>
                 {
                     int id;
 
-                    if (!int.TryParse(info.Text, out id))
+                    if (!int.TryParse(text, out id))
                         return false;
 
                     if (!(x is ISailor))
@@ -305,13 +304,13 @@ namespace p2_projekt.controllers
                 };
             }
 
-            if (info.Name == "boatWidth")
+            if (name == "boatWidth")
             {
                 return x =>
                 {
                     int id;
 
-                    if (!int.TryParse(info.Text, out id))
+                    if (!int.TryParse(text, out id))
                         return false;
 
                     if (!(x is ISailor))
