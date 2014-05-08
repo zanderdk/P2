@@ -44,7 +44,7 @@ namespace p2_projekt.WPF
                     return;
             }
             int id = int.Parse(boatSpaceId.Text);
-            BoatSpace boatSpace = Utilities.LobopDB.Read<BoatSpace>(x => x.BoatId == id);
+            BoatSpace boatSpace = Utilities.LobopDB.Read<BoatSpace>(x => x.BoatSpaceId == id);
             if (boatSpace == null)
             {
                 MessageBox.Show("bådplads ikke fundet");

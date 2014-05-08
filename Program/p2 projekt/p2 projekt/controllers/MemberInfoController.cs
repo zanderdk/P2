@@ -10,14 +10,14 @@ using p2_projekt.controllers;
 
 namespace p2_projekt.WPF
 {
-    class MemberInfoController : INotifyPropertyChanged
+    public class MemberInfoController : INotifyPropertyChanged
     {
         private User user;
         private Boat boat;
         private Travel travel;
 
         public event PropertyChangedEventHandler PropertyChanged;
-        private void NotifyPropertyChanged(String info)
+        public void NotifyPropertyChanged(String info)
         {
             if (PropertyChanged != null)
             {
@@ -29,11 +29,12 @@ namespace p2_projekt.WPF
         {
             User = user;
             addBoatCommand = new AddBoatCommand(user);
-            changeBoatCommand = new ChangeBoatCommand(boat, this);
-            removeBoatCommand = new RemoveBoatCommand(boat);
+            changeBoatCommand = new ChangeBoatCommand(this);
+            removeBoatCommand = new RemoveBoatCommand(this);
 
             addTravelCommand = new AddTravelCommand(user);
-
+            
+            
 
             addUserCommand = new AddUserCommand();
             changeUserCommand = new ChangeUserCommand(user);
@@ -49,7 +50,9 @@ namespace p2_projekt.WPF
         public User User
         {
             get { return user; }
-            set { user = value; }
+            set { user = value;
+            NotifyPropertyChanged("User");
+            }
         }
 
         public Boat Boat
@@ -63,7 +66,9 @@ namespace p2_projekt.WPF
         public Travel Travel
         {
             get { return travel; }
-            set { travel = value; }
+            set { travel = value;
+            NotifyPropertyChanged("Travel");
+            }
         }
 
         public AddTravelCommand addTravelCommand { get; private set; }
@@ -104,21 +109,30 @@ namespace p2_projekt.WPF
 
     public class RemoveBoatCommand : ICommand
     {
-        private User user;
-        private Boat boat;
-        public RemoveBoatCommand(Boat b)
+        private User user { get { return change.User; } }
+        private Boat boat
         {
-            boat = b;
-            if (b != null)
-                user = b.User;
+            get
+            {
+                if (user != null)
+                    return change.Boat;
+
+                return null;
+            }
+        }
+
+        private MemberInfoController change;
+        public RemoveBoatCommand(MemberInfoController sender)
+        {
+            change = sender;
         }
 
         public bool CanExecute(object parameter)
         {
-            if (!(user is ISailor))
+            if (boat == null)
                 return false;
 
-            if (boat == null)
+            if (!(user is ISailor))
                 return false;
 
             if (user == Main.loggedIn)
@@ -127,7 +141,16 @@ namespace p2_projekt.WPF
                 return Permission.CanWrite(Main.loggedIn.Permission.OtherUsers);
         }
 
-        public event EventHandler CanExecuteChanged;
+        public event EventHandler CanExecuteChanged
+        {
+            add { CommandManager.RequerySuggested += value; }
+            remove { CommandManager.RequerySuggested -= value; }
+        }
+
+        public void RaiseCanExecuteChanged()
+        {
+            CommandManager.InvalidateRequerySuggested();
+        }
 
         public void Execute(object parameter)
         {
@@ -137,20 +160,18 @@ namespace p2_projekt.WPF
 
     public class ChangeBoatCommand : ICommand
     {
-        private User user;
-        private Boat boat;
+        private User user { get { return change.User; } }
+        private Boat boat { get {
+            if (user != null)
+                return change.Boat;
 
-        void call(object sender, EventArgs arg)
-        {
-            CanExecute(null);
-        }
+            return null;
+        } }
 
-        public ChangeBoatCommand(Boat b, INotifyPropertyChanged sender)
+        private MemberInfoController change;
+        public ChangeBoatCommand(MemberInfoController sender)
         {
-            sender.PropertyChanged += this.call;
-            boat = b;
-            if(b != null)
-                user = b.User;
+            change = sender;
         }
 
         public bool CanExecute(object parameter)
@@ -158,7 +179,7 @@ namespace p2_projekt.WPF
             if (boat == null)
                 return false;
 
-            if ((user is ISailor))
+            if (!(user is ISailor))
                 return false;
 
             if (user == Main.loggedIn)
@@ -167,7 +188,16 @@ namespace p2_projekt.WPF
                 return Permission.CanWrite(Main.loggedIn.Permission.OtherUsers);
         }
 
-        public event EventHandler CanExecuteChanged;
+        public event EventHandler CanExecuteChanged
+        {
+            add { CommandManager.RequerySuggested += value; }
+            remove { CommandManager.RequerySuggested -= value; }
+        }
+
+        public void RaiseCanExecuteChanged()
+        {
+            CommandManager.InvalidateRequerySuggested();
+        }
 
         public void Execute(object parameter)
         {

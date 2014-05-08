@@ -35,27 +35,26 @@ namespace p2_projekt.WPF
         {
             DALController us = Utilities.LobopDB;
 
-            var boats = us.ReadAll<Boat>(x => x != null);
-            var wrapPanels = BoatSpacesGrid.Children.OfType<WrapPanel>();
+            var boatSpaces = us.ReadAll<BoatSpace>(x => x != null).ToList();
+            var wrapPanels = BoatSpacesGrid.Children.OfType<WrapPanel>().ToList();
 
             List<BoatSpaceRepresentation> boatspaceRepresentations = new List<BoatSpaceRepresentation>();
 
-            foreach (var item in wrapPanels)
+            for (int i = 0; i < wrapPanels.Count; i++ )
             {
-                BoatSpaceRepresentation bsr = item.Children.OfType<BoatSpaceRepresentation>().ElementAt(0);
-                boatspaceRepresentations.Add(bsr);
-            }
+                if (boatSpaces[i].Boat == null)
+                {
+                    Member ha = new Member("haha user", new System.Device.Location.CivicAddress());
+                    ha.Birthday = DateTime.Now;
+                    new Boat("haha", 20, 20).BoatSpace = boatSpaces[i];
+                    ha.Boats.Add(boatSpaces[i].Boat);
+                    Utilities.LobopDB.Add<User>(ha);
+                }
 
-            for (int i = 0; i < boatspaceRepresentations.Count; i++)
-            {
-                BoatSpaceRepresentation bsr = boatspaceRepresentations[i];
-                BoatSpace bs = boats.ElementAt(i).BoatSpace;
-
+                BoatSpaceRepresentation bsr = wrapPanels[i].Children.OfType<BoatSpaceRepresentation>().ElementAt(0);
+                BoatSpace bs = boatSpaces[i];
                 bsr.BoatSpace = bs;
-
-                bsr.Label.Content = bs.BoatId;
-                // TODO brug den geniale formel til at vise rigtige plads id
-
+                bsr.Label.Content = bs.BoatSpaceId;
             }
         }
 

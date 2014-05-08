@@ -8,8 +8,9 @@ namespace p2_projekt.models
     {
         public BoatSpace() { } // må kun bruges af Entity.
 
-        [Key,ForeignKey("Boat")]
-        public int BoatId { get; set; }
+        
+        public int BoatSpaceId { get; set; }
+
         public String Info { get; set; }
         public double Length { get; private set; }
         public double Width { get; private set; }
@@ -33,6 +34,7 @@ namespace p2_projekt.models
 
         private bool _boatChange;
         private Boat _boat;
+
         public virtual Boat Boat 
         { 
             get

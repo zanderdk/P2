@@ -44,6 +44,7 @@ namespace p2_projekt.WPF
             }
 
             DataContext = controller;
+            
         }
 
         void InitSailor(ISailor s)
@@ -115,6 +116,16 @@ namespace p2_projekt.WPF
         private void add_executed(object sender, ExecutedRoutedEventArgs e)
         {
 
+        }
+
+        private void BoatSelected(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void listBoats_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            controller.changeBoatCommand.RaiseCanExecuteChanged();
         }
     }
 }

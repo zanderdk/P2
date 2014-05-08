@@ -71,7 +71,7 @@
         <DockPanel Grid.Column="1" LastChildFill="False" Margin="10,0,10,0" Grid.ColumnSpan="1" Grid.Row="1" >
             <Border CornerRadius="1" BorderBrush="Gray" Background="LightGray" BorderThickness="2" DockPanel.Dock="Top">
                 <StackPanel>
-                    <ListBox Name="listBoats" SelectionMode="Single" VerticalAlignment="Top" Height="100" SelectedItem="{Binding Boat ,Mode=TwoWay}" >
+                    <ListBox Name="listBoats" SelectionMode="Single" VerticalAlignment="Top" Height="100" SelectedItem="{Binding Boat ,Mode=TwoWay}" SelectionChanged="listBoats_SelectionChanged" >
                         
                     </ListBox>
                 </StackPanel>
@@ -87,8 +87,8 @@
                             </Style>
                         </StackPanel.Resources>
                         <Button Content="Tilføj Ny båd" Command="{Binding addBoatCommand}"/>
-                        <Button Content="Ændre båd" Command="{Binding changeBoatCommand}"/>
-                        <Button Content="Fjern båd" Command=""/>
+                        <Button Name="changeBoat" Content="Ændre båd" Command="{Binding changeBoatCommand}"/>
+                        <Button Name="removeBoat" Content="Fjern båd" Command="{Binding removeBoatCommand}"/>
                     </StackPanel>
                 </StackPanel>
             </Border>

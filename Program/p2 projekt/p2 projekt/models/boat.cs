@@ -1,4 +1,6 @@
 ﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace p2_projekt.models
 {
@@ -32,14 +34,17 @@ namespace p2_projekt.models
         }
 
         public int BoatId { get; set; }
-
         public int UserId { get; set; }
+
+        
+
         public virtual  User User { get; set; }
 
         private bool _spaceChange;
         private BoatSpace _space;
 
-
+        
+        
         public virtual  BoatSpace BoatSpace
         {
             get
