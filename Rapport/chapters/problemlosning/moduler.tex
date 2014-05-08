@@ -4,16 +4,20 @@
 
 Moduler i dette afsnit defineres som logisk grupperede funktionaliteter og modeller i løsningen. Hvert modul skal være uafhængig af andre moduler, og kun have et enkelt ansvar, og skal udelukkende håndtere sit eget ansvar. Et login modul skal derfor ikke have ansvaret, for at oprette en ny bruger. I stedet vil et dedikeret modul, til at oprette nye brugere, være favorabelt. Hvis hvert modul kun har et enkelt ansvar, kan moduler nemt genbruges i andre sammenhænge, eller udskiftes efter behov.
 
-Modulerne i løsningen er beskrevet ved modulets funktionalitet, brugen af andre moduler og hvordan modulet overordnet er implementeret.
-
-Kun de hidtil implementerede moduler er beskrevet i dette afsnit. I den fulde løsning, skal flere moduler implementeres, når funktionaliteten af løsningen skal øges. De beskrevne moduler er tænkt som en grobund for efterfølgende moduler.
-
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth]{moduler-diagram.pdf}
   \caption{Overordnet oversigt over moduler i løsningen og deres relationer.}
+  \label{fig:mod}
 \end{figure}
 
+\frnote{læs igennem}
+
+På \cref{fig:mod} ses en oversigt over implementerede moduler og deres relationer. Diagrammet viser hvordan fokus visuelt flyttes rundt. Der bliver altså ændret på det brugeren ser på brugergrænsefladen. Derudover bliver der vist hvordan data bliver flyttet rundt via metodekald. Modulerne er inddelt i primære funktioner og adgangskrævende funktioner.
+
+I den fulde løsning, skal flere moduler implementeres, når funktionaliteten af løsningen skal øges. De beskrevne moduler er tænkt som en grobund for efterfølgende moduler.
+
+I følgende afsnit er alle de implementerede moduler beskrevet ved modulets funktionalitet, brugen af andre moduler og hvordan modulet overordnet er implementeret.
 
 \input{chapters/problemlosning/moduler/persistenslag.tex}
 \input{chapters/problemlosning/moduler/login.tex}
