@@ -8,7 +8,7 @@ namespace p2_projekt.WPF
     /// <summary>
     /// Interaction logic for MapControlPanel.xaml
     /// </summary>
-    public partial class MapControlPanel : Window
+    public partial class MapControlPanel : Window, IBoatSpaceSensor
     {
         public MapControlPanel()
         {
@@ -41,8 +41,13 @@ namespace p2_projekt.WPF
             }
             else
             {
-                new BoatSpaceSensorSimulator().ChangeStatus(boatSpace, status);
+                ChangeStatus(boatSpace, status);
             }
+        }
+
+        public void ChangeStatus(BoatSpace bs, BoatSpaceStatus status)
+        {
+            bs.BoatSpaceStatus = status;
         }
     }
 }
