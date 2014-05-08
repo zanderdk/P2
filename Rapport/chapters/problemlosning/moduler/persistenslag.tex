@@ -1,9 +1,7 @@
 \subsection{Persistenslag}
 \label{sub:persistenslag}
 
-Persistenslagsmodulet har til opgave at manipulere og læse data fra en datastruktur.
-
-
+Persistenslagsmodulet har til opgave at manipulere og læse data fra en vilkårlig datastruktur.
 
 \subsubsection{Funktionalitet}
 \label{ssub:persistenslag_funktionalitet}
@@ -11,7 +9,6 @@ Persistenslagsmodulet har til opgave at manipulere og læse data fra en datastru
 En datastruktur kunne eksempelvis være en database eller en anden fil på harddisken. Modulet tilbyder basale CRUD (create, read, update og delete) operationer, hvorfra alle tænkelige persistenslagsoperationer kan opbygges af.
 
 Et eksempel på brugen af persistenslagsmodulet, kunne være loginmodulet. Loginmodulet skal verificere om et indtastet brugernavn matcher et indtastet kodeord. Til dette kan loginmodulet tilgå databasen igennem persistenslagets read operation, og herfra arbejde videre på den fundne data.
-
 
 \subsubsection{Implementation}
 \label{ssub:persistenslag_implementation}
@@ -23,6 +20,6 @@ Et eksempel på brugen af persistenslagsmodulet, kunne være loginmodulet. Login
 \end{figure}
 \frnote{lidt tekst til billedet}
 
-Persistenslagsmodulet er opbygget således at selve datastrukturen der manipuleres og læses fra, kan ændres. Herved indkapsles tilgangen til datastrukturen på en sådan måde, at et program kan gå fra at benytte en xml fil som data lager, til at benytte en database uden at ødelægge anden eksisterende kode.
+Persistenslagsmodulet er opbygget således at selve datastrukturen der manipuleres og læses fra, kan skiftes ud. Herved indkapsles tilgangen til datastrukturen på en sådan måde, at et program kan gå fra at benytte en xml fil som data lager, til at benytte en database uden at ødelægge anden eksisterende kode.
 
-Dette implementeres ved at persistenslagsmodulet er en enkle klasse, der kun bevidst om en konkret implementation af tilgangen til en datastruktur via. interfacet IDAL. Når et andet modul ønsker at lave en læse operation på persistenslag modulet, videredelegeres denne operation til den underliggende implementation af tilgangen til en datastruktur.
+Som man kan se på \cref{fig:permod} består persistenslagsmodulet af en enklet klasse DALController. Denne klasse er kun bevidst om en konkret implementation af tilgangen til en datastruktur. Dette sker via interfacet IDAL. Når et andet modul ønsker at lave en læse operation på persistenslag modulet, videredelegeres denne operation til den underliggende implementation af tilgangen til en datastruktur.
