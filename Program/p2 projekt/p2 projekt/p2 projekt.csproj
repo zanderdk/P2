@@ -81,6 +81,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="controllers\BoatController.cs" />
+    <Compile Include="controllers\GuestController.cs" />
     <Compile Include="controllers\LoginController.cs" />
     <Compile Include="controllers\MainController.cs" />
     <Compile Include="controllers\MemberController.cs" />

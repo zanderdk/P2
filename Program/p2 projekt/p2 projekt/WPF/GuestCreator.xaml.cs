@@ -1,79 +1,54 @@
 ﻿using System;
+using System.Device.Location;
 using System.Windows;
 using System.Windows.Input;
+using p2_projekt.controllers;
 using p2_projekt.models;
-using System.Device.Location;
-using p2_projekt.Enums;
 
 namespace p2_projekt.WPF
 {
     public partial class GuestCreator : Window
     {
+        private GuestController controller;
         public GuestCreator()
         {
             InitializeComponent();
+            Guest g = new Guest();
+            g.Adress = new CivicAddress();
+            controller = new GuestController(g);
+            DataContext = g;
         }
 
         private void Save_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             //TODO Overvej felter: hvilken plads ligger gæsten på. Betaling
+            double bLength;
+            double bWidth;
 
-            Guest newGuest = new Guest()
+            if (!double.TryParse(boatLength.Text, out bLength) || !double.TryParse(boatWidth.Text, out bWidth))
             {
-                Name = name.Text,
-                Phone = phone.Text,
-                Adress = new CivicAddress() { 
-                    AddressLine1 = streetName.Text, 
-                    PostalCode = postalCode.Text,
-                    CountryRegion = country.Text 
-                },
-                Permission = new Permission(){
-                    PersonalInfo = PermissionLevel.Read,
-                    OtherUsers = PermissionLevel.None
-                }
-            };
-
-            double bLength = 0;
-            double bWidth = 0;
-
-            if(!double.TryParse(boatLength.Text, out bLength) || !double.TryParse(boatWidth.Text, out bWidth)){
                 MessageBox.Show("Boat length or width not in valid format");
                 return;
             }
             TimeSpan timespan = LeavingDate.SelectedDate.Value.Subtract(DateTime.Now);
-
             if (timespan.Days < 0)
             {
                 MessageBox.Show("Leaving date must be in the future");
                 return;
             }
 
-            Boat boat = new Boat(boatName.Text, bLength, bWidth);
-            newGuest.Boats.Add(boat);
-
+            Boat b = new Boat(boatName.Text, bLength, bWidth);
             Travel t = new Travel(DateTime.Now, LeavingDate.SelectedDate.Value);
-            newGuest.Travels.Add(t);
-            
-
-            try
+            if (controller.Save(b, t))
             {
-                DALController userController = Utilities.LobopDB;
-                userController.Add<User>(newGuest);
-                ChipRequester ChipLogin = new ChipRequester(); //TODO overvej om den kan logge ind med det samme?
-                ChipLogin.Show();
-                this.Close();
+                ChipRequester chipLogin = new ChipRequester(); //TODO overvej om den kan logge ind med det samme?
+                chipLogin.Show();
+                Close();
             }
-
-            catch (InvalidOperationException ex) //TODO User add exception
+            else
             {
-                System.Windows.MessageBox.Show(ex.Message);
-                this.Close();
+                MessageBox.Show("fejl");
             }
-
-
-            //TODO boat og travel skal også tilføjes
-
-
         }
 
         private void Save_CanExecute(object sender, CanExecuteRoutedEventArgs e)
@@ -93,7 +68,7 @@ namespace p2_projekt.WPF
         {
             ChipRequester ChipLogin = new ChipRequester();
             ChipLogin.Show();
-            this.Close();
+            Close();
         }
     }
 }
