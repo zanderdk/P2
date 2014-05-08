@@ -102,7 +102,7 @@
     <Compile Include="models\BoatSpace.cs" />
     <Compile Include="models\Boat.cs" />
     <Compile Include="models\BoatSpaceArgs.cs" />
-    <Compile Include="controllers\BoatSpaceSensorSimulator.cs" />
+    <Compile Include="controllers\IBoatSpaceSensor.cs" />
     <Compile Include="Enums\BoatSpaceStatus.cs" />
     <Compile Include="Enums\Operation.cs" />
     <Compile Include="models\Guest.cs" />
