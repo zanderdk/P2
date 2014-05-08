@@ -13,7 +13,7 @@ namespace p2_projekt
 
         static Utilities()
         {
-            LobopDB = new DALController(new Utilities.Database());
+            LobopDB = new DALController(new Database());
         }
 
         public class Database : IDAL
@@ -42,7 +42,7 @@ namespace p2_projekt
                 Action<TInput>((db, dbSet) =>
                 {
                     if(dbSet.Count() != 0)
-                    result = dbSet.Max<TInput>(pred);
+                    result = dbSet.Max(pred);
                 });
 
                 return result;
@@ -75,7 +75,7 @@ namespace p2_projekt
                 Action<TInput>((db, dbSet) =>
                 {
                     dbSet.Attach(item);
-                    var entry = db.Entry<TInput>(item);
+                    var entry = db.Entry(item);
                     entry.State = EntityState.Modified;
                     db.SaveChanges();
                 });
@@ -89,14 +89,13 @@ namespace p2_projekt
                 Type lobobContextType = typeof(LobopContext);
                 PropertyInfo[] properties = lobobContextType.GetProperties();
                 Type DBsetType = typeof(DbSet<T>);
-                string dbSetTarget = string.Empty;
 
                 foreach (PropertyInfo item in properties)
                 {
                     if (DBsetType == item.PropertyType)
                     {
                         // table found
-                        dbSetTarget = item.ToString().Split(' ')[1];
+                        string dbSetTarget = item.ToString().Split(' ')[1];
                         DbSet<T> dbSet = (DbSet<T>)lobobContextType.GetProperty(dbSetTarget).GetValue(context, null);
                         return dbSet;
                     }
@@ -124,21 +123,20 @@ namespace p2_projekt
 
             private List<string> GetAllProperties<TEntity>(LobopContext context) where TEntity : class
             {
-                Type TEntityType = typeof(LobopContext);
-                PropertyInfo[] properties = TEntityType.GetProperties();
-                string dbSetTarget = string.Empty;
-                string SourceType = typeof(TEntity).ToString().Split('.')[2] + "s";
+                Type entityType = typeof(LobopContext);
+                PropertyInfo[] properties = entityType.GetProperties();
+                string sourceType = typeof(TEntity).ToString().Split('.')[2] + "s";
 
                 List<string> propertiesString = new List<string>();
 
                 foreach (var i in properties)
                 {
 
-                    dbSetTarget = i.ToString().Split(' ', '.', '`')[3];
+                    string dbSetTarget = i.ToString().Split(' ', '.', '`')[3];
                     if(dbSetTarget == "DbSet")
                     {
                         
-                        if(SourceType != i.Name)
+                        if(sourceType != i.Name)
                         {
                             propertiesString.Add(i.Name);
                         }

@@ -77,30 +77,30 @@ namespace p2_projekt.models
             }
         }
 
-        private double length;
+        private double _length;
         public double Length { 
-            get { return length; } 
+            get { return _length; } 
             set { 
-                length = value; OnPropertyChanged("Length"); 
+                _length = value; OnPropertyChanged("Length"); 
             } 
         }
-        private double width;
+        private double _width;
         public double Width
         {
-            get { return width; }
+            get { return _width; }
             set
             {
-                width = value; OnPropertyChanged("Width");
+                _width = value; OnPropertyChanged("Width");
             }
         }
 
-        private string registrationNumber;
+        private string _registrationNumber;
         public string RegistrationNumber
         {
-            get { return registrationNumber; }
+            get { return _registrationNumber; }
             set
             {
-                registrationNumber = value; OnPropertyChanged("RegistrationNumber");
+                _registrationNumber = value; OnPropertyChanged("RegistrationNumber");
             }
         }
 
@@ -116,7 +116,8 @@ namespace p2_projekt.models
                 return false;
             }
 
-            return (obj as Boat).BoatId == BoatId;
+            var boat = obj as Boat;
+            return boat != null && boat.BoatId == BoatId;
         }
 
         public override int GetHashCode()

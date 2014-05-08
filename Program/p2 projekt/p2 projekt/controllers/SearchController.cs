@@ -10,7 +10,7 @@ namespace p2_projekt.controllers
 {
     public static class SearchController
     {
-        private static List<User> internalList;
+        private static readonly List<User> InternalList;
         public static List<User> List;
 
         public static event Action ListToListBox;
@@ -24,7 +24,7 @@ namespace p2_projekt.controllers
         {
             Dict = new Dictionary<TextBox, InfolineControl>();
             List = new List<User>();
-            internalList = new List<User>();         
+            InternalList = new List<User>();         
         }
         
         private static void Refresh()
@@ -32,7 +32,7 @@ namespace p2_projekt.controllers
             List.Clear();
             if(Current == null)
             {
-                foreach(var x in internalList.Where(x => true))
+                foreach(var x in InternalList.Where(x => true))
                 {
                     List.Add(x);
                 }
@@ -40,7 +40,7 @@ namespace p2_projekt.controllers
                 return;
             }
 
-            foreach(var x in internalList.Where(Current))
+            foreach(var x in InternalList.Where(Current))
             {
                 List.Add(x);
             }
@@ -49,14 +49,14 @@ namespace p2_projekt.controllers
 
         public static void RefreshInternal()
         {
-            internalList.Clear();
+            InternalList.Clear();
             DALController us = Utilities.LobopDB;
 
             if(SearchPredicates == null)
             {
                 foreach(var x in us.ReadAll<User>(x=> true))
                 {
-                    internalList.Add(x);
+                    InternalList.Add(x);
                 }
                 Refresh();
                 return;
@@ -71,14 +71,14 @@ namespace p2_projekt.controllers
                     }
                     return true;
                 })){
-                internalList.Add(x);
+                InternalList.Add(x);
             }
             Refresh();
         }
 
         public static void TextBox_GotFocus(object sender, RoutedEventArgs e)
         {
-            InfolineControl send = Dict[(sender as TextBox)]; // TODO hmmm
+            InfolineControl send = Dict[(sender as TextBox)];
             if (send.IsNotEmpty)
             {
                 Current = send.predicate;
@@ -107,7 +107,7 @@ namespace p2_projekt.controllers
             InfolineControl send = Dict[(sender as TextBox)];
             if (send.IsNotEmpty)
             {
-                Current = SearchPredicate.GetPredicat(send);
+                Current = SearchPredicate.GetPredicate(send.Name, send.Text);
                 send.predicate = Current;
             }
             else

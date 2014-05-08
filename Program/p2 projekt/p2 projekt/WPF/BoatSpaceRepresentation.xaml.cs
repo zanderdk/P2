@@ -1,19 +1,9 @@
 ﻿using p2_projekt.controllers;
+using p2_projekt.Enums;
 using p2_projekt.models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace p2_projekt.WPF
 {
@@ -22,11 +12,11 @@ namespace p2_projekt.WPF
     /// </summary>
     public partial class BoatSpaceRepresentation : UserControl
     {
-        private BoatSpace boatSpace;
+        private BoatSpace _boatSpace;
         public BoatSpace BoatSpace {
-            get { return boatSpace; }
+            get { return _boatSpace; }
             set {
-                boatSpace = value;
+                _boatSpace = value;
                 BoatSpace.OnBoatSpaceChange += BoatSpace_OnBoatSpaceChange;
             }
         }
@@ -54,13 +44,13 @@ namespace p2_projekt.WPF
         {
             switch (e.Status)
             {
-                case EnumBoatSpaceStatus.GuestBoat:
+                case BoatSpaceStatus.GuestBoat:
                     Fill = new SolidColorBrush(Color.FromRgb(255, 0, 0));
                     break;
-                case EnumBoatSpaceStatus.Empty:
+                case BoatSpaceStatus.Empty:
                     Fill = new SolidColorBrush(Color.FromRgb(0, 255, 0));
                     break;
-                case EnumBoatSpaceStatus.MemberBoat:
+                case BoatSpaceStatus.MemberBoat:
                     Fill = new SolidColorBrush(Color.FromRgb(255, 255, 0));
                     break;
             }
@@ -68,7 +58,7 @@ namespace p2_projekt.WPF
 
         private void BoatSpaceGrid_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            if(BoatSpace.Boat != null) MainController.selectUser(BoatSpace.Boat.User);
+            if(BoatSpace.Boat != null) MainController.SelectUser(BoatSpace.Boat.User);
         }
     }
 }

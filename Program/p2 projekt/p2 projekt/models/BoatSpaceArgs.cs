@@ -1,14 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using p2_projekt.Enums;
 
 namespace p2_projekt.models
 {
     public class BoatSpaceArgs : EventArgs
     {
-        public readonly EnumBoatSpaceStatus Status;
-        public BoatSpaceArgs(EnumBoatSpaceStatus status)
+        public readonly BoatSpaceStatus Status;
+        public BoatSpaceArgs(BoatSpaceStatus status)
         {
             Status = status;
         }

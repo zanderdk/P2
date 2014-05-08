@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using p2_projekt.Enums;
 
 namespace p2_projekt.models
 {
@@ -17,16 +18,16 @@ namespace p2_projekt.models
 
         public event EventHandler<BoatSpaceArgs> OnBoatSpaceChange = delegate { };
 
-        private EnumBoatSpaceStatus boatSpaceStatus;
-        public EnumBoatSpaceStatus BoatSpaceStatus 
+        private BoatSpaceStatus _boatSpaceStatus;
+        public BoatSpaceStatus BoatSpaceStatus 
         { 
             get
             {
-                return boatSpaceStatus;
+                return _boatSpaceStatus;
             }
             set
             {
-                boatSpaceStatus = value;
+                _boatSpaceStatus = value;
                 OnBoatSpaceChange(this, new BoatSpaceArgs(value));
                 
             }

@@ -1,4 +1,4 @@
-﻿<Window x:Class="p2_projekt.WPF.MemberCreator"
+﻿<Window x:Class="p2_projekt.WPF.GuestCreator"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -15,11 +15,11 @@
             <Border CornerRadius="1" BorderBrush="Gray" Background="LightGray" BorderThickness="2" DockPanel.Dock="Top">
                 <Grid>
                     <StackPanel Grid.RowSpan="1">
-                        <controllers:InfolineControl x:Name="name" Title="Name" readOnly="False"/>
-                        <controllers:InfolineControl x:Name="phone" Title="Phone" readOnly="False"/>
-                        <controllers:InfolineControl x:Name="streetName" Title="Adresse" readOnly="False"/>
-                        <controllers:InfolineControl x:Name="postalCode" Title="Postal Code" readOnly="False"/>
-                        <controllers:InfolineControl x:Name="country" Title="Country" readOnly="False"/>
+                        <controllers:InfolineControl x:Name="name" Title="Name" Value="{Binding Name, Mode=TwoWay}" readOnly="False"/>
+                        <controllers:InfolineControl x:Name="phone" Title="Phone" Value="{Binding Phone, Mode=TwoWay}" readOnly="False"/>
+                        <controllers:InfolineControl x:Name="streetName" Title="Adresse" Value="{Binding Adress.AddressLine1, Mode=TwoWay}" readOnly="False"/>
+                        <controllers:InfolineControl x:Name="postalCode" Title="Postal Code" Value="{Binding Adress.PostalCode, Mode=TwoWay}" readOnly="False"/>
+                        <controllers:InfolineControl x:Name="country" Title="Country" Value="{Binding Adress.CountryRegion, Mode=TwoWay}" readOnly="False"/>
                         <controllers:InfolineControl x:Name="boatName" Title="Boat name" readOnly="False"/>
                         <controllers:InfolineControl x:Name="boatLength" Title="Boat length" readOnly="False"/>
                         <controllers:InfolineControl x:Name="boatWidth" Title="Boat Width" readOnly="False"/>

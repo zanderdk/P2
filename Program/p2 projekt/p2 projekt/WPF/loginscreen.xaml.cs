@@ -1,30 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using p2_projekt.models;
-using System.Device.Location;
+﻿using System.Windows;
 using p2_projekt.controllers;
 
 namespace p2_projekt.WPF
 {
     /// <summary>
-    /// Interaction logic for loginscreen.xaml
+    /// Interaction logic for Loginscreen.xaml
     /// </summary>
-    public partial class loginscreen : Window
+    public partial class Loginscreen : Window
     {
         private LoginController controller;
 
-        public loginscreen()
+        public Loginscreen()
         {
             InitializeComponent();
             controller = new LoginController();
@@ -38,11 +24,11 @@ namespace p2_projekt.WPF
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void back_click(object sender, RoutedEventArgs e)
         {
-            ChipRequester ChipLogin = new ChipRequester();
-            ChipLogin.Show();
-            this.Close();
+            ChipRequester chipLogin = new ChipRequester();
+            chipLogin.Show();
+            Close();
         }
     }
 }

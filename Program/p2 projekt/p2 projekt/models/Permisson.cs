@@ -8,19 +8,19 @@ namespace p2_projekt.models
         // primary key
         public int PermissionId { get; set; }
 
-        public static bool CanRead(EnumPermissionLevel permissionField)
+        public static bool CanRead(PermissionLevel permissionField)
         {
-            return permissionField > EnumPermissionLevel.None;
+            return permissionField > PermissionLevel.None;
         }
 
-        public static bool CanWrite(EnumPermissionLevel permissionField)
+        public static bool CanWrite(PermissionLevel permissionField)
         {
-            return permissionField == EnumPermissionLevel.Write;
+            return permissionField == PermissionLevel.Write;
         }
      
-        public EnumPermissionLevel OtherUsers { get; set; }
+        public PermissionLevel OtherUsers { get; set; }
         
-        public EnumPermissionLevel PersonalInfo { get; set; }        
+        public PermissionLevel PersonalInfo { get; set; }        
 
         }
     }
