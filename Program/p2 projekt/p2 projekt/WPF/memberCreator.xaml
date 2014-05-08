@@ -37,7 +37,7 @@
                                 <CommandBinding Command="Save" Executed="Save_Executed" CanExecute="save_canExecute"/>
                             </Button.CommandBindings>
                         </Button>
-                        <Button Content="Annuller" HorizontalAlignment="Stretch" Margin="10" Grid.Row="2" Click="Button_Click"/>
+                        <Button Content="Annuller" HorizontalAlignment="Stretch" Margin="10,0,10,10" Grid.Row="2" Click="Button_Click"/>
                     </StackPanel>
                 </Grid>
             </Border>

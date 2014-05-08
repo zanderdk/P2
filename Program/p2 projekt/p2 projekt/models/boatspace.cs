@@ -80,7 +80,7 @@ namespace p2_projekt.models
 
         public override string ToString()
         {
-            return String.Format("Info: {0}, Tilhørende båd: {1}", Info, Boat);
+            return Info;
         }
     }
 }

@@ -139,7 +139,7 @@ namespace p2_projekt.controllers
             else
                 return Permission.CanWrite(Main.LoggedIn.Permission.OtherUsers);
         }
-
+            
         public event EventHandler CanExecuteChanged
         {
             add { CommandManager.RequerySuggested += value; }

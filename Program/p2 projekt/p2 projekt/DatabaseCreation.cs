@@ -81,9 +81,11 @@ namespace p2_projekt
 
         public void CreateDataset(DALController uc, int wantedUsers)
         {
-
+            int numberOfDefaultUsers = 3;
+            int numberOfSpaces = 36;
             List<User> Users = new List<User>();
             List<Boat> Boats = new List<Boat>();
+            List<BoatSpace> BoatSpaces = new List<BoatSpace>();
 
             Member TestMember1 = new Member("Anders Andersen", new System.Device.Location.CivicAddress(), 1);
             TestMember1.Birthday = new DateTime(2000, 01, 01);
@@ -134,18 +136,23 @@ namespace p2_projekt
             uc.Add<User>(TestMember3);
 
 
-
-
-            for (int i = 0; i < wantedUsers; i++)
+            for (int i = 0; i < numberOfSpaces - numberOfDefaultUsers; i++ )
             {
-                Member m = CreateUser();
-                Boat b = CreateBoat();
                 BoatSpace bs = CreateBoatSpace();
-                b.BoatSpace = bs;
-                m.Boats.Add(b);
-                uc.Add<User>(m);
-
+                BoatSpaces.Add(bs);
+                uc.Add(bs);
             }
+
+
+                for (int i = 0; i < wantedUsers - numberOfDefaultUsers; i++)
+                {
+                    Member m = CreateUser();
+                    Boat b = CreateBoat();
+                    b.BoatSpace = BoatSpaces[i];
+                    m.Boats.Add(b);
+                    uc.Add<User>(m);
+
+                }
 
             
 

@@ -26,7 +26,7 @@ namespace p2_projekt
             
             if(File.Exists(databasePath) == false )
             {
-            new DatabaseCreation().CreateDataset(us, 50);
+            new DatabaseCreation().CreateDataset(us, 20);
             }
 
             
