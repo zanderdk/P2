@@ -25,13 +25,9 @@ namespace p2_projekt.controllers
         {
             User = user;
             addBoatCommand = new AddBoatCommand(user);
-<<<<<<< HEAD
             changeBoatCommand = new ChangeBoatCommand(this);
             removeBoatCommand = new RemoveBoatCommand(this);
-=======
-            changeBoatCommand = new ChangeBoatCommand(_boat, this);
-            removeBoatCommand = new RemoveBoatCommand(_boat);
->>>>>>> 1f50cfa9104bd5a3721e1036e080223df26dc273
+
 
             addTravelCommand = new AddTravelCommand(user);
             
@@ -50,15 +46,11 @@ namespace p2_projekt.controllers
 
         public User User
         {
-<<<<<<< HEAD
-            get { return user; }
-            set { user = value;
+            get { return _user; }
+            set { _user = value;
             NotifyPropertyChanged("User");
             }
-=======
-            get { return _user; }
-            set { _user = value; }
->>>>>>> 1f50cfa9104bd5a3721e1036e080223df26dc273
+
         }
 
         public Boat Boat
@@ -71,15 +63,11 @@ namespace p2_projekt.controllers
 
         public Travel Travel
         {
-<<<<<<< HEAD
-            get { return travel; }
-            set { travel = value;
+            get { return _travel; }
+            set { _travel = value;
             NotifyPropertyChanged("Travel");
             }
-=======
-            get { return _travel; }
-            set { _travel = value; }
->>>>>>> 1f50cfa9104bd5a3721e1036e080223df26dc273
+
         }
 
         public AddTravelCommand addTravelCommand { get; private set; }
@@ -173,30 +161,18 @@ namespace p2_projekt.controllers
     {
         private User user { get { return change.User; } }
         private Boat boat { get {
-            if (user != null)
+            if (user != null){
                 return change.Boat;
-
-<<<<<<< HEAD
+            }
+            
             return null;
-        } }
-=======
-        void Call(object sender, EventArgs arg)
-        {
-            CanExecute(null);
+            } 
         }
->>>>>>> 1f50cfa9104bd5a3721e1036e080223df26dc273
 
         private MemberInfoController change;
         public ChangeBoatCommand(MemberInfoController sender)
         {
-<<<<<<< HEAD
             change = sender;
-=======
-            sender.PropertyChanged += this.Call;
-            boat = b;
-            if(b != null)
-                user = b.User;
->>>>>>> 1f50cfa9104bd5a3721e1036e080223df26dc273
         }
 
         public bool CanExecute(object parameter)

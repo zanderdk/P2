@@ -32,12 +32,8 @@ namespace p2_projekt.WPF
                 InitSailor(u as ISailor);
             }
 
-<<<<<<< HEAD
-            DataContext = controller;
-            
-=======
+
             DataContext = _controller;
->>>>>>> 1f50cfa9104bd5a3721e1036e080223df26dc273
         }
 
         void InitSailor(ISailor s)
@@ -103,7 +99,7 @@ namespace p2_projekt.WPF
 
         private void listBoats_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            controller.changeBoatCommand.RaiseCanExecuteChanged();
+            _controller.changeBoatCommand.RaiseCanExecuteChanged();
         }
     }
 }
