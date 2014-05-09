@@ -3,6 +3,8 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using p2_projekt.models;
 using p2_projekt.controllers;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace p2_projekt.WPF
 {
@@ -15,26 +17,40 @@ namespace p2_projekt.WPF
             InitializeComponent();
 
             _controller = new SearchController();
-            DataContext = _controller;
 
-            SearchController.ListToListBox += ListToListBox;
+            
+            _controller.ListUpdated += ListToListBox;
 
-            AddControllerDelegates(name);
-            AddControllerDelegates(birthday);
-            AddControllerDelegates(phone);
-            AddControllerDelegates(email);
-            AddControllerDelegates(adresse);
-            AddControllerDelegates(postal);
-            AddControllerDelegates(country);
-            AddControllerDelegates(memberID);
-            AddControllerDelegates(memberSince);
-            AddControllerDelegates(isActive);
-            AddControllerDelegates(boatOwner);
-            AddControllerDelegates(boatName);
-            AddControllerDelegates(boatID);
-            AddControllerDelegates(boatSpace);
-            AddControllerDelegates(boatLength);
-            AddControllerDelegates(boatWidth);
+            //AddControllerDelegates(name);
+            //AddControllerDelegates(birthday);
+            //AddControllerDelegates(phone);
+            //AddControllerDelegates(email);
+            //AddControllerDelegates(adresse);
+            //AddControllerDelegates(postal);
+            //AddControllerDelegates(country);
+            //AddControllerDelegates(memberID);
+            //AddControllerDelegates(memberSince);
+            //AddControllerDelegates(isActive);
+            //AddControllerDelegates(boatOwner);
+            //AddControllerDelegates(boatName);
+            //AddControllerDelegates(boatID);
+            //AddControllerDelegates(boatSpace);
+            //AddControllerDelegates(boatLength);
+            //AddControllerDelegates(boatWidth);
+
+
+            var searchFieldsUser = searchfieldsContainerUser.Children.OfType<InfolineControl>().ToList();
+            var searchFieldsBoat = searchfieldsContainerBoat.Children.OfType<InfolineControl>().ToList();
+
+            foreach (var infolineControl in searchFieldsUser.Union(searchFieldsBoat))
+            {
+                infolineControl.TextChanged += textbox_SearchChanged;
+                infolineControl.GotFocus += TextBox_GotFocus;
+                infolineControl.LostFocus += TextBox_LostFocus;
+                //_controller.AddToDict(infolineControl.Tag as string, infolineControl.Text);
+                infolineControl.textbox.Tag = infolineControl.Tag;
+            }
+
         }
 
         //void addToDict(InfolineControl c)
@@ -42,20 +58,20 @@ namespace p2_projekt.WPF
         //    SearchController.Dict.Add(c.textbox, c);
         //}
 
-        void AddControllerDelegates(InfolineControl c)
-        {
-            c.TextChanged +=  textbox_SearchChanged;
-            c.GotFocus += TextBox_GotFocus;
-            c.LostFocus += TextBox_LostFocus;
-            //addToDict(c);
-            _controller.AddToDict(c.Name, c.Text);
-            // TODO foreach child element, få fat i infolinecontroller... switch på name. ingen x:name
-        }
+        //void AddControllerDelegates(InfolineControl c)
+        //{
+        //    c.TextChanged +=  textbox_SearchChanged;
+        //    c.GotFocus += TextBox_GotFocus;
+        //    c.LostFocus += TextBox_LostFocus;
+        //    //addToDict(c);
+        //    _controller.AddToDict(c.Name, c.Text);
+        //    // TODO foreach child element, få fat i infolinecontroller... switch på name. ingen x:name
+        //}
 
-        void ListToListBox()
+        void ListToListBox(IEnumerable<User> list)
         {
             listResult.Items.Clear();
-            foreach(var x in SearchController.List)
+            foreach(var x in list)
             {
                 listResult.Items.Add(x);
             }
@@ -89,20 +105,20 @@ namespace p2_projekt.WPF
 
         private void TextBox_GotFocus(object sender, RoutedEventArgs e)
         {
-            SearchController.TextBox_GotFocus(sender, e);
+            TextBox textBox = sender as TextBox;
+            _controller.TextBox_GotFocus(textBox.Tag as string, textBox.Text);
         }
 
         private void TextBox_LostFocus(object sender, RoutedEventArgs e) //TODO fix internalRefresh
         {
-            SearchController.TextBox_LostFocus(sender, e);
+            TextBox textBox = sender as TextBox;
+            _controller.TextBox_LostFocus(textBox.Tag as string, textBox.Text);
         }
 
         private void textbox_SearchChanged(object sender, TextChangedEventArgs e)
         {
             TextBox textBox = sender as TextBox;
-            SearchController.textbox_SearchChanged(textBox.Name, textBox.Text);
+            _controller.textbox_SearchChanged(textBox.Tag as string, textBox.Text);
         }
-
-
      }
 }

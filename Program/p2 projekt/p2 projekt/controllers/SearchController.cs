@@ -9,151 +9,118 @@ using System.ComponentModel;
 
 namespace p2_projekt.controllers
 {
-    public class SearchController : INotifyPropertyChanged
+    public class SearchController
     {
-        private static readonly List<User> InternalList;
-        public static List<User> List;
+        private readonly List<User> _internalList;
+        private List<User> _list;
 
-        public static event Action ListToListBox;
+        public event Action<IEnumerable<User>> ListUpdated;
 
-        public static event Func<User, bool> SearchPredicates;
-        public static Func<User, bool> Current;
+        private event Func<User, bool> _searchPredicates;
+        private Func<User, bool> _current;
 
-        public static Dictionary<TextBox, InfolineControl> Dict;
-        private Dictionary<string, string> _dict;
-        public string _name;
-
-        public string Name
-        {
-            get
-            {
-                return _name;
-            }
-            set
-            {
-                _name = value;
-                NotifyPropertyChanged("Name");
-                Current = SearchPredicate.GetPredicate("name", _name);
-            }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void NotifyPropertyChanged(String info)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(info));
-            }
-        }
+        private Dictionary<string, Func<User, bool>> _dict;
 
         public SearchController()
         {
-            _dict = new Dictionary<string, string>();
-            //Name = "hej";
+            _dict = new Dictionary<string, Func<User, bool>>();
+            _list = new List<User>();
+            _internalList = new List<User>();
         }
 
-        //static SearchController()
-        //{
-        //    Dict = new Dictionary<TextBox, InfolineControl>();
-        //    List = new List<User>();
-        //    InternalList = new List<User>();         
-        //}
-
-        public void AddToDict(string key, string value)
+        public void AddToDict(string key, Func<User, bool> value)
         {
             _dict[key] = value;
         }
         
-        private static void Refresh()
+        private void RefreshResults()
         {
-            List.Clear();
-            if(Current == null)
+            _list.Clear();
+            
+            if(_current == null)
             {
-                foreach(var x in InternalList.Where(x => true))
+                _list.AddRange(_internalList);
+                ListUpdated(_list);
+            }
+            else
+            {
+                _list.AddRange(_internalList.Where(_current));
+
+                foreach (var x in _internalList.Where(_current))
                 {
-                    List.Add(x);
+                    _list.Add(x);
                 }
-                ListToListBox();
-                return;
+                ListUpdated(_list);
             }
 
-            foreach(var x in InternalList.Where(Current))
-            {
-                List.Add(x);
-            }
-            ListToListBox();
+            
         }
 
-        public static void RefreshInternal()
+        private void RefreshInternal()
         {
-            InternalList.Clear();
+            _internalList.Clear();
             DALController us = Utilities.LobopDB;
 
-            if(SearchPredicates == null)
+            if(_searchPredicates == null)
             {
                 foreach(var x in us.ReadAll<User>(x=> true))
                 {
-                    InternalList.Add(x);
+                    _internalList.Add(x);
                 }
-                Refresh();
+                RefreshResults();
                 return;
             }
 
             foreach (var x in us.ReadAll<User>(x =>
                 {
-                    foreach(Func<User, bool> pre in SearchPredicates.GetInvocationList())
+                    foreach(Func<User, bool> pre in _searchPredicates.GetInvocationList())
                     {
                         if (!pre(x))
                             return false;
                     }
                     return true;
                 })){
-                InternalList.Add(x);
+                _internalList.Add(x);
             }
-            Refresh();
+            RefreshResults();
         }
 
-        public static void TextBox_GotFocus(object sender, RoutedEventArgs e)
+        public void TextBox_GotFocus(string fieldName, string searchText)
         {
-            //InfolineControl send = Dict[(sender as TextBox)];
-            //if (send.IsNotEmpty)
-            //{
-            //    Current = send.predicate;
-            //    SearchPredicates -= send.predicate;
-            //}
-            //else
-            //{
-            //    Current = null;
-            //}
-            //RefreshInternal();
+            if (!string.IsNullOrEmpty(searchText))
+            {
+                _current = _dict[fieldName];
+                _searchPredicates -= _dict[fieldName];
+            }
+            else
+            {
+                _current = null;
+            }
+            RefreshInternal();
         }
 
-        public static void TextBox_LostFocus(object sender, RoutedEventArgs e) //TODO fix internalRefresh
+        public void TextBox_LostFocus(string fieldName, string searchText) //TODO fix internalRefresh
         {
-            //InfolineControl send = Dict[sender as TextBox];
-            //if (send.IsNotEmpty && send.predicate != null)
-            //{
-            //    SearchPredicates += send.predicate;
-            //}
-            //Current = null;
-            //RefreshInternal();
+            if (!string.IsNullOrEmpty(searchText))
+            {
+                _searchPredicates += _dict[fieldName];
+            }
+            _current = null;
+            RefreshInternal();
         }
 
-        public static void textbox_SearchChanged(string fieldName, string searchText)
+        public void textbox_SearchChanged(string fieldName, string searchText)
         {
-            //Current = SearchPredicate.GetPredicate(fieldName, searchText);
-            //InfolineControl send = Dict[(sender as TextBox)];
-            //if (send.IsNotEmpty)
-            //{
-            //    
-            //}
-            //else
-            //{
-            //    Current = null;
-            //    send.predicate = null;
-            //}
-            //Refresh();
+            if (string.IsNullOrEmpty(searchText))
+            {
+                _current = null;
+            }
+            else
+            {
+                _current = SearchPredicate.GetPredicate(fieldName, searchText);
+                AddToDict(fieldName, _current);
+            }
+            RefreshResults();
         }
-
     }
 }

@@ -17,29 +17,29 @@
         </Grid.ColumnDefinitions>
         <DockPanel Grid.Column="0" LastChildFill="False" Margin="10,0,10,0" Grid.ColumnSpan="1" Grid.Row="1" >
             <Border CornerRadius="1" BorderBrush="Gray" Background="LightGray" BorderThickness="2" DockPanel.Dock="Top">
-                <StackPanel>
+                <StackPanel x:Name="searchfieldsContainerUser">
                     <Label Content="Brugersøgning" Grid.Column="0" HorizontalAlignment="Center"/>
-                    <controllers:InfolineControl  Value="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" x:Name="name" Title="Navn"/>
-                    <controllers:InfolineControl Value="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" x:Name="birthday" Text="dag/måned/år" Title="Fødselsdag"/>
-                    <controllers:InfolineControl x:Name="phone" Title="Telefon"/>
-                    <controllers:InfolineControl x:Name="email" Title="Email"/>
-                    <controllers:InfolineControl x:Name="adresse" Title="Adresse"/>
-                    <controllers:InfolineControl x:Name="postal" Title="Post nr"/>
-                    <controllers:InfolineControl x:Name="country" Title="Land"/>
-                    <controllers:InfolineControl x:Name="memberID" Title="Medlems nr"/>
-                    <controllers:InfolineControl x:Name="memberSince" Text="dag/måned/år" Title="Oprettet"/>
-                    <controllers:InfolineControl x:Name="isActive" Title="Aktiv"/>
+                    <controllers:InfolineControl Tag="name" Title="Navn"/>
+                    <controllers:InfolineControl Value="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Tag="birthday" Text="dag/måned/år" Title="Fødselsdag"/>
+                    <controllers:InfolineControl Tag="phone" Title="Telefon"/>
+                    <controllers:InfolineControl Tag="email" Title="Email"/>
+                    <controllers:InfolineControl Tag="adresse" Title="Adresse"/>
+                    <controllers:InfolineControl Tag="postal" Title="Post nr"/>
+                    <controllers:InfolineControl Tag="country" Title="Land"/>
+                    <controllers:InfolineControl Tag="memberID" Title="Medlems nr"/>
+                    <controllers:InfolineControl Tag="memberSince" Text="dag/måned/år" Title="Oprettet"/>
+                    <controllers:InfolineControl Tag="isActive" Title="Aktiv"/>
                 </StackPanel>
             </Border>
             <Border Margin="0,10,0,0" CornerRadius="1" BorderBrush="Gray" Background="LightGray" BorderThickness="2" DockPanel.Dock="Top">
-                <StackPanel>
+                <StackPanel x:Name="searchfieldsContainerBoat">
                     <Label Content="Bådsøgning" Grid.Column="0" HorizontalAlignment="Center"/>
-                    <controllers:InfolineControl x:Name="boatOwner" Title="Ejere(e)"/>                    
-                    <controllers:InfolineControl x:Name="boatName" Title="Navn"/>
-                    <controllers:InfolineControl x:Name="boatID" Title="ID"/>
-                    <controllers:InfolineControl x:Name="boatSpace" Title="Plads"/>
-                    <controllers:InfolineControl x:Name="boatLength" Title="Længde"/>
-                    <controllers:InfolineControl x:Name="boatWidth" Title="Bredde"/>
+                    <controllers:InfolineControl Tag="boatOwner" Title="Ejere(e)"/>                    
+                    <controllers:InfolineControl Tag="boatName" Title="Navn"/>
+                    <controllers:InfolineControl Tag="boatID" Title="ID"/>
+                    <controllers:InfolineControl Tag="boatSpace" Title="Plads"/>
+                    <controllers:InfolineControl Tag="boatLength" Title="Længde"/>
+                    <controllers:InfolineControl Tag="boatWidth" Title="Bredde"/>
                 </StackPanel>
             </Border>
         </DockPanel>

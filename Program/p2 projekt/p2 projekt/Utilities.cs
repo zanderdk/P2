@@ -110,7 +110,7 @@ namespace p2_projekt
                 
                 Action<TResult>((db, dbSet) =>
                 {
-                    //List<string> get = GetAllProperties<TResult>(db);
+                    //_list<string> get = GetAllProperties<TResult>(db);
                     //dbSet.Include("BoatSpaces");
                     //result = dbSet.Include("Boat").FirstOrDefault(predicate);
 
