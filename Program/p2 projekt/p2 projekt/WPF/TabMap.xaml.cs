@@ -1,4 +1,5 @@
-﻿using p2_projekt.models;
+﻿using p2_projekt.controllers;
+using p2_projekt.models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Controls;
@@ -16,27 +17,18 @@ namespace p2_projekt.WPF
             InitializeComponent();
             new MapControlPanel().Show();
 
-            FillBoatSpaceRepresentations();
-        }
-
-        private void FillBoatSpaceRepresentations()
-        {
-            DALController us = Utilities.LobopDB;
-
-            var boatSpaces = us.ReadAll<BoatSpace>(x => x != null).ToList();
+            
+            List<BoatSpaceRepresentation> boatSpaceRepresentations = new List<BoatSpaceRepresentation>();
             var wrapPanels = BoatSpacesGrid.Children.OfType<WrapPanel>().ToList();
 
-            List<BoatSpaceRepresentation> boatspaceRepresentations = new List<BoatSpaceRepresentation>();
-
-            for (int i = 0; i < wrapPanels.Count; i++ )
+            foreach (var item in wrapPanels)
             {
-
-                BoatSpaceRepresentation bsr = wrapPanels[i].Children.OfType<BoatSpaceRepresentation>().ElementAt(0);
-                BoatSpace bs = boatSpaces[i];
-                bsr.BoatSpace = bs;
-                bsr.Label.Content = bs.BoatSpaceId;
+                BoatSpaceRepresentation bsr = item.Children.OfType<BoatSpaceRepresentation>().ElementAt(0);
+                boatSpaceRepresentations.Add(bsr);
             }
-        }
 
+            MapController _controller = new MapController();
+            _controller.FillBoatSpaceRepresentations(boatSpaceRepresentations);
+        }
     }
 }

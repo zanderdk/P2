@@ -20,7 +20,7 @@ namespace p2_projekt.models
      
         public PermissionLevel OtherUsers { get; set; }
         
-        public PermissionLevel PersonalInfo { get; set; }
+        public PermissionLevel PersonalInfo { get; set; }        
 
         public PermissionLevel Map { get; set; }
 

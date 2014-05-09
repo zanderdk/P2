@@ -11,21 +11,20 @@ namespace ModelTests
         public void FreeBoatToFreeSpace_IsSet()
         {
             Boat BoatOne = new Boat();
-            BoatSpace BoatSpaceOne = new WaterSpace(9001, 4, 2);
-            BoatOne.BoatSpace = null;
-            BoatSpaceOne.Boat = null;
+            BoatSpace BoatSpaceOne = new WaterSpace( 4, 2);
 
             BoatOne.BoatSpace = BoatSpaceOne;
 
             Assert.AreEqual(BoatOne, BoatSpaceOne.Boat);
             Assert.AreEqual(BoatSpaceOne.Boat, BoatOne);
         }
+
         [TestMethod]
         public void OccupiedBoatToFreeSpace_IsSet()
         {
             Boat BoatOne = new Boat();
-            BoatSpace BoatSpaceOne = new WaterSpace(9001, 4, 2);
-            BoatSpace BoatSpaceTwo = new WaterSpace(900001, 1,4);
+            BoatSpace BoatSpaceOne = new WaterSpace(4, 2);
+            BoatSpace BoatSpaceTwo = new WaterSpace(1,4);
 
             BoatOne.BoatSpace = BoatSpaceOne;
             BoatSpaceTwo.Boat = null;
@@ -41,7 +40,7 @@ namespace ModelTests
         {
             Boat BoatOne = new Boat();
             Boat BoatTwo = new Boat();
-            BoatSpace BoatSpaceOne = new WaterSpace(9001, 4, 2);
+            BoatSpace BoatSpaceOne = new WaterSpace(4, 2);
 
             BoatOne.BoatSpace = BoatSpaceOne;
 
@@ -59,7 +58,7 @@ namespace ModelTests
         public void OccupiedSpaceToSameBoat_IsSet()
         {
             Boat BoatOne = new Boat();
-            BoatSpace BoatSpaceOne = new WaterSpace(9001, 4, 2);
+            BoatSpace BoatSpaceOne = new WaterSpace(4, 2);
             BoatOne.BoatSpace = BoatSpaceOne;
 
             BoatOne.BoatSpace = BoatSpaceOne;

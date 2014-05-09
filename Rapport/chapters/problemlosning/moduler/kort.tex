@@ -13,13 +13,12 @@ Kortmodulet har til opgave at lave et kort, der giver et visuelt overblik over a
 \subsubsection{Funktionalitet}
 \label{ssub:kort_funktionalitet}
 
-Kortet præsenterer bådpladsers status i form af en beskrivende farve. Eksempelvis er en optaget bådplads status repræsenteret med farven rød, imens en fri bådplads status repræsenteres med farven grøn. Kortet skal modellere virkeligheden, således at virkelighedens informationer er reflekteret i kortet. Hvis et andet modul ændrer en bådplads status, skal dette modul skifte bådplads beskrivende farve til den tilsvarende. 
-
+Kortet præsenterer bådpladsers status i form af en beskrivende farve. Eksempelvis er en optaget bådplads status repræsenteret med farven rød, imens en fri bådplads status repræsenteres med farven grøn. Kortet skal modellere virkeligheden, således at virkelighedens informationer er reflekteret i kortet. Hvis et andet modul ændrer en bådplads status, skal dette modul skifte bådplads beskrivende farve til den tilsvarende.
 
 \subsubsection{Implementation}
 \label{ssub:kort_implementation}
 
-Det implementerede kort er opbygget af to lag. Et statisk baggrundslag, som viser havnens broer. Dertil et overliggende lag bestående af bådpladsrepræsentationer, der ligger i forhold til deres placering på baggrundslaget. En bådpladsrepræsentation er en reference til en bådplads i databasen. Når en bådplads i databasen ændrer status, ændres dennes repræsentation sig i takt.
+Kortet kan tilgås fra styringsmodulet, som det fremstår på \cref{fig:map_diagram}. Det implementerede kort er opbygget af to grafiske lag. Et statisk baggrundslag, som viser havnens broer. Dertil et overliggende lag bestående af bådpladsrepræsentationer, \enquote{SpaceRep} i diagrammet, der er placeret på baggrundslaget, i forhold til deres beliggenhed. Det overliggende lag, \enquote{Map} i diagrammet, bliver oprettet af MapController, der også tildeler både til pladserne. En bådpladsrepræsentation er en reference til en bådplads i databasen. Når en sensor, der implementerer IBoatSpaceSensor, ændrer bådpladsens status i modellen, ændres repræsentation sig i takt, via modellen.
 
 Når der klikkes på en bådplads på kortet, kan følgende scenarier ske, afhængigt af hvilken bruger der klikker.
 
@@ -34,10 +33,10 @@ Når der klikkes på en bådplads på kortet, kan følgende scenarier ske, afhæ
    Brugeren er en gæst uden en eksisterende bådplads. Bådpladsen er ledig & Brugeren bliver sendt til et reservationsmodul \\ 
    \midrule
    Brugeren er en gæst med en eksisterende bådplads. Bådpladsen er ledig & Brugeren spørges om hvorvidt brugeren vil flytte til den nye plads \\
+   \midrule
+   Brugeren har de nødvendige adgangstilladelser og et sekundært klik udføres & Et nyt vindue åbnes, hvor der kan rettes i pladsens information. \\
    \bottomrule 
 \end{tabu}
-
-
 Ved situationer der ikke matcher de ovenstående kriterier, sker der ingenting.
 
 

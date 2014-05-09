@@ -47,7 +47,7 @@ namespace p2_projekt.models
         }
 
         public Member(string name, CivicAddress adress)
-            : this(name, adress, MainController.GetNextMemberShipNumber())
+            : this(name, adress, MemberController.GetNextMemberShipNumber())
         {
 
         }
