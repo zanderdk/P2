@@ -84,6 +84,7 @@
     <Compile Include="controllers\GuestController.cs" />
     <Compile Include="controllers\LoginController.cs" />
     <Compile Include="controllers\MainController.cs" />
+    <Compile Include="controllers\MapController.cs" />
     <Compile Include="controllers\MemberController.cs" />
     <Compile Include="controllers\TravelController.cs" />
     <Compile Include="controllers\SearchController.cs" />
