@@ -62,16 +62,6 @@ namespace ModelTests
             Assert.AreEqual(expected, actual);
         }
 
-        [TestMethod]
-        public void Add_UserAlreadyExists_False()
-        {
-            MockIDAL.Setup(x => x.Create(alice)).Throws(new InvalidOperationException());
-
-            bool expected = false;
-            bool actual = MockController.Add(alice);
-
-            Assert.AreEqual(expected, actual);
-        }
 
         [TestMethod]
         public void Remove_UserExists_True()

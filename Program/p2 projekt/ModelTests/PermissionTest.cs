@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using p2_projekt.models;
+using p2_projekt.Enums;
 
 namespace ModelTests
 {
@@ -18,12 +19,11 @@ namespace ModelTests
         [TestMethod]
         public void PermissionLevelTest_UserCanRead_True()
         {
-            
-            alice.Permission.MemberInfo = PermissionLevel.Read;
+            alice.Permission.PersonalInfo = PermissionLevel.Read;
 
             bool expected = true;
 
-            bool actual = alice.Permission.CanRead(alice.Permission.MemberInfo);
+            bool actual = Permission.CanRead(alice.Permission.PersonalInfo);
 
             Assert.AreEqual(expected, actual);
         }

@@ -1,8 +1,6 @@
 ﻿using p2_projekt.Enums;
 namespace p2_projekt.models
 {
-    
-
     public class Permission
     {
         // primary key
@@ -20,7 +18,6 @@ namespace p2_projekt.models
      
         public PermissionLevel OtherUsers { get; set; }
         
-        public PermissionLevel PersonalInfo { get; set; }        
-
+        public PermissionLevel PersonalInfo { get; set; }
         }
     }
