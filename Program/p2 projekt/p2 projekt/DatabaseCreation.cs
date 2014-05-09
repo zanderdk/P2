@@ -47,7 +47,7 @@ namespace p2_projekt
                 member.Adress.PostalCode = "" + r.Next(1000, 9999);
 
                 // TODO alle skal ikke have søge rettigheder
-                member.Permission = new Permission() { OtherUsers = PermissionLevel.Read, PersonalInfo = PermissionLevel.Read};
+                member.Permission = new Permission() { OtherUsers = PermissionLevel.None, Map = PermissionLevel.Read,  PersonalInfo = PermissionLevel.Write};
                 member.Birthday = new DateTime(birthdayYear,birthdayMonth,birthdayDay);
                 member.RegistrationDate = new DateTime(regDayYear, regDayMonth, regDayDay);
             
@@ -97,7 +97,7 @@ namespace p2_projekt
             TestMember1.Adress.City = "Grenå";
             TestMember1.Adress.AddressLine1 = "Testervej 1";
             TestMember1.Adress.PostalCode = "8464";
-            TestMember1.Permission = new Permission() { PersonalInfo = PermissionLevel.None, OtherUsers = PermissionLevel.None };
+            TestMember1.Permission = new Permission() { PersonalInfo = PermissionLevel.None, Map = PermissionLevel.Read, OtherUsers = PermissionLevel.None };
             Boat b1 = CreateBoat();
             b1.BoatSpace = CreateBoatSpace();
             TestMember1.Boats.Add(b1);
@@ -113,7 +113,7 @@ namespace p2_projekt
             TestMember2.Adress.City = "Grenå";
             TestMember2.Adress.AddressLine1 = "Testervej 2";
             TestMember2.Adress.PostalCode = "8464";
-            TestMember2.Permission = new Permission() { PersonalInfo = PermissionLevel.Write, OtherUsers = PermissionLevel.Read };
+            TestMember2.Permission = new Permission() { PersonalInfo = PermissionLevel.Write, Map = PermissionLevel.Read, OtherUsers = PermissionLevel.Read };
             Boat b2 = CreateBoat();
             b2.BoatSpace = CreateBoatSpace();
             TestMember2.Boats.Add(b2);
@@ -129,7 +129,7 @@ namespace p2_projekt
             TestMember3.Adress.City = "Grenå";
             TestMember3.Adress.AddressLine1 = "Testervej 3";
             TestMember3.Adress.PostalCode = "8464";
-            TestMember3.Permission = new Permission() { PersonalInfo = PermissionLevel.Write, OtherUsers = PermissionLevel.Write };
+            TestMember3.Permission = new Permission() { PersonalInfo = PermissionLevel.Write, Map = PermissionLevel.Write, OtherUsers = PermissionLevel.Write };
             b1 = CreateBoat();
             b1.BoatSpace = CreateBoatSpace();
             TestMember3.Boats.Add(b1);

@@ -81,6 +81,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="controllers\BoatController.cs" />
+    <Compile Include="controllers\BoatSpaceController.cs" />
     <Compile Include="controllers\GuestController.cs" />
     <Compile Include="controllers\LoginController.cs" />
     <Compile Include="controllers\MainController.cs" />
@@ -130,6 +131,9 @@
     <Compile Include="Utilities.cs" />
     <Compile Include="WPF\BoatForm.xaml.cs">
       <DependentUpon>BoatForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WPF\BoatSpacePopup.xaml.cs">
+      <DependentUpon>BoatSpacePopup.xaml</DependentUpon>
     </Compile>
     <Compile Include="WPF\BoatSpaceRepresentation.xaml.cs">
       <DependentUpon>BoatSpaceRepresentation.xaml</DependentUpon>
@@ -196,6 +200,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="WPF\BoatForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WPF\BoatSpacePopup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

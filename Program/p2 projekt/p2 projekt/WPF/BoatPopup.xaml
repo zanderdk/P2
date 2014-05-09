@@ -11,9 +11,9 @@
                 <Grid>
                     <StackPanel Grid.RowSpan="1">
                         <controllers:InfolineControl Title="Navn" Value="{Binding Boat.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                        <controllers:InfolineControl Title="Reg. nr." Value="{Binding Boat.RegistrationNumber,Mode=TwoWay}"/>
-                        <controllers:InfolineControl Title="Længde" Value="{Binding Boat.Length,Mode=TwoWay}"/>
-                        <controllers:InfolineControl Title="Bredde" Value="{Binding Boat.Width,Mode=TwoWay}"/>
+                        <controllers:InfolineControl Title="Reg. nr." Value="{Binding Boat.RegistrationNumber,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        <controllers:InfolineControl Title="Længde" Value="{Binding Boat.Length,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        <controllers:InfolineControl Title="Bredde" Value="{Binding Boat.Width,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="75"/>

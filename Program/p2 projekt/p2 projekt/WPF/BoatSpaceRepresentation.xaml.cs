@@ -58,7 +58,37 @@ namespace p2_projekt.WPF
 
         private void BoatSpaceGrid_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            if(BoatSpace.Boat != null) MainController.SelectUser(BoatSpace.Boat.User);
+            if (_boatSpace == null)
+                return;
+
+            if(Permission.CanRead(Main.LoggedIn.Permission.OtherUsers))
+                MainController.SelectUser(BoatSpace.Boat.User);
+
+
+            if (Main.LoggedIn is ISailor)
+            {
+                bool flag = false;
+
+                foreach(Boat b in (Main.LoggedIn as ISailor).Boats)
+                {
+                    if(b.BoatSpace == _boatSpace)
+                    {
+                        flag = true;
+                        break;
+                    }
+                }
+
+                if(flag && Permission.CanRead(Main.LoggedIn.Permission.PersonalInfo))
+                {
+                    MainController.SelectUser(BoatSpace.Boat.User);
+                }
+            }
+        }
+
+        private void BoatSpaceGrid_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if(Permission.CanWrite(Main.LoggedIn.Permission.Map))
+                new BoatSpacePopup(_boatSpace).Show();  
         }
     }
 }

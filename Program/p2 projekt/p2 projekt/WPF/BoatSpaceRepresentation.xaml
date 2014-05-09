@@ -6,7 +6,7 @@
 
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid Name="BoatSpaceGrid" MouseUp="BoatSpaceGrid_MouseUp">
+    <Grid Name="BoatSpaceGrid" MouseLeftButtonUp="BoatSpaceGrid_MouseUp" MouseRightButtonUp="BoatSpaceGrid_MouseRightButtonUp">
         <Rectangle Name="Rectangle" Fill="Red" HorizontalAlignment="Center" VerticalAlignment="Center"  Height="50" Width="40"/>
         <Label Name="Label" HorizontalAlignment="Center" VerticalAlignment="Center" >ID</Label>
     </Grid>

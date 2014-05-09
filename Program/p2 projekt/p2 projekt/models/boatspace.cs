@@ -13,8 +13,8 @@ namespace p2_projekt.models
         public int BoatSpaceId { get; set; }
 
         public String Info { get; set; }
-        public double Length { get; private set; }
-        public double Width { get; private set; }
+        public double Length { get; set; }
+        public double Width { get; set; }
 
         public event EventHandler<BoatSpaceArgs> OnBoatSpaceChange = delegate { };
 

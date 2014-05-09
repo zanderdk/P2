@@ -28,7 +28,8 @@ namespace p2_projekt.WPF
 
             AddToTabController(new WelcomeTab(u), "Forside");
 
-            AddToTabController(new TabMap(), "Kort");
+            if(Permission.CanRead(Main.LoggedIn.Permission.Map))
+                AddToTabController(new TabMap(), "Kort");
             
             if (Permission.CanRead(u.Permission.PersonalInfo))
             {

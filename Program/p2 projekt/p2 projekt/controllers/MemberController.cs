@@ -21,7 +21,11 @@ namespace p2_projekt.controllers
             {
                 Member member = _user as Member;
                 if (member != null) member.Password = password;
-                us.Add(_user);
+                member.Permission = new Permission();
+                member.Permission.Map = PermissionLevel.Read;
+                member.Permission.PersonalInfo = PermissionLevel.Write;
+                member.Permission.OtherUsers = PermissionLevel.None;
+                us.Add(member as User);
             }
 
             else if (_operation == Operation.Edit)
