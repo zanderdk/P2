@@ -1,11 +1,11 @@
 \subsection{GuestCreator}
 \label{sub:GuestCreator}
 
-GuestCreatormodulet har til opgave at oprette en ny gæst i databasen når brugeren er en gæst der ønsker adgang til systemet.
+GuestCreatormodulet har til opgave at oprette en ny gæst i databasen.
 
 \subsubsection{Funktionalitet}
 \label{ssub:GuestCreator_funktionalitet}
-GuestCreatoren popper op når man i loginmodulet ønsker at oprette en ny gæst. Brugeren indtaster dernæst information omkring sig selv, båden samt udrejse dato. Dernæst bliver gæsten gemt i databasen.
+GuestCreatoren åbnes fra loginmodulet, når der ønskes, at oprette en ny gæst. Gæsten indtaster dernæst information omkring sig selv, båden samt udrejse dato. Gæsten gemmes til slut i databasen, hvis den indtastede information er tilfredsstillende.
 
 \begin{figure}
   \centering
@@ -17,4 +17,4 @@ GuestCreatoren popper op når man i loginmodulet ønsker at oprette en ny gæst.
 \subsubsection{Implementation}
 \label{ssub:GuestCreator_implementation}
 
-GuestCreatormodulet består af et GuestCreator-element og en GuestController. Det indtastede data fra brugeren i GuestCreator-elementet sendes videre til GuestControlleren, som kommunikere med persistenslaget der derefter gemmer informationen om den nye gæst. 
+GuestCreatormodulet består af et GuestCreator-view og en GuestController. Den data der indtastes i GuestCreator view'et, sendes videre til GuestControlleren. Herefter kommunikerer GuestCotrolleren med persistenslaget, som derefter gemmer informationen om den nye gæst.
