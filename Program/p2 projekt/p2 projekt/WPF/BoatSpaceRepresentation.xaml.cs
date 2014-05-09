@@ -58,12 +58,11 @@ namespace p2_projekt.WPF
 
         private void BoatSpaceGrid_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            if (_boatSpace == null)
+            if (_boatSpace == null || _boatSpace.Boat == null || _boatSpace.Boat.User == null)
                 return;
 
-            if(Permission.CanRead(FunctionContainer.LoggedIn.Permission.OtherUsers))
+            if(Permission.CanRead(FunctionContainer.LoggedIn.Permission.OtherUsers))                
                 FunctionController.SelectUser(BoatSpace.Boat.User);
-
 
             if (FunctionContainer.LoggedIn is ISailor)
             {
