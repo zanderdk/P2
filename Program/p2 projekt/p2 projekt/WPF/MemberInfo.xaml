@@ -19,23 +19,18 @@
         <DockPanel Grid.Column="0" LastChildFill="False" Margin="10,0,10,0" Grid.ColumnSpan="1" Grid.Row="1" >
             <Border CornerRadius="1" BorderBrush="Gray" Background="LightGray" BorderThickness="2" DockPanel.Dock="Top">
                 <StackPanel>
-                    <controllers:InfolineControl x:Name="name" Title="Navn" Value="{Binding User.Name}"/>
-                    <controllers:InfolineControl x:Name="birthday" Title="Fødselsdag" Value="{Binding Birthday}"/>
-
-                        
-                    <!--TODO Datetime?-->
-                    <controllers:InfolineControl x:Name="phone" Title="Telefon" Value="{Binding User.Phone, Mode=TwoWay}"/>
-                    <controllers:InfolineControl x:Name="email" Title="Email" Value="{Binding User.Email, Mode=TwoWay}"/>
-                    <controllers:InfolineControl x:Name="adresse" Title="Adresse" Value="{Binding User.Adress.AddressLine1, Mode=TwoWay}"/>
-                    <controllers:InfolineControl x:Name="postal" Title="Post nr" Value="{Binding User.Adress.PostalCode, Mode=TwoWay}"/>
-                    <controllers:InfolineControl x:Name="city" Title="By" Value="{Binding User.Adress.City, Mode=TwoWay}"/>
-                    <controllers:InfolineControl x:Name="country" Title="Land" Value="{Binding User.Adress.CountryRegion, Mode=TwoWay}"/>
-                    <controllers:InfolineControl x:Name="memberID" Title="Medlems nr" Value="{Binding User.MembershipNumber}"/>
-                    <controllers:InfolineControl x:Name="memberSince" Title="Oprettet" Value="{Binding User.RegistrationDate, Mode=TwoWay}"/>
-                    <controllers:InfolineControl x:Name="memberTimeTotal" Title="Medlemstid" Value="{Binding User.MembershipDuration}"/>
-                    <controllers:InfolineControl x:Name="isActive" Title="Aktiv" Visibility="Collapsed"/>
-                    <!--TODO visiblity skal kunne ændres-->
-
+                    <controllers:InfolineControl x:Name="name" Title="Navn" Value="{Binding User.Name}" readOnly="True"/>
+                    <controllers:InfolineControl x:Name="birthday" Title="Fødselsdag" Value="{Binding Birthday}" readOnly="True"/>
+                    <controllers:InfolineControl x:Name="phone" Title="Telefon" Value="{Binding User.Phone, Mode=TwoWay}" readOnly="True"/>
+                    <controllers:InfolineControl x:Name="email" Title="Email" Value="{Binding User.Email, Mode=TwoWay}" readOnly="True"/>
+                    <controllers:InfolineControl x:Name="adresse" Title="Adresse" Value="{Binding User.Adress.AddressLine1, Mode=TwoWay}" readOnly="True"/>
+                    <controllers:InfolineControl x:Name="postal" Title="Post nr" Value="{Binding User.Adress.PostalCode, Mode=TwoWay}" readOnly="True"/>
+                    <controllers:InfolineControl x:Name="city" Title="By" Value="{Binding User.Adress.City, Mode=TwoWay}" readOnly="True"/>
+                    <controllers:InfolineControl x:Name="country" Title="Land" Value="{Binding User.Adress.CountryRegion, Mode=TwoWay}" readOnly="True"/>
+                    <controllers:InfolineControl x:Name="memberID" Title="Medlems nr" Value="{Binding User.MembershipNumber}" readOnly="True"/>
+                    <controllers:InfolineControl x:Name="memberSince" Title="Oprettet" Value="{Binding User.RegistrationDate, Mode=TwoWay}" readOnly="True"/>
+                    <controllers:InfolineControl x:Name="memberTimeTotal" Title="Medlemstid" Value="{Binding User.MembershipDuration}" readOnly="True"/>
+                    <controllers:InfolineControl x:Name="isActive" Title="Aktiv" Visibility="Collapsed" readOnly="True"/>
                 </StackPanel>
             </Border>
             <Border CornerRadius="1" BorderBrush="Gray" Margin="0,10,0,0" Background="LightGray" BorderThickness="2" DockPanel.Dock="Top">
