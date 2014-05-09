@@ -22,10 +22,10 @@ namespace p2_projekt
             
             if(File.Exists(databasePath) == false )
             {
-            new DatabaseCreation().CreateDataset(us, 20);
+            new DatabaseCreator().CreateDataset(us, 20);
             }
 
-            app.Run(new ChipRequester());
+            app.Run(new Standby());
         }
 
     }

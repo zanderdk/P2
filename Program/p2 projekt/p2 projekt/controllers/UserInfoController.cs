@@ -6,7 +6,7 @@ using p2_projekt.WPF;
 
 namespace p2_projekt.controllers
 {
-    public class MemberInfoController : INotifyPropertyChanged
+    public class UserInfoController : INotifyPropertyChanged
     {
         private User _user;
         private Boat _boat;
@@ -21,7 +21,7 @@ namespace p2_projekt.controllers
             }
         }
 
-        public MemberInfoController(User user)
+        public UserInfoController(User user)
         {
             User = user;
             addBoatCommand = new AddBoatCommand(user);
@@ -92,10 +92,10 @@ namespace p2_projekt.controllers
             if (!(user is ISailor))
                 return false;
 
-            if (user == Main.LoggedIn)
+            if (user == FunctionContainer.LoggedIn)
                 return Permission.CanWrite(user.Permission.PersonalInfo);
             else
-                return Permission.CanWrite(Main.LoggedIn.Permission.OtherUsers);
+                return Permission.CanWrite(FunctionContainer.LoggedIn.Permission.OtherUsers);
         }
 
         public event EventHandler CanExecuteChanged;
@@ -120,8 +120,8 @@ namespace p2_projekt.controllers
             }
         }
 
-        private MemberInfoController change;
-        public RemoveBoatCommand(MemberInfoController sender)
+        private UserInfoController change;
+        public RemoveBoatCommand(UserInfoController sender)
         {
             change = sender;
         }
@@ -134,10 +134,10 @@ namespace p2_projekt.controllers
             if (!(user is ISailor))
                 return false;
 
-            if (user == Main.LoggedIn)
+            if (user == FunctionContainer.LoggedIn)
                 return Permission.CanWrite(user.Permission.PersonalInfo);
             else
-                return Permission.CanWrite(Main.LoggedIn.Permission.OtherUsers);
+                return Permission.CanWrite(FunctionContainer.LoggedIn.Permission.OtherUsers);
         }
             
         public event EventHandler CanExecuteChanged
@@ -169,8 +169,8 @@ namespace p2_projekt.controllers
             } 
         }
 
-        private MemberInfoController change;
-        public ChangeBoatCommand(MemberInfoController sender)
+        private UserInfoController change;
+        public ChangeBoatCommand(UserInfoController sender)
         {
             change = sender;
         }
@@ -183,10 +183,10 @@ namespace p2_projekt.controllers
             if (!(user is ISailor))
                 return false;
 
-            if (user == Main.LoggedIn)
+            if (user == FunctionContainer.LoggedIn)
                 return Permission.CanWrite(user.Permission.PersonalInfo);
             else
-                return Permission.CanWrite(Main.LoggedIn.Permission.OtherUsers);
+                return Permission.CanWrite(FunctionContainer.LoggedIn.Permission.OtherUsers);
         }
 
         public event EventHandler CanExecuteChanged
@@ -215,10 +215,10 @@ namespace p2_projekt.controllers
         }
         public bool CanExecute(object parameter)
         {
-            if (user == Main.LoggedIn)
+            if (user == FunctionContainer.LoggedIn)
                 return false;
 
-            return Permission.CanWrite(Main.LoggedIn.Permission.OtherUsers);
+            return Permission.CanWrite(FunctionContainer.LoggedIn.Permission.OtherUsers);
         }
 
         public event EventHandler CanExecuteChanged;
@@ -234,14 +234,14 @@ namespace p2_projekt.controllers
     {
         public bool CanExecute(object parameter)
         {
-            return Permission.CanWrite(Main.LoggedIn.Permission.OtherUsers);
+            return Permission.CanWrite(FunctionContainer.LoggedIn.Permission.OtherUsers);
         }
 
         public event EventHandler CanExecuteChanged;
 
         public void Execute(object parameter)
         {
-            new MemberCreator().Show();
+            new MemberPopup().Show();
         }
     }
 
@@ -256,13 +256,13 @@ namespace p2_projekt.controllers
 
         public bool CanExecute(object parameter)
         {
-            if(user == Main.LoggedIn)
+            if(user == FunctionContainer.LoggedIn)
             {
                 return (Permission.CanWrite(user.Permission.PersonalInfo));
             }
             else
             {
-                return (Permission.CanWrite(Main.LoggedIn.Permission.OtherUsers));
+                return (Permission.CanWrite(FunctionContainer.LoggedIn.Permission.OtherUsers));
             }
         }
 
@@ -270,7 +270,7 @@ namespace p2_projekt.controllers
 
         public void Execute(object parameter)
         {
-            new MemberCreator(user).Show();
+            new MemberPopup(user).Show();
         }
     }
 
@@ -286,10 +286,10 @@ namespace p2_projekt.controllers
 
         public bool CanExecute(object parameter)
         {
-            if (user == Main.LoggedIn)
+            if (user == FunctionContainer.LoggedIn)
                 return Permission.CanWrite(user.Permission.PersonalInfo);
             else
-                return Permission.CanWrite(Main.LoggedIn.Permission.OtherUsers);
+                return Permission.CanWrite(FunctionContainer.LoggedIn.Permission.OtherUsers);
         }
 
         public event EventHandler CanExecuteChanged;

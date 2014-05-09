@@ -5,11 +5,11 @@ using p2_projekt.models;
 namespace p2_projekt.WPF
 {
     /// <summary>
-    /// Interaction logic for WelcomeTab.xaml
+    /// Interaction logic for Welcome.xaml
     /// </summary>
-    public partial class WelcomeTab : UserControl
+    public partial class Welcome : UserControl
     {
-        public WelcomeTab(User u)
+        public Welcome(User u)
         {
             InitializeComponent();
             if (u is Member)

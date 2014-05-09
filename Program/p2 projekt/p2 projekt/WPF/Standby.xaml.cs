@@ -5,13 +5,13 @@ using p2_projekt.controllers;
 namespace p2_projekt.WPF
 {
     /// <summary>
-    /// Interaction logic for ChipRequester.xaml
+    /// Interaction logic for Standby.xaml
     /// </summary>
-    public partial class ChipRequester : Window
+    public partial class Standby : Window
     {
         private LoginController controller;
 
-        public ChipRequester()
+        public Standby()
         {
             InitializeComponent();
             controller = new LoginController();
@@ -20,7 +20,7 @@ namespace p2_projekt.WPF
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Loginscreen login = new Loginscreen();
+            MemberLogin login = new MemberLogin();
             login.Show();
             Close();
         }

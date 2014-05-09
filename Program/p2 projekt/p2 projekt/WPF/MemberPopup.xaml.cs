@@ -8,13 +8,13 @@ using p2_projekt.controllers;
 namespace p2_projekt.WPF
 {
     /// <summary>
-    /// Interaction logic for MemberCreator.xaml
+    /// Interaction logic for MemberPopup.xaml
     /// </summary>
-    public partial class MemberCreator : Window
+    public partial class MemberPopup : Window
     {
         private readonly MemberController _controller;
         // edit
-        public MemberCreator(User u)
+        public MemberPopup(User u)
         {
             InitializeComponent();
             DataContext = u;
@@ -27,7 +27,7 @@ namespace p2_projekt.WPF
         }
 
         // add
-        public MemberCreator()
+        public MemberPopup()
         {
             InitializeComponent();
             Member m = new Member("", new System.Device.Location.CivicAddress())

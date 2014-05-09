@@ -10,12 +10,12 @@ namespace p2_projekt.WPF
     /// <summary>
     /// Interaction logic for Map.xaml
     /// </summary>
-    public partial class TabMap : UserControl
+    public partial class Map : UserControl
     {
-        public TabMap()
+        public Map()
         {
             InitializeComponent();
-            new MapControlPanel().Show();
+            new SensorSimulator().Show();
 
             
             List<BoatSpaceRepresentation> boatSpaceRepresentations = new List<BoatSpaceRepresentation>();

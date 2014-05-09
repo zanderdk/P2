@@ -6,12 +6,16 @@ using p2_projekt.controllers;
 
 namespace p2_projekt.WPF
 {
-    public partial class SearchTab : UserControl
+    public partial class Search : UserControl
     {
+        private SearchController _controller;
 
-        public SearchTab(Main ma)
+        public Search(FunctionContainer ma)
         {
             InitializeComponent();
+
+            _controller = new SearchController();
+            DataContext = _controller;
 
             SearchController.ListToListBox += ListToListBox;
 
@@ -33,17 +37,19 @@ namespace p2_projekt.WPF
             AddControllerDelegates(boatWidth);
         }
 
-        void addToDict(InfolineControl c)
-        {
-            SearchController.Dict.Add(c.textbox, c);
-        }
+        //void addToDict(InfolineControl c)
+        //{
+        //    SearchController.Dict.Add(c.textbox, c);
+        //}
 
         void AddControllerDelegates(InfolineControl c)
         {
             c.TextChanged +=  textbox_SearchChanged;
             c.GotFocus += TextBox_GotFocus;
             c.LostFocus += TextBox_LostFocus;
-            addToDict(c);
+            //addToDict(c);
+            _controller.AddToDict(c.Name, c.Text);
+            // TODO foreach child element, få fat i infolinecontroller... switch på name. ingen x:name
         }
 
         void ListToListBox()
@@ -77,7 +83,7 @@ namespace p2_projekt.WPF
             User user = (User)(sender as ListBox).SelectedItem;
             if(user != null)
             {
-                MainController.SelectUser(user);
+                FunctionController.SelectUser(user);
             }
         }
 
@@ -93,7 +99,8 @@ namespace p2_projekt.WPF
 
         private void textbox_SearchChanged(object sender, TextChangedEventArgs e)
         {
-            SearchController.textbox_SearchChanged(sender, e);
+            TextBox textBox = sender as TextBox;
+            SearchController.textbox_SearchChanged(textBox.Name, textBox.Text);
         }
 
 

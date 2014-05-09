@@ -5,9 +5,9 @@ using p2_projekt.models;
 
 namespace p2_projekt.controllers
 {
-    public static class MainController
+    public static class FunctionController
     {
-        public static Main Main;
+        public static FunctionContainer Main;
 
         public static void SelectUser(User user)
         {

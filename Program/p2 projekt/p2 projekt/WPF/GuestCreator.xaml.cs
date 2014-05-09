@@ -41,7 +41,7 @@ namespace p2_projekt.WPF
             Travel t = new Travel(DateTime.Now, LeavingDate.SelectedDate.Value);
             if (controller.Save(b, t))
             {
-                ChipRequester chipLogin = new ChipRequester(); //TODO overvej om den kan logge ind med det samme?
+                Standby chipLogin = new Standby(); //TODO overvej om den kan logge ind med det samme?
                 chipLogin.Show();
                 Close();
             }
@@ -66,7 +66,7 @@ namespace p2_projekt.WPF
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ChipRequester ChipLogin = new ChipRequester();
+            Standby ChipLogin = new Standby();
             ChipLogin.Show();
             Close();
         }

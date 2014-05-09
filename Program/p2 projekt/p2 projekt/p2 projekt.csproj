@@ -66,12 +66,8 @@
     <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="WPF\App.config">
+    <None Include="App.config">
       <SubType>Designer</SubType>
-    </None>
-    <None Include="HarborStatus.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>HarborStatus.Designer.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -84,33 +80,27 @@
     <Compile Include="controllers\BoatSpaceController.cs" />
     <Compile Include="controllers\GuestController.cs" />
     <Compile Include="controllers\LoginController.cs" />
-    <Compile Include="controllers\MainController.cs" />
+    <Compile Include="controllers\FunctionController.cs" />
     <Compile Include="controllers\MapController.cs" />
     <Compile Include="controllers\MemberController.cs" />
     <Compile Include="controllers\TravelController.cs" />
     <Compile Include="controllers\SearchController.cs" />
     <Compile Include="controllers\SearchPredicate.cs" />
-    <Compile Include="DatabaseCreation.cs" />
+    <Compile Include="DatabaseCreator.cs" />
     <Compile Include="Enums\PermissionLevel.cs" />
-    <Compile Include="HarborStatus.cs" />
-    <Compile Include="HarborStatus.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>HarborStatus.settings</DependentUpon>
-    </Compile>
-    <Compile Include="IDAL.cs" />
+    <Compile Include="Interfaces\IDAL.cs" />
     <Compile Include="LobopContext.cs" />
     <Compile Include="models\BoatSpace.cs" />
     <Compile Include="models\Boat.cs" />
     <Compile Include="models\BoatSpaceArgs.cs" />
-    <Compile Include="controllers\IBoatSpaceSensor.cs" />
+    <Compile Include="Interfaces\IBoatSpaceSensor.cs" />
     <Compile Include="Enums\BoatSpaceStatus.cs" />
     <Compile Include="Enums\Operation.cs" />
     <Compile Include="models\Guest.cs" />
     <Compile Include="models\HarbourMaster.cs" />
-    <Compile Include="models\IFullPersonalInfo.cs" />
-    <Compile Include="models\ILoginable.cs" />
-    <Compile Include="models\ISailor.cs" />
+    <Compile Include="Interfaces\IFullPersonalInfo.cs" />
+    <Compile Include="Interfaces\ILoginable.cs" />
+    <Compile Include="Interfaces\ISailor.cs" />
     <Compile Include="models\LandSpace.cs" />
     <Compile Include="models\Member.cs" />
     <Compile Include="models\Permisson.cs" />
@@ -139,8 +129,8 @@
     <Compile Include="WPF\BoatSpaceRepresentation.xaml.cs">
       <DependentUpon>BoatSpaceRepresentation.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WPF\ChipRequester.xaml.cs">
-      <DependentUpon>ChipRequester.xaml</DependentUpon>
+    <Compile Include="WPF\Standby.xaml.cs">
+      <DependentUpon>Standby.xaml</DependentUpon>
     </Compile>
     <Compile Include="WPF\GuestCreator.xaml.cs">
       <DependentUpon>GuestCreator.xaml</DependentUpon>
@@ -148,36 +138,36 @@
     <Compile Include="WPF\InfolineControl.xaml.cs">
       <DependentUpon>InfolineControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WPF\Loginscreen.xaml.cs">
-      <DependentUpon>Loginscreen.xaml</DependentUpon>
+    <Compile Include="WPF\MemberLogin.xaml.cs">
+      <DependentUpon>MemberLogin.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WPF\Main.xaml.cs">
-      <DependentUpon>Main.xaml</DependentUpon>
+    <Compile Include="WPF\FunctionContainer.xaml.cs">
+      <DependentUpon>FunctionContainer.xaml</DependentUpon>
     </Compile>
     <Compile Include="WPF\BoatPopup.xaml.cs">
       <DependentUpon>BoatPopup.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WPF\MapControlPanel.xaml.cs">
-      <DependentUpon>MapControlPanel.xaml</DependentUpon>
+    <Compile Include="WPF\SensorSimulator.xaml.cs">
+      <DependentUpon>SensorSimulator.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WPF\MemberCreator.xaml.cs">
-      <DependentUpon>MemberCreator.xaml</DependentUpon>
+    <Compile Include="WPF\MemberPopup.xaml.cs">
+      <DependentUpon>MemberPopup.xaml</DependentUpon>
     </Compile>
-    <Compile Include="controllers\MemberInfoController.cs" />
-    <Compile Include="WPF\TabMap.xaml.cs">
-      <DependentUpon>TabMap.xaml</DependentUpon>
+    <Compile Include="controllers\UserInfoController.cs" />
+    <Compile Include="WPF\Map.xaml.cs">
+      <DependentUpon>Map.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WPF\MemberInfo.xaml.cs">
-      <DependentUpon>MemberInfo.xaml</DependentUpon>
+    <Compile Include="WPF\UserInfo.xaml.cs">
+      <DependentUpon>UserInfo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WPF\SearchTab.xaml.cs">
-      <DependentUpon>SearchTab.xaml</DependentUpon>
+    <Compile Include="WPF\Search.xaml.cs">
+      <DependentUpon>Search.xaml</DependentUpon>
     </Compile>
     <Compile Include="WPF\TravelPopup.xaml.cs">
       <DependentUpon>TravelPopup.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WPF\WelcomeTab.xaml.cs">
-      <DependentUpon>WelcomeTab.xaml</DependentUpon>
+    <Compile Include="WPF\Welcome.xaml.cs">
+      <DependentUpon>Welcome.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -212,7 +202,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="WPF\ChipRequester.xaml">
+    <Page Include="WPF\Standby.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -224,11 +214,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="WPF\Loginscreen.xaml">
+    <Page Include="WPF\MemberLogin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="WPF\Main.xaml">
+    <Page Include="WPF\FunctionContainer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -236,23 +226,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="WPF\MapControlPanel.xaml">
+    <Page Include="WPF\SensorSimulator.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="WPF\MemberCreator.xaml">
+    <Page Include="WPF\MemberPopup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="WPF\TabMap.xaml">
+    <Page Include="WPF\Map.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="WPF\MemberInfo.xaml">
+    <Page Include="WPF\UserInfo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="WPF\SearchTab.xaml">
+    <Page Include="WPF\Search.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -260,7 +250,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="WPF\WelcomeTab.xaml">
+    <Page Include="WPF\Welcome.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -294,9 +284,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModels\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

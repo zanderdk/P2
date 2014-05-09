@@ -4,13 +4,13 @@ using p2_projekt.controllers;
 namespace p2_projekt.WPF
 {
     /// <summary>
-    /// Interaction logic for Loginscreen.xaml
+    /// Interaction logic for MemberLogin.xaml
     /// </summary>
-    public partial class Loginscreen : Window
+    public partial class MemberLogin : Window
     {
         private LoginController controller;
 
-        public Loginscreen()
+        public MemberLogin()
         {
             InitializeComponent();
             controller = new LoginController();
@@ -26,7 +26,7 @@ namespace p2_projekt.WPF
 
         private void back_click(object sender, RoutedEventArgs e)
         {
-            ChipRequester chipLogin = new ChipRequester();
+            Standby chipLogin = new Standby();
             chipLogin.Show();
             Close();
         }

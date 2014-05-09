@@ -41,10 +41,14 @@ namespace p2_projekt.WPF
 
         public bool readOnly { set { textbox.IsReadOnly = value; } }
 
+        
+
         public InfolineControl()
         {
             InitializeComponent();
             LayoutRoot.DataContext = this;
+            
+            textbox.Name = Name;
         }
     }
 }

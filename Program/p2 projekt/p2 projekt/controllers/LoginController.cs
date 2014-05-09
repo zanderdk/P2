@@ -66,7 +66,7 @@ namespace p2_projekt.controllers
         {
             switch (result){
                 case ValidateResult.Succes:
-                    new Main(user).Show();
+                    new FunctionContainer(user).Show();
                     break;
                 case  ValidateResult.WrongPassword:
                     MessageBox.Show("Forkert password.");

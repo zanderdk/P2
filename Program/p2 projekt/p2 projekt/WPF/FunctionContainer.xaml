@@ -1,4 +1,4 @@
-﻿<Window x:Class="p2_projekt.WPF.Main"
+﻿<Window x:Class="p2_projekt.WPF.FunctionContainer"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:controls="clr-namespace:p2_projekt.WPF"

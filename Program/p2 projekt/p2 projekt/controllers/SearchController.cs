@@ -5,10 +5,11 @@ using System.Windows;
 using System.Windows.Controls;
 using p2_projekt.models;
 using p2_projekt.WPF;
+using System.ComponentModel;
 
 namespace p2_projekt.controllers
 {
-    public static class SearchController
+    public class SearchController : INotifyPropertyChanged
     {
         private static readonly List<User> InternalList;
         public static List<User> List;
@@ -19,12 +20,48 @@ namespace p2_projekt.controllers
         public static Func<User, bool> Current;
 
         public static Dictionary<TextBox, InfolineControl> Dict;
+        private Dictionary<string, string> _dict;
+        public string _name;
 
-        static SearchController()
+        public string Name
         {
-            Dict = new Dictionary<TextBox, InfolineControl>();
-            List = new List<User>();
-            InternalList = new List<User>();         
+            get
+            {
+                return _name;
+            }
+            set
+            {
+                _name = value;
+                NotifyPropertyChanged("Name");
+                Current = SearchPredicate.GetPredicate("name", _name);
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void NotifyPropertyChanged(String info)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(info));
+            }
+        }
+
+        public SearchController()
+        {
+            _dict = new Dictionary<string, string>();
+            //Name = "hej";
+        }
+
+        //static SearchController()
+        //{
+        //    Dict = new Dictionary<TextBox, InfolineControl>();
+        //    List = new List<User>();
+        //    InternalList = new List<User>();         
+        //}
+
+        public void AddToDict(string key, string value)
+        {
+            _dict[key] = value;
         }
         
         private static void Refresh()
@@ -78,44 +115,44 @@ namespace p2_projekt.controllers
 
         public static void TextBox_GotFocus(object sender, RoutedEventArgs e)
         {
-            InfolineControl send = Dict[(sender as TextBox)];
-            if (send.IsNotEmpty)
-            {
-                Current = send.predicate;
-                SearchPredicates -= send.predicate;
-            }
-            else
-            {
-                Current = null;
-            }
-            RefreshInternal();
+            //InfolineControl send = Dict[(sender as TextBox)];
+            //if (send.IsNotEmpty)
+            //{
+            //    Current = send.predicate;
+            //    SearchPredicates -= send.predicate;
+            //}
+            //else
+            //{
+            //    Current = null;
+            //}
+            //RefreshInternal();
         }
 
         public static void TextBox_LostFocus(object sender, RoutedEventArgs e) //TODO fix internalRefresh
         {
-            InfolineControl send = Dict[sender as TextBox];
-            if (send.IsNotEmpty && send.predicate != null)
-            {
-                SearchPredicates += send.predicate;
-            }
-            Current = null;
-            RefreshInternal();
+            //InfolineControl send = Dict[sender as TextBox];
+            //if (send.IsNotEmpty && send.predicate != null)
+            //{
+            //    SearchPredicates += send.predicate;
+            //}
+            //Current = null;
+            //RefreshInternal();
         }
 
-        public static void textbox_SearchChanged(object sender, TextChangedEventArgs e)
+        public static void textbox_SearchChanged(string fieldName, string searchText)
         {
-            InfolineControl send = Dict[(sender as TextBox)];
-            if (send.IsNotEmpty)
-            {
-                Current = SearchPredicate.GetPredicate(send.Name, send.Text);
-                send.predicate = Current;
-            }
-            else
-            {
-                Current = null;
-                send.predicate = null;
-            }
-            Refresh();
+            //Current = SearchPredicate.GetPredicate(fieldName, searchText);
+            //InfolineControl send = Dict[(sender as TextBox)];
+            //if (send.IsNotEmpty)
+            //{
+            //    
+            //}
+            //else
+            //{
+            //    Current = null;
+            //    send.predicate = null;
+            //}
+            //Refresh();
         }
 
     }

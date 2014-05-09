@@ -1,4 +1,4 @@
-﻿<Window x:Class="p2_projekt.WPF.Loginscreen"
+﻿<Window x:Class="p2_projekt.WPF.MemberLogin"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:System="clr-namespace:System;assembly=mscorlib"

@@ -1,4 +1,4 @@
-﻿<Window x:Class="p2_projekt.WPF.MapControlPanel"
+﻿<Window x:Class="p2_projekt.WPF.SensorSimulator"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:controllers="clr-namespace:p2_projekt.WPF"

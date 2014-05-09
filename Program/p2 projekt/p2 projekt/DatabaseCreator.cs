@@ -5,7 +5,7 @@ using p2_projekt.Enums;
 
 namespace p2_projekt
 {
-    public class DatabaseCreation
+    public class DatabaseCreator
     {
         Random r = new Random();
         

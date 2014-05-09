@@ -7,17 +7,17 @@ using p2_projekt.controllers;
 namespace p2_projekt.WPF
 {
     //TODO Synlighed ved "aktiv" felt
-    public partial class MemberInfo : UserControl
+    public partial class UserInfo : UserControl
     {
-        private MemberInfoController _controller;
+        private UserInfoController _controller;
 
-        public MemberInfo()
+        public UserInfo()
         {
             InitializeComponent();
             
         }
 
-        public MemberInfo(User s)
+        public UserInfo(User s)
             : this()
         {
             InitUser(s);
@@ -26,7 +26,7 @@ namespace p2_projekt.WPF
 
         public void InitUser(User u)
         {
-            _controller = new MemberInfoController(u);
+            _controller = new UserInfoController(u);
             if (u is ISailor)
             {
                 InitSailor(u as ISailor);

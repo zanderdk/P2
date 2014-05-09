@@ -6,11 +6,11 @@ using System.Windows;
 namespace p2_projekt.WPF
 {
     /// <summary>
-    /// Interaction logic for MapControlPanel.xaml
+    /// Interaction logic for SensorSimulator.xaml
     /// </summary>
-    public partial class MapControlPanel : Window, IBoatSpaceSensor
+    public partial class SensorSimulator : Window, IBoatSpaceSensor
     {
-        public MapControlPanel()
+        public SensorSimulator()
         {
             InitializeComponent();
         }

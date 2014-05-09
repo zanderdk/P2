@@ -10,35 +10,35 @@ namespace p2_projekt.WPF
     /// <summary>
     /// Interaction logic for main.xaml
     /// </summary>
-    public partial class Main : Window
+    public partial class FunctionContainer : Window
     {
         public static User LoggedIn {get; private set; }
         public DALController Controller;
 
-        public Main(User u)
+        public FunctionContainer(User u)
         {
             InitializeComponent();
 
             Width = Properties.Settings.Default.appWidth;
             Height = Properties.Settings.Default.appLenght;
 
-            MainController.Main = this;
+            FunctionController.Main = this;
 
             LoggedIn = u;
 
-            AddToTabController(new WelcomeTab(u), "Forside");
+            AddToTabController(new Welcome(u), "Forside");
 
-            if(Permission.CanRead(Main.LoggedIn.Permission.Map))
-                AddToTabController(new TabMap(), "Kort");
+            if(Permission.CanRead(FunctionContainer.LoggedIn.Permission.Map))
+                AddToTabController(new Map(), "Kort");
             
             if (Permission.CanRead(u.Permission.PersonalInfo))
             {
-                AddToTabController(new MemberInfo(u), "Brugeradministration");
+                AddToTabController(new UserInfo(u), "Brugeradministration");
             }
 
             if (Permission.CanRead(u.Permission.OtherUsers))
             {
-                AddToTabController(new SearchTab(this), "Søg");
+                AddToTabController(new Search(this), "Søg");
             }
         }
 
@@ -66,13 +66,13 @@ namespace p2_projekt.WPF
             {
                 tabController.SelectedItem = GetTabItemByName("Brugeradministration");
                 TabItem selected = tabController.SelectedItem as TabItem;
-                if (selected != null) selected.Content = new MemberInfo(u);
+                if (selected != null) selected.Content = new UserInfo(u);
             }
         }
 
         private void LogUdClick(object sender, RoutedEventArgs e)
         {
-            ChipRequester chipReq = new ChipRequester();
+            Standby chipReq = new Standby();
             chipReq.Show();
             Close();
         }
