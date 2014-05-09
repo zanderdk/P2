@@ -16,7 +16,7 @@ Søgemodulets funktion er at sortere en liste af medlemmer og gæster, ud fra br
 \subsubsection{Implementation}
 \label{sub:implementation}
 
-Søgemodulet består af et Search-element, et SearchPredicate og en SearchController. Search-elementet tager brugerens individuelle inputs/kriterier og sender dem til SearchControlleren. SearchControlleren sender dataen til SearchPredicate som der sender et prædikat tilbage. SearchControlleren sammenligner prædikatet med persistenslaget der derefter sender \quote{hits} tilbage til SearchControlleren. SearchControlleren sender \quote{hits}'ne tilbage til Search-elementet der viser resultaterne i det respektive felt. Dette køre hvergang der kommer et nyt input i form af et tegn, hvilket gør at resultaterne bliver opdateret ved hvert tasteklik
+Søgemodulet består af et Search-element, et SearchPredicate og en SearchController. Search-elementet tager brugerens individuelle inputs/kriterier og sender dem til SearchControlleren. SearchControlleren sender dataen til SearchPredicate som der sender et prædikat tilbage. SearchControlleren sammenligner prædikatet med persistenslaget der derefter sender \enquote{hits} tilbage til SearchControlleren. SearchControlleren sender \enquote{hits}'ne tilbage til Search-elementet der viser resultaterne i det respektive felt. Dette køre hvergang der kommer et nyt input i form af et tegn, hvilket gør at resultaterne bliver opdateret ved hvert tasteklik
 
 
 % subsection implementation (end)
