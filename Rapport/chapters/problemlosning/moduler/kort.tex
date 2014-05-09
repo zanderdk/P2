@@ -18,7 +18,7 @@ Kortet præsenterer bådpladsers status i form af en beskrivende farve. Eksempel
 \subsubsection{Implementation}
 \label{ssub:kort_implementation}
 
-Kortet kan tilgås fra styringsmodulet, som det fremstår på \cref{fig:map_diagram}. Det implementerede kort er opbygget af to grafiske lag. Et statisk baggrundslag, som viser havnens broer. Dertil et overliggende lag bestående af bådpladsrepræsentationer, \enquote{SpaceRep} i diagrammet, der er placeret på baggrundslaget, i forhold til deres beliggenhed. Det overliggende lag, \enquote{Map} i diagrammet, bliver oprettet af MapController, der også tildeler både til pladserne. En bådpladsrepræsentation er en reference til en bådplads i databasen. Når en sensor, der implementerer IBoatSpaceSensor, ændrer bådpladsens status i modellen, ændres repræsentation sig i takt, via modellen. Mere information omkring sensorer kan ses i \cref{sub:map_sensor_interface}
+Kortet kan tilgås fra styringsmodulet, som det fremstår på \cref{fig:map_diagram}. Det implementerede kort er opbygget af to grafiske lag. Et statisk baggrundslag, som viser havnens broer. Dertil et overliggende lag bestående af bådpladsrepræsentationer, \enquote{SpaceRep} i diagrammet, der er placeret på baggrundslaget, i forhold til deres beliggenhed. Det overliggende lag, \enquote{Map} i diagrammet, bliver oprettet af MapController, der også tildeler både til pladserne. En bådpladsrepræsentation er en reference til en bådplads i databasen. Når en sensor, der implementerer IBoatSpaceSensor, ændrer bådpladsens status i modellen, ændres repræsentation sig i takt med modellen. Mere information omkring sensorer kan ses i \cref{sub:map_sensor_interface}
 
 Når der klikkes på en bådplads på kortet, kan følgende scenarier ske, afhængigt af hvilken bruger der klikker.
 
@@ -51,7 +51,7 @@ IBoatSpaceSensor er et interface, som bestemmer hvordan en pladssensor indberett
   \item Optaget af medlem
 \end{itemize}
 
-Det eksterne BoatSensormodul, som kan ses i \cref{fig:mod}, skal være bevidst om samtlige bådpladser, således at alle bådpladser kan få detekteret ændringer i deres tilstand. IBoatSapceSensor gør det muligt, at anvende flere forskellige implementationer af sensorer, således at løsningen ikke er afhængig af én type sensor, men kan lade dem skifte uden komplikationer.
+Det eksterne BoatSensormodul, som kan ses i \cref{fig:mod}, skal være bevidst om samtlige bådpladser, således at alle bådpladser kan få detekteret ændringer i deres tilstand. IBoatSpaceSensor gør det muligt, at anvende flere forskellige implementationer af sensorer, således at løsningen ikke er afhængig af én type sensor, men kan lade dem skifte uden komplikationer.
 
 
 
