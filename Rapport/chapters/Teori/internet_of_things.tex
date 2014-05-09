@@ -26,15 +26,15 @@ Den sidste vision der beskrives her, \enquote{Semantic oriented}, omhandler hvor
 \subsection{Anvendelse af Internet of Things på Vestre Baadehavn}
 \label{sub:iot_vestre_baadehavn}
 
+\frnote{mangler sammenhæng med ovenstående; er teknologi fokuseret}
+
 Som beskrevet i \cref{sub:iot_koncept}, er der mange muligheder for hvilke sensorer der kan benyttes til at identificere objekter. Dette afsnit vil se på RFID og ultralyds sensorer, samt kameraer med billedgenkendelses software, som er mulige sensorer der kan benyttes på en havn som Vestre Baadehavn.
 
 RFID står for Radio Frequency IDentification, og som navnet antyder kan teknologien identificere objekter ved hjælp af radio frekvenser. Et RFID-tag, er en lille chip der indeholder en antenne, og en lille mængde data. Et objekt med et RFID-tag er nu \enquote{tagget}, og data om objektet kan læses ved hjælp af en RFID læser. Man kategoriserer typisk RFID-tags i passive og aktive. Et aktivt RFID-tag kræver strøm for at blive læst, og er derfor ofte tilsluttet et batteri. Et passivt RFID-tag kræver ingen strøm fra et batteri, men får derimod strømmen fra RFID læseren \cite{want2006rfid}.
 
 Lad os antage at alle både er blevet tagget, sådan at de hver har en unik identifikation. Dette kunne gøres ved hjælp af passive RFID-tags, da disse er billige og kan sidde på både uden nogen direkte afhængighed af elektricitet. Derudover kan hver vandlejeplads registrere, ved hjælp af en sensor, hvorvidt vandlejepladsen er optaget. Hvis der ligger en båd, kan en anden sensor også se hvem der ejer båden.
 
-Sensoren der registrerer hvorvidt der ligger en båd ved en vandlejeplads, kunne være en ultrasonisk sensor. Denne kan ved hjælp af lydbølger detektere tilstedeværelse af et objekt. Den kan dog ikke med stor præcision identificere objektet. En anden løsning er et kamera der ved hjælp af billed genkendelse kan identificere båden.
-
-\frnote{der skal måske være en kilde til ultrasonisk}
+Sensoren der registrerer hvorvidt der ligger en båd ved en vandlejeplads, kunne være en ultralyds sensor. Denne kan ved hjælp af lydbølger detektere tilstedeværelse af et objekt. Den kan dog ikke med stor præcision identificere objektet. En anden løsning er et kamera der ved hjælp af billed genkendelse kan identificere båden.
 
 En computer forbundet til disse to typer sensorer, kan nu effektivt administrere en kæmpe havn med mange vandlejepladser. Når en ny båd lægger til på en vandlejeplads, vil computeren med det samme vide dette. Computeren kan derudover også kategorisere båden som en medlemsbåd eller som en gæstebåd. Da computeren nu har registreret at vandlejepladsen er optaget, skal den vende et skilt eller tænde for en diode, eller på anden måde ændres pladsens status til optaget.
 
