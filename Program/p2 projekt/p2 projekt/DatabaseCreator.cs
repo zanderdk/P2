@@ -32,7 +32,7 @@ namespace p2_projekt
                 int regDayDay = r.Next(1,28);
 
                 string tempName = _name[r.Next(0, _name.Length)];
-                string password = ""+tempName+r.Next(100,9001);
+                string password = ""+tempName+r.Next(1000,9001);
                 string tempEmail = "" + tempName + birthdayYear + _email[r.Next(0,_email.Length)];
                 string phonenumber = "2"+r.Next(2,8)+r.Next(0,9)+r.Next(0,9)+r.Next(0,9)+r.Next(0,9)+r.Next(0,9)+r.Next(0,9);
                 

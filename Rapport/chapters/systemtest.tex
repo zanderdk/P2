@@ -1,8 +1,37 @@
 
-\section{System test}
+\section{System Test}
 I dette afsnit vil der blivet testet hvorvidt udvalgte usecases kan udføres af programmet. Usecasesne er blevet udvalgt på baggrund af deres evne til at demonstrer funktionaliteten i programmet. 
 Testene er opstillet således at der startes med en hypotese omkring outputtet ud fra forudbestemt data, dernæst indtastes dataen i programmet og ud fra outputtet bedømmes resultatet med enten "succes" eller "fejl".
 
+\item{\bf{Usercase 1: Et medlem ønsker at forlade sin plads i mere end 24 timer.}}
+Det antages at databasen tilfældigt generere et medlem ved navn "Johanne Hoffmann", båden "Den Usynkelige II", medlemsnummer 5 og passwordet "Johanne4395". Det antages også at Johanne vil rejse væk den 8/10-2014 og komme hjem den 18/10-2014.
+
+Det forventes at med Johanne med sine login oplysninger kan opnå adgang til systemet, oprette sin rejse og få en bekræftigelse.
+\being{enumerate}
+	\item Johanne starter programmet via .exe filen
+	\item Johanne klikker på "Medlemslogin" og "Loginscreen" kommer dernæst frem og afventer input.
+	\item Johanne indtaster sit medlemsnummer:"5" og password: "Johanne4395".
+	\item Johanne klikker "Login" og forsidefanen kommer frem.
+	\item Johanne navigere til brugeradministrationsfanen, og information omkring hende kommer frem.
+	\item Johanne klikker på "Tilføj Ny Rejse" og "Tilføj rejse" bliver fremvist.
+	\item Johanne vælger henholdsvis den 8/10-2014 og 18/10-2014.
+	\item Johanne klikker OK, og kan nu se sin udrejse og hjemkomst i rejse feltet.
+	\item Johanne kan nu logge ud eller tilgå andre funktioner i programmet.
+\end{enumerate}
+
+\item{\bf{Usercase 15: Havnefogeden vil gerne se hvornår et medlem vender tilbage til medlemmets plads.}}
+Det antages at Havnefogeden er genereret i databasen med medlemsnummer:"0" og passwordet:"havnefogedeVB1234". Det antages også at Havnefogede brugeren har højst permissions som vil give ham fuld adgang. Det antages at dette sker efter foregående medlems interaktion med programmet, og det er det medlems rejse Havnefogeden er interesseret i. Det antages at det foregående medlem havde telefonnummeret: "22 95 41 87", og der er 3 medlemmer der hedder Johanne i databasen. Det antages at Havnefogeden har kun navnet "Johanne" og telefonnummeret "22 95 41 87"
+
+\being{enumerate}
+	\item Havnefogeden kliker "Medlemslogin" og "Loginscreen" frem vises.
+	\item Havnefogeden indtaster sit medlemsnummer:"0" og password:"havnefogedeVB1234".
+	\item Havnefogeden kliker "Login" og forsidefanen kommer frem.
+	\item Havnefogeden navigere til søgfanen.
+	\item Havnefogeden indtaster navnet: "Johanne" hvor der kommer tre hits frem.
+	\item Havnefogeden indtaster dernæst telefonnummeret: "22 95 41 87" og insnævre resultaterne til det rigtige medlem.
+	\item Havnefogeden dobbeltklikker på medlemmet og får vist informationen omkring medlemmet "Johanne Hoffmann".
+	\item Havnefogeden aflæser den ønskede data og er nu fri til at tilgå andre funktioner i programmet.
+\end{enumerate}
 
 % Dette er en test for det nuværende programs funktionalitet i forhold til de usescases, der er blevet opstillet for programmet.
 % Ved Success forstås der at denne funktion er (delvis) mulig.
