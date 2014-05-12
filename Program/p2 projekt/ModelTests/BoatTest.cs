@@ -34,25 +34,7 @@ namespace ModelTests
             Assert.AreEqual(null , BoatSpaceOne.Boat);
         }
         
-        [TestMethod]
-        public void OccupiedSpaceToFreeBoat()
-        {
-            Boat BoatOne = new Boat();
-            Boat BoatTwo = new Boat();
-            BoatSpace BoatSpaceOne = new WaterSpace(4, 2);
 
-            BoatOne.BoatSpace = BoatSpaceOne;
-
-            try
-            {
-                BoatTwo.BoatSpace = BoatSpaceOne;
-            }
-            catch(Exception)
-            {
-                return;
-            }
-            Assert.Fail("Did not throw an exception");
-        }
         [TestMethod]
         public void OccupiedSpaceToSameBoat()
         {
