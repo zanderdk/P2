@@ -1,14 +1,12 @@
 \chapter{Diskussion}
 \label{cha:diskussion}
 
-Dette afsnit diskutterer nogle udvalgte dele af projektet, for at beskrive tilblivelsen af disse dele. 
+Dette afsnit diskuterer nogle udvalgte dele af projektet, for at beskrive tilblivelsen, eller udeblivelsen, af disse dele, samt nogle af de tanker og overvejelser der har påvirket beslutningerne.
 
-En stor del af programmets funktionalitet består i at have forskellige adgangsniveauer til forskellige brugere. Som beskrevet i \cref{tilladelser}, er dette implementeret med 3 grader af tilladelser. Ingen, læse eller skrive tilladelser. Med denne model, er det let at give en bestemt bruger flere eller færre tilladelser, dynamisk.  Dog defineres de forskellige adgangsniveauer ikke udelukkende på baggrund af \enquote{3-grads-modellen}.
+En stor del af programmets funktionalitet, udgøres af muligheden for forskellige adgangsniveauer til forskellige brugere. Som beskrevet i \cref{tilladelser}, er dette implementeret med forskellige tilladelseskategorier. Disse kategorier kan have ét af tre niveauer: ingen-, læse- eller skrive-tilladelse. Med denne model, er det let at dynamisk ændre en bestemt brugers tilladelser. Som et alternativ til denne løsning, kunne der have eksisteret flere subklasser, med faste adgangsniveauer, således at adgangsniveauerne automatisk er sat, ved instantieringen af klassen. Dette havde simplificeret brugeroprettelsen, men det blev vurderet at fleksibiliteten ved oprettelser og vedligeholdelse var at foretrække.
+
+Ved udviklingsforløbets start, var \enquote{Model-View-Controller}, herefter MVC, ikke ikke en bekendt teknik. Derfor indgik det ikke i den grundlæggende designprocess, hvilket medførte, at en betydelig del af funktionaliteten blev kodet tæt sammen med brugergrænsefladen. Der er efterfølgende blevet foretaget refaktoreringer, der har haft til formål at frigøre funktionaliteten fra brugergrænsefladen. Samtidigt blev det besluttet, at det originale modulære design skulle bibeholdes, da det ikke påførte mærkbare begrænsninger, samt grundet projektets begrænsede tidshorisont. Denne beslutning bidrog til behovet for en selvudviklet diagramform, som kan ses i \cref{sec:moduler}, da det blev vurderet, at anvendelse af en etableret diagramstandard, ville være misvisende, da en sådan standard ikke lå til grund for udviklingen. Dertil kunne denne misvisning tolkes, som en misforståelse af MVC udviklingsformen.
+
+\kanote{Ting vi ville lave anderledes. Forskellige dele af rapporten. herunder ikke færdige emner}
 
 For at differentiere de forskellige typer af brugere til programmet, blev der besluttet at konstruere 3 grundlæggende klasser, Member, Guest og HarbourMaster. Dette giver nogle logiske fordele
-
-Ting vi ville lave anderledes. Forskellige dele af rapporten.
-
-F.eks. harbourmaster vs permissions
-
-MVC mere af det.
