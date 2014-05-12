@@ -12,12 +12,12 @@ namespace p2_projekt
         int Registreringsnummer = 23914;
 
         readonly string[] _name = { "Mette", "Jonas", "Jørgen", "Kasper", "Mads", "Johanne", "Sofie", "Pernille", "Daniel", "Mogens", "Dennis", "Hanne", "Johannes", "Simon", "Jonathan", "Martin", "Allan", "Mathilde", "Egon", "Pia" };
-        readonly string[] _lastName = { "Madsen", "Mogensen", "Hansen", "Jackobsen", "Stalone", "Snoep", "Friis", "Frandsen", "Juul", "Karlsen", "Hoffmann", "Andersen", "Larsen", "Hedegaard", "Krog", "Rasmussen", "Toft", "Olsen", "Sved", "Lægteskov" };
+        readonly string[] _lastName = { "Madsen", "Mogensen", "Hansen", "Jackobsen", "Stalone", "Snoep", "Friis", "Frandsen", "Juul", "Karlsen", "Hoffmann", "Andersen", "Larsen", "Hedegaard", "Krog", "Rasmussen", "Toft", "Olsen", "Lægteskov" };
         readonly string[] _boatName = { "The Titania", "HMS Dannebro", "HMS Epangelia", "Dorthe", "Johanna V", "Den Usynkelige II", "Bodil", "Samsung", "Vraget", "Skuden", "Søsanne" };
         readonly string[] _info = { "Der er sæler på pladsen", "Der bor Ænder her", " Vandet er lavt her", "Jørgens Iphone 5 ligger et eller andet sted her", "Den er lidt brændt", "Den er meget beskidt", "Egon ligger ved siden af den", "Gammel Plads", "Alle både der ligger her synker", "Pladsen er grøn" };
-        readonly string[] _email = { "@stupid.com", "@sved.dk", "@hotmail.com", "@gmail.com", "@yahoo.dk", "@blizzard.com", "@maersk.dk", "@apple.dk" };
-        readonly string[] _country = { "Danmark", "Svenskerland", "Norge", "Tyskland", "Frankrig", "Finland", "Rusland", "Nordpolen", "'Merica" };
-        readonly string[] _cities = { "Svedstrup", "Paris", "Oslo", "Malmø", "Skive", "Horsens", "København", "Viborg", "Ulstrup", "Göteborg", "warszawa" };
+        readonly string[] _email = { "@smartgit.com", "@youtube.dk", "@hotmail.com", "@gmail.com", "@yahoo.dk", "@blizzard.com", "@maersk.dk", "@apple.dk" };
+        readonly string[] _country = { "Danmark", "Sverige", "Norge", "Tyskland", "Frankrig", "Finland", "Rusland", "Spanien", "Holland" };
+        readonly string[] _cities = { "Svenstrup", "Paris", "Oslo", "Odense", "Skive", "Horsens", "København", "Viborg", "Ulstrup", "Göteborg", "Warszawa" };
         readonly string[] _adressP1 = {"Sved","Kage","Nodre","Faldskærms","Danmarks","Pakke","Ligge","Internet"};
         readonly string[] _adressP2 = { "vej", "ly", "krattet", "gade" };
         readonly double[] _dimensions = { 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12, 12.5, 13, 13.5, 14, 14.5, 15, 15.5, 16, 16.5, 17, 17.5, 18, 18.5, 19, 19.5, 20, 20.5, 21, 21.5, 22, 22.5, 23, 23.5, 24, 24.5, 25 };
