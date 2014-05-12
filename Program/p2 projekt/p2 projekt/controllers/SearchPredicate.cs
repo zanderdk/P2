@@ -207,7 +207,7 @@ namespace p2_projekt.controllers
 
                     foreach (Boat b in (x as ISailor).Boats)
                     {
-                        if (b.User.Name.ToLower().Contains(text.ToLower()))
+                        if (((User)b.User).Name.ToLower().Contains(text.ToLower()))
                             return true;
                     }
 

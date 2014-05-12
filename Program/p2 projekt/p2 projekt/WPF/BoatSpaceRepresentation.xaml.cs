@@ -62,7 +62,7 @@ namespace p2_projekt.WPF
                 return;
 
             if(Permission.CanRead(FunctionContainer.LoggedIn.Permission.OtherUsers))                
-                FunctionController.SelectUser(BoatSpace.Boat.User);
+                FunctionController.SelectUser(BoatSpace.Boat.User as User);
 
             if (FunctionContainer.LoggedIn is ISailor)
             {
@@ -79,7 +79,7 @@ namespace p2_projekt.WPF
 
                 if(flag && Permission.CanRead(FunctionContainer.LoggedIn.Permission.PersonalInfo))
                 {
-                    FunctionController.SelectUser(BoatSpace.Boat.User);
+                    FunctionController.SelectUser(BoatSpace.Boat.User as User);
                 }
             }
         }

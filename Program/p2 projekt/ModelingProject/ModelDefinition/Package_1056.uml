@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="09bc9ae7-bd5a-4705-ab7b-14547ae594ef"
+  name="controllers"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="45df06a0-d4b4-45c0-a96a-2bb9d61aad19"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3Dp2_projekt.controllers"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <Interface
+        Id="af190112-1132-43b8-acd5-9494d70ffe08"
+        name="IBoatSpaceSensor"
+        isAbstract="false"
+        isLeaf="false">
+        <referencesInternal>
+          <reference
+            Id="1e1870d2-5743-473d-8524-b59235bd0aa9"
+            handle="viewcode://./CodeSchema_Interface?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FAlexander%2FSource%2FRepos%2FP2%2FProgram%2Fp2 projekt%2Fp2 projekt%2Fbin%2FDebug%2Fp2 projekt.exe&quot; Namespace%3Dp2_projekt.controllers Type%3DIBoatSpaceSensor"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="ce613f3b-4805-4605-be7f-8d7d48513e6e"
+            name="interface"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="defad6e5-b825-430d-ab97-5fca96899a68">
+                <propertyInstance
+                  Id="79c6d404-3fa1-4229-ac48-cfbc86884c54"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="e3839749-2240-40bb-bed6-28b8e758f6b4">
+                <propertyInstance
+                  Id="86955317-078a-40f8-a846-48d295fc5068"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="3b2641aa-9f43-4db5-9946-aad972e98a39">
+                <propertyInstance
+                  Id="96f2e8d3-f961-4d4e-8a27-72fe84e63391"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="6901c832-d7cf-4650-81c7-2d2bfeb4d95c">
+                <propertyInstance
+                  Id="2e8dabbd-4447-4f29-9765-d7b485b0aeda"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <ownedOperations>
+          <operation
+            Id="ef222925-72de-4903-a754-5b9a4a469d5b"
+            name="ChangeStatus"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="4d99b1c5-5743-491e-821b-66a474b97d0e"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FAlexander%2FSource%2FRepos%2FP2%2FProgram%2Fp2 projekt%2Fp2 projekt%2Fbin%2FDebug%2Fp2 projekt.exe&quot; Namespace%3Dp2_projekt.controllers Type%3DIBoatSpaceSensor Member%3D(Name%3DChangeStatus OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FAlexander%2FSource%2FRepos%2FP2%2FProgram%2Fp2 projekt%2Fp2 projekt%2Fbin%2FDebug%2Fp2 projekt.exe&quot; Namespace%3Dp2_projekt.models Type%3DBoatSpace)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FAlexander%2FSource%2FRepos%2FP2%2FProgram%2Fp2 projekt%2Fp2 projekt%2Fbin%2FDebug%2Fp2 projekt.exe&quot; Namespace%3Dp2_projekt.Enums Type%3DBoatSpaceStatus)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="6974d041-7b7e-4cb5-8f1b-3520b10c4cf8"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5d2f7553-2c7c-42b7-bc7d-e4a6420f099d">
+                    <propertyInstance
+                      Id="15d8129c-d6c1-48bd-8935-5b5bdc647b20"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d8cd088e-77de-4c83-b282-5f0b761cd11a">
+                    <propertyInstance
+                      Id="70aa035e-49eb-4cb4-bccd-67b6c8e18efb"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="17f845f6-8a5f-40d9-9952-1231e49a74bf">
+                    <propertyInstance
+                      Id="38523426-3858-4610-94d9-a853b0ac2b1c"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="148cb26f-4260-4843-9b18-e7499757e58b">
+                    <propertyInstance
+                      Id="af28f865-20ff-4bf9-963b-cae3255dc07e"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="da0df6bf-2550-4618-bbef-f3cda6386f46">
+                    <propertyInstance
+                      Id="df32f9b5-b374-4889-824a-9353efd10880"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c7fdf59d-b31c-4750-8899-2644d938c1ab">
+                    <propertyInstance
+                      Id="7c493a59-eabd-4a0f-8de0-a7ba86085e9c"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="4905a98b-97f3-42bb-964d-4c7c829b244e"
+                  name="bs"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="a048fbe3-fe34-457d-a269-00bdd637ee07"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FAlexander%2FSource%2FRepos%2FP2%2FProgram%2Fp2 projekt%2Fp2 projekt%2Fbin%2FDebug%2Fp2 projekt.exe&quot; Namespace%3Dp2_projekt.controllers Type%3DIBoatSpaceSensor Member%3D(Name%3DChangeStatus OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FAlexander%2FSource%2FRepos%2FP2%2FProgram%2Fp2 projekt%2Fp2 projekt%2Fbin%2FDebug%2Fp2 projekt.exe&quot; Namespace%3Dp2_projekt.models Type%3DBoatSpace)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FAlexander%2FSource%2FRepos%2FP2%2FProgram%2Fp2 projekt%2Fp2 projekt%2Fbin%2FDebug%2Fp2 projekt.exe&quot; Namespace%3Dp2_projekt.Enums Type%3DBoatSpaceStatus)]) ParameterIdentifier%3Dbs"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="28fd996e-95e0-419c-a054-43b98afab735"
+                      LastKnownName="BoatSpace"
+                      LastKnownLocation="Package_1505.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="36ec617a-9012-444b-a456-2cee31d455bd"
+                  name="status"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="5b13999e-28e7-4af9-8382-845a85184310"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FAlexander%2FSource%2FRepos%2FP2%2FProgram%2Fp2 projekt%2Fp2 projekt%2Fbin%2FDebug%2Fp2 projekt.exe&quot; Namespace%3Dp2_projekt.controllers Type%3DIBoatSpaceSensor Member%3D(Name%3DChangeStatus OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FAlexander%2FSource%2FRepos%2FP2%2FProgram%2Fp2 projekt%2Fp2 projekt%2Fbin%2FDebug%2Fp2 projekt.exe&quot; Namespace%3Dp2_projekt.models Type%3DBoatSpace)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FAlexander%2FSource%2FRepos%2FP2%2FProgram%2Fp2 projekt%2Fp2 projekt%2Fbin%2FDebug%2Fp2 projekt.exe&quot; Namespace%3Dp2_projekt.Enums Type%3DBoatSpaceStatus)]) ParameterIdentifier%3Dstatus"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <enumerationMoniker
+                      Id="1f904cfc-ab76-4bb8-a42c-a21bb884a400"
+                      LastKnownName="BoatSpaceStatus"
+                      LastKnownLocation="Package1_1505.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperations>
+      </Interface>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

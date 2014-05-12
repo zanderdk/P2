@@ -17,5 +17,29 @@
         LastKnownName="classfiles"
         LastKnownLocation="Package1_1450.uml" />
     </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="ccf51e90-4c56-4708-bb26-da5b2a625509"
+        LastKnownName="models"
+        LastKnownLocation="Package_1505.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="b472cc5f-b54d-4b3a-b750-92f6d36b380c"
+        LastKnownName="Enums"
+        LastKnownLocation="Package1_1505.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="09bc9ae7-bd5a-4705-ab7b-14547ae594ef"
+        LastKnownName="controllers"
+        LastKnownLocation="Package_1056.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="261b8f4a-bd3c-4fc5-9792-49439267f3a0"
+        LastKnownName="WPF"
+        LastKnownLocation="Package_1059.uml" />
+    </packageHasNamedElement>
   </packagedElements>
 </package>

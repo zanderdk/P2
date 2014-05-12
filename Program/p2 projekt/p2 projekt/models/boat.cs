@@ -38,7 +38,7 @@ namespace p2_projekt.models
 
         
 
-        public virtual  User User { get; set; }
+        public virtual  ISailor User { get; set; }
 
         private bool _spaceChange;
         private BoatSpace _space;

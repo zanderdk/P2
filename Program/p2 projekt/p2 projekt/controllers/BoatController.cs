@@ -65,7 +65,7 @@ namespace p2_projekt.controllers
             Sender = bp;
             _operation = Operation.Edit;
             Boat = b;
-            Sailor = b.User as ISailor;
+            Sailor = b.User;
             init();
         }
 
@@ -84,7 +84,7 @@ namespace p2_projekt.controllers
         {
             if (b != null)
             {
-                (b.User as ISailor).Boats.Remove(b);
+                b.User.Boats.Remove(b);
                 DALController uc = Utilities.LobopDB;
                 uc.Remove(b);
             }

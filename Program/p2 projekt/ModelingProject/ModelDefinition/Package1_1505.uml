@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="b472cc5f-b54d-4b3a-b750-92f6d36b380c"
+  name="Enums"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="52904576-b408-4c6c-954f-242c37efc4de"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3Dp2_projekt.Enums"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <enumeration
+        Id="1f904cfc-ab76-4bb8-a42c-a21bb884a400"
+        name="BoatSpaceStatus"
+        isAbstract="false"
+        isLeaf="false">
+        <referencesInternal>
+          <reference
+            Id="d5ebb4ff-94ef-45b4-860b-a76f3848fd46"
+            handle="viewcode://./CodeSchema_Enum?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FAlexander%2FSource%2FRepos%2FP2%2FProgram%2Fp2 projekt%2Fp2 projekt%2Fbin%2FDebug%2Fp2 projekt.exe&quot; Namespace%3Dp2_projekt.Enums Type%3DBoatSpaceStatus"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="a004cc5f-c9a2-429d-92a9-9b7164c46a11"
+            name="enum"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="d4ee0380-edd4-4545-80ed-b8fa64f12dd0">
+                <propertyInstance
+                  Id="125bf90a-34c2-4afe-8070-0b5061a077c1"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="9d8e6d8c-7cfd-42f4-b389-0c5ce40ca080">
+                <propertyInstance
+                  Id="8dff5dbf-8e5f-4307-b966-dc3fbad1aa13"
+                  name="BaseType"
+                  value="int" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="bfe36efd-e8c6-472f-b972-ca48e3547ad1">
+                <propertyInstance
+                  Id="182ea4ef-f0dd-4ab3-99a1-ac1a972c39c7"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </enumeration>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <enumeration
+        Id="00584c9f-4035-4408-8813-01146662beca"
+        name="PermissionLevel"
+        isAbstract="false"
+        isLeaf="false">
+        <referencesInternal>
+          <reference
+            Id="200bbe27-3a97-4001-b155-e75e906831a4"
+            handle="viewcode://./CodeSchema_Enum?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FAlexander%2FSource%2FRepos%2FP2%2FProgram%2Fp2 projekt%2Fp2 projekt%2Fbin%2FDebug%2Fp2 projekt.exe&quot; Namespace%3Dp2_projekt.Enums Type%3DPermissionLevel"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="bd8c19b1-7f96-477a-915b-f393c7804772"
+            name="enum"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="59c104b7-ecb6-44d3-9a93-cbc103744548">
+                <propertyInstance
+                  Id="0bb50514-f80c-46af-8093-3a06c42a19dc"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="d26e911e-6e68-462e-a654-5018e5393f22">
+                <propertyInstance
+                  Id="316d6c83-82a6-44ac-8fe9-501321d7ca78"
+                  name="BaseType"
+                  value="int" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="611ccba3-a57b-4b71-a90b-9332d81513a5">
+                <propertyInstance
+                  Id="ab30075f-b8d4-4456-9aa5-1d02a37598b0"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </enumeration>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

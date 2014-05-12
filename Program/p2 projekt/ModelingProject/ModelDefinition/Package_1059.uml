@@ -1,0 +1,936 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="261b8f4a-bd3c-4fc5-9792-49439267f3a0"
+  name="WPF"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="f8e5ad70-2610-4104-8b4c-944e56c5510c"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3Dp2_projekt.WPF"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="22b3fe31-4483-4b4c-8953-435fbba2c870"
+        name="SensorSimulator"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="b14e72e4-9794-4898-949c-2d586c509070"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FAlexander%2FSource%2FRepos%2FP2%2FProgram%2Fp2 projekt%2Fp2 projekt%2Fbin%2FDebug%2Fp2 projekt.exe&quot; Namespace%3Dp2_projekt.WPF Type%3DSensorSimulator"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="96053d53-c04c-45f5-adee-c7c172e0171c"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="fb3b3094-bdcd-4801-b66d-e8c693ba9442">
+                <propertyInstance
+                  Id="3e81273a-e87c-4d8f-9fae-cff7dde02dd0"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="f8e9619d-e15c-453a-a69a-7138faf1f2b9">
+                <propertyInstance
+                  Id="3257ddb7-dde2-400b-9838-4d7d5322525a"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="27eb8617-59c4-45f8-bf3e-77b711b772cf">
+                <propertyInstance
+                  Id="6978e531-5a7e-4fac-bbe4-b77abf69903c"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="7eeeb58a-1665-4b25-b505-4b9f392a9c3c">
+                <propertyInstance
+                  Id="e0d5b1c2-d1f3-4576-bae7-cf1b0161cf3f"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="affbfd68-b083-471d-8528-af15058a0b62">
+                <propertyInstance
+                  Id="c45613cb-d2b1-42a4-b30a-0fd554daeb91"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <suppliersInternal>
+          <interfaceRealization
+            Id="83332ea7-1eb7-4f38-93a2-a1d209795bac">
+            <interfaceMoniker
+              Id="af190112-1132-43b8-acd5-9494d70ffe08"
+              LastKnownName="IBoatSpaceSensor"
+              LastKnownLocation="Package_1056.uml" />
+          </interfaceRealization>
+          <interfaceRealization
+            Id="e97425eb-60ee-4563-b7d8-25767f090200">
+            <interfaceMoniker
+              Id="6dda249d-da0d-40f7-8438-9606a0aea76b"
+              LastKnownName="IComponentConnector"
+              LastKnownLocation="Package3_1059.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <generalsInternal>
+          <generalization
+            Id="5ba8df18-64dc-47d1-9f5d-ec2d77ccd817"
+            isSubstitutable="false">
+            <classMoniker
+              Id="b5beeaa9-f569-4375-8be9-cf8dc3dd0dbd"
+              LastKnownName="Window"
+              LastKnownLocation="Package1_1059.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="80e1d974-3fe2-4313-b286-f9bdc044c831"
+            name="_contentLoaded"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="a7518f2a-e8b9-4f61-abd1-e27c7c3d6426"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FAlexander%2FSource%2FRepos%2FP2%2FProgram%2Fp2 projekt%2Fp2 projekt%2Fbin%2FDebug%2Fp2 projekt.exe&quot; Namespace%3Dp2_projekt.WPF Type%3DSensorSimulator Member%3D_contentLoaded"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="07d75dc1-fb8f-455b-aeea-27d40a281ac5"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3aa39ba0-1f3b-4b8e-8713-0aeeea26dd0b">
+                    <propertyInstance
+                      Id="b632a60c-0d6d-4e19-b794-1f123fe4c33f"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="955ea320-5fbd-4f3a-a559-ec215bcc4be4">
+                    <propertyInstance
+                      Id="9f635abb-fe3b-4710-8561-2c27e4091608"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="805ace34-754a-4463-961a-5b667faf7fc3">
+                    <propertyInstance
+                      Id="b5c8c1e5-7a54-4ea7-81ab-2e1f0a1c4152"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7c8753d7-3006-4b9b-8980-3ad3796bb8f2">
+                    <propertyInstance
+                      Id="78280bf4-b6db-4507-8c78-159d9e87754c"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1abe69a9-ac62-4005-a22f-fe0e80507d1a">
+                    <propertyInstance
+                      Id="7eed7c2d-746f-4dac-9991-5557a71aedd8"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+                LastKnownName="Boolean"
+                LastKnownLocation="ModelingProject.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="0e8aec83-58bf-4c2a-85b6-f5d833775001"
+            name="boatSpaceId"
+            visibility="Package"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="223f4e2b-10c6-4c1b-999f-f3513a1a0bc3"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FAlexander%2FSource%2FRepos%2FP2%2FProgram%2Fp2 projekt%2Fp2 projekt%2Fbin%2FDebug%2Fp2 projekt.exe&quot; Namespace%3Dp2_projekt.WPF Type%3DSensorSimulator Member%3DboatSpaceId"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="c32e6d7b-b76a-4820-9dfe-7b4b7851c28b"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ee5dc2fd-6aac-48f8-a7f0-b629b719864c">
+                    <propertyInstance
+                      Id="4d6a8703-1ad6-4a76-ac97-373597eb18a5"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4e7d7bf0-937c-4feb-9976-00dac1609d48">
+                    <propertyInstance
+                      Id="eb309c41-59b7-4c69-b8a9-5b9cccbca98f"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="748cdea6-6c99-416e-8c97-9f8293d552c3">
+                    <propertyInstance
+                      Id="9b89d437-4201-4820-9263-4c787895dd98"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6bb3f414-8911-4df6-8d53-f035f8667aee">
+                    <propertyInstance
+                      Id="1586753e-30a3-4558-ba28-5387c36d146b"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e10791aa-9c2c-4fd6-a8cc-651b8186106d">
+                    <propertyInstance
+                      Id="1a23d964-1562-4bb2-a0f5-53b2ea80c626"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="b8e4f1e2-232d-4466-8cfd-1def91aba3ce"
+                LastKnownName="InfolineControl"
+                LastKnownLocation="Package_1059.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="825b50a2-790f-459d-8c7f-438b851331bb"
+            name="statusDropdown"
+            visibility="Package"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="1b3e8622-79bb-404b-b96b-22fc533404d4"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FAlexander%2FSource%2FRepos%2FP2%2FProgram%2Fp2 projekt%2Fp2 projekt%2Fbin%2FDebug%2Fp2 projekt.exe&quot; Namespace%3Dp2_projekt.WPF Type%3DSensorSimulator Member%3DstatusDropdown"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="6687ed4e-69a9-4dc9-917d-8c19ad373cb9"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="29b605b3-ef6f-403e-9e9b-55c9ce196abe">
+                    <propertyInstance
+                      Id="4dfd003e-d514-42fc-8ceb-f76baa2ce013"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a73c26fd-b490-4289-ad31-ea8c5092082b">
+                    <propertyInstance
+                      Id="5465f376-db31-4d15-8015-2ad8a469c35f"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1a1973f8-f083-4f4c-8ecc-6c086ead0bed">
+                    <propertyInstance
+                      Id="47ad18e9-5fdc-497f-80e6-1fecf52b99d2"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="27199ea0-a575-4002-ab24-55f9ebdd57a6">
+                    <propertyInstance
+                      Id="6a30baea-c8fd-488f-960c-47f709d5453a"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2468ec0b-88b4-489a-bc24-8878d9437b81">
+                    <propertyInstance
+                      Id="3b821c07-5ea6-404c-a4d1-c05c13241051"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="30cc59dd-369e-4f37-9db1-d952c879de73"
+                LastKnownName="ComboBox"
+                LastKnownLocation="Package2_1059.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="1c9f8d9d-cf15-4734-94fe-69c13a88c672"
+            name="Button_Click"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="8bbb9217-5576-4509-ad52-7fa2756e0e82"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FAlexander%2FSource%2FRepos%2FP2%2FProgram%2Fp2 projekt%2Fp2 projekt%2Fbin%2FDebug%2Fp2 projekt.exe&quot; Namespace%3Dp2_projekt.WPF Type%3DSensorSimulator Member%3D(Name%3DButton_Click OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DObject)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2FPresentationCore.dll&quot; Namespace%3DSystem.Windows Type%3DRoutedEventArgs)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="784f0d7b-7241-44c4-a4a8-858d1b1eeaf9"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7bf88c4d-4915-45ba-9e39-aa232517a3df">
+                    <propertyInstance
+                      Id="f458494e-0291-418b-b9bd-86ea8ee4ba69"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d31d0105-0c88-41c5-b631-3255116ad3a5">
+                    <propertyInstance
+                      Id="576b3357-8014-40da-89ce-0b307c201feb"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="43df89e9-7c7b-417b-a3a7-3d4f4a9fd633">
+                    <propertyInstance
+                      Id="fe9f937f-c0a2-46e0-886a-48f3dd96455d"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b9a833b0-9127-4929-9a57-29c9860a6862">
+                    <propertyInstance
+                      Id="32ec8305-9f7d-4a1d-a78c-3fb84277d7b0"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="13891d02-cbac-4976-b18f-44a7d54f9a97">
+                    <propertyInstance
+                      Id="d3f94bca-f807-427d-af1f-87c4d7a3b920"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b41c83d9-f48c-4e80-a5fc-7ef562760caf">
+                    <propertyInstance
+                      Id="3eb4fbbd-0a8c-4d48-bc8b-1bf5b3f783df"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="ac932295-80f6-4d40-b065-114db717c066"
+                  name="sender"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="e6ddf57e-5f28-45dd-97cc-d92d5baa5b87"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FAlexander%2FSource%2FRepos%2FP2%2FProgram%2Fp2 projekt%2Fp2 projekt%2Fbin%2FDebug%2Fp2 projekt.exe&quot; Namespace%3Dp2_projekt.WPF Type%3DSensorSimulator Member%3D(Name%3DButton_Click OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DObject)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2FPresentationCore.dll&quot; Namespace%3DSystem.Windows Type%3DRoutedEventArgs)]) ParameterIdentifier%3Dsender"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="2793bc21-d45f-4ca2-b70f-2d8f44d9ed6b"
+                      LastKnownName="Object"
+                      LastKnownLocation="Package2_1450.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="bc913988-b32d-417f-a64a-7edd8b89db1b"
+                  name="e"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="9a5b0f7c-e4d0-4484-a7b2-49038403beb6"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FAlexander%2FSource%2FRepos%2FP2%2FProgram%2Fp2 projekt%2Fp2 projekt%2Fbin%2FDebug%2Fp2 projekt.exe&quot; Namespace%3Dp2_projekt.WPF Type%3DSensorSimulator Member%3D(Name%3DButton_Click OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DObject)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2FPresentationCore.dll&quot; Namespace%3DSystem.Windows Type%3DRoutedEventArgs)]) ParameterIdentifier%3De"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="99284376-9494-4096-8f3c-fc2898d995a6"
+                      LastKnownName="RoutedEventArgs"
+                      LastKnownLocation="Package1_1059.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="2138bb87-5cf6-4093-ac57-25381b3fda94"
+            name="ChangeStatus"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="5fffa23c-76cb-441e-8517-6ee1e1fe2c40"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FAlexander%2FSource%2FRepos%2FP2%2FProgram%2Fp2 projekt%2Fp2 projekt%2Fbin%2FDebug%2Fp2 projekt.exe&quot; Namespace%3Dp2_projekt.WPF Type%3DSensorSimulator Member%3D(Name%3DChangeStatus OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FAlexander%2FSource%2FRepos%2FP2%2FProgram%2Fp2 projekt%2Fp2 projekt%2Fbin%2FDebug%2Fp2 projekt.exe&quot; Namespace%3Dp2_projekt.models Type%3DBoatSpace)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FAlexander%2FSource%2FRepos%2FP2%2FProgram%2Fp2 projekt%2Fp2 projekt%2Fbin%2FDebug%2Fp2 projekt.exe&quot; Namespace%3Dp2_projekt.Enums Type%3DBoatSpaceStatus)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="b543083f-74ab-4788-8c54-6ca4e18c2a1a"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a7552edd-e333-422a-88a1-340d8a0fa6ad">
+                    <propertyInstance
+                      Id="7a1344c8-359f-4cc3-b74d-99961b9bb9ca"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2ea8789f-189c-4e53-a0d1-e8ae7b5e805b">
+                    <propertyInstance
+                      Id="09810692-0e9c-4cda-9816-e9a8b0200154"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f5c41f14-0c65-4441-bb8f-7d53c286c15e">
+                    <propertyInstance
+                      Id="0f7b3844-4b6a-483c-aad8-6b18ea3cd4e0"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6cedcdce-d891-4b7e-9482-a4f8b0c63296">
+                    <propertyInstance
+                      Id="8df78ed1-0546-4ed9-bf2e-e113d27de5d5"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="38c5f8e1-3341-4819-8cd3-f52966d383f2">
+                    <propertyInstance
+                      Id="b60b7386-3c50-4373-9ae4-4dc4e1f3ada5"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="08a9e870-e629-4507-a313-cc747951da7a">
+                    <propertyInstance
+                      Id="217c1923-15d7-4fde-9480-569e4ff7c4a6"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="d9208e24-1739-4f06-98f8-2fe3479ed2dc"
+                  name="bs"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="94df4bfb-9b97-40a5-bf24-b06248090423"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FAlexander%2FSource%2FRepos%2FP2%2FProgram%2Fp2 projekt%2Fp2 projekt%2Fbin%2FDebug%2Fp2 projekt.exe&quot; Namespace%3Dp2_projekt.WPF Type%3DSensorSimulator Member%3D(Name%3DChangeStatus OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FAlexander%2FSource%2FRepos%2FP2%2FProgram%2Fp2 projekt%2Fp2 projekt%2Fbin%2FDebug%2Fp2 projekt.exe&quot; Namespace%3Dp2_projekt.models Type%3DBoatSpace)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FAlexander%2FSource%2FRepos%2FP2%2FProgram%2Fp2 projekt%2Fp2 projekt%2Fbin%2FDebug%2Fp2 projekt.exe&quot; Namespace%3Dp2_projekt.Enums Type%3DBoatSpaceStatus)]) ParameterIdentifier%3Dbs"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="28fd996e-95e0-419c-a054-43b98afab735"
+                      LastKnownName="BoatSpace"
+                      LastKnownLocation="Package_1505.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="c167d113-f636-420e-950b-4db4980761b3"
+                  name="status"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="d9f7c17c-e1ae-45e0-aee1-b3a2f8f64216"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FAlexander%2FSource%2FRepos%2FP2%2FProgram%2Fp2 projekt%2Fp2 projekt%2Fbin%2FDebug%2Fp2 projekt.exe&quot; Namespace%3Dp2_projekt.WPF Type%3DSensorSimulator Member%3D(Name%3DChangeStatus OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FAlexander%2FSource%2FRepos%2FP2%2FProgram%2Fp2 projekt%2Fp2 projekt%2Fbin%2FDebug%2Fp2 projekt.exe&quot; Namespace%3Dp2_projekt.models Type%3DBoatSpace)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FAlexander%2FSource%2FRepos%2FP2%2FProgram%2Fp2 projekt%2Fp2 projekt%2Fbin%2FDebug%2Fp2 projekt.exe&quot; Namespace%3Dp2_projekt.Enums Type%3DBoatSpaceStatus)]) ParameterIdentifier%3Dstatus"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <enumerationMoniker
+                      Id="1f904cfc-ab76-4bb8-a42c-a21bb884a400"
+                      LastKnownName="BoatSpaceStatus"
+                      LastKnownLocation="Package1_1505.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="b980aebd-9047-41e8-8649-31d521a02818"
+            name="System‎.Windows‎.Markup‎.IComponentConnector‎.Connect"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="93a8f9e8-101e-42a3-8c49-1b4c48ea23cc"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FAlexander%2FSource%2FRepos%2FP2%2FProgram%2Fp2 projekt%2Fp2 projekt%2Fbin%2FDebug%2Fp2 projekt.exe&quot; Namespace%3Dp2_projekt.WPF Type%3DSensorSimulator Member%3D(Name%3DSystem.Windows.Markup.IComponentConnector.Connect OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DObject)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="823dd599-4418-482b-a913-2e039e5fc306"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6e02d61e-2580-46cf-810e-5fadabcfdd8c">
+                    <propertyInstance
+                      Id="e2cac739-1160-4444-bcca-6cdcfdaba529"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0a9b103f-ce3d-4514-b36d-d3a1e3d5ba2b">
+                    <propertyInstance
+                      Id="685e58a4-72ff-4691-9d9c-e9f283186b6c"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8177bc53-0048-4bf3-8541-a1b1286efdc3">
+                    <propertyInstance
+                      Id="be7f9cf0-f370-47a8-9e5e-acbf0c185657"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="adacb85b-ff12-4fcd-b176-23f63f222ff6">
+                    <propertyInstance
+                      Id="6bb10f72-5183-4269-a776-c8b3779f276d"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d179b1f9-262c-4e0c-9107-102b404502be">
+                    <propertyInstance
+                      Id="023dea09-63a2-4c27-a388-ab1447dd694b"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ee5e62af-c84e-47ff-8d95-67a2d9757f66">
+                    <propertyInstance
+                      Id="7dbef5eb-e97d-41d7-a072-9fc5944cea85"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="c96cbe78-96dd-4a43-bc5b-e308fbbad1f8"
+                  name="connectionId"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="4dbe9a6e-229c-450e-8856-f789af07910b"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FAlexander%2FSource%2FRepos%2FP2%2FProgram%2Fp2 projekt%2Fp2 projekt%2Fbin%2FDebug%2Fp2 projekt.exe&quot; Namespace%3Dp2_projekt.WPF Type%3DSensorSimulator Member%3D(Name%3DSystem.Windows.Markup.IComponentConnector.Connect OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DObject)]) ParameterIdentifier%3DconnectionId"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                      LastKnownName="Integer"
+                      LastKnownLocation="ModelingProject.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="8143ae96-1917-4bcf-8648-0550d563ce47"
+                  name="target"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="778354f3-fce8-4ac9-896d-2a9708eddbf3"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FAlexander%2FSource%2FRepos%2FP2%2FProgram%2Fp2 projekt%2Fp2 projekt%2Fbin%2FDebug%2Fp2 projekt.exe&quot; Namespace%3Dp2_projekt.WPF Type%3DSensorSimulator Member%3D(Name%3DSystem.Windows.Markup.IComponentConnector.Connect OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DObject)]) ParameterIdentifier%3Dtarget"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="2793bc21-d45f-4ca2-b70f-2d8f44d9ed6b"
+                      LastKnownName="Object"
+                      LastKnownLocation="Package2_1450.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="6f34de6a-9d8a-4fa4-b048-3535c22c9149"
+            name="_CreateDelegate"
+            visibility="Package"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="d66355e0-1c1a-41ec-bf2b-dc52ea36c435"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FAlexander%2FSource%2FRepos%2FP2%2FProgram%2Fp2 projekt%2Fp2 projekt%2Fbin%2FDebug%2Fp2 projekt.exe&quot; Namespace%3Dp2_projekt.WPF Type%3DSensorSimulator Member%3D(Name%3D_CreateDelegate OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DType)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="437253a2-dd8b-435f-9b5e-3530a77906f1"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="90c669b5-0461-4da3-982b-bbf801e3602e">
+                    <propertyInstance
+                      Id="85f557da-d465-4aa4-8752-802f501eab7c"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ff3581fb-9127-4992-9aed-a568fcd9732d">
+                    <propertyInstance
+                      Id="6f1e113f-b9dd-4f0c-b3f1-8dc0b0307779"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="048f2952-c8f4-4a9a-a0f4-d737d88c24fa">
+                    <propertyInstance
+                      Id="3871ae35-5fda-4f36-bf66-5a923c11cbb9"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="aece3847-0059-4eba-96e7-72a3bb1d6ef2">
+                    <propertyInstance
+                      Id="0a163096-7a9c-4405-a693-9a2641fe18c7"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ac0c5278-b8ae-475b-8492-7f4510b3257d">
+                    <propertyInstance
+                      Id="afa6be89-0538-4baa-979f-c443ebc77259"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4d5c9357-88f5-4258-8bcd-e0a750787061">
+                    <propertyInstance
+                      Id="33e5caca-5a4b-40b2-b27e-1e7bdb98e025"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a4a6be2c-a818-4c7a-9406-492f546c91f2"
+                  direction="Return">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="de26c441-1a9f-4ad0-9282-5a078cbcd1e8"
+                      LastKnownName="Delegate"
+                      LastKnownLocation="Package2_1450.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="82dfe441-65c1-4a00-ab7c-7275ee77c680"
+                  name="delegateType"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="aa1016cd-7811-4405-a9b4-d9074e7930e7"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FAlexander%2FSource%2FRepos%2FP2%2FProgram%2Fp2 projekt%2Fp2 projekt%2Fbin%2FDebug%2Fp2 projekt.exe&quot; Namespace%3Dp2_projekt.WPF Type%3DSensorSimulator Member%3D(Name%3D_CreateDelegate OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DType)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)]) ParameterIdentifier%3DdelegateType"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="0db155ce-9bb5-4fb0-9d46-64e2f18b86ad"
+                      LastKnownName="Type"
+                      LastKnownLocation="Package2_1450.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="61935f8b-8c14-4487-842a-30dcb0778488"
+                  name="handler"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="b4441cda-a1cf-443e-b4b0-d10344062b20"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FAlexander%2FSource%2FRepos%2FP2%2FProgram%2Fp2 projekt%2Fp2 projekt%2Fbin%2FDebug%2Fp2 projekt.exe&quot; Namespace%3Dp2_projekt.WPF Type%3DSensorSimulator Member%3D(Name%3D_CreateDelegate OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DType)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)]) ParameterIdentifier%3Dhandler"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="ModelingProject.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="5cc36e8d-5a23-45dd-b1fd-78b1bd5a2f1c"
+            name="SensorSimulator"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="3fb76370-fa59-451a-90ac-3ca634fef7e4"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FAlexander%2FSource%2FRepos%2FP2%2FProgram%2Fp2 projekt%2Fp2 projekt%2Fbin%2FDebug%2Fp2 projekt.exe&quot; Namespace%3Dp2_projekt.WPF Type%3DSensorSimulator Member%3D.ctor"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="febf011a-9bce-4b4c-a89e-45e712709165"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4420c461-6ac2-4076-8f8d-b12c98fdd99b">
+                    <propertyInstance
+                      Id="0f67930a-0cf4-4a25-929b-f3cbf0b51a5a"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="45ac7ad1-a958-40c0-9ffa-3ad4550b2c76">
+                    <propertyInstance
+                      Id="c19bf687-5592-4c18-9e33-a3c2fc0b22d7"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d701f951-4921-48fc-b6e1-14b3ae1621f5">
+                    <propertyInstance
+                      Id="cbdc64fe-5e9c-426b-a6e9-595604c44357"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a553ee7c-865d-42e6-932b-617de16e2ab8">
+                    <propertyInstance
+                      Id="e54ae1f2-1955-4650-b8e5-0eacc65cc6ad"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3c4030c1-5af2-4118-91cb-a46a3a2bff04">
+                    <propertyInstance
+                      Id="9b16f9b1-b31c-445f-988b-06046cf7f04e"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0214f948-adc3-4acf-be31-fb199e31fbca">
+                    <propertyInstance
+                      Id="d38952ab-d85a-4848-a2f0-b4e6f2b702a4"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+          <operation
+            Id="26f1cd05-b507-44bb-9cfa-20c33139d98d"
+            name="InitializeComponent"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="387b69d8-878d-4fa3-bd71-615941fd7833"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FAlexander%2FSource%2FRepos%2FP2%2FProgram%2Fp2 projekt%2Fp2 projekt%2Fbin%2FDebug%2Fp2 projekt.exe&quot; Namespace%3Dp2_projekt.WPF Type%3DSensorSimulator Member%3DInitializeComponent"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="a2b62568-f12b-40b7-bf5f-37aae376d58b"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6a0fe803-824e-4364-8ff3-df8b8afc69cd">
+                    <propertyInstance
+                      Id="4f9e2ccb-4185-4952-999c-2c7d101533a4"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cf4e25ec-99f1-4011-8f2c-660c1e5f2bf4">
+                    <propertyInstance
+                      Id="374f8f4d-9ef9-4986-a83f-0717d9dab266"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a4ff8ab8-b0f5-4f85-b43f-f51b195c1fb3">
+                    <propertyInstance
+                      Id="9a7d76b2-66ac-431b-9bd8-f6284d5a6542"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="bae469c6-e050-45a0-a9cc-80e603129e37">
+                    <propertyInstance
+                      Id="9bc1ec53-9f4f-44a1-8685-9b9c75a4fd8b"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5716c2f3-63da-40a9-bcfd-4efc2968eb59">
+                    <propertyInstance
+                      Id="016fa764-d6ea-4b18-a1b7-026b6aec6f68"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c4c64027-7303-4c21-b86e-2517ba00dc43">
+                    <propertyInstance
+                      Id="5f364720-e3cc-4777-9b95-60ad39b03b53"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="b8e4f1e2-232d-4466-8cfd-1def91aba3ce"
+        name="InfolineControl"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="625e520e-e44d-4cfd-b85c-a7e4c64fe625"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FAlexander%2FSource%2FRepos%2FP2%2FProgram%2Fp2 projekt%2Fp2 projekt%2Fbin%2FDebug%2Fp2 projekt.exe&quot; Namespace%3Dp2_projekt.WPF Type%3DInfolineControl"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="ad11c3c5-0d2f-42b5-9b68-66dcdac7909e"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="07b95d3a-8764-403a-a778-2d4dc492e391">
+                <propertyInstance
+                  Id="546f3c85-d456-43f7-bdc9-a6c094ecb7aa"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="2e90cd54-5889-44ea-bdfc-c32b92419c7f">
+                <propertyInstance
+                  Id="823d13ae-6528-4889-8ba7-9f7b5f488452"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="4ed18f5a-d7e3-4da2-af5a-bb3576f907e2">
+                <propertyInstance
+                  Id="fa212aab-9236-4605-be92-4357d90870a3"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="13d9b11d-23dd-485c-92f3-275445702c14">
+                <propertyInstance
+                  Id="8b6a2301-ee29-48aa-8c97-da0d44f3f06d"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="18515088-97c8-47eb-a448-d5296225123d">
+                <propertyInstance
+                  Id="618b28bf-4937-4681-b9e3-a97dcbf075f2"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <suppliersInternal>
+          <interfaceRealization
+            Id="7e1dbcf1-9751-435c-bcf4-99758e2f2867">
+            <interfaceMoniker
+              Id="6dda249d-da0d-40f7-8438-9606a0aea76b"
+              LastKnownName="IComponentConnector"
+              LastKnownLocation="Package3_1059.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

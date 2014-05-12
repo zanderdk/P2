@@ -16,13 +16,14 @@
                         <controllers:InfolineControl x:Name="postalCode" Title="Post nr." Value="{Binding Adress.PostalCode, Mode=TwoWay}" readOnly="False"/>
                         <controllers:InfolineControl x:Name="city" Title="By" Value="{Binding Adress.City, Mode=TwoWay}"/>
                         <controllers:InfolineControl x:Name="country" Title="Land" Value="{Binding Adress.CountryRegion, Mode=TwoWay}"/>
+                        
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="75"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <Label Content="Kode" Grid.Column="0"></Label>
-                            <PasswordBox Name="password" Grid.Column="1"></PasswordBox>
+                            <PasswordBox Name="password" Grid.Column="1" Margin="0.333,1,0.333,-1"></PasswordBox>
                         </Grid>
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -32,7 +33,7 @@
                             <Label Content="Fødselsdato" Grid.Column="0"></Label>
                             <DatePicker Name="birthday" Text="{Binding Birthday, Mode=TwoWay}" Grid.Column="1"></DatePicker>
                         </Grid>
-                        <Button Command="Save" Content="Ok" HorizontalAlignment="Stretch" Margin="10,10,10,10">
+                            <Button Command="Save" Content="Ok" HorizontalAlignment="Stretch" Margin="10,10,10,10">
                             <Button.CommandBindings>
                                 <CommandBinding Command="Save" Executed="Save_Executed" CanExecute="save_canExecute"/>
                             </Button.CommandBindings>
