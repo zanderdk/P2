@@ -88,6 +88,7 @@
     <Compile Include="controllers\SearchPredicate.cs" />
     <Compile Include="DatabaseCreator.cs" />
     <Compile Include="Enums\PermissionLevel.cs" />
+    <Compile Include="Interfaces\IChipReader.cs" />
     <Compile Include="Interfaces\IDAL.cs" />
     <Compile Include="LobopContext.cs" />
     <Compile Include="models\BoatSpace.cs" />
