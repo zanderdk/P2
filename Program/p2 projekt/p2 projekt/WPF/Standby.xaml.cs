@@ -1,13 +1,14 @@
 ﻿using System.Windows;
 using System.Windows.Input;
 using p2_projekt.controllers;
+using p2_projekt.Interfaces;
 
 namespace p2_projekt.WPF
 {
     /// <summary>
     /// Interaction logic for Standby.xaml
     /// </summary>
-    public partial class Standby : Window
+    public partial class Standby : Window, IChipReader
     {
         private LoginController controller;
 
@@ -33,7 +34,7 @@ namespace p2_projekt.WPF
         }
         private void ChipNum_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Enter && !string.IsNullOrEmpty(ChipNum.Text))
+            if (e.Key == Key.Enter && !string.IsNullOrEmpty(Read()))
             {
                 if (controller.Validate(ChipNum.Text))
                 {
@@ -42,6 +43,11 @@ namespace p2_projekt.WPF
                     MessageBox.Show("Bruger ikke fundet");
                 }
             }
+        }
+
+        public string Read()
+        {
+            return ChipNum.Text;
         }
     }
 }
