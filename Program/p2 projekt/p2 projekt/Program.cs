@@ -12,7 +12,7 @@ namespace p2_projekt
         {
             System.Windows.Application app = new System.Windows.Application();
 
-            string rootPath = Path.GetDirectoryName(Path.GetDirectoryName(Directory.GetCurrentDirectory()));
+            string rootPath = Directory.GetCurrentDirectory();
             string databasePath = rootPath + @"\lobopDB.mdf";
 
             AppDomain.CurrentDomain.SetData("DataDirectory", rootPath);
