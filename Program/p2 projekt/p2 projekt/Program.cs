@@ -2,6 +2,7 @@
 using p2_projekt.WPF;
 using p2_projekt.models;
 using System.IO;
+using System.Windows;
 
 namespace p2_projekt
 {
@@ -12,11 +13,10 @@ namespace p2_projekt
         {
             System.Windows.Application app = new System.Windows.Application();
 
-            string rootPath = Directory.GetCurrentDirectory();
+            string rootPath = Path.GetDirectoryName(Path.GetDirectoryName(Directory.GetCurrentDirectory()));
             string databasePath = rootPath + @"\lobopDB.mdf";
 
             AppDomain.CurrentDomain.SetData("DataDirectory", rootPath);
-
 
             DALController us = Utilities.LobopDB;
             
