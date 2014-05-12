@@ -1,9 +1,9 @@
-\section{Refleksion i C\#}
+\section{Reflection i C\#}
 \label{sec:refleksion}
 
 \kanote{mangler noget omkring hvorfor refleksion}
 
-Refleksion er en funktion C\# stiller til rådighed, til undersøgelse af objekter i et program under kørselstid \cite{michaelis2012essential}. Et eksempel på brugen af refleksion kan være, at programmøren ønsker at finde et felt i en klasse ved navn.
+Refleksion (fra engelsk: \textit{reflection}) er en funktion C\# stiller til rådighed, til undersøgelse af objekter i et program under kørselstid \cite{michaelis2012essential}. Et eksempel på brugen af refleksion kan være, at programmøren ønsker at finde et felt i en klasse ved navn.
 
 I dette projekt bruges refleksion til at gøre metoder der tilgår databasen, meget generiske, hvilket sikrer stor kodegenbrug. Som beskrevet i \cref{sec:database}, består databasen af forskellige tabeller, herunder \enquote{Users}, \enquote{Boats}, \enquote{BoatSpaces} og \enquote{Travels}. Lad os forestille os en metode der skal slette et objekt fra en specifik tabel. Metodesignaturen for en sådan metode kunne se ud som vist i \cref{lst:refleksion_remove1}.
 
