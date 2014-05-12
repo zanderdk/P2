@@ -11,21 +11,19 @@ Hver gang man udfører en eller flere operation på databasen, benyttes en datab
 \subsection{ACID}
 \label{sub:acid}
 
-\kanote{overvej danske navne for ACID}
-
 ACID er et akronym for et sæt af forudsætninger, som sikrer at en database fungerer, som beskrevet tidligere, ved samtlige databasetransaktioner. Sættet består af følgende fire forudsætninger: 
 
 \begin{itemize}
-	\item \textbf{Atomicity} \\
+	\item \textbf{Atomar - (Atomicity)} \\
 		Hvis én operation slår fejl, skal alle operationer i transaktionen tilbageføres, så database har samme tilstand som før transaktionens start. 
 
-	\item \textbf{Consistency} \\
+	\item \textbf{Konsistens - (Consistency)} \\
 		Alt data skal valideres før det skrives til databasen. Dette skal sikre at alt data fra transaktion, er valideret før nogen anden del af data gemmes. Derved sikres at databasen, altid forbliver i en valideret tilstand.
 
-	\item \textbf{Isolation} \\
+	\item \textbf{Isolering - (Isolation)} \\
 		Transaktionerne skal udføres sekventielt og isoleret fra hinanden. En transaktion må ikke kunne se ændringer fra en anden ufuldendt transaktion. Ved at udføre alle transaktion sekventielt sikres det at en transaktion ikke benytter sig af ugyldigt data fra en anden transaktion.
 
-	\item \textbf{Durability} \\
+	\item \textbf{Varighed - (Durability)} \\
 		Når en transaktion er udført, skal den gemmes på en permanent lagerplads. Selv hvis strømmen går skal alle effekterne af transaktionen være udført.
 \end{itemize}
 
