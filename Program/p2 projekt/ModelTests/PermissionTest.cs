@@ -19,7 +19,7 @@ namespace ModelTests
         [TestMethod]
         public void PermissionLevelTest_UserCanRead_True()
         {
-            alice.Permission.PersonalInfo = PermissionLevel.Read;
+            alice.Permission = new Permission {PersonalInfo = PermissionLevel.Read};
 
             bool expected = true;
 
