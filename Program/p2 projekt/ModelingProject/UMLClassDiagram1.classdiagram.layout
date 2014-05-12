@@ -213,11 +213,18 @@
         <interfaceShapeMoniker Id="de3f1bf6-dd07-47ec-97f9-921364d8cd2a" />
       </nodes>
     </associationConnector>
-    <interfaceShape Id="b9f0d247-42da-4326-b792-e6d1090bd5ad" absoluteBounds="1.875, 1.625, 1.5, 1.2705034391085306" hideQualifiedName="true" increaseHeight="0.18800345897674564" customColor="207, 223, 191">
+    <interfaceShape Id="b9f0d247-42da-4326-b792-e6d1090bd5ad" absoluteBounds="1, 1.375, 1.5, 1.2705034391085306" hideQualifiedName="true" increaseHeight="0.18800345897674564" customColor="207, 223, 191">
       <interfaceMoniker Id="6f9d716f-4725-4432-9708-462ecc4aef92" LastKnownName="IBoatSpaceSensor" />
       <nestedChildShapes>
-        <AttributeElementListCompartment Id="289b5831-9cd3-4d87-90e8-1430f2374ddd" absoluteBounds="1.8900000000000006, 2.2030034589767453, 1.4700000000000002, 0.22117186754941942" name="AttributesCompartment" titleTextColor="Black" itemTextColor="Black" />
-        <OperationElementListCompartment Id="223c3450-98af-47c6-bca3-038d31450317" absoluteBounds="1.8900000000000006, 2.434175326526165, 1.4700000000000002, 0.36132811258236563" name="OperationsCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <AttributeElementListCompartment Id="289b5831-9cd3-4d87-90e8-1430f2374ddd" absoluteBounds="1.0150000000000006, 1.9530034589767453, 1.4700000000000002, 0.22117186754941942" name="AttributesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <OperationElementListCompartment Id="223c3450-98af-47c6-bca3-038d31450317" absoluteBounds="1.0150000000000006, 2.184175326526165, 1.4700000000000002, 0.36132811258236563" name="OperationsCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </interfaceShape>
+    <interfaceShape Id="07a63449-b1dc-4a5f-a3db-aade9aa77014" absoluteBounds="3.25, 1.375, 1.5, 1.2505034391085306" hideQualifiedName="false" increaseHeight="0.18800345897674564" customColor="207, 223, 191">
+      <interfaceMoniker Id="ef9d7397-c1df-4d3a-bc33-41fc73563986" LastKnownName="IChipReader" />
+      <nestedChildShapes>
+        <AttributeElementListCompartment Id="6bbbf54d-4958-40b2-b550-18039d61437f" absoluteBounds="3.2650000000000006, 1.9530034589767458, 1.4700000000000002, 0.2011718675494194" name="AttributesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <OperationElementListCompartment Id="9779d992-4bbb-48c3-9544-aa734665ed24" absoluteBounds="3.2650000000000006, 2.164175326526165, 1.4700000000000002, 0.36132811258236563" name="OperationsCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </interfaceShape>
   </nestedChildShapes>

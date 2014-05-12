@@ -8504,6 +8504,110 @@
         </ownedOperations>
       </Interface>
     </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="ef9d7397-c1df-4d3a-bc33-41fc73563986" name="IChipReader" visibility="Package" isAbstract="false" isLeaf="false">
+        <referencesInternal>
+          <reference Id="9fc03574-3e33-4d46-bfb7-eccf713b5519" handle="viewcode://./CodeSchema_Interface?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FAlexander%2FSource%2FRepos%2FP2%2FProgram%2Fp2 projekt%2Fp2 projekt%2Fbin%2FDebug%2Fp2 projekt.exe&quot; Namespace%3Dp2_projekt.Interfaces Type%3DIChipReader" tag="ViewCode">
+            <elementDefinition Id="6de01c3e-ba08-4d4f-929b-5ee265fe5095" />
+          </reference>
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance Id="732ec895-7375-40cf-9784-7623e1120b6a" name="interface" profile="CSharpProfile">
+            <elementDefinition Id="cdcd94c9-560e-404c-b01f-e3c82d36b9dd" />
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="5b5030ce-efe5-49f3-b75f-4d6852624340">
+                <propertyInstance Id="625e8e48-16cb-452c-af40-3b0279bf9fb1" name="ClrAttributes">
+                  <elementDefinition Id="5aefccef-2d2e-4aab-b08e-997a0d66ca6a" />
+                </propertyInstance>
+                <elementDefinition Id="ee9f34db-5fc7-49c4-88bd-eaa4198bb4b5" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="906bf567-e2eb-4f32-aa6f-48d031d9b61d">
+                <propertyInstance Id="1ef1c87c-1fae-41d6-b915-381f1e8c974d" name="IsPartial" value="false">
+                  <elementDefinition Id="d67dbdae-d11f-458c-bed6-1af2a6037ec5" />
+                </propertyInstance>
+                <elementDefinition Id="102bdc9e-4d3d-4e63-a288-ec78a2eef2fe" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="29801017-1470-4330-9325-262697d377b4">
+                <propertyInstance Id="aa9f7f12-7758-4015-b7c5-6f90ebb29bad" name="IsUnsafe" value="false">
+                  <elementDefinition Id="2d2e3b1e-ddc8-4dc4-9a3d-3cca20599aca" />
+                </propertyInstance>
+                <elementDefinition Id="22f27618-c4cb-48b5-8aec-29154d9143f1" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="8980c00b-40d9-4cd9-9563-0411d4115716">
+                <propertyInstance Id="54da66c3-d8eb-45df-91e7-f49267f837ae" name="PackageVisibility" value="internal">
+                  <elementDefinition Id="bce3a0e3-8bf9-4e43-8ca6-ebd55047af39" />
+                </propertyInstance>
+                <elementDefinition Id="a4f16149-d9fb-47b6-8720-50cdd26c8118" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <elementDefinition Id="39f0e75a-7683-46e6-aba0-a6c7777ff882" />
+        <ownedOperations>
+          <operation Id="895b73c6-ad01-43ce-8109-3576d6b5fae3" name="Read" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="9aab2d06-1862-4bdb-a551-fad91c51f646" handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FAlexander%2FSource%2FRepos%2FP2%2FProgram%2Fp2 projekt%2Fp2 projekt%2Fbin%2FDebug%2Fp2 projekt.exe&quot; Namespace%3Dp2_projekt.Interfaces Type%3DIChipReader Member%3DRead" tag="ViewCode">
+                <elementDefinition Id="f9c0204b-6ebb-4ed0-9ef2-8733a8df2068" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="7f231aac-2091-4150-9989-4619767f1165" name="method" profile="CSharpProfile">
+                <elementDefinition Id="6cb0ecc2-b29c-4d7c-87df-615eb3c1e12c" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="779a641d-ad4f-4b88-9656-b1f4da6c8d52">
+                    <propertyInstance Id="f23ffb06-be1d-447c-b85c-5a75a0c68de9" name="ClrAttributes">
+                      <elementDefinition Id="1c1f1ee5-9d57-4a9d-99e5-699ecadf7326" />
+                    </propertyInstance>
+                    <elementDefinition Id="ddd2977e-e3cf-40d7-a5a2-8697ed4f9d23" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="effbe224-e4db-48fe-a968-2324a919435c">
+                    <propertyInstance Id="a9042759-b690-450c-863a-a7736f5bd5e1" name="IsPartial" value="false">
+                      <elementDefinition Id="c1bbb68f-b3ef-458b-985f-aa6081826f50" />
+                    </propertyInstance>
+                    <elementDefinition Id="83e22179-2a5d-4567-967f-f67a31fa6f47" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="2d82322e-72d6-4444-961a-24fa71e7e75a">
+                    <propertyInstance Id="766201c4-7762-4659-a087-bcab2bfe8c92" name="IsUnsafe" value="false">
+                      <elementDefinition Id="3e122557-9aa8-431f-a770-34f12ce9904a" />
+                    </propertyInstance>
+                    <elementDefinition Id="272b3b51-6c75-477c-96df-1c123b1d8a93" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="ed62c04b-7f7c-4dd7-b0ca-e1a5c693720a">
+                    <propertyInstance Id="3497c342-29b5-49fc-be46-e5d4ae482889" name="Inheritance" value="none">
+                      <elementDefinition Id="7d6d2083-8acf-418f-8fdc-6273f7f10b8f" />
+                    </propertyInstance>
+                    <elementDefinition Id="45078356-32d2-4150-b4a7-bc79413f93f1" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="a2c53fd0-728a-449f-acf1-b5d7b121c913">
+                    <propertyInstance Id="36282d1e-3982-4acf-ba25-a7feaa78251e" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="aef14ad1-bca9-4723-800f-03c2d78d5290" />
+                    </propertyInstance>
+                    <elementDefinition Id="28ac6e81-8993-4be8-9e34-0a02c07a8f91" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="ef5d7164-b84e-47fc-9c44-c8f269bf813e">
+                    <propertyInstance Id="4936dc77-1153-42cb-a870-5f3f4eeb5907" name="params" value="false">
+                      <elementDefinition Id="b0057f1b-b358-409b-ac0d-297ea292323b" />
+                    </propertyInstance>
+                    <elementDefinition Id="8f538906-7f56-4e9e-8178-d29f1c30d709" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="b7a9afd7-4a50-4929-b195-459d4d9b4673" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="656cf826-0769-418d-81cd-3c685141972f" direction="Return">
+                  <elementDefinition Id="d9f6136a-ae9a-4b17-8fa3-cdb3c39df06f" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="d933ed1b-01ef-469e-a97b-0cf96d29b4a7" LastKnownName="String" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperations>
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
   </packagedElements>
   <package Id="193abda0-18db-4c1a-8ae7-9f95c8f76694" name="ModelingProject">
     <elementDefinition Id="1b68e23d-8560-4123-af43-538b57927ff1" />

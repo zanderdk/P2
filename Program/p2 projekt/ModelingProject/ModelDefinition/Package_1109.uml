@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="e2921902-c423-4942-9b1f-80d7d200d80f"
+  name="Interfaces"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="42ee5a3b-dc82-431c-8dcb-8413b2019f1b"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3Dp2_projekt.Interfaces"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <Interface
+        Id="39f0e75a-7683-46e6-aba0-a6c7777ff882"
+        name="IChipReader"
+        visibility="Package"
+        isAbstract="false"
+        isLeaf="false">
+        <referencesInternal>
+          <reference
+            Id="6de01c3e-ba08-4d4f-929b-5ee265fe5095"
+            handle="viewcode://./CodeSchema_Interface?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FAlexander%2FSource%2FRepos%2FP2%2FProgram%2Fp2 projekt%2Fp2 projekt%2Fbin%2FDebug%2Fp2 projekt.exe&quot; Namespace%3Dp2_projekt.Interfaces Type%3DIChipReader"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="cdcd94c9-560e-404c-b01f-e3c82d36b9dd"
+            name="interface"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="ee9f34db-5fc7-49c4-88bd-eaa4198bb4b5">
+                <propertyInstance
+                  Id="5aefccef-2d2e-4aab-b08e-997a0d66ca6a"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="102bdc9e-4d3d-4e63-a288-ec78a2eef2fe">
+                <propertyInstance
+                  Id="d67dbdae-d11f-458c-bed6-1af2a6037ec5"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="22f27618-c4cb-48b5-8aec-29154d9143f1">
+                <propertyInstance
+                  Id="2d2e3b1e-ddc8-4dc4-9a3d-3cca20599aca"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="a4f16149-d9fb-47b6-8720-50cdd26c8118">
+                <propertyInstance
+                  Id="bce3a0e3-8bf9-4e43-8ca6-ebd55047af39"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <ownedOperations>
+          <operation
+            Id="b7a9afd7-4a50-4929-b195-459d4d9b4673"
+            name="Read"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="f9c0204b-6ebb-4ed0-9ef2-8733a8df2068"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FAlexander%2FSource%2FRepos%2FP2%2FProgram%2Fp2 projekt%2Fp2 projekt%2Fbin%2FDebug%2Fp2 projekt.exe&quot; Namespace%3Dp2_projekt.Interfaces Type%3DIChipReader Member%3DRead"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="6cb0ecc2-b29c-4d7c-87df-615eb3c1e12c"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ddd2977e-e3cf-40d7-a5a2-8697ed4f9d23">
+                    <propertyInstance
+                      Id="1c1f1ee5-9d57-4a9d-99e5-699ecadf7326"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="83e22179-2a5d-4567-967f-f67a31fa6f47">
+                    <propertyInstance
+                      Id="c1bbb68f-b3ef-458b-985f-aa6081826f50"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="272b3b51-6c75-477c-96df-1c123b1d8a93">
+                    <propertyInstance
+                      Id="3e122557-9aa8-431f-a770-34f12ce9904a"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="45078356-32d2-4150-b4a7-bc79413f93f1">
+                    <propertyInstance
+                      Id="7d6d2083-8acf-418f-8fdc-6273f7f10b8f"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="28ac6e81-8993-4be8-9e34-0a02c07a8f91">
+                    <propertyInstance
+                      Id="aef14ad1-bca9-4723-800f-03c2d78d5290"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8f538906-7f56-4e9e-8178-d29f1c30d709">
+                    <propertyInstance
+                      Id="b0057f1b-b358-409b-ac0d-297ea292323b"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="d9f6136a-ae9a-4b17-8fa3-cdb3c39df06f"
+                  direction="Return">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="ModelingProject.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperations>
+      </Interface>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

@@ -41,5 +41,11 @@
         LastKnownName="WPF"
         LastKnownLocation="Package_1059.uml" />
     </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="e2921902-c423-4942-9b1f-80d7d200d80f"
+        LastKnownName="Interfaces"
+        LastKnownLocation="Package_1109.uml" />
+    </packageHasNamedElement>
   </packagedElements>
 </package>
