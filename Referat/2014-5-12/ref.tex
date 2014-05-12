@@ -1,0 +1,53 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\begin{document}
+\title{Referat af vejledermøde}
+\author{SW2-A405a}
+\date{12. maj 2014}
+\maketitle
+\section{UML-klassediagram}
+De forskellige klasser og deres relationer bliver snakket om. Kasper fortæller hvordan det er blevet til. Med user og deres permissions.Brian: det ser fint ud; der er styr på det. Det er godt at den afspejler programmet, men med disse kommentare:
+
+Brian forslag: I guest kunne HasPaid laves til en klasse, så den kan holde styr på info om betaling. Man kunne lave en klasse til havnen. I Sailor kunne være en abstract klasse, både member og guest er en sailor
+
+Det er smuk ikke at have for mange felter, derfor er det godt at vi har IFullPersonalInfo.
+
+Hvor er chip-interfacet? Vi var i tvil om hvor meget vi skal havde med i model-diagrammet. Det er godt med kun ting fravirkelighedenn, så chip og sensor skal med i diagrammet.
+
+\section{Modul diagrammer}
+Kasper forklarer hvorfor: Det er blevet lidt rodet da vi startet med GUI først. Vi har prøvet at lave det hele konsistent. Der skal være mere uddybende tekst.
+
+Fokus er hvad brugerne ser; det er et skærmbillede der er i fokus.
+
+Brian kommentere at det er programmets dokumentationen. Det er for at forklare hvordan programmet virker.
+
+Kasper giver visuel gennemgang af diagrammer med live demo af login.
+
+Brian: Der kunne godt være et overordnet diagram der viser kun skærmbilleder. Men så skal controllers skal stadigvæk beskrives.
+
+Det skal forklarres hvordan man kan skifte focus fra modul til modul. (et modulindeholderr skærmbilleder (views)). Modulerne betår af klasser. Men hvordan bliver modellen bruge i modulerne.
+
+Diagrammerne er noget vi selv har lavet. Det kan godt bliver lidt forvirrende. Tænk over om det skal være sådan?
+
+Brian snakker om tre lag; MVC. Der er lidt om det, men det blive ikke rigtigt brugt. Det har gjort det hele lidt mærkeligt.
+
+Brian: Hvad er et modul? er det bare en funktion? Det skal beskrive ordentligt. Det kan fungere, men det er forvirrende.
+
+\section{Testing}
+Der må være flere unit tests.
+
+System test. Hvordan skal de forstås. Der er to ting til er test case: 1. input og handlinger 2. hvad er forventes for at der er succes.
+
+Det skal være lettre at føgle.
+
+Vælg to use cases ud og skriv godt om dem. Skriv for noget vi ved virker.
+
+\section{Svar på spørgsmål}
+Man må godt lave programmet om efter aflevering. Det er en god måde at gøre det på.
+
+Vi skal aflevere det på papir format, selvom nogen andre grupper ikke skal. Der skal være en CD med kildekode, exe og master.pdf. Der skal også være en readme der beskriver hvad der er  på CDen.
+
+Brian sender pdf med rettelser. Næste møde bliver torsdag.
+\end{document}
