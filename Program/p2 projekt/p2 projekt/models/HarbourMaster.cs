@@ -33,7 +33,7 @@ namespace p2_projekt.models
         }
 
         public DateTime RegistrationDate { get; set; }
-        public string MembershipDuration { get { return (DateTime.Now - RegistrationDate).ToString(); } } //TODO calculate shit
+        public string MembershipDuration { get { return (DateTime.Now - RegistrationDate).ToString(); } }
 
         public override bool Equals(object obj)
         {

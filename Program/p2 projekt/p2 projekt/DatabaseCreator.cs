@@ -46,7 +46,6 @@ namespace p2_projekt
                 member.Adress.AddressLine1 = "" + _adressP1[r.Next(0, _adressP1.Length)] + _adressP2[r.Next(0, _adressP2.Length)]+" "+r.Next(1,500);
                 member.Adress.PostalCode = "" + r.Next(1000, 9999);
 
-                // TODO alle skal ikke have søge rettigheder
                 member.Permission = new Permission() { OtherUsers = PermissionLevel.None, Map = PermissionLevel.Read,  PersonalInfo = PermissionLevel.Write};
                 member.Birthday = new DateTime(birthdayYear,birthdayMonth,birthdayDay);
                 member.RegistrationDate = new DateTime(regDayYear, regDayMonth, regDayDay);
@@ -91,7 +90,7 @@ namespace p2_projekt
             TestMember1.Birthday = new DateTime(2000, 01, 01);
             TestMember1.RegistrationDate = new DateTime(2000, 01, 01);
             TestMember1.Password = "testpass";
-            TestMember1.Email = "test1@emailtest.test";
+            TestMember1.Email = "test1@emailtest.isActive";
             TestMember1.Phone = "00000001";
             TestMember1.Adress.CountryRegion = "Danmark";
             TestMember1.Adress.City = "Grenå";
@@ -107,7 +106,7 @@ namespace p2_projekt
             TestMember2.Birthday = new DateTime(2000, 01, 01);
             TestMember2.RegistrationDate = new DateTime(2000, 01, 01);
             TestMember2.Password = "testpass";
-            TestMember2.Email = "test2@emailtest.test";
+            TestMember2.Email = "test2@emailtest.isActive";
             TestMember2.Phone = "00000002";
             TestMember2.Adress.CountryRegion = "Danmark";
             TestMember2.Adress.City = "Grenå";
@@ -123,7 +122,7 @@ namespace p2_projekt
             TestMember3.Birthday = new DateTime(2000, 01, 01);
             TestMember3.RegistrationDate = new DateTime(2000, 01, 01);
             TestMember3.Password = "testpass";
-            TestMember3.Email = "test3@emailtest.test";
+            TestMember3.Email = "test3@emailtest.isActive";
             TestMember3.Phone = "00000003";
             TestMember3.Adress.CountryRegion = "Danmark";
             TestMember3.Adress.City = "Grenå";
@@ -163,7 +162,7 @@ namespace p2_projekt
         
 
         //Travel travel = new Travel(new DateTime(2008, 1, 1), new DateTime(2001, 1, 1));
-        //Member alice = new Member("Alice", new System.Device.Location.CivicAddress()) { Password = "test" };
+        //Member alice = new Member("Alice", new System.Device.Location.CivicAddress()) { Password = "isActive" };
         
     }
 }

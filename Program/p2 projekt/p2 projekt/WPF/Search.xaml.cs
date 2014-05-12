@@ -47,26 +47,11 @@ namespace p2_projekt.WPF
                 infolineControl.TextChanged += textbox_SearchChanged;
                 infolineControl.GotFocus += TextBox_GotFocus;
                 infolineControl.LostFocus += TextBox_LostFocus;
-                //_controller.AddToDict(infolineControl.Tag as string, infolineControl.Text);
                 infolineControl.textbox.Tag = infolineControl.Tag;
             }
 
         }
 
-        //void addToDict(InfolineControl c)
-        //{
-        //    SearchController.Dict.Add(c.textbox, c);
-        //}
-
-        //void AddControllerDelegates(InfolineControl c)
-        //{
-        //    c.TextChanged +=  textbox_SearchChanged;
-        //    c.GotFocus += TextBox_GotFocus;
-        //    c.LostFocus += TextBox_LostFocus;
-        //    //addToDict(c);
-        //    _controller.AddToDict(c.Name, c.Text);
-        //    // TODO foreach child element, få fat i infolinecontroller... switch på name. ingen x:name
-        //}
 
         void ListToListBox(IEnumerable<User> list)
         {
@@ -109,7 +94,7 @@ namespace p2_projekt.WPF
             _controller.TextBox_GotFocus(textBox.Tag as string, textBox.Text);
         }
 
-        private void TextBox_LostFocus(object sender, RoutedEventArgs e) //TODO fix internalRefresh
+        private void TextBox_LostFocus(object sender, RoutedEventArgs e)
         {
             TextBox textBox = sender as TextBox;
             _controller.TextBox_LostFocus(textBox.Tag as string, textBox.Text);

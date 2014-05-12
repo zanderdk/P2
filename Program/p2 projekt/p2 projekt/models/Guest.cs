@@ -11,7 +11,7 @@ namespace p2_projekt.models
         }
 
 
-        public bool HasPaid { get; set; } //TODO Overvej at flytte denne til ny interface f.eks. IRenter
+        public bool HasPaid { get; set; }
 
         public virtual ObservableCollection<Travel> Travels
         {

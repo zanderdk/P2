@@ -35,8 +35,6 @@ namespace p2_projekt.WPF
 
         public event RoutedEventHandler GotFocus { add { textbox.GotFocus += value; } remove { textbox.GotFocus -= value; } }
 
-        public Func<User, bool> predicate;
-
         public bool IsNotEmpty { get { return (Text != ""); } }
 
         public bool readOnly { set { textbox.IsReadOnly = value; } }
@@ -45,10 +43,8 @@ namespace p2_projekt.WPF
         {
             InitializeComponent();
             LayoutRoot.DataContext = this;
-            if (Tag != null)
-            {
-                textbox.Tag = Tag;
-            }
+            textbox.Tag = Tag;
+            
             
         }
     }

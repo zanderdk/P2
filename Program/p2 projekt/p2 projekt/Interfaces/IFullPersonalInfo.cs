@@ -6,8 +6,8 @@ namespace p2_projekt.models
     {
         string Email { get; set; }
         DateTime Birthday { get; set; }
-        DateTime RegistrationDate { get; } //TODO automatisk registrering kun getter
-        string MembershipDuration { get; } //TODO calculate shit
+        DateTime RegistrationDate { get; }
+        string MembershipDuration { get; }
 
     }
 }

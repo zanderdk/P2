@@ -48,7 +48,6 @@ namespace p2_projekt.models
 
         public Travel(DateTime start, DateTime end)
         {
-            // TODO: Complete member initialization
             Start = start;
             End = end;
         }

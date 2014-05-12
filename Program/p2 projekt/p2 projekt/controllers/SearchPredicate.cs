@@ -19,7 +19,7 @@ namespace p2_projekt.controllers
                 };
             }
 
-            if (name == "phone") //TODO only numbers execption
+            if (name == "phone")
             {
                 return x =>
                 {
@@ -36,7 +36,7 @@ namespace p2_projekt.controllers
                 };
             }
 
-            if (name == "birthday") //TODO evt gør det mulight at søge på fx. kun årstallet
+            if (name == "birthday")
             {
                 DateTime test;
                 return x =>
@@ -60,7 +60,7 @@ namespace p2_projekt.controllers
                 };
             }
 
-            if (name == "email") //TODO only numbers execption
+            if (name == "email")
             {
                 return x =>
                 {
@@ -153,7 +153,7 @@ namespace p2_projekt.controllers
                 };
             }
 
-            if (name == "memberSince") //TODO evt gør det mulight at søge på fx. kun årstallet
+            if (name == "memberSince")
             {
                 DateTime test;
                 return x =>
@@ -186,33 +186,14 @@ namespace p2_projekt.controllers
                     if (!(x is Member))
                         return false;
 
-                    bool test = text.ToLower() == "ja"; // TODO test skal renames
+                    bool isActive = text.ToLower() == "ja";
 
-                    if ((x as Member).IsActive == test)
+                    if ((x as Member).IsActive == isActive)
                     {
                         return true;
                     }
 
                     return false;
-                };
-            }
-
-            if (name == "boatOwner")
-            {
-                return x =>
-                {
-
-                    if (!(x is ISailor))
-                        return false;
-
-                    foreach (Boat b in (x as ISailor).Boats)
-                    {
-                        if (((User)b.User).Name.ToLower().Contains(text.ToLower()))
-                            return true;
-                    }
-
-                    return false;
-
                 };
             }
 

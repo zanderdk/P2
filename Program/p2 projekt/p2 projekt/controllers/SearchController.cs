@@ -99,7 +99,7 @@ namespace p2_projekt.controllers
             RefreshInternal();
         }
 
-        public void TextBox_LostFocus(string fieldName, string searchText) //TODO fix internalRefresh
+        public void TextBox_LostFocus(string fieldName, string searchText)
         {
             if (!string.IsNullOrEmpty(searchText))
             {

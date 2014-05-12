@@ -6,7 +6,6 @@ using p2_projekt.controllers;
 
 namespace p2_projekt.WPF
 {
-    //TODO Synlighed ved "aktiv" felt
     public partial class UserInfo : UserControl
     {
         private UserInfoController _controller;

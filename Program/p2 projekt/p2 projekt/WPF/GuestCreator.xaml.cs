@@ -21,7 +21,6 @@ namespace p2_projekt.WPF
 
         private void Save_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            //TODO Overvej felter: hvilken plads ligger gæsten på. Betaling
             double bLength;
             double bWidth;
 
@@ -41,7 +40,7 @@ namespace p2_projekt.WPF
             Travel t = new Travel(DateTime.Now, LeavingDate.SelectedDate.Value);
             if (controller.Save(b, t))
             {
-                Standby chipLogin = new Standby(); //TODO overvej om den kan logge ind med det samme?
+                Standby chipLogin = new Standby();
                 chipLogin.Show();
                 Close();
             }

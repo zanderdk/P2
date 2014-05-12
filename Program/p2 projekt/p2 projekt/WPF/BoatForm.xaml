@@ -8,7 +8,6 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <StackPanel>
         <!--Binding Name er boat.name-->
-        <controllers:InfolineControl Title="Ejer(e)" Value="{Binding User.Name,Mode=TwoWay}" readOnly="True"/>
         <controllers:InfolineControl Title="Navn" Value="{Binding Name,Mode=TwoWay}" readOnly="True"/>
         <controllers:InfolineControl Title="Plads" Value="{Binding BoatSpace,Mode=TwoWay}" readOnly="True"/>
         <controllers:InfolineControl Title="Reg. nr." Value="{Binding RegistrationNumber,Mode=TwoWay}" readOnly="True"/>

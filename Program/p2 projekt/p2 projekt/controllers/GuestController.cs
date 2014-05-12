@@ -15,8 +15,6 @@ namespace p2_projekt.controllers
 
         public bool Save(Boat boat, Travel travel)
         {
-            //TODO Overvej felter: hvilken plads ligger gæsten på. Betaling
-
             Guest.Boats.Add(boat);
             Guest.Travels.Add(travel);
 
@@ -27,7 +25,7 @@ namespace p2_projekt.controllers
                 return true;
             }
 
-            catch (InvalidOperationException) //TODO User add exception
+            catch (InvalidOperationException)
             {
                 return false;
             }
