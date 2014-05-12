@@ -8,7 +8,7 @@ namespace ModelTests
     public class BoatTest
     {
         [TestMethod]
-        public void FreeBoatToFreeSpace_IsSet()
+        public void FreeBoatToFreeSpace()
         {
             Boat BoatOne = new Boat();
             BoatSpace BoatSpaceOne = new WaterSpace( 4, 2);
@@ -16,11 +16,10 @@ namespace ModelTests
             BoatOne.BoatSpace = BoatSpaceOne;
 
             Assert.AreEqual(BoatOne, BoatSpaceOne.Boat);
-            Assert.AreEqual(BoatSpaceOne.Boat, BoatOne);
         }
 
         [TestMethod]
-        public void OccupiedBoatToFreeSpace_IsSet()
+        public void OccupiedBoatToFreeSpace()
         {
             Boat BoatOne = new Boat();
             BoatSpace BoatSpaceOne = new WaterSpace(4, 2);
@@ -36,7 +35,7 @@ namespace ModelTests
         }
         
         [TestMethod]
-        public void OccupiedSpaceToFreeBoat_IsSet()
+        public void OccupiedSpaceToFreeBoat()
         {
             Boat BoatOne = new Boat();
             Boat BoatTwo = new Boat();
@@ -55,7 +54,7 @@ namespace ModelTests
             Assert.Fail("Did not throw an exception");
         }
         [TestMethod]
-        public void OccupiedSpaceToSameBoat_IsSet()
+        public void OccupiedSpaceToSameBoat()
         {
             Boat BoatOne = new Boat();
             BoatSpace BoatSpaceOne = new WaterSpace(4, 2);
