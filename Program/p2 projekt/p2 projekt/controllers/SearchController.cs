@@ -40,19 +40,12 @@ namespace p2_projekt.controllers
             if(_current == null)
             {
                 _list.AddRange(_internalList);
-                ListUpdated(_list);
             }
             else
             {
                 _list.AddRange(_internalList.Where(_current));
-
-                foreach (var x in _internalList.Where(_current))
-                {
-                    _list.Add(x);
-                }
-                ListUpdated(_list);
             }
-
+            ListUpdated(_list);
             
         }
 
