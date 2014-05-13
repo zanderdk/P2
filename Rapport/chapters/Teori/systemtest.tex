@@ -1,11 +1,12 @@
 \section{System Test}
 I dette afsnit vil der blevet testet hvorvidt udvalgte use cases kan udføres i programmet. De udvalgte use cases, er valgt på baggrund af deres evne til, at demonstrere funktionaliteten i programmet. Testene er opstillet således, at der startes med en hypotese omkring output ved forudbestemt input. Dernæst en gennemførsel af testen, og ud fra outputtet bedømmes resultatet som enten en \enquote{succes} eller \enquote{fejl}.
 
-\item{\bf{Usercase 1: Et medlem ønsker at forlade sin plads i mere end 24 timer.}}
+\textbf{Usercase 1: Et medlem ønsker at forlade sin plads i mere end 24 timer.}
+
 Det antages at databasen tilfældigt generere et medlem ved navn "Johanne Hoffmann", båden "Den Usynkelige II", medlemsnummer 5 og passwordet "Johanne4395". Det antages også at Johanne vil rejse væk den 8/10-2014 og komme hjem den 18/10-2014.
 
 Det forventes at med Johanne med sine login oplysninger kan opnå adgang til systemet, oprette sin rejse og få en bekræftigelse.
-\being{enumerate}
+\begin{enumerate}
 	\item Johanne starter programmet via .exe filen
 	\item Johanne klikker på "Medlemslogin" og "Loginscreen" kommer dernæst frem og afventer input.
 	\item Johanne indtaster sit medlemsnummer:"5" og password: "Johanne4395".
@@ -17,10 +18,11 @@ Det forventes at med Johanne med sine login oplysninger kan opnå adgang til sys
 	\item Johanne kan nu logge ud eller tilgå andre funktioner i programmet.
 \end{enumerate}
 
-\item{\bf{Usercase 15: Havnefogeden vil gerne se hvornår et medlem vender tilbage til medlemmets plads.}}
+\textbf{Usercase 15: Havnefogeden vil gerne se hvornår et medlem vender tilbage til medlemmets plads.}
+
 Det antages at Havnefogeden er genereret i databasen med medlemsnummer:"0" og passwordet:"havnefogedeVB1234". Det antages også at Havnefogede brugeren har skrive-tilladelse, som vil give ham fuld adgang. Det antages at dette sker efter foregående medlems interaktion med programmet, og det er det medlems rejse Havnefogeden er interesseret i. Det antages at det foregående medlem havde telefonnummeret: "22 95 41 87", og der er 3 medlemmer der hedder Johanne i databasen. Det antages at Havnefogeden har kun navnet "Johanne" og telefonnummeret "22 95 41 87"
 
-\being{enumerate}
+\begin{enumerate}
 	\item Havnefogeden kliker "Medlemslogin" og "Loginscreen" frem vises.
 	\item Havnefogeden indtaster sit medlemsnummer:"0" og password:"havnefogedeVB1234".
 	\item Havnefogeden kliker "Login" og forsidefanen kommer frem.
