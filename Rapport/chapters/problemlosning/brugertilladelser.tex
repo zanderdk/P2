@@ -1,16 +1,16 @@
 \section{Håndtering af Brugertilladelser} % (fold)
 \label{tilladelser}
 
-De forskellige aktører for systemet, har forskellige niveauer af tilladelser i havnen. Eksempelvis skal havnefogeden have adgang til at se alle medlemmernes rejser, i modsætning til et menigt medlem, der kun har adgang til at se sine egne rejser. For at kunne modellere de administrative ansvarsområder korrekt, er det nødvendigt at kunne skelne imellem brugere, og deres tilladelser.
+De forskellige aktører for systemet, har forskellige niveauer af tilladelser i havnen. Eksempelvis skal havnefogeden have adgang til at se alle medlemmernes rejser, i modsætning til et menigt medlem, der kun har adgang til at se sine egne rejser. For at kunne modellere de administrative ansvarsområder korrekt, er det nødvendigt at kunne skelne imellem brugere og deres tilladelser.
 
-Der findes tre grader af brugertilladelse, ingen, læse eller skrive. Graden \enquote{ingen}, er den laveste grad, og betyder at den respektive bruger ikke har nogen som helst form for adgang til det pågældende datafelt. Graden \enquote{læse} gør datafeltet synligt for brugeren. Graden \enquote{skrive} giver brugeren mulighed for at redigere datafeltet. Brugertilladelser er akkumulerende, således at skrivetilladelsen implicit også er en læsetilladelse. 
+Der findes tre grader af brugertilladelse i denne løsning; ingen, læse eller skrive. Graden \enquote{ingen}, er den laveste grad, og betyder at den respektive bruger ikke har nogen som helst form for adgang til den pågældende funktionalitet. Graden \enquote{læse} gør funktionaliteten synlig for brugeren. Graden \enquote{skrive} giver brugeren mulighed for at anvende funktionaliteten. Brugertilladelser er akkumulerende, således at skrivetilladelsen implicit også er en læsetilladelse. Ikke alle funktionaliteter kræver tilladelse.
 
-Alle brugere har for ethvert datafelt én af de tre grader af brugertilladelser. Dette giver mulighed for at differentierer imellem forskellige instanser af brugermodellen, således at det ikke er nødvendigt at oprette en ny brugermodel, for enhver kombination af brugertilladelser.
+Alle brugere har for enhver type tilladelse én af de tre grader af brugertilladelser. Dette giver mulighed for, at differentierer imellem forskellige instanser af brugermodellen, således at det ikke er nødvendigt at oprette en ny brugermodel, for enhver kombination af brugertilladelser.
 
-Brugere tilgår systemet via et chipkort, som indeholder information der kan identificere brugeren data i systemet. Det er også muligt for medlemmer at tilgå systemet via deres medlemsnummer og et kodeord.
+Hvis hver individuel funktionalitet skulle have sin egen tilladelse, ville programmet blive yderst uoverskueligt. For at undgå dette, er funktionaliteterne blevet inddelt efter adgangssammenhæng, som så afhænger af den samme tilladelse. Dette kan gøres ved funktionaliteter, der alligevel altid vil have et parallelt adgangsniveau. Eksempelvis bør en bruger, der kan ændre sit eget navn i systemet, også have muligheden for at ændre sin adresse. Derfor er funktionaliteterne for at ændre både navn og adresse baseret på den samme tilladelse, der i programmet hedder \enquote{PersonalInfo}.
 
-Når en bruger tilgår systemet, bliver programmet initialiseret, ud fra de tilladelser brugeren har. Synligheden bliver på denne måde begrænset, således at al information ikke er frit tilgængeligt, samt at brugergrænsefladen holdes så relevant som muligt.
+Brugere tilgår systemet via et chipkort, som indeholder information, der kan identificere brugerens unikke data i systemet. Det er også muligt for medlemmer at tilgå systemet via deres medlemsnummer og et kodeord. Når en bruger tilgår systemet, bliver programmet initialiseret ud fra de tilladelser, brugeren har. Synligheden bliver på denne måde begrænset, således at al information ikke er frit tilgængeligt, samt at brugergrænsefladen holdes så relevant som muligt.
 
-\kanote{kodeeksempler  + forudgående tekst}
+\kanote{forudgående tekst}
 
 \kanote{husk mulighed for ny gæst}
