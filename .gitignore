@@ -32,9 +32,9 @@
 *.vrb
 *.xdy
 *.tdo
-master.pdf
-Aftaler/*/*.pdf
-Referat/*/*.pdf
+*.pdf
+!Raport/images/*
+!Kilder_mm/oop10_slides.pdf
 .DS_Store
 *~
 *.fls
