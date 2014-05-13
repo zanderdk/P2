@@ -1,37 +1,62 @@
-\section{System Test}
-I dette afsnit vil der blevet testet hvorvidt udvalgte use cases kan udføres i programmet. De udvalgte use cases, er valgt på baggrund af deres evne til, at demonstrere funktionaliteten i programmet. Testene er opstillet således, at der startes med en hypotese omkring output ved forudbestemt input. Dernæst en gennemførsel af testen, og ud fra outputtet bedømmes resultatet som enten en \enquote{succes} eller \enquote{fejl}.
+\section{Systemtest}
+En systemtest af et stykke software er en test der udføres på et komplet system. Systemtest er med til at evaluere om systemet overholder sine specificerede krav. For at teste om løsningen lever op til de krav der tidligere er stillet, vil der i dette afsnit vil der blive demonstreret, hvordan udvalgte usecases kan udføres i programmet. De udvalgte usecases, er valgt på baggrund af deres evne til, at fremvise funktionaliteten i programmet. Demonstrationen er opstillet således, at der startes med en defination af inputtet, en potentiel antagelse, og en hypotese omkring hvilket output der fremkommer. Dernæst en gennemgang af gøremåden, og ud fra outputtet bedømmes resultatet som enten som en \enquote{succes} eller \enquote{fejl}. Dette er en test af hvorvidt programmet kan udføre de forudstillede usecases, og dertil leve op til de krav vi har stillet det.
 
 \textbf{Usercase 1: Et medlem ønsker at forlade sin plads i mere end 24 timer.}
 
-Det antages at databasen tilfældigt generere et medlem ved navn "Johanne Hoffmann", båden "Den Usynkelige II", medlemsnummer 5 og passwordet "Johanne4395". Det antages også at Johanne vil rejse væk den 8/10-2014 og komme hjem den 18/10-2014.
+I databasen er der generere et medlem ved navn \enquote{Johanne Hoffmann}, båden \enquote{Den Usynkelige II}, medlemsnummer 5 og passwordet \enquote{Johanne4395}. Det antages at Johanne gerne vil rejse væk den 8/10-2014 og komme hjem den 18/10-2014.
 
 Det forventes at med Johanne med sine login oplysninger kan opnå adgang til systemet, oprette sin rejse og få en bekræftigelse.
+
 \begin{enumerate}
-	\item Johanne starter programmet via .exe filen
-	\item Johanne klikker på "Medlemslogin" og "Loginscreen" kommer dernæst frem og afventer input.
-	\item Johanne indtaster sit medlemsnummer:"5" og password: "Johanne4395".
-	\item Johanne klikker "Login" og forsidefanen kommer frem.
+	\item Johanne klikker på \enquote{Medlemslogin} og \enquote{Loginscreen} kommer dernæst frem og afventer input.
+	\item Johanne indtaster sit \enquote{medlemsnummer: 5} og \enquote{password: Johanne4395}.
+	\item Johanne klikker \enquote{Login} og forsidefanen kommer frem.
 	\item Johanne navigere til brugeradministrationsfanen, og information omkring hende kommer frem.
-	\item Johanne klikker på "Tilføj Ny Rejse" og "Tilføj rejse" bliver fremvist.
+	\item Johanne klikker på \enquote{Tilføj Ny Rejse} og \enquote{Tilføj Rejse} bliver fremvist.
 	\item Johanne vælger henholdsvis den 8/10-2014 og 18/10-2014.
 	\item Johanne klikker OK, og kan nu se sin udrejse og hjemkomst i rejse feltet.
-	\item Johanne kan nu logge ud eller tilgå andre funktioner i programmet.
 \end{enumerate}
+
+\frnote{måske skal formatet på konklusionen laves om}
+
+Johanne kunne uden problemer logge ind med sine login oplysninger, og hun kunne uden problemer melde sin rejse til systemet.
 
 \textbf{Usercase 15: Havnefogeden vil gerne se hvornår et medlem vender tilbage til medlemmets plads.}
 
-Det antages at Havnefogeden er genereret i databasen med medlemsnummer:"0" og passwordet:"havnefogedeVB1234". Det antages også at Havnefogede brugeren har skrive-tilladelse, som vil give ham fuld adgang. Det antages at dette sker efter foregående medlems interaktion med programmet, og det er det medlems rejse Havnefogeden er interesseret i. Det antages at det foregående medlem havde telefonnummeret: "22 95 41 87", og der er 3 medlemmer der hedder Johanne i databasen. Det antages at Havnefogeden har kun navnet "Johanne" og telefonnummeret "22 95 41 87"
+Havnefogeden er genereret i databasen med \enquote{medlemsnummer: 4} og \enquote{passwordet: havnefogedeVB1234}. Havnefogeden har skrive-tilladelse, som vil give ham fuld adgang til at tilføje/ændre/skrive i databasen. Det antages at dette sker efter foregående medlems interaktion med programmet, og det er det medlems rejse som Havnefogeden er interesseret i. Johanne Hoffmann har telefonnummeret: \enquote{22 95 41 87}, og der er 3 medlemmer der hedder Johanne i databasen, Johanne Friis, Johanne Hoffmann og Johanne Snoep. Det antages at Havnefogeden kun har \enquote{navnet: Johanne} og \enquote{telefonnummeret: 22 95 41 87}
 
 \begin{enumerate}
-	\item Havnefogeden kliker "Medlemslogin" og "Loginscreen" frem vises.
-	\item Havnefogeden indtaster sit medlemsnummer:"0" og password:"havnefogedeVB1234".
-	\item Havnefogeden kliker "Login" og forsidefanen kommer frem.
+	\item Havnefogeden klikker på \enquote{Medlemslogin} og \enquote{Loginscreen} frem vises.
+	\item Havnefogeden indtaster sit \enquote{medlemsnummer: 4} og \enquote{password: havnefogedeVB1234}.
+	\item Havnefogeden klikker \enquote{Login} og forsidefanen kommer frem.
 	\item Havnefogeden navigere til søgfanen.
-	\item Havnefogeden indtaster navnet: "Johanne" hvor der kommer tre hits frem.
-	\item Havnefogeden indtaster dernæst telefonnummeret: "22 95 41 87" og insnævre resultaterne til det rigtige medlem.
-	\item Havnefogeden dobbeltklikker på medlemmet og får vist informationen omkring medlemmet "Johanne Hoffmann".
-	\item Havnefogeden aflæser den ønskede data og er nu fri til at tilgå andre funktioner i programmet.
+	\item Havnefogeden indtaster \enquote{navnet: Johanne} hvor der kommer tre hits frem.
+	\item Havnefogeden indtaster dernæst \enquote{telefonnummeret: 22 95 41 87} og insnævre resultaterne til det rigtige medlem.
+	\item Havnefogeden dobbeltklikker på medlemmet og får vist informationen omkring \enquote{medlemmet: Johanne Hoffmann}.
+	\item Havnefogeden aflæser rejsedatoen i rejsefeltet.
+\end{enumerate} 
+
+Havnefogeden havde de rigtige rettigheder og hans login var funktionelt. Hanefogeden kunne finde den Johanne ud fra de to stykker af information han havde omkring Johanne Hoffmann.
+
+\textbf{Kasser eller havnefogede vil tilføje ny båd til et medlem}
+
+Det antages at det er Havnefogeden der vil tilføje en ny båd til medlemmet Johanne Hoffmann. Det antages også at havnefogeden har samme oplysninger, som i foregående scenarie. Båden er 12m lang og 6.5m bred, den har \enquote{registreringsnummere:4785963}, den hedder \enquote{Eurika} og den har ingen plads.
+
+\begin{enumerate}
+	\item Havnefogeden klikker på \enquote{Medlemslogin} og \enquote{Loginscreen} fremvises.
+	\item Havnefogeden indtaster sit medlemsnummer:\enquote{4} og passwordet:\enquote{havnefogedeVB1234}
+	\item Havnefogeden klikker \enquote{Login} og forsidefanen kommer frem.
+	\item Havnefogeden navigere til søgfanen.
+	\item Havnefogeden indtaster navnet: \enquote{Johanne Hoffmann} hvor hun kommer frem.
+	\item Havnefogeden dobbeltklikker på medlemmet og får vist information omkring medlemmet \enquote{Johanne Hoffmann}.
+	\item Havnefogeden klikker på \enquote{Tilføj Ny Båd} og \enquote{NewBoatPopup} fremvises.
+	\item Havnefogeden indtaster \enquote{navnet: Eurika}, \enquote{registreringsnummere: 4785963}, \enquote{længden: 12} og \enquote{bredden: 6,5}.
+	\item Havnefogeden vælger at båden ingen plads har.
+	\item Havnefogeden klikker Ok
+	\item Havnefogeden kan nu se og inspicere båden Eurika.
 \end{enumerate}
+
+Havnefogeden kunne logge ind og finde Johanne Hoffmann i søgefunktionen. Han kunne også tilføje båden Eurika og dens information uden problemer.
 
 % Dette er en test for det nuværende programs funktionalitet i forhold til de usescases, der er blevet opstillet for programmet.
 % Ved Success forstås der at denne funktion er (delvis) mulig.
@@ -42,7 +67,7 @@ Det antages at Havnefogeden er genereret i databasen med medlemsnummer:"0" og pa
 
 % \begin{enumerate}
 	% \item{\bf{Medlem forlader sin plads i mere end 24 timer.}}
-		% HANDLING: Medlemmet vælger "tilføj" under rejser, og vælger en afrejse og hjemkomst dato - Rejsen er nu gemt.
+		% HANDLING: Medlemmet vælger \"tilføj\" under rejser, og vælger en afrejse og hjemkomst dato - Rejsen er nu gemt.
 	  % \begin{enumerate}
 			% \item Success -  a) Medlem melder til systemet et gyldigt tidspunkt for afrejse og hjemkomst.
 			% \item Success -  b) Systemet melder til medlemmet at rejsen er registreret. 
