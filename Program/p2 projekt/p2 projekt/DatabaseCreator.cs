@@ -62,6 +62,7 @@ namespace p2_projekt
                     RegistrationNumber = "" + Registreringsnummer,
                     Length = _dimensions[r.Next(0, _dimensions.Length)],
                     Width = _dimensions[r.Next(0, _dimensions.Length)]
+                    
                 };
             
             return boat;
@@ -80,11 +81,12 @@ namespace p2_projekt
 
         public void CreateDataset(DALController uc, int wantedUsers)
         {
-            int numberOfDefaultUsers = 3;
+            int numberOfDefaultUsers = 7;
             int numberOfSpaces = 36;
             List<User> Users = new List<User>();
             List<Boat> Boats = new List<Boat>();
             List<BoatSpace> BoatSpaces = new List<BoatSpace>();
+
 
             Member TestMember1 = new Member("Anders Andersen", new System.Device.Location.CivicAddress(), 1);
             TestMember1.Birthday = new DateTime(2000, 01, 01);
@@ -133,6 +135,62 @@ namespace p2_projekt
             b1.BoatSpace = CreateBoatSpace();
             TestMember3.Boats.Add(b1);
             uc.Add<User>(TestMember3);
+
+            Member Havnefogede = new Member("Havnefogeden", new System.Device.Location.CivicAddress(), 4);
+            Havnefogede.Birthday = new DateTime(2000, 01, 01);
+            Havnefogede.RegistrationDate = new DateTime(2000, 01, 01);
+            Havnefogede.Password = "havnefogedeVB1234";
+            Havnefogede.Permission = new Permission() { PersonalInfo = PermissionLevel.Write, Map = PermissionLevel.Write, OtherUsers = PermissionLevel.Write };
+            uc.Add<User>(Havnefogede);
+
+            Member JohanneHoffmann = new Member("Johanne Hoffmann", new System.Device.Location.CivicAddress(), 5);
+            JohanneHoffmann.Birthday = new DateTime(2000, 01, 01);
+            JohanneHoffmann.RegistrationDate = new DateTime(2000, 01, 01);
+            JohanneHoffmann.Password = "Johane4395";
+            JohanneHoffmann.Email = "Johanne@mail.dk";
+            JohanneHoffmann.Phone = "22 95 41 87";
+            JohanneHoffmann.Adress.CountryRegion = "Danmark";
+            JohanneHoffmann.Adress.City = "Odense";
+            JohanneHoffmann.Adress.AddressLine1 = "H.C Andersensvej 9";
+            JohanneHoffmann.Adress.PostalCode = "8464";
+            JohanneHoffmann.Permission = new Permission() { PersonalInfo = PermissionLevel.Write, Map = PermissionLevel.Write, OtherUsers = PermissionLevel.Write };
+            b1 = CreateBoat();
+            b1.Name = "Den Usynkelige II";
+            b1.BoatSpace = CreateBoatSpace();
+            JohanneHoffmann.Boats.Add(b1);
+            uc.Add<User>(JohanneHoffmann);
+
+            Member Johanne1 = new Member("Johanne Snoep", new System.Device.Location.CivicAddress(), 6);
+            Johanne1.Birthday = new DateTime(2000, 01, 01);
+            Johanne1.RegistrationDate = new DateTime(2000, 01, 01);
+            Johanne1.Password = "Johane8718";
+            Johanne1.Email = "JohanneSnoep@mail.dk";
+            Johanne1.Phone = "22 26 48 88";
+            Johanne1.Adress.CountryRegion = "Danmark";
+            Johanne1.Adress.City = "Viborg";
+            Johanne1.Adress.AddressLine1 = "Skovkrattet 39";
+            Johanne1.Adress.PostalCode = "8840";
+            Johanne1.Permission = new Permission() { PersonalInfo = PermissionLevel.Write, Map = PermissionLevel.Read, OtherUsers = PermissionLevel.Read };
+            b1 = CreateBoat();
+            b1.BoatSpace = CreateBoatSpace();
+            Johanne1.Boats.Add(b1);
+            uc.Add<User>(Johanne1);
+
+            Member Johanne2 = new Member("Johanne Friis", new System.Device.Location.CivicAddress(), 7);
+            Johanne2.Birthday = new DateTime(2000, 01, 01);
+            Johanne2.RegistrationDate = new DateTime(2000, 01, 01);
+            Johanne2.Password = "Johane5687";
+            Johanne2.Email = "JohanneFriis@mail.dk";
+            Johanne2.Phone = "23 95 85 13";
+            Johanne2.Adress.CountryRegion = "Danmark";
+            Johanne2.Adress.City = "København";
+            Johanne2.Adress.AddressLine1 = "Danmarksvej 4";
+            Johanne2.Adress.PostalCode = "1200";
+            Johanne2.Permission = new Permission() { PersonalInfo = PermissionLevel.Write, Map = PermissionLevel.Read, OtherUsers = PermissionLevel.Read };
+            b1 = CreateBoat();
+            b1.BoatSpace = CreateBoatSpace();
+            Johanne2.Boats.Add(b1);
+            uc.Add<User>(Johanne2);
 
 
             for (int i = 0; i < numberOfSpaces - numberOfDefaultUsers; i++ )
