@@ -1,8 +1,6 @@
 \chapter{Diskussion}
 \label{cha:diskussion}
 
-\alnote{skriv om sikkerheds afgrænsning}
-
 Dette afsnit diskuterer nogle udvalgte dele af projektet, for at beskrive tilblivelsen, eller udeblivelsen, af disse dele, samt nogle af de tanker og overvejelser der har påvirket beslutningerne.
 
 \section{Anvendelse af Løsningen} 
@@ -29,6 +27,7 @@ Ved udviklingsforløbets start, var \enquote{Model-View-Controller}, herefter ka
 For at opnå den fulde effekt af \enquote{Test Driven Development}, herefter kaldt TDD, som står beskrevet i \cref{sub:test_driven_development}, bør det følges konsekvent igennem hele udviklingsforløbet. Der opstod dog under forløbet konsensus om, at afvige fra en konsekvent afvikling af denne udviklingsform. Begrundelsen for denne konsensus, ligger i en estimeret begrænset tidsvinding, hvor udbyttet af flere test vil være utilstrækkeligt. Kombineret med en kort tidshorisont for udviklingsperioden, blev det derfor vurderet fordelagtigt, at nedprioritere TDD. Dette åbner op for en bedre disponering af tiden, således at der opnås en bredere forståelse for flere aspekter af softwareudvikling.
 
 \section{Informationsgivende Funktioner}
-I projektets løsning er der adskillelige informationsgivende funktioner til rådighed. Kortfunktionen giver muligheden for et hurtigt overblik over havnen og søgefunktionen gør det nemt at finde informationer om brugere, men ingen af disse funktioner muliggør kommunikation mellem brugere af programmet. En fremtidig funktionalitetstilføjelse kunne derfor være en realtid-besked funktion. Funktionen bringer muligheden for notifikationer eller advarsler til brugere. Realtid-besked funktionen gør det også muligt at implementere et beskedsystem mellem brugere af programmet.
+
+I projektets løsning er der adskillelige informationsgivende funktioner til rådighed. Kortfunktionen giver muligheden for et hurtigt overblik over havnen, og søgefunktionen gør det nemt at finde information om brugere. Disse funktioner muliggør dog ikke kommunikation rettet imod brugere af programmet. En fremtidig funktionalitetstilføjelse kunne derfor være et besked-modul. Dette ville åbne op for, at kunne levere notifikationer eller advarsler til brugere, enten via en form for opslag, eller direkte ved realtidsbeskeder. Realtidsbeskeder vil også muliggør implementering af et chat-modul, hvis dette ønskes af brugerene.
 
 \kanote{Ting vi ville lave anderledes. Forskellige dele af rapporten. herunder ikke færdige emner}
