@@ -12,6 +12,8 @@ Systemet er tænkt til at blive anvendt på havnen, ved brug af en stander eller
 
 Andre af programmets funktioner, kunne derimod med fordel tilgås, af verificerede brugere, fra andre steder og med andet hardware. Administrering af egne både bør medlemmer kunne gøre, uafhængigt af tilgang til standeren på havnen. Registreringer og ændringer af rejser, kunne også fordelagtigt være tilgængeligt via fjernadgang.
 
+Hvis en sådan fjernadgang skulle implementeres, vil det yderligere kræve en revurdering af det nuværende valideringssystem, da der ikke foretages nogen kryptering, hashing eller anden forplumring af den data der sendes til og fra databasen. En oplagt løsningsmodel ville være, at foretage tjek på adgangsniveauer ved en server, som klienten ikke har direkte adgang til.
+
 % section anvendelse_af_systemet (end)
 
 \section{Adgangsbegrænsninger}
