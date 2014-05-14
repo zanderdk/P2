@@ -19,6 +19,6 @@ Loginmodulet har det primære ansvar for at angive adgangsniveauer, og sikre dat
 
 Loginmodulet består af et standby-view, et MemberLogin-view, et eksternt chiplæsermodul samt en loginController. Fra standby view er der adgang til GuestCreatormodulet, som er beskrevet i \cref{sub:GuestCreator}. Brugeren kan også indlæses et chip-kort, eller skifte til MemberLogin-view. Fra MemberLogin-view, kan der indtastes medlemsnummer og kode.
 
-LoginControlleren modtager data fra memberLogin-view, eller chiplæser-modulet. Denne data valideres, via persistenslaget, i forhold til databasens data. Hvis der ikke kan gennemføres en succesfuld validering, sender loginControlleren brugeren tilbage til det view, der blev sendt data fra, hvor brugeren promptes for nyt indput.
+LoginControlleren modtager data fra memberLogin-view, eller chiplæsermodulet. Denne data valideres, via persistenslaget, i forhold til databasens data. Hvis der ikke kan gennemføres en succesfuld validering, sender loginControlleren brugeren tilbage til det view, der blev sendt data fra, hvor brugeren promptes for nyt indput.
 
 Hvis valideringen er succesfuld, sendes brugeren samt brugerens data, videre til funktionsstyringsmodulet.
