@@ -1,18 +1,16 @@
-\subsection{Welcome}
+\subsection{Forsiden}
 \label{sub:Welcome}
 
-\frnote{læs igennem}
-
-Welcomemodulet har til opgave at lave det skærmbillede man bliver præsenteret for når man først logger ind.
+Forsidemodulet har til formål at præsentere programmet for brugeren efter log ind.
 
 \subsubsection{Implementation}
 \label{ssub:Welcome_implementation}
-Welcome åbnes fra styringsmoduler og står for at udfylde den tab der først vises. På dette skærmbillede skal der være nyttige funktioner for den bruger der lige er logget ind. Derudover skal der også være relevante informationer for brugeren.
+Forsidemodulet åbnes fra styringsmoduler og er den første fane der vises. Denne fane er tiltænkt til at indeholde genveje med relevans for den bruger, der er logget ind. Derudover vil dette også være et oplagt sted, at have en opslagstavle, med  information fra havnefogeden eller bestyrelsen. Forsiden er med vilje konstrueret simpelt, for at opnå en neutral start. Alternativt kunne en mere funktionel fane, vælges af den individuelle bruger, til at fremstå som deres egen forside.
+
 
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth]{forside-diagram.pdf}
-  \caption{Diagram over Welcomemodulet}
+  \caption{Diagram over forsidemodulet}
   \label{fig:forsidemod}
 \end{figure}
-% GuestCreatormodulet, der fremstår som \enquote{Ny Gæst} på \cref{fig:guestcreator}, består af et GuestCreator-view og en GuestController. Den data der indtastes i GuestCreator view'et, sendes videre til GuestControlleren. Herefter kommunikerer GuestCotrolleren med persistenslaget, som derefter gemmer informationen om den nye gæst.
