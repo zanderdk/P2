@@ -1,6 +1,6 @@
 \section{Klasse Design}
 \label{sec:klasse_design}
-Som beskrevet i \cref{sec:klasse_teori} er det vigtig at få lave en model der modelere de ting fra virkeligheder som programmet skal arbejde med. Denne sektion vil dokumenter de grundlæggende modeller, som programmet er bygget op efter. 
+Som beskrevet i \cref{sec:klasse_teori} er det vigtig at få lave klassehierarkiet så det modelere de ting fra virkeligheder som programmet håndtere. Denne sektion vil dokumenter de grundlæggende modeller, som programmet er bygget op efter. 
 
 For at give et overblik over klassehierarkiet er der lavet et UML-klassediagram som ses på \cref{fig:UML}. På diagrammet kan man se de vigtigste klasser der er brugt i løsningen. Af diagrammet fremgår også klassernes relationer.
 
@@ -16,7 +16,9 @@ De følgende under sektion beskriver programmets primære klasser og hvilken dat
   }
  	\caption{UML-klassediagram over klasser der bruges til at modellere løsningen.}
  	\label{fig:UML}
-\end{figure}
+ \end{figure}
+
+\alnote{skriv om de to ensomme interfaces}
 
 \subsection{Modellering af Brugere}
 \label{sub:brugere_af_programmet}
@@ -28,17 +30,27 @@ Subklasserne til \enquote{User} opdeler brugere som enten medlemmer af klubben, 
 \sinote{Definer mere præcist opdelingen}
 
 For at differentiere subklasserne, implementeres forskellige kombinationer af interfaces. Eksempelvis må en havnefoged ikke have en båd, og derfor implementerer klassen \enquote{HarbourMaster} ikke \enquote{ISailer} interfacet. Til gengæld deler \enquote{HarbourMaster}, \enquote{IFullPersonalInfo} og \enquote{ILoginable} med \enquote{Member} klassen, da de begge har behov for at gemme mere personinformation, samt at kunne logge ind med brugernavn/medlemsnummer.
-
+ 
 \subsection{Modellering af Rejser}
 \label{sub:rejser}
 
 En medlems rejse modelleres med klassen \enquote{Travel}. Den indeholder information om rejsen start- og slutdato. \enquote{Travels} bruges også til at angive hvor lang tid en gæst ligger i havnen. \enquote{Travel} implementere \enquote{IEquatable} interfacet, som gør det muligt at sammenligne med andre klasser af samme type. Klasser der implementere ISailor indeholder en liste af \enquote{Travels}.
-
+ 
 \subsection{Modellering af Både}
 \label{sub:bade}
 
 Der er lavet en klasse til både, der hedder \enquote{Boat}. Denne klasse bruges til at gemme data tilhørende en båd. Der gemmes dens navn og størrelse, så man kan tjekke hvorvidt en given plads er stor nok til at rumme båden.
 
-Der er to klasser til repræsentation af bådpladser. Klassen \enquote{WaterSpace} modellere vandpladser og \enquote{LandSpace} modellere landplads. Begge disse klasser nedarver fra klassen \enquote{BoatSpace}, som indeholder generelle informationer om bådpladser.
+\subsection{Modellering af Bådpladser}
+\label{sub:pladser}
 
-\sinote{Flere klasser skal beskrives}
+Der er to klasser til repræsentation af bådpladser. Klassen \enquote{WaterSpace} modellere vandpladser og \enquote{LandSpace} modellere landplads. Begge disse klasser nedarver fra klassen \enquote{BoatSpace}, som indeholder generelle informationer om en bådplads. 
+
+\subsection{associationer}
+\label{sub:associationer}
+
+I klassehierarkiet benyttes to typer associationer binær associationer og en-til-mange associationer. Den binære association på \cref{fig:UML} mellem både og bådpladser viser at der er en reference inderhold i båden til dens tilhørende bådplads, og vise versa. Denne association håndter at en båd tildeles en plads, får samme plads også tildelt en reference til båden. Association sikker derved også at man ikke kan tildele en plads en båd, hvis pladsen allerede inderholde en reference til en anden båd. 
+
+En ISailor indeholder en liste til boats og en liste til Travels, mens Travels og både kun inderholder en reference til en ISailor. Dette udgør en én-til-mange association fra ISailor til boats. Denne association sikre at tilføjes et objekt til en liste inderholdt i en ISailor, tildeles objektet automatisk en reference til samme ISailor. Hvis en båd får tildelt en ISailor som sin ejer, tilføjes båden også til listen af ejerens Både. 
+
+
