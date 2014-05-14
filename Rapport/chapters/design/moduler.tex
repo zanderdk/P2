@@ -1,27 +1,23 @@
 \section{Moduler}
 \label{sec:moduler}
-\frnote{hvorfor deler vi det op i moduler?}
 
-Moduler i dette afsnit defineres som logisk grupperede funktionaliteter og modeller i løsningen. Hvert modul skal være uafhængig af andre moduler, og kun have et enkelt ansvar, og skal udelukkende håndtere sit eget ansvar. Et login modul skal derfor ikke have ansvaret, for at oprette en ny bruger. I stedet vil et dedikeret modul, til at oprette nye brugere, være favorabelt. Hvis hvert modul kun har et enkelt ansvar, kan moduler nemt genbruges i andre sammenhænge, eller udskiftes efter behov.
+Moduler i dette afsnit defineres som logisk grupperede funktionaliteter og modeller i løsningen. Hvert modul skal være uafhængig af andre moduler, og udelukkende håndtere et enkelt ansvar. Et login modul skal derfor ikke have ansvaret, for at oprette en ny bruger. I stedet vil et dedikeret modul, til at oprette nye brugere, være favorabelt. Hvis hvert modul kun har ét ansvar, kan moduler nemt genbruges i andre sammenhænge, eller udskiftes efter behov.
 
-\begin{figure}
   \centering
   \includegraphics[width=\textwidth]{moduler-diagram.pdf}
   \caption{Overordnet oversigt over moduler i løsningen og deres relationer.}
   \label{fig:mod}
 \end{figure}
 
-\frnote{læs igennem}
+På \cref{fig:mod} ses en oversigt over implementerede moduler og deres relationer. Et modul består af en række klasser der er grupperet logisk sammen. Modellerne der benyttes i modulerne er beskrevet i \cref{sec:klasse_design}. Hvert enkelt modul importerer de klasser der skal bruges. Som en del af et modul, kan der både indgå \enquote{views}, der er klasser som håndterer brugergrænsefladen. \enquote{Views} er beskrevet i \cref{sec:wpf}. Udover \enquote{views}, består et modul også af \enquote{controllers}, som styrer modulets funktionalitet, samt eventuelle støtteklasser til disse.
 
-På \cref{fig:mod} ses en oversigt over implementerede moduler og deres relationer. Et modul består af en række klasser der logiks er grupperet sammen. Modulerne bruger de modeller der er beskrevet i \cref{sec:klasse_design}, og importere de model klasser det skal bruge. Som en del af et modul kan der både indgå views, som er klasser der står for at lave brugergrænseflade og der kan indgå controllers som er med til at lave funktionen bag modulet.
+I billedforklaringen på  \cref{fig:mod}, forstås \enquote{Fokus} som brugergrænsefladens fokus. Det vil sige det brugeren har visuelt fokus på. For eksempel når brugeren klikker på \enquote{Ny gæst} i \enquote{Login} modulet, vil \enquote{Gæsteopretter} modulet tage det visuelle fokus, og brugeren kan nu interagere med \enquote{Gæsteopretter} modulet. I billedforklaringen nævnes også \enquote{Data}. Med dette forstås, at arbitrær data sendes mellem moduler. Eksempelvis kan dataen være et C\# metodekald, eller et C\# objekt der sendes rundt mellem moduler. \enquote{Data \& Fokus} er simpelthen kominationen af \enquote{Data} og \enquote{Fokus}. Det vil sige at der både sendes data, samt det visuelle fokus ændres.
 
-\frnote{her mangler lidt bedre forklaringer}
+På \cref{fig:mod} kategoriseres nogle moduler som \enquote{Adgangskrævende funktioner}. Dette betyder, som navnet antyder, at disse moduler kun kan benyttes af validerede brugere. Hvis en bruger ikke er logget ind gennem \enquote{Login} modulet, kan brugeren ikke benytte sig af disse funktioner.
 
-Diagrammet viser hvordan fokus visuelt flyttes rundt. Der bliver altså ændret på det brugeren ser på brugergrænsefladen. Fokus flyttes ved at lave et nyt view. Derudover bliver der vist hvordan data bliver flyttet rundt via metodekald. Modulerne er inddelt i primære funktioner og adgangskrævende funktioner.
+I den fulde løsning skal flere moduler implementeres hvis funktionaliteten af løsningen skal øges. De beskrevne moduler er tænkt som en grobund for efterfølgende moduler.
 
-I den fulde løsning, skal flere moduler implementeres, når funktionaliteten af løsningen skal øges. De beskrevne moduler er tænkt som en grobund for efterfølgende moduler.
-
-I følgende afsnit er alle de implementerede moduler beskrevet ved modulets funktionalitet, brugen af andre moduler og hvordan modulet overordnet er implementeret.
+I de følgende afsnit er alle de implementerede moduler beskrevet ved modulets funktionalitet, brugen af andre moduler og hvordan modulet overordnet er implementeret.
 
 \input{chapters/design/moduler/persistenslag.tex}
 \input{chapters/design/moduler/login.tex}
