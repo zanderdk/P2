@@ -1,19 +1,17 @@
 \section{Windows Presentation Foundation}
 
-Windows Presentation Foundation (WPF) er et framework til at udvikle brugergrænseflader til Windows .NET platformen. Kernen i WPF er en vektor-baseret layout-motor. Udover kernen har WPF extra funktioner der inkluderer databinding, templates, animation, media services og andet. I dette projekt benyttes WPF's databinding og template funktioner. Disse vil blive beskrevet i dette afsnit.
+Windows Presentation Foundation (WPF) er et framework til at udvikle brugergrænseflader til Windows .NET platformen. Kernen i WPF er en vektor-baseret layout-motor. Udover kernen har WPF yderligere funktioner, der inkluderer databinding, templates, animation, medie-services med mere. I dette projekt benyttes WPF's databinding og template funktioner. Disse vil blive beskrevet i dette afsnit.
 
-I WPF består en brugergrænseflade af nogle visuelle elementer som beskrives ved hjælp af opmærkningssproget XAML. Sammen med XAML filen, hører en \enquote{Code-behind} fil. I denne C\# klasse kan eventuel logik tilhørende XAML filen programmeres. På den måde adskilleles udseende og adfærd \cite{microsoft_wpf}.
+I WPF består en brugergrænseflade af nogle visuelle elementer, som beskrives ved hjælp af opmærkningssproget XAML. Sammen med XAML-filen, hører en \enquote{Code-behind} fil. I denne C\# klasse kan eventuel logik tilhørende XAML filen programmeres. På den måde adskille udseende og adfærd \cite{microsoft_wpf}.
 
 \subsection{Databinding}
 
-Databinding er en process der forbinder en brugergrænseflade med programlogik. Fordelen ved at bruge databinding er, at brugergrænseflade-koden kan sepereres fra programlogikken. På den måde opnås en lav kobling mellem komponenterne.
+Databinding er en process, der forbinder en brugergrænseflade med programlogik. Fordelen ved at bruge databinding er, at brugergrænsefladen kan kodes separeres fra programlogikken. På den måde opnås en lav kobling mellem komponenterne.
 
-Med databinding kan modeller, beskrevet som C\# klasser, direkte inkorporeres i brugergrænsefladen. Ved brug af events som INotifyPropertyChanged, der kaldes når en egenskab ændres, sørger WPF selv for at opdatere informationen der vises i brugergrænsefladen, så denne svarer til modellens status. Hvis der bruges en TwoWay-binding vil data i modellen blive opdateret efter hvad brugen indtasker i grænsefladen.
- 
-\frnote{find et andet ord istedet for view, eller forklar hvad der er}
+Med databinding kan modeller, beskrevet som C\# klasser, direkte inkorporeres i brugergrænsefladen. Ved brug af events som INotifyPropertyChanged, der kaldes når en egenskab ændres, sørger WPF selv for at opdatere informationen, der vises i brugergrænsefladen, så den svarer til modellen. Hvis der bruges en tovejs binding, vil data i modellen blive opdateret, efter hvad brugen indtaster i grænsefladen.
 
-For at databinde et view til en model i WPF, sættes DataContext egenskaben i sit view, til klassen der skal benyttes som model. I XAML filen tilhørende view elementet, kan modellens egenskaber og felter nu benyttes til at vise informationer.
+For at databinde brugergrænsefladen til en model, sættes \enquote{DataContext} egenskaben til at referere, til klassen der skal benyttes som model. I XAML-filen kan modellens egenskaber og felter, nu benyttes til, at vise eller modtage informationer.
 
 \subsection{Templates}
 
-For at begrænse duplikering af kode, kan ofte brugte WPF elementer flyttes ud i en ekstern fil. På den måde kan forskellige view elementer benytte samme funktionalitet eller visuelle element, uden at kopiere allerede skrevet kode. Et template konstrueres ved at nedarve fra WPF klassen \enquote{UserControl}. I den tilhørende XAML fil, skrives nu de ønskede visuelle elementer der skal kunne genbruges.
+For at begrænse duplikering af kode, kan ofte brugte WPF elementer flyttes ud i en ekstern fil. På den måde kan WPF elementer, benytte samme funktionaliteter eller visuelle elementer, uden at allerede skrevet kode skal gentages. En template konstrueres, ved nedarvning fra WPF klassen \enquote{UserControl}. I den tilhørende XAML fil, skrives nu de ønskede visuelle elementer der skal kunne genbruges.
