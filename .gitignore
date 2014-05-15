@@ -18,10 +18,13 @@
 *.log
 *.lox
 *.lot
+*.swp
 *.maf
 *.mtc
 *.mtc0
 *.nav
+*.vim
+*.latexmain
 *.nlo
 *.out
 *.pdfsync
