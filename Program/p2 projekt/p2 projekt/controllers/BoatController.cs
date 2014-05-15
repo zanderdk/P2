@@ -74,6 +74,7 @@ namespace p2_projekt.controllers
             Sender = bp;
             _operation = Operation.Add;
             Boat = new Boat();
+            Boat.User = s;
             Sailor = s;
             init();
         }

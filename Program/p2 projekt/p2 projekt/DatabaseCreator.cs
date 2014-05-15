@@ -100,6 +100,7 @@ namespace p2_projekt
             TestMember1.Adress.PostalCode = "8464";
             TestMember1.Permission = new Permission() { PersonalInfo = PermissionLevel.None, Map = PermissionLevel.Read, OtherUsers = PermissionLevel.None };
             Boat b1 = CreateBoat();
+            b1.User = TestMember1;
             b1.BoatSpace = CreateBoatSpace();
             TestMember1.Boats.Add(b1);
             uc.Add<User>(TestMember1);
@@ -116,6 +117,7 @@ namespace p2_projekt
             TestMember2.Adress.PostalCode = "8464";
             TestMember2.Permission = new Permission() { PersonalInfo = PermissionLevel.Write, Map = PermissionLevel.Read, OtherUsers = PermissionLevel.Read };
             Boat b2 = CreateBoat();
+            b2.User = TestMember2;
             b2.BoatSpace = CreateBoatSpace();
             TestMember2.Boats.Add(b2);
             uc.Add<User>(TestMember2);
@@ -132,6 +134,7 @@ namespace p2_projekt
             TestMember3.Adress.PostalCode = "8464";
             TestMember3.Permission = new Permission() { PersonalInfo = PermissionLevel.Write, Map = PermissionLevel.Write, OtherUsers = PermissionLevel.Write };
             b1 = CreateBoat();
+            b1.User = TestMember3;
             b1.BoatSpace = CreateBoatSpace();
             TestMember3.Boats.Add(b1);
             uc.Add<User>(TestMember3);
@@ -155,6 +158,7 @@ namespace p2_projekt
             JohanneHoffmann.Adress.PostalCode = "8464";
             JohanneHoffmann.Permission = new Permission() { PersonalInfo = PermissionLevel.Write, Map = PermissionLevel.Write, OtherUsers = PermissionLevel.Write };
             b1 = CreateBoat();
+            b1.User = JohanneHoffmann;
             b1.Name = "Den Usynkelige II";
             b1.BoatSpace = CreateBoatSpace();
             JohanneHoffmann.Boats.Add(b1);
@@ -172,6 +176,7 @@ namespace p2_projekt
             Johanne1.Adress.PostalCode = "8840";
             Johanne1.Permission = new Permission() { PersonalInfo = PermissionLevel.Write, Map = PermissionLevel.Read, OtherUsers = PermissionLevel.Read };
             b1 = CreateBoat();
+            b1.User = Johanne1;
             b1.BoatSpace = CreateBoatSpace();
             Johanne1.Boats.Add(b1);
             uc.Add<User>(Johanne1);
@@ -188,6 +193,7 @@ namespace p2_projekt
             Johanne2.Adress.PostalCode = "1200";
             Johanne2.Permission = new Permission() { PersonalInfo = PermissionLevel.Write, Map = PermissionLevel.Read, OtherUsers = PermissionLevel.Read };
             b1 = CreateBoat();
+            b1.User = Johanne2;
             b1.BoatSpace = CreateBoatSpace();
             Johanne2.Boats.Add(b1);
             uc.Add<User>(Johanne2);
@@ -205,10 +211,10 @@ namespace p2_projekt
                 {
                     Member m = CreateUser();
                     Boat b = CreateBoat();
+                    b.User = m;
                     b.BoatSpace = BoatSpaces[i];
                     m.Boats.Add(b);
                     uc.Add<User>(m);
-
                 }
 
             
