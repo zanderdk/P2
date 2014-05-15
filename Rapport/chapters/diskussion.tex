@@ -3,7 +3,7 @@
 
 Dette afsnit diskuterer nogle udvalgte dele af projektet, for at beskrive tilblivelsen, eller udeblivelsen, af disse dele, samt nogle af de tanker og overvejelser der har påvirket beslutningerne.
 
-\section{Brugssituationer for Løsningen} 
+\section{idriftsættelse af Løsningen} 
 
 Systemet er tiltænkt anvendelse på en havn, hvor programmet afvikles på en stander eller anden forudinstalleret hardware. Programmet indeholder funktionaliteter, som kun kan benyttes ved brug af speciel hardware. Eksempelvis er gæster begrænset til at logge ind ved brug af et chipkort. Andre funktioner bør, af sikkerhedsmæssige årsager, være bundet til udelukkende at blive anvendt på forudbestemt hardware eller gennem et administrator login, da systemet er sårbart overfor destruktivt misbrug af programmet. Her tænkes på muligheden for at oprette sig som gæst i systemet, en funktionalitet, der i nuværende tilstand, er tilgængelig uden adgangsgodkendelse eller andre begrænsninger.
 
@@ -13,7 +13,7 @@ Hvis en sådan fjernadgang skulle implementeres, vil det yderligere kræve en re
 
 \section{Adgangsbegrænsninger}
 
-En stor del af programmets funktionalitet, udgøres af muligheden for forskellige adgangsniveauer til forskellige brugere. Som beskrevet i \cref{tilladelser}, er dette implementeret med forskellige tilladelseskategorier. Disse kategorier kan have ét af tre niveauer: ingen-, læse- eller skrive-tilladelse. Med denne model, er det let at dynamisk ændre en bestemt brugers tilladelser. Som et alternativ til denne løsning, kunne der have eksisteret flere subklasser, med faste adgangsniveauer, således at adgangsniveauerne automatisk er sat, ved instantieringen af klassen. Dette havde simplificeret brugeroprettelsen, men det blev vurderet at fleksibiliteten ved oprettelser og vedligeholdelse var at foretrække.
+En stor del af programmets funktionalitet, udgøres af muligheden for forskellige adgangsniveauer til forskellige brugere. Som beskrevet i \cref{tilladelser}, er dette implementeret med forskellige tilladelseskategorier. Med denne model, kan man dynamisk ændre brugerenes tilladelser. Som et alternativ til denne løsning, kunne der have eksisteret flere subklasser, med faste adgangsniveauer, således at adgangsniveauerne automatisk sættes, ved instantieringen af klassen. Dette havde simplificeret brugeroprettelsen, men det blev vurderet at fleksibiliteten ved oprettelser og vedligeholdelse var at foretrække. 
 
 \section{MVC Under Systemdesignprocessen}
 
