@@ -28,7 +28,7 @@ namespace p2_projekt.controllers
             _internalList = new List<User>();
         }
 
-        public void AddToDict(string key, Func<User, bool> value)
+        private void AddToDict(string key, Func<User, bool> value)
         {
             _dict[key] = value;
         }

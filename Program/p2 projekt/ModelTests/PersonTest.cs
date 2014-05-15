@@ -22,6 +22,7 @@ namespace ModelTests
             endDate = new DateTime(2015, 1, 1);
         }
 
+
         [TestMethod]
         public void AddNewTravel_Travels_CountIncreasesBy1()
         {

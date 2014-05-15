@@ -21,23 +21,6 @@ namespace p2_projekt.WPF
             
             _controller.ListUpdated += ListToListBox;
 
-            //AddControllerDelegates(name);
-            //AddControllerDelegates(birthday);
-            //AddControllerDelegates(phone);
-            //AddControllerDelegates(email);
-            //AddControllerDelegates(adresse);
-            //AddControllerDelegates(postal);
-            //AddControllerDelegates(country);
-            //AddControllerDelegates(memberID);
-            //AddControllerDelegates(memberSince);
-            //AddControllerDelegates(isActive);
-            //AddControllerDelegates(boatOwner);
-            //AddControllerDelegates(boatName);
-            //AddControllerDelegates(boatID);
-            //AddControllerDelegates(boatSpace);
-            //AddControllerDelegates(boatLength);
-            //AddControllerDelegates(boatWidth);
-
 
             var searchFieldsUser = searchfieldsContainerUser.Children.OfType<InfolineControl>().ToList();
             var searchFieldsBoat = searchfieldsContainerBoat.Children.OfType<InfolineControl>().ToList();
