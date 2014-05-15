@@ -58,6 +58,7 @@ namespace p2_projekt.models
 
                 BoatSpace oldspace = _space;
                 _space = value;
+                OnPropertyChanged("BoatSpace");
 
                 // Opdater gammel
                 if (oldspace != null)
