@@ -1,0 +1,77 @@
+Referat fra vejledermødet torsdag den 15. maj 2014
+
+2x titelblad med synopsis
+
+afrund implementationsstagdiet inden vi starter test. (Vi har skrevet x antal linjer kode)
+
+lav en lille tegning af implementations status.??
+
+overvej at indskrive et kodeemksempel om et specielt stykke funktionalitet
+
+Test:
+få dokumenteret jeres program test. (skriv en liste af test)
+hvor mange testcases er der lavet?
+hvor mange assertions er der lavet?
+konkret information
+
+TDD: "for at sikre at programmet er let at teste .. " brian mener ikke at dette er formålet.
+overvej hvad man for ud af at anvende TDD. "Det sikres at metoden er overskueligt konstrueret" er også en indirekte effekt.
+
+skriv noget mere omkring de problemer der er opstået ved TDD.
+
+opstilling af system testcases er bedre. Det ligner mere testcases.
+Man kunne overveje at indledningsvis skrive hvad der er af testdata, inden senarie. (?)
+
+lav en sætninge: "Forventning: x fortog p og vandt"
+
+"kunne uden problemer logge ind" - overflødigt
+use case - ikke user case.
+skrivetilladelse - hvor er relevansen når kan læser?
+overvej: test hvor man IKKE får lov.
+
+
+
+diskussion:
+umiddelbart udemærket.
+
+nogle steder mangler der lidt konkrek. gå en smule mere i dybden.
+    brugssituationer - i driftsættelse
+      programmet skal afvikles på stander (er det ikke bare endnu en front end). touchskærm? billede af den? tænk tanken til ende.
+
+    adgangsbegrænsninger
+      mere konkret på selvkritik
+
+    MVC
+      Det er fair nok.
+      Muligvis til fremlæggelsen - kom med konkret eksempel på hvordan MVC kunne have fungeret.
+
+    TDD:
+      "For at opnå den fulde effekt" - fair nok at man stopper. Måske kunne man have fulgt TDD for én enkelt klasse.
+      Måske er der lidt mere at fortælle om dette.
+      Vær mere konkrete i begrundelsen for at stoppe denne udviklingsform.
+
+
+
+konklusion:
+
+Der mangler nogle del-konklusioner.
+  konkrete konklusioner, kapitel for kapitel
+  afslut med overordenet
+
+PAS PÅ: ikke resumé. Husk at konkludere: VI KONKLUDERE
+
+problemanalysen havde til formål .... meget upræcist. fokus på konteksten
+
+"der blev fundet visse risici" - uhåndgribeligt
+
+
+
+
+
+perspektivering:
+
+Kan en slutbruger anvende systemet? Vil det være brugbart i havnen?
+slutbrugertesting.
+
+overvej hvorvidt man faktisk kan bruge det i den valgte havn. Krav/forventninger i andre havne?
+derefter kan idrætsforeninger måske indrages.
