@@ -14,8 +14,8 @@ namespace ModelTests
     {
         SearchController controller;
         DALController dalcontroller;
-        Member søren;
-        Member claus;
+        Member alice;
+        Member bob;
 
         [TestInitialize]
         public void Setup()
@@ -23,31 +23,31 @@ namespace ModelTests
             controller = new SearchController();
             dalcontroller = Utilities.LobopDB;
 
-            søren = new Member("søren", new CivicAddress());
-            søren.Birthday = new DateTime(2013, 1, 1);
-            søren.RegistrationDate = new DateTime(2013, 1, 1);
-            søren.Phone = "1234";
+            alice = new Member("alice", new CivicAddress());
+            alice.Birthday = new DateTime(2013, 1, 1);
+            alice.RegistrationDate = new DateTime(2013, 1, 1);
+            alice.Phone = "1234";
 
             Boat b1 = new Boat("asd", 20, 20);
-            søren.Boats.Add(b1);
+            alice.Boats.Add(b1);
 
-            dalcontroller.Add<User>(søren);
+            dalcontroller.Add<User>(alice);
 
-            claus = new Member("claus", new CivicAddress());
-            claus.Birthday = new DateTime(2015, 1, 1);
-            claus.RegistrationDate = new DateTime(2015, 1, 1);
-            claus.Phone = "4321";
+            bob = new Member("bob", new CivicAddress());
+            bob.Birthday = new DateTime(2015, 1, 1);
+            bob.RegistrationDate = new DateTime(2015, 1, 1);
+            bob.Phone = "4321";
             Boat b2 = new Boat("asd123asd", 20, 20);
-            claus.Boats.Add(b2);
+            bob.Boats.Add(b2);
 
-            dalcontroller.Add<User>(claus);
+            dalcontroller.Add<User>(bob);
         }
 
         [TestCleanup]
         public void Teardown()
         {
-            dalcontroller.Remove<User>(claus);
-            dalcontroller.Remove<User>(søren);
+            dalcontroller.Remove<User>(bob);
+            dalcontroller.Remove<User>(alice);
         }
 
         [TestMethod]
@@ -73,10 +73,10 @@ namespace ModelTests
         {
             Action<IEnumerable<User>> action = delegate(IEnumerable<User> y)
             {
-                Assert.IsTrue(y.Count() == 1 && y.Contains<User>(søren));
+                Assert.IsTrue(y.Count() == 1 && y.Contains<User>(alice));
             };
 
-            simulateSearch(action, "boatID", søren.Boats[0].BoatId.ToString());
+            simulateSearch(action, "boatID", alice.Boats[0].BoatId.ToString());
         }
 
         [TestMethod]
@@ -84,7 +84,7 @@ namespace ModelTests
         {
             Action<IEnumerable<User>> action = delegate(IEnumerable<User> y)
             {
-                Assert.IsTrue(y.Count() == 1 && y.Contains<User>(søren));
+                Assert.IsTrue(y.Count() == 1 && y.Contains<User>(alice));
             };
 
             simulateSearch(action, "birthday", "1/1/2013");
@@ -117,10 +117,10 @@ namespace ModelTests
         {
             Action<IEnumerable<User>> action = delegate(IEnumerable<User> y)
             {
-                Assert.IsTrue(y.Count() == 1 && y.Contains<User>(søren));
+                Assert.IsTrue(y.Count() == 1 && y.Contains<User>(alice));
             };
 
-            simulateSearch(action, "name", "sør");
+            simulateSearch(action, "name", "ali");
         }
 
         private void simulateSearch(Action<IEnumerable<User>> listUpdated, string searchField, string searchText){
@@ -138,12 +138,13 @@ namespace ModelTests
             controller.ListUpdated -= listUpdated;
         }
 
+
         [TestMethod]
         public void SearchMultipleParams_FoundUser()
         {
             Action<IEnumerable<User>> action = delegate(IEnumerable<User> y)
             {
-                Assert.IsTrue(y.Count() == 1 && y.Contains<User>(søren));
+                Assert.IsTrue(y.Count() == 1 && y.Contains<User>(alice));
             };
 
             string searchField1 = "phone";
@@ -155,7 +156,7 @@ namespace ModelTests
             controller.textbox_SearchChanged(searchField1, searchText1);
             controller.TextBox_LostFocus(searchField1, searchText1);
 
-            simulateSearch(action, "name", "sør");
+            simulateSearch(action, "name", "ali");
         }
 
         [TestMethod]
@@ -175,7 +176,7 @@ namespace ModelTests
             controller.textbox_SearchChanged(searchField1, searchText1);
             controller.TextBox_LostFocus(searchField1, searchText1);
 
-            simulateSearch(action, "name", "sør");
+            simulateSearch(action, "name", "ali");
         }
 
         
