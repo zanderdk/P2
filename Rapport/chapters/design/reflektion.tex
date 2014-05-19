@@ -19,7 +19,7 @@ public void Remove<T>(T item, string table)
 
 Problemet er, at metoden \enquote{Remove} skal have \enquote{hard-codet} alle de forskellige navne på alle eksisterende tabeller ind i denne metode. Hvis navnet på en tabel så ændrer sig, vil metoden ikke længere virke.
 
-For at løse ovenstående problemer kommer refleksion ind i billedet. Metoden VerifyTable som ses i \Cref{lst:refleksion_verifytable} er et kodeeksempel fra programmet. VerifyTable bruger refleksion til at gennemsøge en klasse, her LobobContext, for at finde en egenskab af typen DbSet<T>. DbSet<T> er en databasetabel, der gemmer oplysninger af en arbitrær type \enquote{T}. Hvis den ønskede tabel bliver fundet, returneres denne. Hvis ingen tabel bliver fundet, returneres null.
+For at løse ovenstående problemer kommer refleksion ind i billedet. Metoden VerifyTable som ses i \cref{lst:refleksion_verifytable} er et kodeeksempel fra programmet. VerifyTable bruger refleksion til at gennemsøge en klasse, her LobobContext, for at finde en egenskab af typen DbSet<T>. DbSet<T> er en databasetabel, der gemmer oplysninger af en arbitrær type \enquote{T}. Hvis den ønskede tabel bliver fundet, returneres denne. Hvis ingen tabel bliver fundet, returneres null.
 
 Først finder metoden alle egenskaber der er defineret på typen \enquote{LobobContext}. DBsetType er den egenskab der ønskes fundet. Metoden itererer nu alle egenskaber igennem, indtil en egenskab der matcher DBsetType er fundet. Hvis der er et match i foreach løkken, findes egenskab navnet, og lægges over i dbSetTarget. Det er nu muligt at dynamisk oprette en DbSet<T> ud fra typen \enquote{LobobContext}. Denne DbSet<T> returneres, og kan nu bruges i en \enquote{Remove} metode.
 
@@ -61,6 +61,6 @@ private DbSet<T> VerifyTable<T>(LobopContext context) where T : class
 
 Den færdige Remove metode, der nu virker på tværs af alle databasetabeller. Den er blevet generisk ved hjælp af refleksion. En forsimplet implementation der benytter VerifyTable af Remove metoden ses i \cref{lst:refleksion_remove3}. Hvis en Titanic båden skal fjernes fra \enquote{Boats} tabellen, kaldes koden set i \cref{lst:refleksion_remove4}. Der er nu ingen behov for at specificere i hvilken tabel Titanic skal fjernes fra, da Remove selv kan regne dette ud, ud fra den generiske typeparameter <Boat>.
 
-\begin{lstlisting}[label=lst:refleksion_remove4]
+\begin{lstlisting}[label=lst:refleksion_remove4, caption={Eksempel på brugen af Remove metoden, der fjerner en båd.}]
 Remove<Boat>(titanic);
 \end{lstlisting}
