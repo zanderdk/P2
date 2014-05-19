@@ -64,7 +64,7 @@ namespace p2_projekt.WPF
             if(Permission.CanRead(FunctionContainer.LoggedIn.Permission.OtherUsers))                
                 FunctionController.SelectUser(BoatSpace.Boat.User as User);
 
-            if (FunctionContainer.LoggedIn is ISailor)
+            else if (FunctionContainer.LoggedIn is ISailor)
             {
                 bool flag = false;
 
