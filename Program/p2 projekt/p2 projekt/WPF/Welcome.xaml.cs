@@ -11,13 +11,6 @@ namespace p2_projekt.WPF
     {
         public Welcome(User u)
         {
-            InitializeComponent();
-            if (u is Member)
-            {
-                Panel.Children.Add(new Button { Content = "Member action" });
-                Panel.Children.Add(new Button { Content = "Member action" });
-                Panel.Children.Add(new Button { Content = "Member action" });
-            }
             
         }
     }
