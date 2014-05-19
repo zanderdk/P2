@@ -29,9 +29,12 @@ Alle tests til systemet kan findes på CD'en der afleveres som bilag.
   \label{fig:test_explorer}
 \end{figure}
 
+\section{WEEE}
+\frnote{find en godt overskrift}
+
 I alt er der implementeret 25 unit tests til programmet, som alle ligger i projektet \enquote{UnitTests}. De tester forskellige klasser af programmet. Alle testene kører succesfuldt. De første tests blev implementeret som en del af TDD forløbet, men det blev hurtigt avanceret, at teste klasser med eksterne moduler, som for eksempel persistenslaget. 
 
-Efter udviklingen af SearchController klassen, blev der skrevet 9 grundige tests af denne klasse. Disse tests dækker alle funktionaliteter af SearchController klassen. Blandt andet testes om der kan søges i databasen på navnet for en bruger. Testen for dette se i \cref{lst:test_searchcontroller}. Testen benytter metoden \enquote{simulateSearch} til at simulere brugerindtastning af \enquote{ali} i søgefeltet \enquote{navn}. Testen er en succes, hvis der returneres en liste, der kun indeholder personen \enquote{alice}. \enquote{alice} er i dette tilfælde den eneste person i databasen hvis navn indeholder \enquote{ali}.
+Efter udviklingen af SearchController klassen, blev der skrevet 9 grundige tests af denne klasse. Disse tests dækker alle funktionaliteter af SearchController klassen. Blandt andet testes om der kan søges i databasen på navnet for en bruger. Testen for dette ses i \cref{lst:test_searchcontroller}. Testen benytter metoden \enquote{simulateSearch} til at simulere brugerindtastning af \enquote{ali} i søgefeltet \enquote{navn}. Testen er en succes, hvis der returneres en liste, der kun indeholder personen \enquote{alice}. \enquote{alice} er i dette tilfælde den eneste person i databasen hvis navn indeholder \enquote{ali}.
 
 \begin{lstlisting}[label=lst:test_searchcontroller, caption={Eksempel på testfunktion}]
 [TestMethod]
