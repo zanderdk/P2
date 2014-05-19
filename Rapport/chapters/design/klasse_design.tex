@@ -1,6 +1,6 @@
 \section{Klasse Design}
 \label{sec:klasse_design}
-Som beskrevet i \cref{sec:klasse_teori} er det vigtig at få lave klassehierarkiet så det modelere de ting fra virkeligheder som programmet håndtere. Denne sektion vil dokumenter de grundlæggende modeller, som programmet er bygget op efter. 
+Som beskrevet i \cref{sec:klasse_teori} er det vigtig at få lave klassehierarkiet så det modellere de ting fra virkeligheder som programmet håndtere. Denne sektion vil dokumenter de grundlæggende modeller, som programmet er bygget op efter. 
 
 For at give et overblik over klassehierarkiet er der lavet et UML-klassediagram som ses på \cref{fig:UML}. På diagrammet kan man se de vigtigste klasser der er brugt i løsningen. Af diagrammet fremgår også klassernes relationer.
 
@@ -15,8 +15,6 @@ De følgende under sektion beskriver programmets primære klasser og hvilken dat
   }
  	\caption{UML-klassediagram over klasser der bruges til at modellere løsningen.} \label{fig:UML}  
  \end{figure}
-
-\alnote{skriv om de to ensomme interfaces}
 
 \subsection{Modellering af Brugere}
 \label{sub:brugere_af_programmet}
@@ -49,4 +47,6 @@ I klassehierarkiet benyttes to typer associationer binær associationer og en-ti
 
 En ISailor indeholder en liste til boats og en liste til Travels, mens Travels og både kun inderholder en reference til en ISailor. Dette udgør en én-til-mange association fra ISailor til boats. Denne association sikre at tilføjes et objekt til en liste inderholdt i en ISailor, tildeles objektet automatisk en reference til samme ISailor. Hvis en båd får tildelt en ISailor som sin ejer, tilføjes båden også til listen af ejerens Både. 
 
+\subsection{Forbindelser til eksterne moduler}
 
+For at kunne anvende eksterne moduler, såsom chiplæseren og bådsensoren, er der konstrueret interfaces, der skal implementeres af de eksterne moduler. Dette sikrer at de eksterne moduler overholder, de standarder der sættes af programmet. Samtidigt forsimpler det også implementering af disse eksterne moduler, da interfaces samler de nødvendige overvejelser.
