@@ -21,11 +21,9 @@ De følgende under sektion beskriver programmets primære klasser og hvilken dat
 \subsection{Modellering af Brugere}
 \label{sub:brugere_af_programmet}
 
-I klassehierarkiets top ligger den abstrakte klasse \enquote{User}. En \enquote{User} er en generel bruger af systemet. Denne klasse definerer alle fællestræk de nedvarende klasser skal have. Dette inkluderer brugerrettigheder og basale informationer som telefonnummer, navn og adresse. Der findes tre forskellige interfaces, der indeholder forskellige informationer om brugere: \enquote{IFullPersonalInfo}, \enquote{ISailor}, \enquote{ILoginable}.
+I klassehierarkiets top ligger den abstrakte klasse \enquote{User}. En \enquote{User} er en generel bruger af systemet. Denne klasse definerer alle fællestræk de nedarvende klasser skal have. Dette inkluderer brugerrettigheder og basale informationer som telefonnummer, navn og adresse. Der findes tre forskellige interfaces, der indeholder forskellige informationer om brugere: \enquote{IFullPersonalInfo}, \enquote{ISailor}, \enquote{ILoginable}.
 
-Subklasserne til \enquote{User} opdeler brugere som enten medlemmer af klubben, gæster eller havnefoged. Til disse tre brugertyper bruges klasserne \enquote{HarbourMaster}, \enquote{Guest} og \enquote{Member}. Denne opdeling er lavet fordi der indgår forskellige felter på tværs af disse subklasser. 
-
-\sinote{Definer mere præcist opdelingen}
+Subklasserne til \enquote{User} opdeler brugere som enten medlemmer af klubben, gæster eller havnefoged. Til disse tre brugertyper bruges klasserne \enquote{HarbourMaster}, \enquote{Guest} og \enquote{Member}. Denne opdeling er lavet fordi der indgår forskellige felter på tværs af disse subklasser, og de tre brugertyper er helt forskellige kategorier i programmet. 
 
 For at differentiere subklasserne, implementeres forskellige kombinationer af interfaces. Eksempelvis må en havnefoged ikke have en båd, og derfor implementerer klassen \enquote{HarbourMaster} ikke \enquote{ISailer} interfacet. Til gengæld deler \enquote{HarbourMaster}, \enquote{IFullPersonalInfo} og \enquote{ILoginable} med \enquote{Member} klassen, da de begge har behov for at gemme mere personinformation, samt at kunne logge ind med brugernavn/medlemsnummer.
  
