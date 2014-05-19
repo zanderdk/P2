@@ -1,14 +1,17 @@
 \section{Systemtest}
-En systemtest af et stykke software er en test der udføres på et komplet system. Systemtest er med til at evaluere om systemet overholder sine specificerede krav. For at teste om løsningen lever op til de krav der tidligere er stillet, vil der i dette afsnit vil der blive demonstreret, hvordan udvalgte usecases kan udføres i programmet. De udvalgte usecases, er valgt på baggrund af deres evne til, at fremvise funktionaliteten i programmet. Demonstrationen er opstillet således, at der startes med en defination af inputtet, en potentiel antagelse, og en hypotese omkring hvilket output der fremkommer. Dernæst en gennemgang af gøremåden, og ud fra outputtet bedømmes resultatet som enten som en \enquote{succes} eller \enquote{fejl}. Dette er en test af hvorvidt programmet kan udføre de forudstillede usecases, og dertil leve op til de krav vi har stillet det.
+En systemtest af et stykke software er en test der udføres på et komplet system. Systemtest er med til at evaluere om systemet overholder sine specificerede krav. For at teste om løsningen lever op til de krav, der tidligere er stillet, vil der i dette afsnit vil der blive demonstreret, hvordan udvalgte usecases kan udføres i programmet. De udvalgte usecases, er valgt på baggrund af deres evne til, at fremvise funktionaliteten i programmet. Demonstrationen er opstillet således, at der startes med en definition af inputtet, en potentiel antagelse, og en hypotese omkring hvilket output der fremkommer. Dernæst en gennemgang af gøremåden, og ud fra outputtet bedømmes resultatet som enten som en \enquote{succes} eller \enquote{fejl}. Dette er en test af hvorvidt programmet kan udføre de forudstillede usecases, og dertil leve op til de krav vi har stillet det.
 
-\textbf{Databasen}
-I databasen er der generet nogle specifikke medlemmer ud over de tilfældige der bliver lavet ved programmets kørsel.
+\subsection{Test Databasen}
+For at gøre programmet lettere at teste er der lavet en test database. I denne database bliver der automatisk genereret 4 specifikke medlemmer og nogle tilfældige medlemmer. Ved at have en database med nogle faste medlemmer der ikke ændre sig, sikres at det hele tiden er mulig at udføre systemtestene og få det samme resultat. 
 
-Der er generet en havnefogeden med \enquote{medlemsnummer: 4} og \enquote{passwordet: havnefogedeVB1234}. Havnefogeden har skrive-tilladelse, som vil give ham fuld adgang til at tilføje/ændre/slette i databasen. 
+Der er generet en havnefogeden med medlemsnummer: \enquote{4} og passwordet: \enquote{havnefogedeVB1234}. Havnefogeden har skrivetilladelse, som vil give ham fuld adgang til at tilføje/ændre/slette i databasen. 
 
-Der er generet et medlem ved navn \enquote{Johanne Hoffmann}, båden \enquote{Den Usynkelige II}, medlemsnummer \enquote{5},  passwordet \enquote{Johanne4395} og telefonnummeret \enquote{22 95 41 87}. Derudover der genreret 2 andre medlemmer der hedder Johanne i databasen, Johanne Friis og Johanne Snoep. 
+Der er genereret et medlem ved navn \enquote{Johanne Hoffmann}, båden \enquote{Den Usynkelige II}, medlemsnummer \enquote{5},  passwordet \enquote{Johanne4395} og telefonnummeret \enquote{22 95 41 87}. Derudover der genereret 2 andre medlemmer der hedder Johanne i databasen, Johanne Friis og Johanne Snoep.
 
-\textbf{usecase 1: Et medlem ønsker at forlade sin plads i mere end 24 timer.}
+\subsection{Udførelse af System Test}
+
+\textbf{Usecase 1: Et medlem ønsker at forlade sin plads i mere end 24 timer.}
+
 Johanne Hoffman vil gerne rejse væk den 8/10-2014 og komme hjem den 18/10-2014.
 \begin{enumerate}
 	\item Johanne klikker på \enquote{Medlemslogin} og \enquote{Loginscreen} kommer dernæst frem og afventer input.
@@ -21,10 +24,12 @@ Johanne Hoffman vil gerne rejse væk den 8/10-2014 og komme hjem den 18/10-2014.
 \end{enumerate}
 
 \textbf{Forventning:} Johanne kan logge ind med sine login oplysninger, og hun kan melde sin rejse til systemet.
+
 \textbf{Resultat:} Succes
 
 
-\textbf{usecase 15: Havnefogeden vil gerne se hvornår et medlem vender tilbage til medlemmets plads.}
+\textbf{Usecase 15: Havnefogeden vil gerne se hvornår et medlem vender tilbage til medlemmets plads.}
+
 Det antages at Havnefogeden kun har \enquote{navnet: Johanne} og \enquote{telefonnummeret: 22 95 41 87}
 \begin{enumerate}
 	\item Havnefogeden klikker på \enquote{Medlemslogin} og \enquote{Loginscreen} frem vises.
@@ -38,10 +43,12 @@ Det antages at Havnefogeden kun har \enquote{navnet: Johanne} og \enquote{telefo
 \end{enumerate} 
 
 \textbf{Forventing:} havnefogeden kan logge ind. Havnefogeden kan finde den rigtige Johanne ud fra de to stykker af information han havde omkring Johanne Hoffmann.
+
 \textbf{Resultat:} Succes
 
 
 \textbf{Kasser eller havnefogede vil tilføje ny båd til et medlem}
+
 Det antages at Havnefogeden vil tilføje en ny båd til medlemmet Johanne Hoffmann. Det antages også at havnefogeden har samme oplysninger, som i foregående scenarie. Båden er 12m lang og 6.5m bred, den har \enquote{registreringsnummeret: 4785963}, den hedder \enquote{Eurika} og den har ingen plads.
 \begin{enumerate}
 	\item Havnefogeden klikker på \enquote{Medlemslogin} og \enquote{Loginscreen} fremvises.
@@ -58,6 +65,7 @@ Det antages at Havnefogeden vil tilføje en ny båd til medlemmet Johanne Hoffma
 \end{enumerate}
 
 \textbf{Forventning:} havnefogeden kan logge ind og finde Johanne Hoffmann i søgefunktionen. Han kan også tilføje båden Eurika og dens  tilsvarende information.
+
 \textbf{Resultat:} Succes.
 
 % Dette er en test for det nuværende programs funktionalitet i forhold til de usescases, der er blevet opstillet for programmet.
