@@ -5,7 +5,7 @@ I dette projekt benyttes Entity Framework, herefter \enquote{Entity}, som er Mic
 
 \subsection{Code First}
 \label{sub:code_first}
-Entity bruger en model for hvert objekt den skal gemme. Brugere af Entity skal definere modellen. Der er flere måder at gøre dette på, men i dette projekt bruges \enquote{Code First}. Med \enquote{Code First} skal programøren først skrive sin model som en C\# klasse. Derefter kan Entity bruges til at gemme disse klasser i en database. Entity kan ud fra felterne i den modellerede klasse selv oprette de nødvendige kolonner i databasen. Entity er altså en abstraktion for tilgangen til en underliggende database. Dermed kan brugeren af Entity nøjes med at bekymrer sig om programmeringen af modellen som skal gemmes.
+Entity bruger en model for hvert objekt den skal gemme. Brugere af Entity skal definere modellen. Der er flere måder at gøre dette på, men i dette projekt bruges \enquote{Code First}. Med \enquote{Code First} skal programøren først skrive sin model som en C\# klasse. Derefter kan Entity bruges til at gemme disse klasser i en database. Entity kan ud fra felterne i den modellerede klasse, selv oprette de nødvendige kolonner i databasen. Entity er altså en abstraktion for tilgangen til en underliggende database. Dermed kan brugeren af Entity nøjes med at bekymrer sig om programmeringen af modellen, som skal gemmes.
 
 \subsection{Annoteringer}
 \label{sub:annoteringer}
@@ -14,7 +14,7 @@ Selvom Entity kan gøre mange ting automatisk, skal brugeren angive forskellige 
 \subsection{Migreringer}
 \label{sub:migreringer}
 
-Migreringer skal benyttes når programmøren gerne vil flytte data fra én database til en anden. En sådan situation kan opstå hvis en eksisterende database mangler en bestemt kolonne, for eksempel antal æbler. Denne database har været i brug, og indeholder derfor vigtig information, som ikke må gå tabt. Opgaven er nu at flytte den vigtige information fra den eksisterende database til en ny database der har den ønskede antal æbler kolonne.
+Migreringer skal benyttes, når programmøren gerne vil flytte data fra én database til en anden. En sådan situation kan opstå hvis en eksisterende database mangler en bestemt kolonne, for eksempel antal æbler. Denne database har været i brug, og indeholder derfor vigtig information, som ikke må gå tabt. Opgaven er nu at flytte den vigtige information fra den eksisterende database til en ny database der har den ønskede antal æbler kolonne.
 
 Dette foregår i Entity ved hjælp af Package Manager Console i Visual Studio. Først skal programmøren fortælle Entity at den skal slå migrationer til. Dette gøres ved at skrive \enquote{Enable-Migrations} i Package Manager Console.
 
