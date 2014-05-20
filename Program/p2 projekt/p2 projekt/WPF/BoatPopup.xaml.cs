@@ -9,16 +9,20 @@ namespace p2_projekt.WPF
 {
     public partial class BoatPopup : Window
     {
+        private BoatController _controller;
+
         public BoatPopup(ISailor s)
         {
             Init();
-            DataContext = new BoatController(s, this);
+            _controller = new BoatController(s, this);
+            DataContext = _controller;
         }
 
         public BoatPopup(Boat b)
         {
             Init();
-            DataContext = new BoatController(b, this);
+            _controller = new BoatController(b, this);
+            DataContext = _controller;
         }
 
         private void Init()
@@ -28,6 +32,7 @@ namespace p2_projekt.WPF
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
+            _controller.Reset();
             this.Close();
         }
     }
