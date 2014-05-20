@@ -1,4 +1,5 @@
-﻿using System.Device.Location;
+﻿
+using System.Device.Location;
 
 namespace p2_projekt.models
 {

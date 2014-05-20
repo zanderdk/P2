@@ -1534,71 +1534,6 @@
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
           </association>
-          <association
-            Id="ad843a76-fdbd-4f3f-ba22-d8eb043ae600"
-            isDerived="false"
-            sourceEndRoleName="Boat"
-            targetEndRoleName="User"
-            isLeaf="false"
-            isAbstract="false">
-            <interfaceMoniker
-              Id="8f09742f-dd86-4af5-9ff0-4a2f91a5bd8d"
-              LastKnownName="ISailor"
-              LastKnownLocation="Package_1505.uml" />
-            <description>Property User references type ISailor.</description>
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="c225a0ba-2a13-4031-b9dc-867988ece5cc"
-                  name="Boat"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false">
-                  <lowerValueInternal>
-                    <literalString
-                      Id="1cb66fc7-6cc1-4466-9b2f-bc1514e7095a"
-                      name="Lower"
-                      value="*" />
-                  </lowerValueInternal>
-                  <upperValueInternal>
-                    <literalString
-                      Id="68db6387-6515-48ee-af9b-4a369b931180"
-                      name="Upper"
-                      value="*" />
-                  </upperValueInternal>
-                </memberEnd>
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="f276fc3f-ed46-416f-950d-91701efb370f"
-                  name="User"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false">
-                  <lowerValueInternal>
-                    <literalString
-                      Id="c2fe658e-ca44-44ae-8c05-9a4befc67c8a"
-                      name="Lower"
-                      value="1" />
-                  </lowerValueInternal>
-                  <upperValueInternal>
-                    <literalString
-                      Id="f13cd7d9-1e92-4891-8dc4-42418354431d"
-                      name="Upper"
-                      value="1" />
-                  </upperValueInternal>
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
         </targetEnds>
         <ownedAttributesInternal>
           <property
@@ -6557,6 +6492,45 @@
                       value="1" />
                   </upperValueInternal>
                 </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="3dfee123-c672-4c4e-a37b-82e8113f4b3a"
+            isDerived="false"
+            sourceEndRoleName="User"
+            targetEndRoleName="Boat"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="d50a3c8e-e93b-4076-8d0e-19ae48152527"
+              LastKnownName="Boat"
+              LastKnownLocation="Package_1505.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="84df9cbe-05b1-4df0-93b9-b8b68d661314"
+                  name="User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="33d4d74e-b9e4-41f2-bb45-350fcaf3acbb"
+                  name="Boat"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
           </association>

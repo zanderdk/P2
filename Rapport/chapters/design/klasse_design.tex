@@ -25,8 +25,6 @@ Subklasserne til \enquote{User} opdeler brugere som enten medlemmer af bådklubb
 
 For at differentiere subklasserne, implementeres forskellige kombinationer af interfaces. Eksempelvis må en havnefoged ikke have en båd, og derfor implementerer klassen \enquote{HarbourMaster} ikke \enquote{ISailer} interfacet. Til gengæld deler \enquote{HarbourMaster}, \enquote{IFullPersonalInfo} og \enquote{ILoginable} med \enquote{Member} klassen, da de begge har behov for at indeholde mere personinformation, samt at kunne logge ind med brugernavn/medlemsnummer.
 
-\sinote{Måske skal ISailor ikke benyttes.. Kan erstattes af den abstrakte klasse Sailor}
- 
 \subsection{Modellering af Rejser}
 \label{sub:rejser}
 

@@ -21,14 +21,18 @@ namespace p2_projekt.WPF
     /// </summary>
     public partial class BoatSpacePopup : Window
     {
+        private BoatSpaceController _controller;
+
         public BoatSpacePopup(BoatSpace bs)
         {
             InitializeComponent();
-            DataContext = new BoatSpaceController(bs, this);
+            _controller = new BoatSpaceController(bs, this);
+            DataContext = _controller;
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
+
             this.Close();
         }
     }

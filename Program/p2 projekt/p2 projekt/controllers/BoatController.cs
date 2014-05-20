@@ -16,12 +16,10 @@ namespace p2_projekt.controllers
     {
         public BoatPopup Sender { get; set; }
 
+        private Boat temp;
+
         public readonly Operation _operation;
-
         private Boat _boat;
-
-        Boat temp;
-
         public Boat Boat {
             get { return _boat; }
             set {
@@ -62,6 +60,8 @@ namespace p2_projekt.controllers
             {
                 SelectedBoatSpace = BoatSpaces.Find(x => x.Info == "Ingen Plads");
             }
+
+            
         }
 
         public BoatController(Boat b, BoatPopup bp)
@@ -71,6 +71,25 @@ namespace p2_projekt.controllers
             Boat = b;
             Sailor = b.User as ISailor;
             init();
+
+            temp = new Boat()
+            {
+                BoatId = Boat.BoatId,
+                BoatSpace = new WaterSpace() { 
+                    Boat = temp,
+                    BoatSpaceId = Boat.BoatSpace.BoatSpaceId,
+                    BoatSpaceStatus = Boat.BoatSpace.BoatSpaceStatus,
+                    Info = Boat.BoatSpace.Info,
+                    Length = Boat.BoatSpace.Length,
+                    Width = Boat.BoatSpace.Width
+                },
+                Length = Boat.Length,
+                Name = Boat.Name,
+                RegistrationNumber = Boat.RegistrationNumber,
+                User = Boat.User,
+                UserId = Boat.UserId,
+                Width = Boat.Width
+            };
         }
 
         public BoatController(ISailor s, BoatPopup bp)
@@ -83,11 +102,16 @@ namespace p2_projekt.controllers
             init();
         }
 
-        public void reset()
+        public void Reset()
         {
-            _boat = new Boat();
+            Boat.BoatId = temp.BoatId;
+            Boat.Length = temp.Length;
+            Boat.Name = temp.Name;
+            Boat.RegistrationNumber = temp.RegistrationNumber;
+            Boat.User = temp.User;
+            Boat.UserId = temp.UserId;
+            Boat.Width = temp.Width;
         }
-        
 
         public static void Delete(Boat b)
         {
