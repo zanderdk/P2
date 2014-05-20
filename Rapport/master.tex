@@ -1,21 +1,25 @@
 \input{preamble/preamble.tex}	
 \begin{document}
   % input chapters her
-  \include{chapters/forside}  
+  \includepdf[pages={1},angle=270]{ForsideFinalFlash.pdf}
+  \clearpage\thispagestyle{empty}\mbox{}\clearpage
+  \listoffixmes
   \include{chapters/titlepage/titlepage}
+  \clearpage\thispagestyle{empty}\mbox{}\clearpage
   \include{chapters/titlepage/titlepageEng}
-  \include{chapters/forord}
+  \clearpage\thispagestyle{empty}\mbox{}\clearpage
+
   \tableofcontents
+  \include{chapters/forord}
   \include{chapters/indledning}
   \include{chapters/problemanalyse}
   \include{chapters/problemformulering}
   \include{chapters/teori}
-  \include{chapters/design}  
+  \include{chapters/design}
   \include{chapters/test}
   \include{chapters/diskussion}
   \include{chapters/konklusion}
   \include{chapters/perspektivering}
-
   \printbibliography
   \appendix \label{appendix_start}
   \include{chapters/appendix}
