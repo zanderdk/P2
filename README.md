@@ -2,6 +2,7 @@ På denne CD findes:
 
 * Rapport_a405A.pdf Rapporten på elektronisk form
 * Program/ Kildekoden til programmet
+* Program Installer/ Eksekverbar programfil
 * Interviews/ Transskribering af interviews
 
 Programmet
@@ -22,6 +23,11 @@ Kompilering
 * Projektets kildekode ligger i "Program" mappen
 * Projekt filen "Program/p2 projekt/p2 projekt/p2 projekt.csproj" åbnes i Visual Studio. Dette er kun testet i Visual Studio 2013.
 * Visual Studio kan nu bygge løsningen "p2 projekt"
+
+Installation
+------------
+
+* I "Program Installer" mappen køres "setup" filen.
 
 Kørsel
 ------
