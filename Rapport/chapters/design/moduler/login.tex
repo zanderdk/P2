@@ -6,7 +6,7 @@ Det første modul der interageres med, er loginmodulet, som har til formål at v
 \subsubsection{Funktionalitet}
 \label{ssub:login_funktionalitet}
 
-Loginmodulet har det primære ansvar for at angive adgangsniveauer, og sikre databeskyttelse. Fra loginmodulet kan man vælge at oprette sig som ny gæst, eller logge ind i systemet. Hvis brugeren vælger at oprette sig som ny gæst, så vil brugeren blive sendt til et separat modul.
+Loginmodulet har det primære ansvar for at angive adgangsniveauer, og sikre databeskyttelse. Fra loginmodulet kan man vælge at oprette sig som ny gæst, eller logge ind i systemet. Hvis brugeren vælger at oprette sig som ny gæst, vil brugeren blive sendt til et separat modul.
 
 \subsubsection{Implementation}
 \label{ssub:login_implementation}
@@ -17,7 +17,7 @@ Loginmodulet har det primære ansvar for at angive adgangsniveauer, og sikre dat
   \caption{Diagram over Loginmodulet} \label{fig:login}
 \end{figure}
 
-Loginmodulet består af et standby-view, et MemberLogin-view, et eksternt chiplæsermodul samt en loginController. Fra standby view er der adgang til GuestCreatormodulet, som er beskrevet i \cref{sub:GuestCreator}. Brugeren kan også indlæses et chip-kort, eller skifte til MemberLogin-view. Fra MemberLogin-view, kan der indtastes medlemsnummer og kode. Se \cref{fig:login}.
+Loginmodulet består af et standby-view, et MemberLogin-view, et eksternt chiplæsermodul samt en loginController. Fra standby-view er der adgang til GuestCreatormodulet, som er beskrevet i \cref{sub:GuestCreator}. Brugeren kan også indlæses et chip-kort, eller skifte til MemberLogin-view. Fra MemberLogin-view, kan der indtastes medlemsnummer og kode. Se \cref{fig:login}.
 
 LoginControlleren modtager data fra memberLogin-view, eller chiplæsermodulet. Denne data valideres, via persistenslaget, i forhold til databasens data. Hvis der ikke kan gennemføres en succesfuld validering, sender loginControlleren brugeren tilbage til det view, der blev sendt data fra, hvor brugeren promptes for nyt indput.
 
