@@ -222,8 +222,8 @@ bibencoding=utf8,
 	\fancyhead[OR]{\nouppercase{\rightmark} \includegraphics[scale=0.25]{images/aau_logo_cropped.png}}
 	\fancyhead[EL]{\includegraphics[scale=0.25]{images/aau_logo_cropped.png} \nouppercase{\leftmark}}
 
-	\fancyfoot[OL, ER]{21. maj 2014}
-	\fancyfoot[OR, EL]{Side \thepage \ af \pageref{LastPage}}
+	\fancyfoot[OR, EL]{21. maj 2014}
+	\fancyfoot[OL, ER]{Side \thepage \ af \numberpages}
 }
 
 \fancypagestyle{RomanPreStyle}{
@@ -233,8 +233,8 @@ bibencoding=utf8,
 	\fancyhead[OR]{\nouppercase{\rightmark} \includegraphics[scale=0.25]{images/aau_logo_cropped.png}}
 	\fancyhead[EL]{\includegraphics[scale=0.25]{images/aau_logo_cropped.png} \nouppercase{\leftmark}}
 
-	\fancyfoot[OL, ER]{21. maj 2014}
-	\fancyfoot[OR, EL]{Side \thepage}
+	\fancyfoot[OR, EL]{21. maj 2014}
+	\fancyfoot[OL, ER]{\thepage}
 }
 
 \fancypagestyle{titlepagestyle}{
@@ -249,9 +249,9 @@ bibencoding=utf8,
   \fancyhead[OR,OL,ER,EL]{}
 }
 
-
+\pagenumbering{roman}
 \pagestyle{RomanPreStyle} % Use RomanPreStyle at first
-\setcounter{page}{-1}% Start page number with -1, so the titlepage is page 1
+\setcounter{page}{-1} % Start page number with -1, so the titlepage is page 1
 
 
 \hyphenation{båd-ejere båd-klub-ber}
