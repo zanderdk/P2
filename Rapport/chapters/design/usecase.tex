@@ -5,7 +5,7 @@ Herpå følger de use cases, der har indgået som basis, for de funktioner der e
 \subsection{Medlemmer}  
   \begin{enumerate}
 
-    \item{\bf{Medlem forlader sin plads i mere end 24 timer}}
+    \item{\textbf{Medlem forlader sin plads i mere end 24 timer}}
       \begin{enumerate}
         \item Medlemmet melder til systemet, et gyldigt tidspunkt for afrejse og hjemkomst.
         \item Systemet melder til medlemmet, at rejsen er registreret.
@@ -13,27 +13,27 @@ Herpå følger de use cases, der har indgået som basis, for de funktioner der e
         \item Når pladsen tømmes, melder systemet, at pladsen er fri.
       \end{enumerate}
 
-    \bf{Alternativ: medlem melder ikke afrejse til systemet}
+    \textbf{Alternativ: medlem melder ikke afrejse til systemet}
       \begin{enumerate}
         \item Systemet underretter havnefogeden om, at en medlemsbåd har været væk fra havnen i mere end 24 timer.
       \end{enumerate}
 
-    \bf{Alternativ: medlem afrejser ikke på angivet afrejsetidspunkt}
+    \textbf{Alternativ: medlem afrejser ikke på angivet afrejsetidspunkt}
       \begin{enumerate}
         \item Systemet underetter både havnefogeden, samt medlemmet om uoverensstemmelsen.
       \end{enumerate}
 
-    \item{\bf{Medlem vender tilbage til sin plads efter minimum 24 timers afrejse}}
+    \item{\textbf{Medlem vender tilbage til sin plads efter minimum 24 timers afrejse}}
       \begin{enumerate}
         \item Systemet melder at pladsen er optaget.
       \end{enumerate}
 
-    \item{\bf{Medlem vender ikke tilbage til sin plads, indenfor det angivede hjemrejsetidspunkt}}
+    \item{\textbf{Medlem vender ikke tilbage til sin plads, indenfor det angivede hjemrejsetidspunkt}}
       \begin{enumerate}
         \item Systemet melder uoverensstemmelsen til havnefogeden.
       \end{enumerate}
 
-    \item{\bf{Medlem ønsker at annullere en allerede anmeldt rejse}}
+    \item{\textbf{Medlem ønsker at annullere en allerede anmeldt rejse}}
       \begin{enumerate}
         \item Medlem vælger den pågældende rejse fra listen over registrerede rejser.
         \item Medlem annullerer rejsen.
@@ -42,7 +42,7 @@ Herpå følger de use cases, der har indgået som basis, for de funktioner der e
 	  
 \subsection{Gæster}
 
-    \item{\bf{Gæst er ankommet til havnen, og vil leje en plads}}
+    \item{\textbf{Gæst er ankommet til havnen, og vil leje en plads}}
       \begin{enumerate}
         \item Gæst registrerer sig selv i systemet.
         \item Systemet giver gæsten et chipkort.
@@ -53,7 +53,7 @@ Herpå følger de use cases, der har indgået som basis, for de funktioner der e
         \item Systemet melder til havnefogeden, at der er nye ankomne.
       \end{enumerate}
 
-    \bf{Alternativ: Gæst finder ikke selv en plads}
+    \textbf{Alternativ: Gæst finder ikke selv en plads}
       \begin{enumerate}
         \item Gæst registrerer sig selv i systemet.
         \item Gæst indtaster sin båds specifikationer.
@@ -61,78 +61,78 @@ Herpå følger de use cases, der har indgået som basis, for de funktioner der e
         \item Systemet videresender gæsten til betaling.
       \end{enumerate}
 
-    \item{\bf{Gæst vil se informationer om plads og betaling}}
+    \item{\textbf{Gæst vil se informationer om plads og betaling}}
       \begin{enumerate}
         \item Gæst indsætter chipkort i systemet.
         \item Systemet viser informationer vedrørende gæsten.
       \end{enumerate}
 
-    \bf{Alternativ: Chipkort er bortkommet}
+    \textbf{Alternativ: Chipkort er bortkommet}
       \begin{enumerate}
         \item Gæst melder til systemet, at chipkort er bortkommet.
         \item Systemet henviser gæsten til havnefogeden.
       \end{enumerate}
 
-    \item{\bf{Gæst forlader havnen inden tidligere anmeldt afrejsetidspunkt}}
+    \item{\textbf{Gæst forlader havnen inden tidligere anmeldt afrejsetidspunkt}}
       \begin{enumerate}
         \item Gæst afleverer chipkort, og får udleveret en kvittering.
         \item Gæst får returneret berettiget kapital.
       \end{enumerate}
 
-    \bf{Alternativ: Gæst bliver liggende i havnen efter det anmeldte afrejse tidspunkt}
+    \textbf{Alternativ: Gæst bliver liggende i havnen efter det anmeldte afrejse tidspunkt}
       \begin{enumerate}
         \item Systemet melder uoverensstemmelsen til havnefogeden.
         \item Chipkortet deaktiveres.
         \item Ved efterfølgende forsøg på brug af chipkort, henvendes der til havnefogeden.
       \end{enumerate}
 
-    \item{\bf{Gæst vil forlænge ophold}}
+    \item{\textbf{Gæst vil forlænge ophold}}
       \begin{enumerate}
         \item Gæst indsætter chipkort i systemet.
         \item Gæst melder ny afrejse dato til systemet.
         \item Systemet melder, at den nye dato er registreret.
       \end{enumerate}
 
-    \bf{Alternativ: Den nye afrejse dato overlapper med bådpladsens oprindelige ejers hjemkomst}
+    \textbf{Alternativ: Den nye afrejse dato overlapper med bådpladsens oprindelige ejers hjemkomst}
       \begin{enumerate}
         \item Systemet melder at datoerne overlapper, og foreslår ny plads til gæsten.
       \end{enumerate}
 
 \subsection{Havnefoged}
-    \item{\bf{Havnefogeden registrerer hjemkomsttidspunktet for et medlem}}
+    \item{\textbf{Havnefogeden registrerer hjemkomsttidspunktet for et medlem}}
       \begin{enumerate}
         \item Medlem meddeler hjemkomsttidspunktet til havnefogeden, for eksempel via telefon, mail, eller lignende.
         \item Havnefogeden indtaster hjemkomsttidspunktet i systemet.
         \item Systemet melder, at hjemkomsttidspunktet er accepteret.
       \end{enumerate}
   
-    \bf{Alternativ: En gæst har lejet pladsen for en længere periode}
+    \textbf{Alternativ: En gæst har lejet pladsen for en længere periode}
       \begin{enumerate}
         \item Systemet foreslår en ny plads til gæsten.
         \item Havnefogeden snakker med gæsten.
       \end{enumerate}
 
-    \item{\bf{Havnefogeden vil gerne se hvilke pladser der er ledige}}
+    \item{\textbf{Havnefogeden vil gerne se hvilke pladser der er ledige}}
       \begin{enumerate}
         \item Havnefogeden åbner overbliksfunktionen i systemet.
         \item Havnefogeden kan nu se, på et kort over havnen, hvilke pladser der er ledige.
       \end{enumerate}
 
-    \item{\bf{Havnefogeden vil gerne se hvilke nye gæster, der er ankommet indenfor et bestemt tidsrum}}
+    \item{\textbf{Havnefogeden vil gerne se hvilke nye gæster, der er ankommet indenfor et bestemt tidsrum}}
       \begin{enumerate}
         \item Havnefogeden åbner gæstefunktionen i programmet.
         \item Havnefogeden vælger det ønskede tidsrum.
         \item Programmet viser nye ankomne gæster fra det specificerede tidsrum.
       \end{enumerate}
 
-    \item{\bf{Havnefogeden vil gerne se hvilke pladser, der endnu ikke er betalt for}}
+    \item{\textbf{Havnefogeden vil gerne se hvilke pladser, der endnu ikke er betalt for}}
       \begin{enumerate}
         \item Havnefogeden åbner gæstefunktionen i programmet.
         \item Havnefogeden åbner ubetalte pladser.
         \item Programmet præsenterer listen af pladser, der endnu ikke er betalt for. Tiden for, hvor lang tid pladsen har været ubetalt, vises også.
       \end{enumerate}
 
-    \item{\bf{Havnefogeden vil gerne se hvornår et medlem vender tilbage til medlemmets plads}}
+    \item{\textbf{Havnefogeden vil gerne se hvornår et medlem vender tilbage til medlemmets plads}}
       \begin{enumerate}
         \item Havnefogeden åbner medlemsfunktionen i programmet.
         \item Havnefogeden skriver medlemmets navn eller medlemsnummer i søgefeltet.
@@ -141,7 +141,7 @@ Herpå følger de use cases, der har indgået som basis, for de funktioner der e
         \item Programmet viser alle kendte detaljer om medlemmet, herunder hvornår medlemmet forventes tilbage.
       \end{enumerate}
 
-    \item{\bf{Havnefogeden bliver advaret af en fejl ved en stander}}
+    \item{\textbf{Havnefogeden bliver advaret af en fejl ved en stander}}
       \begin{enumerate}
         \item Uventet fejl opstår ved en stander på havnen, eller personen ved standeren trykker på hjælp.
         \item Havnefogeden får besked om fejlen.
@@ -149,24 +149,24 @@ Herpå følger de use cases, der har indgået som basis, for de funktioner der e
 
 \subsection{Andre}
 
-    \item{\bf{Automatisk arrangementsforslag}}
+    \item{\textbf{Automatisk arrangementsforslag}}
       \begin{enumerate}
         \item Systemet melder på baggrund af aktiviteten i havnen, at det ville være en god dag for et arrangement.
         \item Et medlem af klubben ser denne melding, og foreslår et arrangement.
       \end{enumerate}
 
-    \item{\bf{Automatisk medlemstjek}}
+    \item{\textbf{Automatisk medlemstjek}}
       \begin{enumerate}
         \item Systemet registrerer uoverensstemmelse med den angivede rejseplan for et medlem.
         \item Systemet notificerer havnefogeden omkring uoverensstemmelsen.
       \end{enumerate}
 
-    \item{\bf{Bestyrelsen eller havnefogeden vil se statistik over aktivitet i havnen}}
+    \item{\textbf{Bestyrelsen eller havnefogeden vil se statistik over aktivitet i havnen}}
       \begin{enumerate}
         \item Statistik funktionen åbnes og viser de ønskede statistikker.
       \end{enumerate}
 	  
-	\item{\bf{Kasserer eller havnefoged vil tilføje ny båd til et medlem}}
+	\item{\textbf{Kasserer eller havnefoged vil tilføje ny båd til et medlem}}
 	  \begin{enumerate}
 		\item Havnefogeden logger ind i systemet med administrator rettigheder.
 		\item Medlemmet bliver fundet via søge funktionen.
