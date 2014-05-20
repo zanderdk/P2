@@ -218,6 +218,9 @@ namespace p2_projekt.controllers
             if (user == FunctionContainer.LoggedIn)
                 return false;
 
+            if (user == null)
+                return false;
+
             return Permission.CanWrite(FunctionContainer.LoggedIn.Permission.OtherUsers);
         }
 
@@ -225,8 +228,15 @@ namespace p2_projekt.controllers
 
         public void Execute(object parameter)
         {
-            Utilities.LobopDB.Remove(user);
-            System.Windows.Forms.MessageBox.Show("bruger fjernet.");
+            if (Utilities.LobopDB.Read<User>(u => u.UserId == user.UserId) == null)
+            {
+                System.Windows.Forms.MessageBox.Show("Bruger findes ikke.");
+            }
+            else
+            {
+                Utilities.LobopDB.Remove(user);
+                System.Windows.Forms.MessageBox.Show("Bruger fjernet.");
+            }
         }
     }
 

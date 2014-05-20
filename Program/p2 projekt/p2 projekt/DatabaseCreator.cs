@@ -144,7 +144,13 @@ namespace p2_projekt
             Havnefogede.RegistrationDate = new DateTime(2000, 01, 01);
             Havnefogede.Password = "testpass";
             Havnefogede.Permission = new Permission() { PersonalInfo = PermissionLevel.Write, Map = PermissionLevel.Write, OtherUsers = PermissionLevel.Write };
+            Boat b4 = CreateBoat();
+            b4.User = Havnefogede;
+            b4.BoatSpace = CreateBoatSpace();
+            Havnefogede.Boats.Add(b4);
             uc.Add<User>(Havnefogede);
+            
+            
 
             Member JohanneHoffmann = new Member("Johanne Hoffmann", new System.Device.Location.CivicAddress(), 5);
             JohanneHoffmann.Birthday = new DateTime(2000, 01, 01);
