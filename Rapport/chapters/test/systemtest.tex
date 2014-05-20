@@ -4,9 +4,9 @@ En systemtest af et stykke software, er en test, der udføres på et komplet sys
 \subsection{Test Databasen}
 For at gøre programmet lettere at teste, er der lavet en test database. I denne database bliver der automatisk genereret fire specifikke medlemmer og nogle tilfældige medlemmer. Ved at have en database med nogle faste medlemmer der ikke ændre sig, sikres at det hele tiden er mulig at udføre systemtestene og få det samme resultat. 
 
-Der er generet en havnefogeden med medlemsnummer: \enquote{4} og passwordet: \enquote{havnefogedeVB1234}. Havnefogeden har skrivetilladelse, som vil give ham fuld adgang til at tilføje/ændre/slette i databasen.
+Der er generet en havnefogeden med medlemsnummer: \enquote{4} og passwordet: \enquote{testpass}. Havnefogeden har skrivetilladelse, som vil give ham fuld adgang til at tilføje/ændre/slette i databasen.
 
-Ved system start, generes der også et medlem ved navn \enquote{Johanne Hoffmann}, båden \enquote{Den Usynkelige II}, medlemsnummer \enquote{5}, passwordet \enquote{Johanne4395} og telefonnummeret \enquote{22 95 41 87}. Derudover er der genereret 2 andre medlemmer med navnet Johanne; Johanne Friis og Johanne Snoep.
+Ved system start, generes der også et medlem ved navn \enquote{Johanne Hoffmann}, båden \enquote{Den Usynkelige II}, medlemsnummer \enquote{5}, passwordet \enquote{testpass} og telefonnummeret \enquote{22 95 41 87}. Derudover er der genereret 2 andre medlemmer med navnet Johanne; Johanne Friis og Johanne Snoep.
 
 \subsection{Udførelse af System Test}
 
@@ -15,7 +15,7 @@ Ved system start, generes der også et medlem ved navn \enquote{Johanne Hoffmann
 Johanne Hoffmann vil gerne rejse væk den 8/10-2014 og komme hjem den 18/10-2014.
 \begin{enumerate}
 	\item Johanne klikker på \enquote{Medlemslogin} og \enquote{Loginscreen} kommer dernæst frem og afventer input.
-	\item Johanne indtaster sit \enquote{medlemsnummer: 5} og \enquote{password: Johanne4395}.
+	\item Johanne indtaster sit medlemsnummer: \enquote{5} og password: \enquote{testpass}.
 	\item Johanne klikker \enquote{Login} og forsidefanen kommer frem.
 	\item Johanne navigere til brugeradministrationsfanen, og information omkring hende kommer frem.
 	\item Johanne klikker på \enquote{Tilføj Ny Rejse} og \enquote{Tilføj Rejse} bliver fremvist.
@@ -30,15 +30,15 @@ Johanne Hoffmann vil gerne rejse væk den 8/10-2014 og komme hjem den 18/10-2014
 
 \textbf{Use case 15: Havnefogeden vil gerne se hvornår et medlem vender tilbage til medlemmets plads.}
 
-Det antages at Havnefogeden kun har \enquote{navnet: Johanne} og \enquote{telefonnummeret: 22 95 41 87}
+Det antages at Havnefogeden kun har navnet: \enquote{Johanne} og telefonnummeret: \enquote{22 95 41 87}
 \begin{enumerate}
 	\item Havnefogeden klikker på \enquote{Medlemslogin} og \enquote{Loginscreen} frem vises.
-	\item Havnefogeden indtaster sit \enquote{medlemsnummer: 4} og \enquote{password: havnefogedeVB1234}.
+	\item Havnefogeden indtaster sit medlemsnummer: \enquote{4} og password: \enquote{testpass}.
 	\item Havnefogeden klikker \enquote{Login} og forsidefanen kommer frem.
 	\item Havnefogeden navigerer til søgefanen.
-	\item Havnefogeden indtaster \enquote{navnet: Johanne} hvor der kommer tre hits frem.
-	\item Havnefogeden indtaster dernæst \enquote{telefonnummeret: 22 95 41 87} og insnævre resultaterne til det rigtige medlem.
-	\item Havnefogeden dobbeltklikker på medlemmet og får vist informationen omkring \enquote{medlemmet: Johanne Hoffmann}.
+	\item Havnefogeden indtaster navnet: \enquote{Johanne} hvor der kommer tre hits frem.
+	\item Havnefogeden indtaster dernæst telefonnummeret: \enquote{22 95 41 87} og indsnævre resultaterne til det rigtige medlem.
+	\item Havnefogeden dobbeltklikker på medlemmet og får vist informationen omkring medlemmet: \enquote{Johanne Hoffmann}.
 	\item Havnefogeden aflæser rejsedatoen i rejsefeltet.
 \end{enumerate} 
 
@@ -52,19 +52,19 @@ Det antages at Havnefogeden kun har \enquote{navnet: Johanne} og \enquote{telefo
 Det antages at Havnefogeden vil tilføje en ny båd til medlemmet Johanne Hoffmann. Det antages også at havnefogeden har samme oplysninger, som i foregående scenarie. Båden er 12 meter lang og 6.5 meter bred, den har \enquote{registreringsnummeret: 4785963}, den hedder \enquote{Eurika} og den har ingen plads.
 \begin{enumerate}
 	\item Havnefogeden klikker på \enquote{Medlemslogin} og \enquote{Loginscreen} fremvises.
-	\item Havnefogeden indtaster sit medlemsnummer:\enquote{4} og passwordet:\enquote{havnefogedeVB1234}
+	\item Havnefogeden indtaster sit medlemsnummer: \enquote{4} og passwordet: \enquote{testpass}
 	\item Havnefogeden klikker \enquote{Login} og forsidefanen kommer frem.
 	\item Havnefogeden navigere til søgefanen.
 	\item Havnefogeden indtaster navnet: \enquote{Johanne Hoffmann} hvor hun kommer frem.
 	\item Havnefogeden dobbeltklikker på medlemmet og får vist information omkring medlemmet \enquote{Johanne Hoffmann}.
 	\item Havnefogeden klikker på \enquote{Tilføj Ny Båd} og \enquote{NewBoatPopup} fremvises.
-	\item Havnefogeden indtaster \enquote{navnet: Eurika}, \enquote{registreringsnummere: 4785963}, \enquote{længden: 12} og \enquote{bredden: 6,5}.
+	\item Havnefogeden indtaster navnet: \enquote{Eurika}, registreringsnummeret: \enquote{4785963}, længden: \enquote{12} og bredden: \enquote{6,5}.
 	\item Havnefogeden vælger at båden ingen plads har.
 	\item Havnefogeden klikker Ok
-	\item Havnefogeden kan nu se og inspicere båden Eurika.
+	\item Havnefogeden kan nu se og inspicere båden \enquote{Eurika}.
 \end{enumerate}
 
-\textbf{Forventning:} havnefogeden kan logge ind og finde Johanne Hoffmann i søgefunktionen. Han kan også tilføje båden Eurika og dens  tilsvarende information.
+\textbf{Forventning:} havnefogeden kan logge ind og finde Johanne Hoffmann i søgefunktionen. Han kan også tilføje båden Eurika og dens tilsvarende information.
 
 \textbf{Resultat:} Succes.
 

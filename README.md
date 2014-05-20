@@ -25,4 +25,4 @@ Kompilering
 
 Kørsel
 ------
-Programmet autogenerer 7 hardcodede medlemmer og 13 medlemmer med tilfældige informationer. Bruger nummer 3 har rettigheder til alting og er godt til at afprøve programmet med. Der kan logges ind med medlemslogin, eller ved indtastning af medlemsnummeret i chip-tekstfeltet.
+Programmet autogenererer 7 hardcodede medlemmer, med medlemsnumre fra 1 til 7, og 13 medlemmer med tilfældige personlige informationer. Bruger nummer 3 har rettigheder til alting og er godt til at afprøve programmet med. Der kan logges ind med medlemslogin, eller ved indtastning af medlemsnummeret i chip-tekstfeltet. Alle kodeord på de 7 hardcordede medlemmer er "testpass".
