@@ -11,7 +11,7 @@ namespace p2_projekt.WPF
     {
         public Welcome(User u)
         {
-            
+            InitializeComponent();
         }
     }
 }
