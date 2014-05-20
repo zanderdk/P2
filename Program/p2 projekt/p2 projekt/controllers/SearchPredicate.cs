@@ -308,6 +308,29 @@ namespace p2_projekt.controllers
                 };
             }
 
+            if (name == "boatSpace")
+            {
+                return x =>
+                {
+                    if (!(x is ISailor))
+                        return false;
+
+                    ISailor IS = x as ISailor;
+
+                    foreach(Boat b in IS.Boats)
+                    {
+                        if(b.BoatSpace != null)
+                        {
+                            if (b.BoatSpace.Info.Contains(text))
+                                return true;
+                        }
+                    }
+                    
+                    return false;
+                };
+            }
+
+
             throw new InvalidOperationException();
         }
     }
