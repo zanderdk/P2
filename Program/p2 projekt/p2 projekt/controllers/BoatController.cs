@@ -17,7 +17,11 @@ namespace p2_projekt.controllers
         public BoatPopup Sender { get; set; }
 
         public readonly Operation _operation;
+
         private Boat _boat;
+
+        Boat temp;
+
         public Boat Boat {
             get { return _boat; }
             set {
@@ -79,6 +83,10 @@ namespace p2_projekt.controllers
             init();
         }
 
+        public void reset()
+        {
+            _boat = new Boat();
+        }
         
 
         public static void Delete(Boat b)

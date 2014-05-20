@@ -80,7 +80,7 @@ namespace p2_projekt.models
 
         public override string ToString()
         {
-            return Info;
+            return BoatSpaceId + " - " + Info;
         }
     }
 }
