@@ -142,14 +142,14 @@ namespace p2_projekt
             Member Havnefogede = new Member("Havnefogeden", new System.Device.Location.CivicAddress(), 4);
             Havnefogede.Birthday = new DateTime(2000, 01, 01);
             Havnefogede.RegistrationDate = new DateTime(2000, 01, 01);
-            Havnefogede.Password = "havnefogedeVB1234";
+            Havnefogede.Password = "testpass";
             Havnefogede.Permission = new Permission() { PersonalInfo = PermissionLevel.Write, Map = PermissionLevel.Write, OtherUsers = PermissionLevel.Write };
             uc.Add<User>(Havnefogede);
 
             Member JohanneHoffmann = new Member("Johanne Hoffmann", new System.Device.Location.CivicAddress(), 5);
             JohanneHoffmann.Birthday = new DateTime(2000, 01, 01);
             JohanneHoffmann.RegistrationDate = new DateTime(2000, 01, 01);
-            JohanneHoffmann.Password = "Johane4395";
+            JohanneHoffmann.Password = "testpass";
             JohanneHoffmann.Email = "Johanne@mail.dk";
             JohanneHoffmann.Phone = "22 95 41 87";
             JohanneHoffmann.Adress.CountryRegion = "Danmark";
@@ -167,7 +167,7 @@ namespace p2_projekt
             Member Johanne1 = new Member("Johanne Snoep", new System.Device.Location.CivicAddress(), 6);
             Johanne1.Birthday = new DateTime(2000, 01, 01);
             Johanne1.RegistrationDate = new DateTime(2000, 01, 01);
-            Johanne1.Password = "Johane8718";
+            Johanne1.Password = "testpass";
             Johanne1.Email = "JohanneSnoep@mail.dk";
             Johanne1.Phone = "22 26 48 88";
             Johanne1.Adress.CountryRegion = "Danmark";
@@ -184,7 +184,7 @@ namespace p2_projekt
             Member Johanne2 = new Member("Johanne Friis", new System.Device.Location.CivicAddress(), 7);
             Johanne2.Birthday = new DateTime(2000, 01, 01);
             Johanne2.RegistrationDate = new DateTime(2000, 01, 01);
-            Johanne2.Password = "Johane5687";
+            Johanne2.Password = "testpass";
             Johanne2.Email = "JohanneFriis@mail.dk";
             Johanne2.Phone = "23 95 85 13";
             Johanne2.Adress.CountryRegion = "Danmark";

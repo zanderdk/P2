@@ -1,7 +1,8 @@
 \section{Test Driven Development}
 \label{sub:test_driven_development}
 
-For at sikre et simpelt program med få fejl, blev det planlagt at skrive kernefunktionerne i programmet udviklet jævnfør softwareudviklingsprocessen \enquote{Test Driven Development} (TDD). I TDD skrives unit tests af en metode, før selve implementeringen af funktionen. Denne udviklingsprocess sikrer, at nye funktionaliteter ikke ødelægger de forud eksisterende \cite{martin2006agile}. Programmøren tvinges også til at tænke på, hvordan metoden bruges ved kald. Det sikres hermed, at metoden er overskueligt konstrueret, således at den kan kaldes uden unødigt besvær. Et andet aspekt af TDD, er at testkoden tjener som dokumentation af den testede metodes funktionalitet. Tilgengæld riskeres et øget tidsforbrug, der dog muligvis kan fraskrives fejlfinding.
+For at sikre et simpelt program med få fejl, blev det planlagt at skrive kernefunktionerne i programmet udviklet jævnfør softwareudviklingsprocessen \enquote{Test Driven Development} (TDD).
+I TDD skrives unit tests af en metode, før selve implementeringen af funktionen. Denne udviklingsprocess sikrer, at nye funktionaliteter ikke ødelægger de forud eksisterende \cite{martin2006agile}. Programmøren tvinges også til at tænke på, hvordan metoden bruges ved kald. Det sikrer hermed, at metoden er overskueligt konstrueret, således at den kan kaldes problemfrit. Et andet aspekt af TDD, er at testkoden tjener som dokumentation af den testede metodes funktionalitet. Tilgengæld riskeres et øget tidsforbrug, der dog muligvis kan fraskrives fejlfinding.
 
 \section{Unit Testing i Microsoft Visual Studio}
 \label{sub:unit_testing_i_microsoft_visual_studio}
@@ -31,9 +32,10 @@ Alle tests til systemet kan findes på CD'en der afleveres som bilag.
 
 \section{Unit Testing i Løsningen}
 
-I alt er der implementeret 25 unit tests til programmet, som alle ligger i projektet \enquote{UnitTests}. De tester forskellige klasser af programmet. Alle testene kører succesfuldt. De første tests blev implementeret som en del af TDD forløbet, men det blev hurtigt avanceret, at teste klasser med eksterne moduler, som for eksempel persistenslaget. 
 
-Efter udviklingen af SearchController klassen, blev der skrevet 9 grundige tests af denne klasse. Disse tests dækker alle funktionaliteter af SearchController klassen. Blandt andet testes om der kan søges i databasen på navnet for en bruger. Testen for dette ses i \cref{lst:test_searchcontroller}. Testen benytter metoden \enquote{simulateSearch} til at simulere brugerindtastning af \enquote{ali} i søgefeltet \enquote{navn}. Testen er en succes, hvis der returneres en liste, der kun indeholder personen \enquote{alice}. \enquote{alice} er i dette tilfælde den eneste person i databasen hvis navn indeholder \enquote{ali}.
+I alt er der implementeret 25 unit tests til programmet, som alle kører succesfuldt, og kan findes i Visual Studio projektet \enquote{UnitTests}. De har til formål at teste forskellige klassers funktionaliteter. De første tests blev implementeret som en del af TDD forløbet, men det blev hurtigt avanceret, at teste klasser med eksterne moduler, som for eksempel persistenslaget. 
+
+Efter udviklingen af SearchController klassen, blev der skrevet 9 grundige tests af denne klasse. Disse tests dækker alle funktionaliteter af SearchController klassen. Blandt andet testes det, om der kan søges i databasen på navnet af en bruger. Testen for dette ses i \cref{lst:test_searchcontroller}. Testen benytter metoden \enquote{simulateSearch} til at simulere brugerindtastning af \enquote{ali} i søgefeltet \enquote{navn}. Testen er en succes, hvis der returneres en liste, der kun indeholder personen \enquote{alice}. \enquote{alice} er i dette tilfælde den eneste person i databasen hvis navn indeholder \enquote{ali}.
 
 \begin{lstlisting}[label=lst:test_searchcontroller, caption={Eksempel på testfunktion}]
 [TestMethod]
