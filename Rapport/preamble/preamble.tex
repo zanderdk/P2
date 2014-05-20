@@ -125,7 +125,7 @@ basicstyle=\ttfamily
 \usepackage[noend]{algpseudocode}
 
 % support for sidste side page number
-\usepackage{totpages}
+\usepackage{lastpage}
 \usepackage{intcalc}
 \usepackage{refcount}
 
@@ -223,7 +223,7 @@ bibencoding=utf8,
 	\fancyhead[EL]{\includegraphics[scale=0.25]{images/aau_logo_cropped.png} \nouppercase{\leftmark}}
 
 	\fancyfoot[OR, EL]{21. maj 2014}
-	\fancyfoot[OL, ER]{Side \thepage \ af \numberpages}
+	\fancyfoot[OL, ER]{Side \thepage \ af \pageref{LastPage}}
 }
 
 \fancypagestyle{RomanPreStyle}{
