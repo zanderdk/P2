@@ -75,38 +75,38 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="controllers\BoatController.cs" />
-    <Compile Include="controllers\BoatSpaceController.cs" />
-    <Compile Include="controllers\GuestController.cs" />
-    <Compile Include="controllers\LoginController.cs" />
-    <Compile Include="controllers\FunctionController.cs" />
-    <Compile Include="controllers\MapController.cs" />
-    <Compile Include="controllers\MemberController.cs" />
-    <Compile Include="controllers\TravelController.cs" />
-    <Compile Include="controllers\SearchController.cs" />
-    <Compile Include="controllers\SearchPredicate.cs" />
+    <Compile Include="Controllers\BoatController.cs" />
+    <Compile Include="Controllers\BoatSpaceController.cs" />
+    <Compile Include="Controllers\GuestController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\FunctionController.cs" />
+    <Compile Include="Controllers\MapController.cs" />
+    <Compile Include="Controllers\MemberController.cs" />
+    <Compile Include="Controllers\TravelController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Controllers\SearchPredicate.cs" />
     <Compile Include="DatabaseCreator.cs" />
     <Compile Include="Enums\PermissionLevel.cs" />
     <Compile Include="Interfaces\IChipReader.cs" />
     <Compile Include="Interfaces\IDAL.cs" />
     <Compile Include="LobopContext.cs" />
-    <Compile Include="models\BoatSpace.cs" />
-    <Compile Include="models\Boat.cs" />
-    <Compile Include="models\BoatSpaceArgs.cs" />
+    <Compile Include="Models\BoatSpace.cs" />
+    <Compile Include="Models\Boat.cs" />
+    <Compile Include="Models\BoatSpaceArgs.cs" />
     <Compile Include="Interfaces\IBoatSpaceSensor.cs" />
     <Compile Include="Enums\BoatSpaceStatus.cs" />
     <Compile Include="Enums\Operation.cs" />
-    <Compile Include="models\Guest.cs" />
-    <Compile Include="models\HarbourMaster.cs" />
+    <Compile Include="Models\Guest.cs" />
+    <Compile Include="Models\HarbourMaster.cs" />
     <Compile Include="Interfaces\IFullPersonalInfo.cs" />
     <Compile Include="Interfaces\ILoginable.cs" />
     <Compile Include="Interfaces\ISailor.cs" />
-    <Compile Include="models\LandSpace.cs" />
-    <Compile Include="models\Member.cs" />
-    <Compile Include="models\Permisson.cs" />
-    <Compile Include="models\User.cs" />
-    <Compile Include="models\Travel.cs" />
-    <Compile Include="models\WaterSpace.cs" />
+    <Compile Include="Models\LandSpace.cs" />
+    <Compile Include="Models\Member.cs" />
+    <Compile Include="Models\Permisson.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\Travel.cs" />
+    <Compile Include="Models\WaterSpace.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -118,7 +118,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="controllers\DALController.cs" />
+    <Compile Include="Controllers\DALController.cs" />
     <Compile Include="Utilities.cs" />
     <Compile Include="WPF\BoatForm.xaml.cs">
       <DependentUpon>BoatForm.xaml</DependentUpon>
@@ -153,7 +153,7 @@
     <Compile Include="WPF\MemberPopup.xaml.cs">
       <DependentUpon>MemberPopup.xaml</DependentUpon>
     </Compile>
-    <Compile Include="controllers\UserInfoController.cs" />
+    <Compile Include="Controllers\UserInfoController.cs" />
     <Compile Include="WPF\Map.xaml.cs">
       <DependentUpon>Map.xaml</DependentUpon>
     </Compile>
