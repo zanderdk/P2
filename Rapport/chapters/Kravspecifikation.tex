@@ -6,12 +6,13 @@ Ud fra problemformuleringen er der opstillet en kravspecifikation, som har til f
 \begin{enumerate}
   \item \label{itm:udlejning} \textbf{Systemet skal kunne håndtere udlejning og betaling af vandlejepladser}
 
-Når gæster benytter havnens faciliteter skal der betales for dette. Som nævnt i \cref{sub:tek_betaling}, bruger Vestre Baadelaug en betalingsautomat, som gæsterne skal benytte til at betale for leje af vandlejepladser. Løsningen skal bygge videre på det nuværende system, og skal fungere som et komplet gæste-betalingssystem. Dette vil sige at gæsterne indberetter hvilken vandlejeplads de ligger på, samt hvor mange dage de vil ligge i havnen. Denne information skal gemmes i en database, så det let kan tilgås ved behov. Betalingen bliver klaret igennem det nuværende systems betalingsservice. Løsningen kan bruge oplysningerne til at se, om der vil opstå en vandlejeplads-konflikt, for eksempel hvis medlemmet der ejer pladsen kommer tidligere hjem end forventet. Ved at integrere sikres et funktionelt system med henblik på besparelse og tilvænningsperioden  for det nye system minimeres.
+  Når gæster benytter havnens faciliteter skal der betales for dette. Som nævnt i \cref{sub:tek_betaling}, bruger Vestre Baadelaug en betalingsautomat, som gæsterne skal benytte til at betale for leje af vandlejepladser. Løsningen skal bygge videre på det nuværende system, og skal fungere som et komplet gæste-betalingssystem. Dette vil sige at gæsterne indberetter hvilken vandlejeplads de ligger på, samt hvor mange dage de vil ligge i havnen. Denne information skal gemmes i en database, så det let kan tilgås ved behov. Betalingen bliver klaret igennem det nuværende systems betalingsservice. Løsningen kan bruge oplysningerne til at se, om der vil opstå en vandlejeplads-konflikt, for eksempel hvis medlemmet der ejer pladsen kommer tidligere hjem end forventet. Ved at integrere sikres et funktionelt system med henblik på besparelse og tilvænningsperioden  for det nye system minimeres.
 
-  \item \label{itm:brugergrupper} \textbf{Systemet skal have mulighed for forskellige brugertyper med forskellige adgangsniveauer.} \\\\
-  Da systemet skal håndtere mange vigtige informationer omkring havnens ressourcer, er det vigtigt at begrænse alle og enhver til at overskrive for eksempel\ felter i en database omkring medlemmernes vandlejepladser.
+  \item \label{itm:brugergrupper} \textbf{Systemet skal have mulighed for forskellige brugertyper med forskellige adgangsniveauer.}
 
-  Der skal derfor være mulighed for at definere forskellige brugertyper med forskellige rettigheder, som beskrevet i \cref{sec:refleksioner}. Man kan forestille sig at administrator-brugeren har alle rettigheder, det vil sige at han kan læse, skrive og slette informationer. En anden brugergruppe kunne være medlemmer af klubben. De kan for eksempel defineres til kun at have læse rettigheder. Derudover kan de tildeles skrive-rettigheder på felter som eksempelvis afrejse- og hjemrejse tidspunkter.
+  Da systemet skal håndtere mange informationer omkring havnen, er det vigtigt at kunne begrænse brugere fra informationer, som det vurderes at de ikke bør have adgang til.
+
+  Der skal derfor være mulighed for at definere forskellige niveauer af rettigheder, som beskrevet i \cref{sec:refleksioner}. Man kan forestille sig en administrator-bruger, som har alle rettigheder. Det vil sige at han kan læse, skrive og slette informationer. En anden brugergruppe kunne være medlemmer af klubben. De kan for eksempel defineres til kun at have læse rettigheder. Derudover kan de tildeles skrive-rettigheder på felter som eksempelvis afrejse- og hjemrejse tidspunkter.
 
 \item \label{itm:reg_an_afkomst} \textbf{Systemet skal registrere afrejse og ankomst af gæster såvel som medlemmer.} 
 
@@ -19,13 +20,13 @@ Når gæster benytter havnens faciliteter skal der betales for dette. Som nævnt
 
 \item \label{itm:gemme_pladser_baade} \textbf{Systemet skal gemme hvilke pladser der er ejet, hvilken båd der er på pladsen, og af hvilken ejer.}
 
-  Klubbens nuværende systems kan det. Medlemmerne vil have gavn af, let at kunne se hvem der ejer en given plads. Dette vil også give kassereren et overblik over hvem der har både hvorhenne. Dette beskrives nærmere i \cref{sec:refleksioner}.
+  Klubbens nuværende systems kan det. Medlemmerne vil have gavn af, let at kunne se hvem der ejer en given plads. Dette vil også give kasseren et overblik over hvem der har både hvorhenne. Dette beskrives nærmere i \cref{sec:refleksioner}.
 
 \item \label{itm:fejl} \textbf{Systemet skal have mulighed for at informere havnefogeden i tilfælde af fejl eller begivenheder.}
 
   Som beskrevet i \cref{sub:havnefoged}, er en stor del af havnefogedens arbejde på havnen, at hjælpe medlemmer og gæstende sejlere. Det ville derfor være optimalt hvis løsningen kunne informere havnefogeden hvis noget går galt med den automatiserede betjening. En sådan fejl kunne for eksempel være, hvis brugeren af systemet har problemer med betaling ved billetmaskinen.
 
-  Man kan forestille sig flere måder hvorpå havnefogeden kan blive informeret, eksempelvis via SMS, email, en rød lampe i kontoret, eller en hel anden måde. For at gøre det lettere for havnefogeden at hjælpe, kan fejlmeddelelsen indeholde informationer som eksempelvis standerens lokation og hvilke trin brugeren har foretaget, for at udløse fejlen. Man kan føre ideen med fjernhjælp helt ud, ved at tilføje en højtaler ved hver billetautomat. På den måde kan havnefogeden assistere brugeren igennem fejlen ved hjælp af en mikrofon.
+  Man kan forestille sig flere måder hvorpå havnefogeden kan blive informeret, eksempelvis via SMS, e-mail, en rød lampe i kontoret, eller en hel anden måde. For at gøre det lettere for havnefogeden at hjælpe, kan fejlmeddelelsen indeholde informationer som eksempelvis standerens lokation og hvilke trin brugeren har foretaget, for at udløse fejlen. Man kan føre ideen med fjernhjælp helt ud, ved at tilføje en højtaler ved hver billetautomat. På den måde kan havnefogeden assistere brugeren igennem fejlen ved hjælp af en mikrofon.
 
 \item \label{itm:vis_information} \textbf{Systemet skal kunne fremvise information omkring pladser, medlemmer, samt gæster.}
 
@@ -51,26 +52,27 @@ Når gæster benytter havnens faciliteter skal der betales for dette. Som nævnt
   Løsningen skal være i stand til at søge i det lagrede data ud fra forskellige brugerdefinerede søgekriterier. Derudover skal det også være muligt for brugeren at hente, ændre eller slette i den lagrede data ud fra disse søgekriterier. Eksempelvis kunne havnefogeden ønske at vide hvem der ligger på en bestemt plads, derfor bør det være muligt at hente data om personen som ligger på pladsen, ud det pågældende pladsnummer.
   
 \item \label{itm:gui} \textbf{Systemet skal være brugervenligt.}  
-    Programmet skal have en grafisk brugergrænseflade som vil blive betegnet som GUI. GUI'en har til formål at gøre software programmet mere brugervenligt, og skabe et mere overskueligt overblik over havne for havnefogeden samt gæster og medlemmer. Behovet for dette krav er underbygget af \cref{sec:aspekter} hvor det er beskrevet at havnefogeden på visse tidspunkter har overbliksproblemer.
+  Programmet skal have en grafisk brugergrænseflade som vil blive betegnet som GUI. GUI'en har til formål at gøre software programmet mere brugervenligt, og skabe et mere overskueligt overblik over havne for havnefogeden samt gæster og medlemmer. Behovet for dette krav er underbygget af \cref{sec:aspekter} hvor det er beskrevet at havnefogeden på visse tidspunkter har overbliksproblemer.
 
 \item \label{itm:events} \textbf{Systemet skal have et modul, der kan håndtere arrangementer i klubben og det skal give overblik over hvad der sker i havnen.}
 
-I forbindelse med Vestre Baadelaugs ønske om et socialt liv på havnen, som beskrevet i \cref{subs:social}, skal der inkluderes funktioner som forbedrer de sociale muligheder. Det ville være fordelagtig hvis systemet kan holde styr på sociale arrangementer og lave en event-kalender. Medlemmer kan så opslå initiativer til spontane arrangementer, eksempelvis fælles aftensmad, hvis vejret viser sig at være godt. Systemet kunne bruge dens viden om medlemmer der ligger i havnen til selv lave opslag til arrangement forslag.
+  I forbindelse med Vestre Baadelaugs ønske om et socialt liv på havnen, som beskrevet i \cref{subs:social}, skal der inkluderes funktioner som forbedrer de sociale muligheder. Det ville være fordelagtig hvis systemet kan holde styr på sociale arrangementer og lave en event-kalender. Medlemmer kan så opslå initiativer til spontane arrangementer, eksempelvis fælles aftensmad, hvis vejret viser sig at være godt. Systemet kunne bruge dens viden om medlemmer der ligger i havnen til selv lave opslag til arrangement forslag.
 
 \end{enumerate}
 
 \section{Afgrænsning af krav}
-Kravene der inkludere et fungerende betalingssystem vil være n	edprioriteret siden et betalingssystem er meget ressource krævende, og det er ikke essentielt for programmet.
-Kravene vil blive prioriteret efter hvor aktuelle de er i forhold til andre kernefunktioner eller features.
-\begin{enumerate}
 
-\item \label{itm:afg_fejl} \textbf{Kravet om fejlmelding} \\
+Her afgrænses der fra krav, som ikke vil blive løst, på trods af deres del i kravspecifikationen.
+
+\textbf{\Cref{itm:udlejning} Kravet om betalingssystem} \\
+Kravene der inkludere et fungerende betalingssystem vil være nedprioriteret siden et betalingssystem er meget ressource krævende, og det er ikke essentielt for programmet.
+Kravene vil blive prioriteret efter hvor aktuelle de er i forhold til andre kernefunktioner eller features.
+
+\textbf{\Cref{itm:fejl} Kravet om fejlmelding} \\
 Kravet omkring fejlmelding til havnefogeden er ikke essentielt for programmets kernefunktionalitet, og er derfor afgrænses der fra dette, under implementation af løsningen.
 
-\item \label{itm:afg_vis_information} \textbf{Kravet om visning af information omkring gæst} \\
-Dette er et vidtspændende krav om understøttelsen af gæster, medlemmer og pladser i systemet. Dette har medført, at kravet kun vil blive opfyldt gradvist i løsningen. De underkrav som ikke implementeres, vurderes til ikke have høj nok relevans for kernefunktionaliteten af programmet. Desuden vil implementation af disse ikke demonstrerer yderligere akademisk kendskab.
+\textbf{\Cref{itm:vis_information} Kravet om visning af information omkring gæst} \\
+Dette er et vidtspændende krav om understøttelsen af gæster, medlemmer og pladser i systemet. Dette har medført, at kravet kun vil blive opfyldt gradvist i løsningen. De underkrav som ikke implementeres, vurderes til ikke have høj nok relevans for kernefunktionaliteten af programmet. Desuden vil implementation af disse ikke demonstrere yderligere akademisk kendskab.
 
-\item \label{itm:afg_events} \textbf{Kravet om understøttelsen af arrangementer i klubben} \\
+\textbf{\Cref{itm:events} Kravet om understøttelsen af arrangementer i klubben} \\
 En arrangement kalender anses som et socialt redskab, der kan bruges af Vestre Baadelaug, til at promovering events og LOBOP. Da dette ikke er nødvendigt for løsningens funktionalitet, og falder udenfor programmets primære formål, vil det være nederst på prioritetslisten.
-\end{enumerate}
-
