@@ -45,7 +45,7 @@ Der er to klasser til repræsentation af bådpladser. Klassen \enquote{WaterSpac
 
 I klassehierarkiet benyttes to typer associationer, binær associationer og én-til-mange associationer. Den binære association på \cref{fig:UML} mellem både og bådpladser viser, at der er en reference indeholdt i båden til dens tilhørende bådplads, og vice versa. Denne association håndterer, at når en båd tildeles en plads, får samme plads også tildelt en reference til den pågældende båd. Associationen sikrer derved også, at man ikke kan tildele en plads en båd, hvis pladsen allerede inderholder en reference til en anden båd. 
 
-En \enquote{ISailor} indeholder en liste af \enquote{Boat} objekter og en liste af \enquote{Travels} objekter. Dette udgør en én-til-mange association fra ISailor til boats. Denne association sikrer at hvis der tilføjes et objekt til en liste indeholdt i en ISailor, tildeles objektet automatisk en reference til samme ISailor. Hvis en båd får tildelt en ISailor som sin ejer, tilføjes båden også til listen af ejerens Både. 
+En \enquote{ISailor} indeholder en liste af \enquote{Boat} objekter og en liste af \enquote{Travel} objekter. Dette udgør en én-til-mange association fra ISailor til boats. Denne association sikrer at hvis der tilføjes et objekt til en liste indeholdt i en ISailor, tildeles objektet automatisk en reference til samme ISailor. Hvis en båd får tildelt en ISailor som sin ejer, tilføjes båden også til listen af ejerens Både.
 
 \subsection{Forbindelser til eksterne moduler}
 
